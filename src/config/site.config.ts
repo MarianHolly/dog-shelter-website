@@ -34,48 +34,39 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Template Astro",
-  title: "Astro Template - Modern Web Development",
-  description: "A modern, performant Astro template with React, Tailwind CSS, and shadcn/ui",
+  name: "Dog Shelter",
+  title: "Dog Shelter - Find Your New Best Friend",
+  description: "A caring dog shelter dedicated to finding loving homes for dogs in need",
   url: "https://example.com",
   ogImage: "https://example.com/og.jpg",
   links: {
     twitter: "https://twitter.com/yourusername",
-    github: "https://github.com/yourusername/template-astro",
+    github: "https://github.com/yourusername/dog-shelter-website",
   },
   mainNav: [
     {
-      title: "Home",
+      title: "Domov",
       href: "/",
     },
     {
-      title: "Features",
-      href: "#",
-      items: [
-        {
-          title: "Responsive Design",
-          href: "/features/responsive",
-          description: "Mobile-first responsive design",
-        },
-        {
-          title: "Performance",
-          href: "/features/performance",
-          description: "Optimized for speed",
-        },
-        {
-          title: "Theming",
-          href: "/features/theming",
-          description: "Dark mode and theme support",
-        },
-      ],
+      title: "Psíci",
+      href: "/psici",
     },
     {
-      title: "Documentation",
-      href: "/docs",
+      title: "Adopcia",
+      href: "/adopcia",
     },
     {
-      title: "Blog",
-      href: "/blog",
+      title: "Ako pomôcť",
+      href: "/ako-pomoct",
+    },
+    {
+      title: "O nás",
+      href: "/o-nas",
+    },
+    {
+      title: "Kontakt",
+      href: "/kontakt",
     },
   ],
   footerNav: [
