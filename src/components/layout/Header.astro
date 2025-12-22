@@ -1,0 +1,23 @@
+---
+import { siteConfig } from '@/config/site.config';
+import Logo from '@/components/icons/Logo.astro';
+import Navbar from '@/components/layout/Navbar';
+import MobileNav from '@/components/layout/MobileNav';
+import ThemeToggle from '@/components/layout/ThemeToggle';
+---
+
+<header
+  class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+>
+  <div class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between gap-4 px-4">
+    <div class="flex items-center gap-6">
+      <Logo />
+      <Navbar navItems={siteConfig.mainNav} client:load />
+    </div>
+
+    <div class="flex items-center gap-2">
+      <ThemeToggle client:load />
+      <MobileNav navItems={siteConfig.mainNav} client:load />
+    </div>
+  </div>
+</header>

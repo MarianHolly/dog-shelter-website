@@ -1,0 +1,98 @@
+---
+import MainLayout from '@/layouts/main.astro';
+import { Button } from '@/components/ui/button';
+---
+
+<MainLayout title="404 - Page Not Found" description="Oops! The page you're looking for doesn't exist.">
+	<section class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="flex flex-col items-center justify-center min-h-[calc(100vh-theme(height.16)-theme(height.32))] gap-8">
+			<!-- Animated 404 Text -->
+			<div class="text-center space-y-6">
+				<div class="error-404">
+					404
+				</div>
+
+				<div class="space-y-3">
+					<h1 class="text-3xl md:text-4xl font-bold">Oops! Page Lost in Space</h1>
+					<p class="text-lg text-muted-foreground max-w-md mx-auto">
+						Looks like you've ventured into the digital unknown. <br/ > The page you're searching for has taken an unexpected journey.
+					</p>
+				</div>
+			</div>
+
+			
+
+			<!-- Action Buttons -->
+			<div class="flex flex-col sm:flex-row gap-4 pt-4">
+				<a href="/">
+					<Button size="lg" class="w-full sm:w-auto">
+						Back to Home
+					</Button>
+				</a>
+				<button
+					onClick="window.history.back()"
+					class="px-6 py-2 rounded-lg border border-border hover:bg-accent transition-colors font-medium"
+				>
+					Go Back
+				</button>
+			</div>
+
+			<!-- Helpful Links -->
+			<div class="mt-12 text-center text-sm text-muted-foreground">
+				<p class="mb-4">Lost? Try these:</p>
+				<div class="flex flex-wrap gap-2 justify-center">
+					<a href="/" class="px-3 py-1.5 rounded-md hover:bg-accent transition-colors">
+						Home
+					</a>
+					<a href="/docs" class="px-3 py-1.5 rounded-md hover:bg-accent transition-colors">
+						Documentation
+					</a>
+					<a href="/blog" class="px-3 py-1.5 rounded-md hover:bg-accent transition-colors">
+						Blog
+					</a>
+					<a href="/contact" class="px-3 py-1.5 rounded-md hover:bg-accent transition-colors">
+						Contact
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</MainLayout>
+
+<style>
+	.error-404 {
+		font-size: clamp(4rem, 20vw, 10rem);
+		font-weight: 900;
+		color: oklch(0.205 0 0);
+		animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+		filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 3px rgba(0, 0, 0, 0.1));
+		line-height: 1;
+		margin: 0;
+	}
+
+	:global(.dark) .error-404 {
+		color: oklch(0.922 0 0);
+	}
+
+	@keyframes pulse {
+		0%, 100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+	}
+
+	@keyframes float {
+		0%, 100% {
+			transform: translateY(0px);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+	}
+
+	:global(.animate-bounce) {
+		animation: bounce 2s infinite;
+	}
+</style>

@@ -1,0 +1,28 @@
+---
+import MainLayout from '@/layouts/main.astro';
+// Astro Component Imports
+import Button from '../components/Button.astro';
+
+// React Component Syntax:
+import { Button as ButtonComponent } from '../components/ui/button.tsx'
+---
+
+<MainLayout title="Home" description="Welcome to Template Astro">
+	<section class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="flex flex-col items-center justify-center min-h-[calc(100vh-theme(height.16)-theme(height.32))] gap-8">
+			<div class="text-center space-y-4">
+				<h1 class="text-4xl md:text-5xl font-bold">Welcome to Template Astro</h1>
+				<p class="text-xl text-muted-foreground">A modern, performant template with React, Tailwind CSS, and shadcn/ui</p>
+			</div>
+
+			<div class="flex flex-col sm:flex-row gap-4">
+				<Button>Tailwind Button in Astro!</Button>
+				<ButtonComponent>Button in Shadcn/Ui</ButtonComponent>
+			</div>
+
+			<a href="/markdown-page" class="mt-8 p-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors">
+				Markdown is also supported...
+			</a>
+		</div>
+	</section>
+</MainLayout>

@@ -1,0 +1,263 @@
+---
+import { siteConfig } from '@/config/site.config';
+import { Separator } from '@/components/ui/separator';
+import { Github, Linkedin, Twitter } from 'lucide-react';
+---
+
+<footer class="border-t border-border/40 bg-background/95">
+  <div class="mx-auto max-w-screen-2xl px-4 py-12">
+    <!-- Desktop Layout (≥1024px) -->
+    <div class="hidden px-6 py-4 lg:flex lg:items-start lg:justify-between lg:gap-12">
+      <!-- Left Half: Branding Section -->
+      <div class="flex-1 space-y-3">
+        <h2 class="text-2xl font-bold">{siteConfig.name}</h2>
+        <p class="text-base text-muted-foreground max-w-md">
+          {siteConfig.description}
+        </p>
+      </div>
+
+      <!-- Right Half: Navigation Links + Social Icons in Row -->
+      <div class="flex-1 flex items-start justify-end">
+        <!-- Navigation Links (exclude Legal) -->
+        <div class="flex gap-24">
+          {
+            siteConfig.footerNav
+              .filter((section) => section.title !== 'Legal')
+              .map((section) => (
+                <div class="space-y-3">
+                  <h3 class="font-semibold text-sm">{section.title}</h3>
+                  <ul class="space-y-2">
+                    {section.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noreferrer' : undefined}
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+          }
+
+          <!-- Social Icons -->
+          <div class="flex flex-col items-end gap-4">
+            <h3 class="font-semibold text-sm">Socials</h3>
+            <div class="flex flex-row gap-4">
+              {siteConfig.links.twitter && (
+                <a
+                  href={siteConfig.links.twitter}
+                  class="text-muted-foreground hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="size-5" />
+                </a>
+              )}
+              {siteConfig.links.github && (
+                <a
+                  href={siteConfig.links.github}
+                  class="text-muted-foreground hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                >
+                  <Github className="size-5" />
+                </a>
+              )}
+              {siteConfig.links.linkedin && (
+                <a
+                  href={siteConfig.links.linkedin}
+                  class="text-muted-foreground hover:text-foreground transition-colors"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="size-5" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tablet Layout (768px - 1024px) -->
+    <div class="hidden md:block lg:hidden">
+      <div class="space-y-8">
+        <!-- Branding -->
+        <div class="space-y-2">
+          <h2 class="text-xl font-bold">{siteConfig.name}</h2>
+          <p class="text-sm text-muted-foreground max-w-md">
+            {siteConfig.description}
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <Separator />
+
+        <!-- Links Grid + Socials in 3 columns -->
+        <div class="grid grid-cols-3 gap-8">
+          {
+            siteConfig.footerNav
+              .filter((section) => section.title !== 'Legal')
+              .map((section) => (
+                <div class="space-y-3">
+                  <h3 class="font-semibold text-sm">{section.title}</h3>
+                  <ul class="space-y-2">
+                    {section.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class="text-sm text-muted-foreground hover:text-foreground transition-colors hover:underline"
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noreferrer' : undefined}
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+          }
+
+          <!-- Social Icons in column 3 -->
+          <div class="flex flex-col items-start gap-4">
+            <h3 class="font-semibold text-sm">Socials</h3>
+            <div class="flex flex-row gap-4">
+              {siteConfig.links.twitter && (
+                <a
+                  href={siteConfig.links.twitter}
+                  class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Twitter"
+                >
+                  <Twitter className="size-5" />
+                </a>
+              )}
+              {siteConfig.links.github && (
+                <a
+                  href={siteConfig.links.github}
+                  class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                >
+                  <Github className="size-5" />
+                </a>
+              )}
+              {siteConfig.links.linkedin && (
+                <a
+                  href={siteConfig.links.linkedin}
+                  class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="size-5" />
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Layout (< 768px) - Polished & Spacious -->
+    <div class="md:hidden">
+      <div class="space-y-10">
+        <!-- Branding - Centered & Prominent -->
+        <div class="space-y-3 text-center">
+          <h2 class="text-xl font-bold">{siteConfig.name}</h2>
+          <p class="text-sm text-muted-foreground max-w-sm mx-auto leading-relaxed">
+            {siteConfig.description}
+          </p>
+        </div>
+
+        <!-- Divider -->
+        <Separator />
+
+        <!-- Links Grid - Centered (No Section Header) -->
+        <div class="grid grid-cols-2 gap-8 mx-auto max-w-lg">
+          {
+            siteConfig.footerNav
+              .filter((section) => section.title !== 'Legal')
+              .map((section) => (
+                <div class="space-y-3 text-center">
+                  <h4 class="font-semibold text-xs uppercase tracking-widest">{section.title}</h4>
+                  <ul class="space-y-2">
+                    {section.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class="text-sm text-muted-foreground hover:text-foreground transition-colors hover:underline"
+                          target={item.external ? '_blank' : undefined}
+                          rel={item.external ? 'noreferrer' : undefined}
+                        >
+                          {item.title}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))
+          }
+        </div>
+
+        <!-- Divider -->
+        <Separator />
+
+        <!-- Social Icons - Centered & Prominent (No Section Header) -->
+        <div class="flex items-center justify-center gap-6">
+          {siteConfig.links.twitter && (
+            <a
+              href={siteConfig.links.twitter}
+              class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Twitter"
+            >
+              <Twitter className="size-6" />
+            </a>
+          )}
+          {siteConfig.links.github && (
+            <a
+              href={siteConfig.links.github}
+              class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+            >
+              <Github className="size-6" />
+            </a>
+          )}
+          {siteConfig.links.linkedin && (
+            <a
+              href={siteConfig.links.linkedin}
+              class="text-muted-foreground hover:text-foreground transition-colors hover:scale-110"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="size-6" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer Bottom -->
+    <Separator className="my-8" />
+    <div class="flex flex-col gap-2 text-center text-sm text-muted-foreground md:flex-row md:items-center md:justify-between">
+      <p>{siteConfig.footer.copyright}</p>
+      {siteConfig.footer.tagline && <p>{siteConfig.footer.tagline}</p>}
+    </div>
+  </div>
+</footer>
