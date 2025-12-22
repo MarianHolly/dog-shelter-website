@@ -12,10 +12,10 @@ import ThemeToggle from '@/components/layout/ThemeToggle';
   <div class="mx-auto flex h-16 max-w-screen-2xl items-center justify-between gap-4 px-4">
     <div class="flex items-center gap-6">
       <Logo />
-      <Navbar navItems={siteConfig.mainNav} client:load />
     </div>
 
     <div class="flex items-center gap-2">
+      <Navbar navItems={siteConfig.mainNav} client:load />
       <ThemeToggle client:load />
       <MobileNav navItems={siteConfig.mainNav} client:load />
     </div>
