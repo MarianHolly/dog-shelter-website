@@ -34,19 +34,27 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Dog Shelter",
-  title: "Dog Shelter - Find Your New Best Friend",
-  description: "A caring dog shelter dedicated to finding loving homes for dogs in need",
+  name: "Trenčiansky ÚTULOK",
+  title: "Trenčiansky útulok - Nekupuj, adoptuj si psíka od nás",
+  description: "Pomáhame opusteným a týraným psom nájsť ich nový domov. Od roku 2011 zachraňujeme psíkov v Trenčíne.",
   url: "https://example.com",
   ogImage: "https://example.com/og.jpg",
   links: {
-    twitter: "https://twitter.com/yourusername",
-    github: "https://github.com/yourusername/dog-shelter-website",
+    facebook: "https://www.facebook.com/trencianskyutulok",
+    instagram: "https://www.instagram.com/trencianskyutulok",
   },
   mainNav: [
     {
       title: "Domov",
       href: "/",
+    },
+    {
+      title: "O nás",
+      href: "/o-nas",
+    },
+    {
+      title: "Ako pomôcť",
+      href: "/ako-pomoct",
     },
     {
       title: "Psíci",
@@ -57,48 +65,41 @@ export const siteConfig: SiteConfig = {
       href: "/adopcia",
     },
     {
-      title: "Ako pomôcť",
-      href: "/ako-pomoct",
-    },
-    {
-      title: "O nás",
-      href: "/o-nas",
-    },
-    {
       title: "Kontakt",
       href: "/kontakt",
     },
   ],
   footerNav: [
     {
-      title: "Product",
+      title: "Útulok",
       items: [
-        { title: "Features", href: "/features" },
-        { title: "Pricing", href: "/pricing" },
-        { title: "Documentation", href: "/docs" },
-        { title: "Updates", href: "/updates" },
+        { title: "O nás", href: "/o-nas" },
+        { title: "Naši psíci", href: "/psici" },
+        { title: "Adopcia", href: "/adopcia" },
+        { title: "Kontakt", href: "/kontakt" },
       ],
     },
     {
-      title: "Company",
+      title: "Ako pomôcť",
       items: [
-        { title: "About", href: "/about" },
-        { title: "Blog", href: "/blog" },
-        { title: "Careers", href: "/careers" },
-        { title: "Contact", href: "/contact" },
+        { title: "2% z daní", href: "/ako-pomoct#2-z-dani" },
+        { title: "Finančný príspevok", href: "/ako-pomoct#financny-prispevok" },
+        { title: "Virtuálna adopcia", href: "/ako-pomoct#virtualna-adopcia" },
+        { title: "Dobrovoľníctvo", href: "/ako-pomoct#dobrovolnictvo" },
       ],
     },
     {
-      title: "Legal",
+      title: "Kontakt",
       items: [
-        { title: "Privacy", href: "/privacy" },
-        { title: "Terms", href: "/terms" },
-        { title: "License", href: "/license" },
+        { title: "+421 915 785 007", href: "tel:+421915785007" },
+        { title: "utulok.trencin@gmail.com", href: "mailto:utulok.trencin@gmail.com" },
+        { title: "Facebook", href: "https://www.facebook.com/trencianskyutulok", external: true },
+        { title: "Brnianska 2480, Trenčín", href: "https://goo.gl/maps/xxxxx", external: true },
       ],
     },
   ],
   footer: {
-    copyright: `© ${new Date().getFullYear()} Template Astro. All rights reserved.`,
-    tagline: "Built with Astro, React, and Tailwind CSS",
+    copyright: `© ${new Date().getFullYear()} Trenčiansky ÚTULOK. Všetky práva vyhradené.`,
+    tagline: "Nekupuj, adoptuj si psíka od nás 🐾",
   },
 };
