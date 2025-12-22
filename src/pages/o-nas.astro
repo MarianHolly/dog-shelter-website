@@ -2,52 +2,194 @@
 import MainLayout from '@/layouts/main.astro';
 ---
 
-<MainLayout title="O nás" description="Spoznajte náš útulok a našu misiu">
+<MainLayout title="O nás" description="Spoznajte Trenčiansky útulok, náš tím a našu misiu pomáhať opusteným a týraným psom nájsť nový domov.">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="space-y-8">
+		<div class="max-w-4xl mx-auto space-y-16">
+			<!-- Header -->
 			<div class="text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">O nás</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-					Pomáhame psíkom nájsť nový domov od roku 2010
+				<p class="text-xl text-muted-foreground">
+					Spoznajte Trenčiansky útulok, náš tím a našu misiu pomáhať opusteným psom
 				</p>
 			</div>
 
-			<div class="prose prose-lg dark:prose-invert mx-auto">
+			<!-- História -->
+			<div class="prose prose-lg dark:prose-invert max-w-none">
+				<h2>Naša história</h2>
+				<p>
+					Občianske združenie Trenčiansky ÚTULOK vzniklo s jasným cieľom - pomáhať opusteným a týraným psom nájsť nový domov plný lásky a starostlivosti.
+				</p>
+				<p>
+					Od <strong>1. októbra 2011</strong> spravujeme karanténnu stanicu v Trenčíne. Po rozsiahlej rekonštrukcii a dostavbe sme otvorili aj <strong>prvý trenčiansky útulok pre psíkov</strong>. Išlo o veľký míľnik pre celý región a pre množstvo psíkov, ktorí konečne získali dôstojné útočisko.
+				</p>
+				<p>
+					Za tie roky sme pomohli stovkám psíkov nájsť ich „navždy domov". Každý príbeh je jedinečný, každý psík má svoj osud a my sme tu, aby sme im pomohli napísať šťastný koniec.
+				</p>
+			</div>
+
+			<!-- Misia -->
+			<div class="prose prose-lg dark:prose-invert max-w-none">
 				<h2>Naša misia</h2>
 				<p>
-					Sme nezisková organizácia zameraná na záchranu, starostlivosť a adopciu opustených psov.
-					Našou misiou je dať každému psíkovi šancu na lepší život v milujúcom domove.
+					Našim hlavným cieľom je <strong>pomôcť nájsť domov opusteným a týraným psom</strong>. Veríme, že každý pes si zaslúži druhú šancu, lásku a bezpečie. Pracujeme na tom, aby sme:
 				</p>
-
-				<h2>Čo robíme</h2>
 				<ul>
-					<li>Zachraňujeme opustených a zranených psov</li>
-					<li>Poskytujeme veterinárnu starostlivosť</li>
-					<li>Socializujeme a trénujeme psov</li>
-					<li>Hľadáme im nové, milujúce domovy</li>
-					<li>Vzdelávame verejnosť o zodpovednom vlastníctve psov</li>
+					<li>Zabezpečili kvalitné útočisko pre opustené a týrané psy</li>
+					<li>Poskytli im veterinárnu starostlivosť, stravu a lásku</li>
+					<li>Našli pre každého psíka ten správny domov</li>
+					<li>Vzdelávali verejnosť o zodpovednom vlastníctve psov</li>
+					<li>Bojovali proti týraniu a zanedbávaniu zvierat</li>
 				</ul>
-
-				<h2>Náš tím</h2>
 				<p>
-					Náš tím tvoria skúsení veterinári, psí tréneri, dobrovoľníci a ľudia s veľkým srdcom pre zvieratá.
-					Všetci pracujeme s láskou a oddanosťou, aby sme psíkom zabezpečili čo najlepšiu starostlivosť.
+					Celá naša činnosť je postavená na báze <strong>dobrovoľnosti, lásky k zvieratám a podpory od tých, ktorým nie sú osudy opustených a týraných psíkov ľahostajné</strong>.
 				</p>
-
-				<h2>História</h2>
-				<p>
-					Útulok bol založený v roku 2010 malou skupinou priateľov, ktorí chceli pomôcť opusteným psom.
-					Od tej doby sme pomohli viac ako 500 psíkom nájsť nový domov a pokračujeme v našej misii každý deň.
-				</p>
-
-				<h2>Naše hodnoty</h2>
-				<ul>
-					<li><strong>Láska:</strong> Každý pes si zaslúži lásku a starostlivosť</li>
-					<li><strong>Zodpovednosť:</strong> Staráme sa o psov s najvyššou zodpovednosťou</li>
-					<li><strong>Transparentnosť:</strong> Otvorene komunikujeme s verejnosťou</li>
-					<li><strong>Spolupráca:</strong> Spolupracujeme s miestnymi komunitami a organizáciami</li>
-				</ul>
 			</div>
+
+			<!-- Tím -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">Náš tím</h2>
+				<p class="text-lg text-muted-foreground mb-8">
+					Za úspechom útulku stojí skupina oddaných ľudí, ktorí venujú svoj čas, energiu a srdce starostlivosti o psíkov.
+				</p>
+				<div class="grid gap-6">
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-2xl font-semibold mb-2">🌟 Mgr. Petra Ožvaldová</h3>
+						<p class="text-lg font-medium text-primary mb-3">Vedúca útulku</p>
+						<p class="text-muted-foreground mb-3">
+							Petra je zakladateľkou a vedúcou občianskeho združenia. Od začiatku je hnacou silou celej organizácie. Stará sa o chod útulku, komunikáciu s adoptérmi, koordináciu dobrovoľníkov a vybavovanie všetkých administratívnych záležitostí. Petra má obrovské srdce a nekonečnú lásku k zvieratám.
+						</p>
+						<p class="text-sm">
+							<strong>Kontakt:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a>
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-2xl font-semibold mb-2">💙 Renáta</h3>
+						<p class="text-lg font-medium text-primary mb-3">Členka tímu</p>
+						<p class="text-muted-foreground">
+							Renáta je nenahraditeľnou súčasťou nášho tímu. Stará sa o každodenný kontakt s ľuďmi, ktorí majú záujem o adopciu, pomáha pri výbere vhodného psíka a poskytuje podporu novým adoptérom. Jej empatia a trpezlivosť sú neoceniteľné.
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-2xl font-semibold mb-2">🐾 Zuzka</h3>
+						<p class="text-lg font-medium text-primary mb-3">Členka tímu</p>
+						<p class="text-muted-foreground">
+							Zuzka pozná každého psíka v útulku ako svoje vlastné dieťa. Venuje sa ich každodennej starostlivosti, vie o ich preferenciách, povahe a potrebách. Vďaka jej pozornosti a láske sa všetci psíci cítia milovaní.
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-2xl font-semibold mb-2">🛠️ Tomáš</h3>
+						<p class="text-lg font-medium text-primary mb-3">Člen tímu</p>
+						<p class="text-muted-foreground">
+							Tomáš pomáha s fyzickými prácami v útulku, venčením psíkov a údržbou areálu. Jeho sila a ochota pomôcť kdekoľvek je potrebné je pre chod útulku nevyhnutná.
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-2xl font-semibold mb-2">🔧 Martin</h3>
+						<p class="text-lg font-medium text-primary mb-3">Člen tímu</p>
+						<p class="text-muted-foreground">
+							Martin sa stará o technické záležitosti, opravy a údržbu útulku. Vďaka nemu je náš útulok funkčný a psíci majú kvalitné zázemie.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Karanténna stanica vs Útulok -->
+			<div class="prose prose-lg dark:prose-invert max-w-none">
+				<h2>Karanténna stanica vs. Útulok</h2>
+				<p>Mnohí ľudia nevedia, aký je rozdiel medzi karanténnou stanicou a útulkom. Vysvetlíme vám to:</p>
+
+				<h3>🏥 Karanténna stanica</h3>
+				<p>Karanténna stanica je zariadenie, kde sú umiestnené:</p>
+				<ul>
+					<li><strong>Túlavé psy</strong> odchytené mestskou políciou</li>
+					<li><strong>Stratené psy</strong>, ktoré čakajú na svojich majiteľov</li>
+					<li><strong>Psy v karanténe</strong> po agresívnom správaní alebo uhryznutí</li>
+				</ul>
+				<p>V karanténnej stanici majú psy <strong>povinný pobyt 14 dní</strong>. Počas tejto doby sa hľadá ich majiteľ. Ak sa majiteľ nenájde, môže byť pes presunutý do útulku alebo adoptovaný.</p>
+
+				<h3>🏠 Útulok pre psov</h3>
+				<p>Útulok je domovom pre psy, ktoré:</p>
+				<ul>
+					<li><strong>Nemajú majiteľa</strong> alebo ich majiteľ sa o nich nechce starať</li>
+					<li><strong>Boli týrané alebo zanedbávané</strong></li>
+					<li><strong>Čakajú na adopciu</strong></li>
+				</ul>
+				<p>V útulku môžu psy zostať tak dlho, kým nenájdu nový domov. Dostávajú veterinárnu starostlivosť, sú kastrované, očkované a pripravené na nový život v rodine.</p>
+			</div>
+
+			<!-- Hodnoty -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">Naše hodnoty</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<div class="text-3xl mb-3">🧡</div>
+						<h3 class="text-xl font-semibold mb-2">Láska a rešpekt</h3>
+						<p class="text-muted-foreground">Každý pes si zaslúži lásku a dôstojné zaobchádzanie.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<div class="text-3xl mb-3">🤝</div>
+						<h3 class="text-xl font-semibold mb-2">Dobrovoľnosť</h3>
+						<p class="text-muted-foreground">Všetka naša práca je založená na dobrovoľnosti a obetavosti.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<div class="text-3xl mb-3">💚</div>
+						<h3 class="text-xl font-semibold mb-2">Transparentnosť</h3>
+						<p class="text-muted-foreground">Otvorene komunikujeme o všetkých aspektoch našej práce a financií.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<div class="text-3xl mb-3">🌈</div>
+						<h3 class="text-xl font-semibold mb-2">Nádej</h3>
+						<p class="text-muted-foreground">Veríme, že každý pes môže mať šťastný život.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<div class="text-3xl mb-3">🎯</div>
+						<h3 class="text-xl font-semibold mb-2">Zodpovednosť</h3>
+						<p class="text-muted-foreground">Berieme vážne našu úlohu a zodpovednosť voči zvieratám aj ľuďom.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- FAQ -->
+			<div class="prose prose-lg dark:prose-invert max-w-none">
+				<h2>Často kladené otázky (FAQ)</h2>
+
+				<h3>Ako môžem adoptovať psíka?</h3>
+				<p>Prvým krokom je navštíviť náš útulok počas otváracích hodín (Po-Ne 10:00-16:00) a spoznať našich psíkov. Odporúčame prísť viackrát a vybrať si psíka na prechádzku. Potom vyplníte dotazník a po schválení môžete psíka adoptovať.</p>
+
+				<h3>Koľko stojí adopcia?</h3>
+				<p>Adopčný poplatok sa určuje individuálne podľa dohody. Zahŕňa: odčervenie, odblšenie, očkovanie a kastráciu psíka. Konkrétne informácie vám poskytne vedúca útulku.</p>
+
+				<h3>Môžem si psíka najprv vyskúšať?</h3>
+				<p>Áno! Odporúčame prísť viackrát do útulku, vziať si psíka na prechádzku a spoznať jeho povahu. V niektorých prípadoch je možné dohodnúť si dočasný pobyt (dočasku).</p>
+
+				<h3>Platí sa daň za adoptovaného psíka?</h3>
+				<p>Nie! Ľudia, ktorí si adoptujú psíka z nášho útulku, sú v <strong>meste Trenčín oslobodení od dane za psa</strong>. Musíte však adopciu oznámiť na mestskom úrade.</p>
+
+				<h3>Môžem venčiť psíkov ako dobrovoľník?</h3>
+				<p>V súčasnosti verejné venčenie psíkov nie je možné. Hľadáme vhodné riešenie. Pre viac informácií nás kontaktujte.</p>
+
+				<h3>Čo keď sa mi stratil pes?</h3>
+				<p>Ak sa vám stratil pes, okamžite nás kontaktujte na tel. +421 915 785 007. Tiež skontrolujte našu Facebook skupinu "STRATILI SA" a prihláste stratu na mestskej polícii.</p>
+			</div>
+
+			<!-- Poďakovanie -->
+			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+				<h2 class="text-3xl font-bold mb-6">Poďakovanie</h2>
+				<p class="text-lg text-muted-foreground mb-6">
+					V mene našich štvornohých priateľov vám – <strong>lepším, zo srdca ďakujeme</strong>. Bez vašej podpory, lásky a obetavosti by naša práca nebola možná. Každý, kto adoptoval, daroval, dobrovoľníčil alebo jednoducho veril v našu misiu, má obrovský podiel na tom, že stovky psíkov dnes žijú šťastné životy.
+				</p>
+				<p class="text-2xl font-semibold">
+					Ďakujeme, že nám pomáhate pomáhať! 🐾❤️
+				</p>
+			</div>
+
+			<p class="text-sm text-muted-foreground text-center">
+				<em>Posledná aktualizácia: December 2024</em>
+			</p>
 		</div>
 	</section>
 </MainLayout>

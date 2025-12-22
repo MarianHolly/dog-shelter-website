@@ -2,39 +2,187 @@
 import MainLayout from '@/layouts/main.astro';
 ---
 
-<MainLayout title="Adopcia" description="Adoptujte si psíka a získajte nového kamaráta">
+<MainLayout title="Adopcia" description="Chcete adoptovať psíka z Trenčianskeho útulku? Zistite, ako prebieha adopcia, čo potrebujete a aké sú dôležité informácie pred adopciou.">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="space-y-8">
+		<div class="max-w-4xl mx-auto space-y-16">
+			<!-- Header -->
 			<div class="text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Adopcia</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-					Adoptujte si psíka a získajte nového najlepšieho kamaráta
+				<h1 class="text-4xl md:text-5xl font-bold">Adopcia psíka</h1>
+				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+					Rozhodnutie adoptovať psíka je jedným z najkrajších rozhodnutí, aké môžete urobiť. Dávate opustenému zvieraťu druhú šancu na šťastný život a získavate verného kamaráta na celý život.
 				</p>
 			</div>
 
-			<div class="prose prose-lg dark:prose-invert mx-auto">
-				<h2>Ako adoptovať?</h2>
-				<ol>
-					<li>Prezrite si našich psíkov v sekcii <a href="/psici">Psíci</a></li>
-					<li>Vyplňte adopčný formulár</li>
-					<li>Počkajte na schválenie</li>
-					<li>Príďte si pre svojho nového kamaráta</li>
-				</ol>
-
-				<h2>Požiadavky na adopciu</h2>
-				<ul>
-					<li>Vek nad 18 rokov</li>
-					<li>Stabilné bývanie</li>
-					<li>Čas a priestor pre psíka</li>
-					<li>Finančné zabezpečenie na starostlivosť</li>
-				</ul>
-
-				<h2>Adopčný poplatok</h2>
-				<p>
-					Adopčný poplatok pokrýva základné veterinárne ošetrenie, čipovanie a prvé očkovania.
-					Výška poplatku sa líši podľa veku a zdravotného stavu psíka.
-				</p>
+			<!-- Prečo adoptovať -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8 text-center">🐾 Prečo adoptovať?</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">Zachránite život</h3>
+						<p class="text-muted-foreground">Každá adopcia znamená, že jeden pes dostáva šancu na nový život</p>
+					</div>
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">Verný kamarát</h3>
+						<p class="text-muted-foreground">Psy z útulku sú často mimoriadne vďačné a lojálne</p>
+					</div>
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">Kompletná starostlivosť</h3>
+						<p class="text-muted-foreground">Všetci naši psíci sú odčervení, odblšení, očkovaní, kastrovaní a čipovaní</p>
+					</div>
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">Oslobodenie od dane</h3>
+						<p class="text-muted-foreground">V meste Trenčín sú adopteri oslobodení od dane za psa</p>
+					</div>
+				</div>
 			</div>
+
+			<!-- 7 otázok -->
+			<div class="bg-amber-50/50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-lg p-8">
+				<h2 class="text-3xl font-bold mb-6">❓ 7 dôležitých otázok pred adopciou</h2>
+				<p class="text-lg mb-6">Predtým, ako si adoptujete psíka, zodpovedzte si úprimne na tieto otázky:</p>
+				<div class="prose prose-lg dark:prose-invert max-w-none">
+					<ol class="space-y-4">
+						<li><strong>Súhlasí so zaobstaraním psíka celá rodina?</strong> Pes je spoločný člen rodiny.</li>
+						<li><strong>Máte náhradné riešenie?</strong> Kto sa postará o psíka počas vašej neprítomnosti?</li>
+						<li><strong>Budete schopní venovať čas?</strong> Denne aspoň 1-2 hodiny na prechádzkach?</li>
+						<li><strong>Ako ste na tom s čistotou?</strong> Psy prinášajú špinu a srsť.</li>
+						<li><strong>Dáte psíkovi čas na adaptáciu?</strong> Psík potrebuje týždne až mesiace na zabývanie.</li>
+						<li><strong>Máte finančné prostriedky?</strong> Mesačné náklady: 30-100 €.</li>
+						<li><strong>Máte finančné rezervy?</strong> Na vážnejšie ochorenia a operácie?</li>
+					</ol>
+				</div>
+			</div>
+
+			<!-- Ako prebieha adopcia -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">📋 Ako prebieha adopcia?</h2>
+				<div class="space-y-6">
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">1</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Navštívte útulok</h3>
+							<p class="text-muted-foreground">Príďte k nám počas otváracích hodín (Po-Ne 10:00-16:00) a spoznajte našich psíkov.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">2</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Vyberte si psíka</h3>
+							<p class="text-muted-foreground">Odporúčame prísť viackrát, zobrať si psíka na prechádzku a zistiť, či vám vyhovuje.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">3</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Poraďte sa s nami</h3>
+							<p class="text-muted-foreground">Pracovníci útulku vám radi poradia, aký typ psíka by vám vyhovoval.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">4</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Vyplňte dotazník</h3>
+							<p class="text-muted-foreground">Pred adopciou je potrebné vyplniť dotazník o podmienkach, ktoré psíkovi ponúkate.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">5</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Adopcia</h3>
+							<p class="text-muted-foreground">Po schválení dotazníka podpíšete adopčnú zmluvu a zaplatíte adopčný poplatok.</p>
+						</div>
+					</div>
+					<div class="flex gap-4">
+						<div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl">6</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-2">Užívajte si spoločný život</h3>
+							<p class="text-muted-foreground">Berte psíka domov a začnite svoj spoločný príbeh!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Čo potrebujete -->
+			<div class="bg-card rounded-lg p-8 border border-border">
+				<h2 class="text-2xl font-bold mb-6">📄 Čo potrebujete k adopcii?</h2>
+				<div class="space-y-4">
+					<div>
+						<h3 class="font-semibold text-lg mb-2">1. Občiansky preukaz</h3>
+						<p class="text-muted-foreground">Pre overenie totožnosti a podpis zmluvy</p>
+					</div>
+					<div>
+						<h3 class="font-semibold text-lg mb-2">2. Adopčný poplatok</h3>
+						<p class="text-muted-foreground">Výška poplatku sa dohodne individuálne. Zahŕňa: odblšenie, odčervenie, očkovanie, kastráciu a čipovanie.</p>
+					</div>
+					<div>
+						<h3 class="font-semibold text-lg mb-2">3. Obojok, vodítko a náhubok</h3>
+						<p class="text-muted-foreground">Ak nemáte, môžete si ich zakúpiť aj priamo u nás v útulku.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Prvé dni doma -->
+			<div>
+				<h2 class="text-3xl font-bold mb-6">🏠 Prvé dni doma - rady pre nových adoptérov</h2>
+				<div class="grid md:grid-cols-2 gap-6">
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Dajte mu priestor</h3>
+						<p class="text-sm text-muted-foreground">Psík potrebuje čas, aby sa zorientoval. Nenúťte ho k interakcii.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Nastavte pravidlá</h3>
+						<p class="text-sm text-muted-foreground">Od prvého dňa nastavte jasné pravidlá a hranice.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Rutina je dôležitá</h3>
+						<p class="text-sm text-muted-foreground">Psy milujú rutinu. Kŕmte ich v rovnakom čase.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Postupná socializácia</h3>
+						<p class="text-sm text-muted-foreground">Neprehlcujte psíka príliš veľa podnetmi naraz.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Veterinárna kontrola</h3>
+						<p class="text-sm text-muted-foreground">Do 1-2 týždňov navštívte svojho veterinára.</p>
+					</div>
+					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+						<h3 class="font-semibold mb-2">Buďte trpezliví</h3>
+						<p class="text-sm text-muted-foreground">Každý pes má svoju históriu a potrebuje čas.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- CTA -->
+			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+				<h2 class="text-3xl font-bold mb-6">❤️ Adoptovať znamená zachrániť život</h2>
+				<p class="text-lg text-muted-foreground mb-8">
+					Ďakujeme, že zvažujete adopciu namiesto kúpy. Rozhodnutím adoptovať nie len zachraňujete jeden život, ale vytvárate miesto pre ďalšieho záchraneného psíka.
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/psici" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg">
+						Pozrite si našich psíkov
+					</a>
+					<a href="/kontakt" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg">
+						Kontaktujte nás
+					</a>
+				</div>
+				<p class="text-2xl font-bold mt-8">Nekupuj, adoptuj! 🐾</p>
+			</div>
+
+			<!-- Kontakt -->
+			<div class="text-center">
+				<h3 class="text-2xl font-bold mb-4">📞 Máte otázky?</h3>
+				<p class="text-muted-foreground mb-4">Sme tu pre vás! Ak máte akékoľvek otázky ohľadom adopcie, neváhajte nás kontaktovať.</p>
+				<div class="space-y-2 text-muted-foreground">
+					<p><strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a></p>
+					<p><strong>E-mail:</strong> <a href="mailto:utulok.trencin@gmail.com" class="text-primary hover:underline">utulok.trencin@gmail.com</a></p>
+					<p><strong>Otváracie hodiny:</strong> Po-Ne 10:00-16:00</p>
+				</div>
+			</div>
+
+			<p class="text-sm text-muted-foreground text-center">
+				<em>Posledná aktualizácia: December 2024</em>
+			</p>
 		</div>
 	</section>
 </MainLayout>

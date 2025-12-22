@@ -2,53 +2,312 @@
 import MainLayout from '@/layouts/main.astro';
 ---
 
-<MainLayout title="Ako pomôcť" description="Pomôžte útulku a psíkom v núdzi">
+<MainLayout title="Ako pomôcť" description="Existuje mnoho spôsobov, ako môžete pomôcť Trenčianskemu útulku. Či už adopciou, finančným príspevkom, dobrovoľníctvom alebo zdieľaním.">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="space-y-8">
+		<div class="max-w-4xl mx-auto space-y-16">
+			<!-- Header -->
 			<div class="text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Ako pomôcť</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-					Každá pomoc sa počíta - pomôžte nám zachrániť viac psíkov
+				<h1 class="text-4xl md:text-5xl font-bold">Pomôžte nám pomáhať</h1>
+				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+					Starostlivosť o desiatky psíkov nie je jednoduchá a určite nie je lacná. Každý deň potrebujeme krmivo, veterinárnu starostlivosť, lieky, deky a veľa iných vecí. Vaša pomoc môže mať obrovský vplyv na životy našich štvornohých kamarátov.
 				</p>
 			</div>
 
-			<div class="prose prose-lg dark:prose-invert mx-auto">
-				<h2>Finančná podpora</h2>
-				<p>
-					Vaše finančné príspevky pomáhajú pokryť veterinárnu starostlivosť, krmivo a prevádzku útulku.
-					Môžete prispieť jednorazovo alebo pravidelne.
-				</p>
+			<!-- 2% z daní -->
+			<div id="2-z-dani" class="scroll-mt-20">
+				<div class="bg-primary/5 border-2 border-primary/20 rounded-lg p-8">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="text-4xl">💙</div>
+						<h2 class="text-3xl font-bold">2% z daní</h2>
+					</div>
+					<p class="text-lg font-semibold mb-4">Najjednoduchší spôsob, ako nás podporiť</p>
+					<p class="text-muted-foreground mb-6">
+						Darovaním 2% alebo 3% z vašich daní nám pomôžete bez toho, aby vás to čokoľvek stálo. Celý proces je jednoduchý a zaberie približne 15 minút.
+					</p>
 
-				<h2>Dobrovoľníctvo</h2>
-				<p>
-					Hľadáme dobrovoľníkov na:
-				</p>
-				<ul>
-					<li>Venčenie psíkov</li>
-					<li>Pomoc pri upratovaní</li>
-					<li>Socializáciu psíkov</li>
-					<li>Organizáciu podujatí</li>
-					<li>Propagáciu na sociálnych sieťach</li>
-				</ul>
+					<div class="bg-card rounded-lg p-6 mb-6">
+						<h3 class="text-xl font-semibold mb-4">Naše údaje pre 2%:</h3>
+						<div class="space-y-2 text-lg">
+							<p><strong>Názov organizácie:</strong> Trenčiansky ÚTULOK</p>
+							<p><strong>Sídlo:</strong> Inovecká 60, 911 01 Trenčín</p>
+							<p><strong>IČO:</strong> 42152844</p>
+						</div>
+					</div>
 
-				<h2>Materiálna pomoc</h2>
-				<p>
-					Vždy potrebujeme:
-				</p>
-				<ul>
-					<li>Kvalitné krmivo pre psov</li>
-					<li>Deky a podstielky</li>
-					<li>Hračky a obojky</li>
-					<li>Čistiace prostriedky</li>
-					<li>Veterinárne potreby</li>
-				</ul>
+					<div class="prose prose-lg dark:prose-invert max-w-none">
+						<h3>Ako na to?</h3>
+						<ol>
+							<li>Vyplňte tlačivo - Stiahnite si formulár na stránke Finančnej správy alebo ho získajte od zamestnávateľa</li>
+							<li>Vypíšte naše údaje - IČO: 42152844</li>
+							<li>Odošlite do 30. apríla - Poštou alebo elektronicky</li>
+							<li>Hotovo! - Vaše 2% pomôžu našim psíkom</li>
+						</ol>
+					</div>
+				</div>
+			</div>
 
-				<h2>Dočasná starostlivosť</h2>
-				<p>
-					Ak nemôžete adoptovať natrvalo, zvážte dočasné ubytovanie psíka.
-					Pomôžete mu pripraviť sa na adopciu v rodinnom prostredí.
+			<!-- Finančný príspevok -->
+			<div id="financny-prispevok" class="scroll-mt-20">
+				<div class="flex items-center gap-3 mb-6">
+					<div class="text-4xl">💰</div>
+					<h2 class="text-3xl font-bold">Finančný príspevok</h2>
+				</div>
+
+				<p class="text-lg mb-6">Každé euro sa počíta. Finančné príspevky používame na:</p>
+				<div class="grid md:grid-cols-2 gap-4 mb-8">
+					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+						<span class="text-2xl">🍖</span>
+						<span>Krmivo a maškrty</span>
+					</div>
+					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+						<span class="text-2xl">💉</span>
+						<span>Veterinárnu starostlivosť</span>
+					</div>
+					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+						<span class="text-2xl">🏠</span>
+						<span>Údržbu útulku</span>
+					</div>
+					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
+						<span class="text-2xl">❄️</span>
+						<span>Vykurovanie v zime</span>
+					</div>
+				</div>
+
+				<div class="bg-card rounded-lg p-6 border border-border">
+					<h3 class="text-xl font-semibold mb-4">Bankové spojenie:</h3>
+					<div class="space-y-2">
+						<p><strong>Názov účtu:</strong> Trenčiansky ÚTULOK</p>
+						<p><strong>Číslo účtu:</strong> SK41 0900 0000 0050 1714 3457</p>
+						<p><strong>BIC/SWIFT:</strong> GIBASKBX</p>
+						<p><strong>Banka:</strong> Slovenská sporiteľňa, a.s.</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Vianoce 365 -->
+			<div class="bg-accent/10 border border-accent/30 rounded-lg p-8">
+				<div class="flex items-center gap-3 mb-4">
+					<div class="text-4xl">🎄</div>
+					<h3 class="text-2xl font-bold">Vianoce 365</h3>
+				</div>
+				<p class="text-lg mb-4">Darujte psíkom Vianoce každý deň</p>
+				<p class="text-muted-foreground mb-4">
+					Program Vianoce 365 znamená, že psíkom darujete radosť počas celého roka, nielen počas sviatkov. Pošlite nám <strong>3,65 € mesačne</strong> (len 12 centov denne) a vaša pravidelná pomoc zabezpečí psíkom stálu starostlivosť.
 				</p>
 			</div>
+
+			<!-- Zoznam želaní -->
+			<div id="krmivo" class="scroll-mt-20">
+				<div class="flex items-center gap-3 mb-6">
+					<div class="text-4xl">🎁</div>
+					<h2 class="text-3xl font-bold">Zoznam želaní a prianí</h2>
+				</div>
+
+				<p class="text-lg text-muted-foreground mb-8">
+					Každý deň potrebujeme obrovské množstvo krmiva, liekov a pomôcok. Ak nám chcete pomôcť, budeme veľmi radi za:
+				</p>
+
+				<div class="grid gap-6">
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">🍖 Krmivo a jedlo</h3>
+						<ul class="space-y-2 text-muted-foreground">
+							<li>• Kvalitné granule pre psov (stredné a veľké plemená)</li>
+							<li>• Konzervy pre psov (mäsové, bez príchutí)</li>
+							<li>• Mäsové párky a salámy</li>
+							<li>• Ryža a cestoviny</li>
+						</ul>
+						<div class="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded">
+							<p class="text-sm"><strong>⚠️ Nekŕmime:</strong> Pedigree, Chappi, Darling - tieto značky sú nekvalitné</p>
+						</div>
+						<div class="mt-2 p-4 bg-secondary/10 border border-secondary/20 rounded">
+							<p class="text-sm"><strong>✅ Odporúčané značky:</strong> Brit, Taste of the Wild, Acana, Purina Pro Plan, Royal Canin</p>
+						</div>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">🧸 Hračky a výbava</h3>
+						<ul class="space-y-2 text-muted-foreground">
+							<li>• Hryzátka a hračky pre psov</li>
+							<li>• Obojky, vodítka, postroje</li>
+							<li>• Náhubky (rôzne veľkosti)</li>
+							<li>• Misky na jedlo a vodu</li>
+							<li>• Deky a prikrývky</li>
+							<li>• Matrace a peliechy</li>
+						</ul>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">💊 Veterinárne potreby</h3>
+						<ul class="space-y-2 text-muted-foreground">
+							<li>• Antiparazitné prípravky (Frontline, Bravecto)</li>
+							<li>• Odčervovacie tablety</li>
+							<li>• Vitamíny a doplnky stravy</li>
+							<li>• Obväzy a zdravotnícky materiál</li>
+							<li>• Dezinfekčné prostriedky</li>
+						</ul>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">🧹 Čistota a hygiena</h3>
+						<ul class="space-y-2 text-muted-foreground">
+							<li>• Čistiace prostriedky</li>
+							<li>• Dezinfekcia</li>
+							<li>• Vrecia na odpad</li>
+							<li>• Toaletný papier, utierky</li>
+							<li>• Rukavice</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-6 p-6 bg-primary/5 border border-primary/20 rounded-lg">
+					<p class="font-semibold mb-2">Kde odovzdať dary?</p>
+					<p class="text-muted-foreground">
+						Veci môžete priniesť priamo do útulku počas otváracích hodín (Po-Ne 10:00-16:00) alebo sa dohodnúť na inom čase telefonicky na +421 915 785 007.
+					</p>
+				</div>
+			</div>
+
+			<!-- Virtuálna adopcia -->
+			<div id="virtualna-adopcia" class="scroll-mt-20">
+				<div class="flex items-center gap-3 mb-6">
+					<div class="text-4xl">🐕</div>
+					<h2 class="text-3xl font-bold">Virtuálna adopcia</h2>
+				</div>
+
+				<p class="text-lg mb-6">Adoptuj psíka, aj keď nemôžeš mať doma</p>
+
+				<div class="prose prose-lg dark:prose-invert max-w-none mb-6">
+					<p>Virtuálna adopcia je skvelá možnosť pre ľudí, ktorí:</p>
+					<ul>
+						<li>Nemôžu mať psíka kvôli bývaniu (prenájom, malý byt)</li>
+						<li>Nemajú dostatok času na každodennú starostlivosť</li>
+						<li>Chcú pomôcť konkrétnemu psíkovi, ale nevedia ho adoptovať</li>
+					</ul>
+
+					<h3>Ako to funguje?</h3>
+					<ol>
+						<li>Vyberiete si psíka z našej ponuky</li>
+						<li>Stanete sa jeho virtuálnym adoptérom</li>
+						<li>Pravidelne prispievate na jeho starostlivosť</li>
+						<li>Môžete ho navštevovať, venčiť a tráviť s ním čas</li>
+						<li>Dostávate pravidelné aktualizácie o jeho stave</li>
+					</ol>
+				</div>
+			</div>
+
+			<!-- Dočasky -->
+			<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-8">
+				<div class="flex items-center gap-3 mb-4">
+					<div class="text-4xl">🏠</div>
+					<h3 class="text-2xl font-bold">Dočasky</h3>
+				</div>
+				<p class="text-lg mb-4">Dočasná starostlivosť</p>
+				<p class="text-muted-foreground">
+					Dočaska znamená, že si vezmete psíka na dočasný pobyt k sebe domov. Je to obrovská pomoc najmä pre šteniatka, choré alebo zotavujúce sa psy, staršie psy a psy počas rekonštrukcie útulku.
+				</p>
+			</div>
+
+			<!-- Dobrovoľníctvo -->
+			<div id="dobrovolnictvo" class="scroll-mt-20">
+				<div class="flex items-center gap-3 mb-6">
+					<div class="text-4xl">🤝</div>
+					<h2 class="text-3xl font-bold">Dobrovoľníctvo</h2>
+				</div>
+
+				<p class="text-lg mb-6">Venujte nám svoj čas</p>
+
+				<div class="grid md:grid-cols-2 gap-4 mb-6">
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">🐕 Venčenie psíkov</p>
+					</div>
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">🧹 Upratovanie kotercov</p>
+					</div>
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">📸 Fotenie psíkov</p>
+					</div>
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">💻 Pomoc s webom</p>
+					</div>
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">🚗 Odvoz k veterinárovi</p>
+					</div>
+					<div class="p-4 rounded-lg bg-card border border-border">
+						<p class="font-semibold mb-2">🔨 Drobné opravy</p>
+					</div>
+				</div>
+
+				<div class="bg-amber-500/10 border border-amber-500/20 rounded-lg p-6">
+					<p class="text-sm">
+						<strong>⚠️ Upozornenie:</strong> Verejné venčenie v súčasnosti nie je možné. Hľadáme vhodné riešenie. Pre aktuálne informácie nás kontaktujte.
+					</p>
+				</div>
+
+				<div class="mt-6 text-center">
+					<p class="mb-4">Máte záujem o dobrovoľníctvo?</p>
+					<a href="mailto:utulok.trencin@gmail.com" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold">
+						Napíšte nám
+					</a>
+				</div>
+			</div>
+
+			<!-- Propagácia -->
+			<div>
+				<div class="flex items-center gap-3 mb-6">
+					<div class="text-4xl">📢</div>
+					<h2 class="text-3xl font-bold">Propagácia a osveta</h2>
+				</div>
+
+				<p class="text-lg text-muted-foreground mb-6">
+					Šírte slovo ďalej - aj bez finančnej pomoci môžete urobiť veľa
+				</p>
+
+				<div class="grid md:grid-cols-3 gap-6">
+					<div class="p-6 rounded-lg bg-card border border-border text-center">
+						<div class="text-3xl mb-3">📱</div>
+						<h3 class="font-semibold mb-2">Na sociálnych sieťach</h3>
+						<p class="text-sm text-muted-foreground">Sledujte a zdieľajte naše príspevky</p>
+					</div>
+					<div class="p-6 rounded-lg bg-card border border-border text-center">
+						<div class="text-3xl mb-3">🗣️</div>
+						<h3 class="font-semibold mb-2">V reálnom živote</h3>
+						<p class="text-sm text-muted-foreground">Rozprávajte o nás známym</p>
+					</div>
+					<div class="p-6 rounded-lg bg-card border border-border text-center">
+						<div class="text-3xl mb-3">💼</div>
+						<h3 class="font-semibold mb-2">V práci</h3>
+						<p class="text-sm text-muted-foreground">Zorganizujte zbierku</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Thank You -->
+			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+				<h2 class="text-3xl font-bold mb-6">Každá pomoc sa počíta</h2>
+				<p class="text-lg text-muted-foreground mb-6">
+					Či už darujete 2%, pošlete finančný príspevok, adoptujete virtuálne alebo jednoducho zdieľate naše príspevky - <strong>každá forma pomoci má obrovskú hodnotu</strong>.
+				</p>
+				<p class="text-2xl font-semibold">
+					V mene našich psíkov vám zo srdca ďakujeme! ❤️🐾
+				</p>
+			</div>
+
+			<!-- Kontakt -->
+			<div class="text-center">
+				<h3 class="text-2xl font-bold mb-4">Máte otázky alebo chcete pomôcť?</h3>
+				<div class="space-y-2 text-muted-foreground mb-6">
+					<p><strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a></p>
+					<p><strong>E-mail:</strong> <a href="mailto:utulok.trencin@gmail.com" class="text-primary hover:underline">utulok.trencin@gmail.com</a></p>
+					<p><strong>Adresa:</strong> Brnianska 2480, 911 05 Trenčín - Zlatovce</p>
+				</div>
+				<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold">
+					Viac kontaktných informácií
+				</a>
+			</div>
+
+			<p class="text-sm text-muted-foreground text-center">
+				<em>Posledná aktualizácia: December 2024</em>
+			</p>
 		</div>
 	</section>
 </MainLayout>

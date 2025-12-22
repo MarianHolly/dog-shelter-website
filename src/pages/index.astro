@@ -1,45 +1,155 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-// Astro Component Imports
-import Button from '../components/Button.astro';
-
-// React Component Syntax:
-import { Button as ButtonComponent } from '../components/ui/button.tsx'
 ---
 
-<MainLayout title="Domov" description="Útulok pre psov - Nájdite si nového najlepšieho priateľa">
+<MainLayout title="Domov" description="Nekupuj, adoptuj si psíka od nás. Pomáhame opusteným a týraným psom nájsť ich nový domov.">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="flex flex-col items-center justify-center min-h-[calc(100vh-theme(height.16)-theme(height.32))] gap-8">
-			<div class="text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Útulok pre psov</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl">
-					Pomáhame opusteným psom nájsť nový, milujúci domov. Každý pes si zaslúži druhú šancu.
-				</p>
-			</div>
-
-			<div class="flex flex-col sm:flex-row gap-4">
-				<a href="/psici" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium">
+		<!-- Hero Section -->
+		<div class="flex flex-col items-center justify-center min-h-[60vh] gap-8 text-center">
+			<h1 class="text-4xl md:text-6xl font-bold">Nekupuj, adoptuj si psíka od nás</h1>
+			<p class="text-xl md:text-2xl text-muted-foreground max-w-3xl">
+				Vitajte v Trenčianskom útulku! Sme občianske združenie, ktoré sa už viac ako 13 rokov stará o opustených a týraných psíkov v Trenčíne. Každý z našich psíkov si zaslúži druhú šancu a láskyplný domov.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 mt-6">
+				<a href="/psici" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg">
 					Pozrite si našich psíkov
 				</a>
-				<a href="/adopcia" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-medium">
+				<a href="/adopcia" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg">
 					Ako adoptovať
 				</a>
 			</div>
+		</div>
 
-			<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
-				<div class="text-center space-y-2">
-					<div class="text-4xl font-bold text-primary">500+</div>
-					<div class="text-muted-foreground">Psíkov našlo nový domov</div>
+		<!-- Stats Section -->
+		<div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+			<div class="text-center p-8 rounded-lg bg-card border border-border">
+				<div class="text-5xl font-bold text-primary mb-2">500+</div>
+				<div class="text-lg text-muted-foreground">Psíkov našlo nový domov</div>
+			</div>
+			<div class="text-center p-8 rounded-lg bg-card border border-border">
+				<div class="text-5xl font-bold text-primary mb-2">13</div>
+				<div class="text-lg text-muted-foreground">Rokov pomáhame</div>
+			</div>
+			<div class="text-center p-8 rounded-lg bg-card border border-border">
+				<div class="text-5xl font-bold text-primary mb-2">24/7</div>
+				<div class="text-lg text-muted-foreground">Starostlivosť o psíkov</div>
+			</div>
+		</div>
+
+		<!-- About Section -->
+		<div class="mt-24 max-w-4xl mx-auto">
+			<h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Kto sme</h2>
+			<div class="prose prose-lg dark:prose-invert mx-auto">
+				<p class="text-lg leading-relaxed">
+					Občianske združenie Trenčiansky ÚTULOK prevádzkuje karanténnu stanicu a útulok pre psov v Trenčíne. Od roku 2011 sme pomohli stovkám psíkov najsť nový domov. Našou misiou je zachraňovať opustené a týrané zvieratá a darovať im nádej na lepší život.
+				</p>
+				<p class="text-lg leading-relaxed">
+					Celá naša činnosť je založená na dobrovoľnosti, láske k zvieratám a podpore od ľudí, ktorým nie sú osudy psíkov ľahostajné. Každý deň sa staráme o desiatky štvornohých kamarátov, ktorí čakajú na svoj vlastný príbeh so šťastným koncom.
+				</p>
+			</div>
+		</div>
+
+		<!-- Why Adopt Section -->
+		<div class="mt-24 max-w-4xl mx-auto">
+			<h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Prečo adoptovať od nás?</h2>
+			<div class="grid md:grid-cols-2 gap-6">
+				<div class="p-6 rounded-lg bg-card border border-border">
+					<h3 class="text-xl font-semibold mb-3">Záchrana života</h3>
+					<p class="text-muted-foreground">Dáte psíkovi druhú šancu na šťastný život</p>
 				</div>
-				<div class="text-center space-y-2">
-					<div class="text-4xl font-bold text-primary">15</div>
-					<div class="text-muted-foreground">Rokov pomáhame</div>
+				<div class="p-6 rounded-lg bg-card border border-border">
+					<h3 class="text-xl font-semibold mb-3">Kompletná starostlivosť</h3>
+					<p class="text-muted-foreground">Všetci naši psíci sú odčervení, odblšení, očkovaní a kastrovaní</p>
 				</div>
-				<div class="text-center space-y-2">
-					<div class="text-4xl font-bold text-primary">24/7</div>
-					<div class="text-muted-foreground">Starostlivosť o psíkov</div>
+				<div class="p-6 rounded-lg bg-card border border-border">
+					<h3 class="text-xl font-semibold mb-3">Podpora a poradenstvo</h3>
+					<p class="text-muted-foreground">Pomôžeme vám vybrať psíka, ktorý vám bude vyhovovať</p>
+				</div>
+				<div class="p-6 rounded-lg bg-card border border-border">
+					<h3 class="text-xl font-semibold mb-3">Oslobodenie od dane</h3>
+					<p class="text-muted-foreground">V Trenčíne neplatíte daň za adoptovaného psíka z útulku</p>
+				</div>
+				<div class="p-6 rounded-lg bg-card border border-border">
+					<h3 class="text-xl font-semibold mb-3">Vďačný kamarát</h3>
+					<p class="text-muted-foreground">Získate verného spoločníka na celý život</p>
 				</div>
 			</div>
+		</div>
+
+		<!-- Support Section -->
+		<div class="mt-24 max-w-4xl mx-auto text-center">
+			<h2 class="text-3xl md:text-4xl font-bold mb-8">Ako nás môžete podporiť</h2>
+			<p class="text-lg text-muted-foreground mb-12">
+				Aj keď nemôžete adoptovať, existuje množstvo spôsobov, ako nám môžete pomôcť
+			</p>
+			<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+				<a href="/ako-pomoct#2-z-dani" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">💙</div>
+					<div class="font-semibold">2% z daní</div>
+				</a>
+				<a href="/ako-pomoct#financny-prispevok" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">💰</div>
+					<div class="font-semibold">Finančný príspevok</div>
+				</a>
+				<a href="/ako-pomoct#krmivo" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">🎁</div>
+					<div class="font-semibold">Krmivo a potreby</div>
+				</a>
+				<a href="/ako-pomoct#virtualna-adopcia" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">🐕</div>
+					<div class="font-semibold">Virtuálna adopcia</div>
+				</a>
+				<a href="/ako-pomoct#dobrovolnictvo" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">🤝</div>
+					<div class="font-semibold">Dobrovoľníctvo</div>
+				</a>
+				<a href="/ako-pomoct" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
+					<div class="text-3xl mb-2">📢</div>
+					<div class="font-semibold">Zdieľanie</div>
+				</a>
+			</div>
+		</div>
+
+		<!-- Contact Section -->
+		<div class="mt-24 max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12">
+			<h2 class="text-3xl font-bold text-center mb-8">Ako nás nájdete</h2>
+			<div class="grid md:grid-cols-2 gap-8">
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Adresa</h3>
+					<p class="text-muted-foreground mb-6">
+						Brnianska 2480<br>
+						911 05 Trenčín - Zlatovce
+					</p>
+					<h3 class="text-xl font-semibold mb-4">GPS súradnice</h3>
+					<p class="text-muted-foreground mb-6">
+						48°53'05.2″N 18°00'22.9″E
+					</p>
+				</div>
+				<div>
+					<h3 class="text-xl font-semibold mb-4">Otváracie hodiny</h3>
+					<p class="text-muted-foreground mb-6">
+						Pondelok - Nedeľa: 10:00 - 16:00
+					</p>
+					<h3 class="text-xl font-semibold mb-4">Kontakt</h3>
+					<p class="text-muted-foreground">
+						📞 <a href="tel:+421915785007" class="hover:text-primary transition-colors">+421 915 785 007</a><br>
+						✉️ <a href="mailto:utulok.trencin@gmail.com" class="hover:text-primary transition-colors">utulok.trencin@gmail.com</a>
+					</p>
+				</div>
+			</div>
+			<div class="text-center mt-8">
+				<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold">
+					Viac informácií o kontakte
+				</a>
+			</div>
+		</div>
+
+		<!-- Thank You Section -->
+		<div class="mt-24 text-center max-w-3xl mx-auto">
+			<h2 class="text-3xl md:text-4xl font-bold mb-6">V mene našich psíkov vám zo srdca ďakujeme!</h2>
+			<p class="text-lg text-muted-foreground">
+				Každá pomoc, či už formou adopcie, finančného príspevku alebo dobrovoľníckej práce, nám pomáha zlepšovať životy našich štvornohých priateľov. Spolu dokážeme veľa.
+			</p>
 		</div>
 	</section>
 </MainLayout>
