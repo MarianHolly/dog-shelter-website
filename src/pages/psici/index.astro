@@ -1,0 +1,96 @@
+---
+import MainLayout from '@/layouts/main.astro';
+import { Button } from '@/components/ui/button';
+
+// This is sample data - in a real app, this would come from a database or CMS
+const dogs = [
+	{
+		id: 'max',
+		name: 'Max',
+		breed: 'Nemecký ovčiak',
+		age: '3 roky',
+		gender: 'Pes',
+		image: 'https://images.unsplash.com/photo-1568572933382-74d440642117?w=400',
+		description: 'Priateľský a aktívny pes hľadá aktívneho majiteľa.'
+	},
+	{
+		id: 'bella',
+		name: 'Bella',
+		breed: 'Labrador',
+		age: '2 roky',
+		gender: 'Suka',
+		image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=400',
+		description: 'Milá a hravá suка ideálna pre rodiny s deťmi.'
+	},
+	{
+		id: 'buddy',
+		name: 'Buddy',
+		breed: 'Zlatý retríver',
+		age: '5 rokov',
+		gender: 'Pes',
+		image: 'https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400',
+		description: 'Pokojný a láskyplný pes, skvelý spoločník.'
+	},
+	{
+		id: 'luna',
+		name: 'Luna',
+		breed: 'Mešťanček',
+		age: '1 rok',
+		gender: 'Suka',
+		image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400',
+		description: 'Mladá a energická psička plná života.'
+	}
+];
+---
+
+<MainLayout title="Naši psíci" description="Spoznajte našich psíkov čakajúcich na nový domov">
+	<section class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="space-y-8">
+			<div class="text-center space-y-4">
+				<h1 class="text-4xl md:text-5xl font-bold">Naši psíci</h1>
+				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+					Títo úžasní psíci čakajú na nový domov a milujúcu rodinu
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+				{dogs.map((dog) => (
+					<div class="rounded-lg border border-border overflow-hidden bg-card hover:shadow-lg transition-shadow">
+						<img
+							src={dog.image}
+							alt={dog.name}
+							class="w-full h-64 object-cover"
+						/>
+						<div class="p-4 space-y-3">
+							<h3 class="text-2xl font-semibold">{dog.name}</h3>
+							<div class="space-y-1 text-sm text-muted-foreground">
+								<p><strong>Plemeno:</strong> {dog.breed}</p>
+								<p><strong>Vek:</strong> {dog.age}</p>
+								<p><strong>Pohlavie:</strong> {dog.gender}</p>
+							</div>
+							<p class="text-sm">{dog.description}</p>
+							<a
+								href={`/psici/${dog.id}`}
+								class="inline-block w-full px-4 py-2 text-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+							>
+								Viac informácií
+							</a>
+						</div>
+					</div>
+				))}
+			</div>
+
+			<div class="text-center mt-12">
+				<p class="text-muted-foreground mb-4">
+					Nenašli ste svojho ideálneho kamaráta? Kontaktujte nás priamo.
+				</p>
+				<a
+					href="/kontakt"
+					class="inline-block px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors"
+				>
+					Kontaktujte nás
+				</a>
+			</div>
+		</div>
+	</section>
+</MainLayout>

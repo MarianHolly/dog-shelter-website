@@ -1,0 +1,128 @@
+---
+import MainLayout from '@/layouts/main.astro';
+
+// Get the slug from the URL
+const { slug } = Astro.params;
+
+// This is sample data - in a real app, this would come from a database or CMS
+const dogData: Record<string, any> = {
+	'max': {
+		name: 'Max',
+		breed: 'Nemecký ovčiak',
+		age: '3 roky',
+		gender: 'Pes',
+		weight: '32 kg',
+		image: 'https://images.unsplash.com/photo-1568572933382-74d440642117?w=800',
+		description: 'Max je priateľský a aktívny nemecký ovčiak, ktorý miluje dlhé prechádzky a hry. Je veľmi inteligentný a rýchlo sa učí nové veci. Ideálny pre aktívneho majiteľa, ktorý má čas venovať sa mu.',
+		characteristics: [
+			'Aktívny a energický',
+			'Inteligentný a poslušný',
+			'Dobrý strážca',
+			'Potrebuje veľa pohybu'
+		],
+		health: 'Kompletne očkovaný, čipovaný, kastrovaný',
+		story: 'Max bol nájdený ako túlavý pes na ulici. Po mesiaci v útulku je pripravený na nový domov.'
+	},
+	'bella': {
+		name: 'Bella',
+		breed: 'Labrador',
+		age: '2 roky',
+		gender: 'Suka',
+		weight: '26 kg',
+		image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=800',
+		description: 'Bella je milá a hravá labradorka, ktorá miluje deti a je skvelá pre rodiny. Je veľmi priateľská so všetkými ľuďmi aj inými zvieratami.',
+		characteristics: [
+			'Priateľská a hravá',
+			'Skvelá s deťmi',
+			'Miluje vodu',
+			'Energická'
+		],
+		health: 'Kompletne očkovaná, čipovaná, sterilizovaná',
+		story: 'Bella bola odovzdaná do útulku majiteľmi, ktorí sa museli vysťahovať.'
+	}
+};
+
+// Get the dog data based on slug
+const dog = dogData[slug as string];
+
+// If dog not found, show 404
+if (!dog) {
+	return Astro.redirect('/404');
+}
+---
+
+<MainLayout title={dog.name} description={`Adoptujte si ${dog.name} - ${dog.breed}`}>
+	<section class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="max-w-4xl mx-auto space-y-8">
+			<div class="text-center">
+				<a href="/psici" class="text-primary hover:underline mb-4 inline-block">
+					← Späť na všetkých psíkov
+				</a>
+				<h1 class="text-4xl md:text-5xl font-bold">{dog.name}</h1>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-8">
+				<div>
+					<img
+						src={dog.image}
+						alt={dog.name}
+						class="w-full rounded-lg shadow-lg"
+					/>
+				</div>
+
+				<div class="space-y-6">
+					<div>
+						<h2 class="text-2xl font-semibold mb-4">Základné informácie</h2>
+						<dl class="space-y-2">
+							<div class="flex justify-between">
+								<dt class="font-medium">Plemeno:</dt>
+								<dd class="text-muted-foreground">{dog.breed}</dd>
+							</div>
+							<div class="flex justify-between">
+								<dt class="font-medium">Vek:</dt>
+								<dd class="text-muted-foreground">{dog.age}</dd>
+							</div>
+							<div class="flex justify-between">
+								<dt class="font-medium">Pohlavie:</dt>
+								<dd class="text-muted-foreground">{dog.gender}</dd>
+							</div>
+							<div class="flex justify-between">
+								<dt class="font-medium">Hmotnosť:</dt>
+								<dd class="text-muted-foreground">{dog.weight}</dd>
+							</div>
+						</dl>
+					</div>
+
+					<div>
+						<h2 class="text-2xl font-semibold mb-4">Charakteristika</h2>
+						<ul class="list-disc list-inside space-y-1 text-muted-foreground">
+							{dog.characteristics.map((char: string) => (
+								<li>{char}</li>
+							))}
+						</ul>
+					</div>
+
+					<div>
+						<h2 class="text-2xl font-semibold mb-4">Zdravie</h2>
+						<p class="text-muted-foreground">{dog.health}</p>
+					</div>
+
+					<a
+						href="/adopcia"
+						class="inline-block w-full px-6 py-3 text-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+					>
+						Adoptovať {dog.name}
+					</a>
+				</div>
+			</div>
+
+			<div class="prose prose-lg dark:prose-invert max-w-none">
+				<h2>O psíkovi</h2>
+				<p>{dog.description}</p>
+
+				<h2>Príbeh</h2>
+				<p>{dog.story}</p>
+			</div>
+		</div>
+	</section>
+</MainLayout>

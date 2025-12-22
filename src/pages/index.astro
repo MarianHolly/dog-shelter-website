@@ -7,22 +7,39 @@ import Button from '../components/Button.astro';
 import { Button as ButtonComponent } from '../components/ui/button.tsx'
 ---
 
-<MainLayout title="Home" description="Welcome to Template Astro">
+<MainLayout title="Domov" description="Útulok pre psov - Nájdite si nového najlepšieho priateľa">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
 		<div class="flex flex-col items-center justify-center min-h-[calc(100vh-theme(height.16)-theme(height.32))] gap-8">
 			<div class="text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Welcome to Template Astro</h1>
-				<p class="text-xl text-muted-foreground">A modern, performant template with React, Tailwind CSS, and shadcn/ui</p>
+				<h1 class="text-4xl md:text-5xl font-bold">Útulok pre psov</h1>
+				<p class="text-xl text-muted-foreground max-w-2xl">
+					Pomáhame opusteným psom nájsť nový, milujúci domov. Každý pes si zaslúži druhú šancu.
+				</p>
 			</div>
 
 			<div class="flex flex-col sm:flex-row gap-4">
-				<Button>Tailwind Button in Astro!</Button>
-				<ButtonComponent>Button in Shadcn/Ui</ButtonComponent>
+				<a href="/psici" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-medium">
+					Pozrite si našich psíkov
+				</a>
+				<a href="/adopcia" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-medium">
+					Ako adoptovať
+				</a>
 			</div>
 
-			<a href="/markdown-page" class="mt-8 p-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors">
-				Markdown is also supported...
-			</a>
+			<div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+				<div class="text-center space-y-2">
+					<div class="text-4xl font-bold text-primary">500+</div>
+					<div class="text-muted-foreground">Psíkov našlo nový domov</div>
+				</div>
+				<div class="text-center space-y-2">
+					<div class="text-4xl font-bold text-primary">15</div>
+					<div class="text-muted-foreground">Rokov pomáhame</div>
+				</div>
+				<div class="text-center space-y-2">
+					<div class="text-4xl font-bold text-primary">24/7</div>
+					<div class="text-muted-foreground">Starostlivosť o psíkov</div>
+				</div>
+			</div>
 		</div>
 	</section>
 </MainLayout>
