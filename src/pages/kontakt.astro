@@ -2,91 +2,194 @@
 import MainLayout from '@/layouts/main.astro';
 ---
 
-<MainLayout title="Kontakt" description="Kontaktujte nás a navštívte náš útulok">
+<MainLayout title="Kontakt" description="Kontaktujte Trenčiansky útulok. Nájdete tu všetky potrebné informácie - telefón, email, adresu, otváracie hodiny a ako sa k nám dostať.">
 	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="space-y-8">
+		<div class="max-w-4xl mx-auto space-y-16">
+			<!-- Header -->
 			<div class="text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">Kontakt</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-					Sme tu pre vás a pre psíkov
+				<p class="text-xl text-muted-foreground">
+					Máte otázky? Chcete adoptovať psíka? Radi vám pomôžeme!
 				</p>
 			</div>
 
-			<div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-				<div class="space-y-6">
-					<div>
-						<h2 class="text-2xl font-semibold mb-4">Adresa</h2>
-						<p class="text-muted-foreground">
-							Útulok pre psov<br>
-							Ulica 123<br>
-							123 45 Mesto<br>
-							Slovensko
+			<!-- Kontaktné údaje -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">📞 Kontaktné údaje</h2>
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">Telefón</h3>
+						<p class="text-2xl font-bold text-primary mb-2">
+							<a href="tel:+421915785007" class="hover:underline">+421 915 785 007</a>
 						</p>
+						<p class="text-sm text-muted-foreground">Vedúca útulku - Mgr. Petra Ožvaldová</p>
+						<p class="text-sm text-muted-foreground mt-2">Najlepší čas na volanie je počas otváracích hodín útulku.</p>
 					</div>
 
-					<div>
-						<h2 class="text-2xl font-semibold mb-4">Kontaktné údaje</h2>
-						<p class="text-muted-foreground">
-							<strong>Telefón:</strong> +421 XXX XXX XXX<br>
-							<strong>Email:</strong> info@dogsheltter.sk<br>
-							<strong>Facebook:</strong> @dogsheltter
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-4">E-mail</h3>
+						<p class="text-xl font-bold text-primary mb-2">
+							<a href="mailto:utulok.trencin@gmail.com" class="hover:underline break-all">utulok.trencin@gmail.com</a>
 						</p>
-					</div>
-
-					<div>
-						<h2 class="text-2xl font-semibold mb-4">Otváracie hodiny</h2>
-						<p class="text-muted-foreground">
-							<strong>Pondelok - Piatok:</strong> 9:00 - 17:00<br>
-							<strong>Sobota:</strong> 10:00 - 14:00<br>
-							<strong>Nedeľa:</strong> Zatvorené
-						</p>
+						<p class="text-sm text-muted-foreground">Odpoveď na váš e-mail sa snažíme poskytnúť do 48 hodín.</p>
+						<p class="text-sm text-muted-foreground mt-2">V prípade naliehavých vecí prosím volajte.</p>
 					</div>
 				</div>
 
-				<div class="space-y-6">
-					<div>
-						<h2 class="text-2xl font-semibold mb-4">Napíšte nám</h2>
-						<form class="space-y-4">
-							<div>
-								<label for="name" class="block text-sm font-medium mb-2">Meno</label>
-								<input
-									type="text"
-									id="name"
-									name="name"
-									class="w-full px-4 py-2 rounded-md border border-input bg-background"
-									required
-								/>
-							</div>
-							<div>
-								<label for="email" class="block text-sm font-medium mb-2">Email</label>
-								<input
-									type="email"
-									id="email"
-									name="email"
-									class="w-full px-4 py-2 rounded-md border border-input bg-background"
-									required
-								/>
-							</div>
-							<div>
-								<label for="message" class="block text-sm font-medium mb-2">Správa</label>
-								<textarea
-									id="message"
-									name="message"
-									rows="5"
-									class="w-full px-4 py-2 rounded-md border border-input bg-background"
-									required
-								></textarea>
-							</div>
-							<button
-								type="submit"
-								class="w-full px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-							>
-								Odoslať správu
-							</button>
-						</form>
+				<div class="mt-6 p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+					<h3 class="text-xl font-semibold mb-4">Sociálne siete</h3>
+					<div class="space-y-2">
+						<p><strong>Facebook:</strong> <a href="https://www.facebook.com/trencianskyutulok" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčiansky ÚTULOK</a></p>
+						<p class="text-sm text-muted-foreground">Sledujte nás pre aktuálne novinky, fotky psíkov a príbehy úspešných adopcií.</p>
+						<p class="mt-4"><strong>Facebook skupina - STRATILI SA:</strong> <a href="https://www.facebook.com/groups/trencianskyUTULOK/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčiansky ÚTULOK - Stratili sa</a></p>
+						<p class="text-sm text-muted-foreground">Skupina pre stratené a nájdené zvieratá v regióne Trenčín.</p>
 					</div>
 				</div>
 			</div>
+
+			<!-- Adresa a GPS -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">🏠 Adresa útulku a karanténnej stanice</h2>
+				<div class="p-8 rounded-lg bg-primary/5 border-2 border-primary/20">
+					<div class="grid md:grid-cols-2 gap-8">
+						<div>
+							<h3 class="text-xl font-semibold mb-4">Adresa</h3>
+							<p class="text-lg leading-relaxed">
+								Karanténna stanica a útulok pre psov<br>
+								<strong>Brnianska 2480</strong><br>
+								<strong>911 05 Trenčín - Zlatovce</strong>
+							</p>
+							<p class="text-sm text-muted-foreground mt-4">
+								Areál sa nachádza na okraji Trenčína, vedľa priemyselného parku AU Optronics, v areáli bývalej skládky.
+							</p>
+						</div>
+						<div>
+							<h3 class="text-xl font-semibold mb-4">GPS súradnice</h3>
+							<p class="text-2xl font-mono font-bold text-primary mb-2">
+								48°53'05.2″N 18°00'22.9″E
+							</p>
+							<p class="text-sm text-muted-foreground">
+								Vložte tieto súradnice do vašej navigácie (Google Maps, Waze, Mapy.cz) a dovedú vás priamo k nám.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Otváracie hodiny -->
+			<div class="p-8 rounded-lg bg-card border border-border text-center">
+				<h2 class="text-3xl font-bold mb-6">🕐 Otváracie hodiny</h2>
+				<p class="text-4xl font-bold text-primary mb-4">Pondelok - Nedeľa</p>
+				<p class="text-3xl font-semibold mb-6">10:00 - 16:00</p>
+				<p class="text-muted-foreground max-w-2xl mx-auto">
+					Útulok je otvorený každý deň, vrátane víkendov a sviatkov. V týchto hodinách nás môžete navštíviť, spoznať našich psíkov a dohodnúť si adopciu.
+				</p>
+				<div class="mt-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded">
+					<p class="text-sm">
+						<strong>⚠️ Upozornenie:</strong> V prípade mimoriadnych udalostí alebo nepriaznivého počasia môže dôjsť k zmene otváracích hodín. Sledujte náš Facebook alebo nás kontaktujte telefonicky.
+					</p>
+				</div>
+			</div>
+
+			<!-- Sídlo OZ -->
+			<div class="p-6 rounded-lg bg-muted/30 border border-border">
+				<h3 class="text-xl font-semibold mb-4">🏢 Sídlo občianskeho združenia</h3>
+				<div class="space-y-2">
+					<p><strong>Občianske združenie Trenčiansky ÚTULOK</strong></p>
+					<p>Mgr. Petra Ožvaldová</p>
+					<p>Inovecká 60</p>
+					<p>911 01 Trenčín</p>
+					<p class="mt-4"><strong>IČO:</strong> 42152844</p>
+				</div>
+			</div>
+
+			<!-- Bankové spojenie -->
+			<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
+				<h3 class="text-xl font-semibold mb-4">💳 Bankové spojenie</h3>
+				<p class="mb-4">Ak nám chcete poslať finančný príspevok, použite prosím tieto údaje:</p>
+				<div class="space-y-2">
+					<p><strong>Názov účtu:</strong> Trenčiansky ÚTULOK</p>
+					<p><strong>Číslo účtu (SK):</strong> <span class="font-mono text-primary font-semibold">SK41 0900 0000 0050 1714 3457</span></p>
+					<p><strong>BIC/SWIFT:</strong> GIBASKBX</p>
+					<p><strong>Banka:</strong> Slovenská sporiteľňa, a.s.</p>
+				</div>
+				<p class="text-sm text-muted-foreground mt-4">
+					Do správy pre príjemcu môžete napísať účel platby (napr. "dar", "2% z daní", "virtuálna adopcia - meno psíka").
+				</p>
+			</div>
+
+			<!-- Ako sa k nám dostať -->
+			<div>
+				<h2 class="text-3xl font-bold mb-8">🚍 Ako sa k nám dostať</h2>
+				<div class="grid gap-6">
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">🚗 Autom</h3>
+						<p class="text-muted-foreground">
+							Užívateľom navigácie odporúčame zadať GPS súradnice <strong>48°53'05.2″N 18°00'22.9″E</strong> alebo adresu <strong>Brnianska 2480, Trenčín</strong>.
+						</p>
+						<p class="text-muted-foreground mt-2">
+							Z centra Trenčína smerom na Zlatovce, cez priemyselný park AU Optronics. Areál je dobre označený.
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">🚌 Verejnou dopravou (MHD)</h3>
+						<p class="text-muted-foreground mb-2">
+							K útulku sa dá dostať mestskou hromadnou dopravou.
+						</p>
+						<p class="text-muted-foreground">
+							<strong>Najbližšia zastávka:</strong> Podháj (linky č. 3, 7, 11)
+						</p>
+						<p class="text-muted-foreground mt-2">
+							Z tejto zastávky je to pešo približne 15-20 minút. Odporúčame použiť aplikácie Google Maps alebo Mapy.cz pre presné navigovanie.
+						</p>
+					</div>
+
+					<div class="p-6 rounded-lg bg-card border border-border">
+						<h3 class="text-xl font-semibold mb-3">🚶 Pešo alebo na bicykli</h3>
+						<p class="text-muted-foreground">
+							Ak máte radi prechádzky, útulok je dostupný aj pešo z centra mesta (cca 40 minút chôdze) alebo na bicykli. Trasa vedie cez Zlatovce a priemyselný park.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- FAQ -->
+			<div class="prose prose-lg dark:prose-invert max-w-none">
+				<h2>📝 Často kladené otázky</h2>
+
+				<h3>Musím si návštevu vopred dohodnúť?</h3>
+				<p>Nie je to nutné. Môžete prísť kedykoľvek počas otváracích hodín. Ak však plánujete adopciu alebo máte špeciálne požiadavky, je lepšie sa vopred telefonicky ozvať.</p>
+
+				<h3>Môžem prísť aj mimo otváracích hodín?</h3>
+				<p>Bohužiaľ nie. Útulok je otvorený denne od 10:00 do 16:00. V prípade mimoriadnej situácie nás môžete kontaktovať telefonicky.</p>
+
+				<h3>Kde môžem zaparkovať?</h3>
+				<p>Parkovanie je možné priamo v areáli útulku. K dispozícii sú voľné parkovacie miesta.</p>
+
+				<h3>Je útulok bezbariérový?</h3>
+				<p>Časť areálu je bezbariérová. Ak máte špeciálne potreby, kontaktujte nás vopred a dohodneme sa na najlepšom riešení.</p>
+			</div>
+
+			<!-- CTA -->
+			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+				<h2 class="text-3xl font-bold mb-6">Príďte nás navštíviť! 🐾</h2>
+				<p class="text-lg text-muted-foreground mb-8">
+					Tešíme sa na vašu návštevu. Naši psíci sa nemôžu dočkať, kedy si ich prídete pozrieť a možno niektorého z nich vezmete domov. ❤️
+				</p>
+				<div class="flex flex-col sm:flex-row gap-4 justify-center">
+					<a href="/psici" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg">
+						Pozrite si našich psíkov
+					</a>
+					<a href="/adopcia" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg">
+						Informácie o adopcii
+					</a>
+				</div>
+			</div>
+
+			<p class="text-sm text-muted-foreground text-center">
+				<em>Posledná aktualizácia: December 2024</em>
+			</p>
 		</div>
 	</section>
 </MainLayout>

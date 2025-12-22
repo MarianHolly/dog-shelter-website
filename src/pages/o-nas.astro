@@ -3,18 +3,22 @@ import MainLayout from '@/layouts/main.astro';
 ---
 
 <MainLayout title="O nás" description="Spoznajte Trenčiansky útulok, náš tím a našu misiu pomáhať opusteným a týraným psom nájsť nový domov.">
-	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="max-w-4xl mx-auto space-y-16">
-			<!-- Header -->
-			<div class="text-center space-y-4">
+	<!-- Header Section -->
+	<section id="header" class="header-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">O nás</h1>
 				<p class="text-xl text-muted-foreground">
 					Spoznajte Trenčiansky útulok, náš tím a našu misiu pomáhať opusteným psom
 				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- História -->
-			<div class="prose prose-lg dark:prose-invert max-w-none">
+	<!-- História Section -->
+	<section id="historia" class="historia-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
 				<h2>Naša história</h2>
 				<p>
 					Občianske združenie Trenčiansky ÚTULOK vzniklo s jasným cieľom - pomáhať opusteným a týraným psom nájsť nový domov plný lásky a starostlivosti.
@@ -26,9 +30,13 @@ import MainLayout from '@/layouts/main.astro';
 					Za tie roky sme pomohli stovkám psíkov nájsť ich „navždy domov". Každý príbeh je jedinečný, každý psík má svoj osud a my sme tu, aby sme im pomohli napísať šťastný koniec.
 				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Misia -->
-			<div class="prose prose-lg dark:prose-invert max-w-none">
+	<!-- Misia Section -->
+	<section id="misia" class="misia-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
 				<h2>Naša misia</h2>
 				<p>
 					Našim hlavným cieľom je <strong>pomôcť nájsť domov opusteným a týraným psom</strong>. Veríme, že každý pes si zaslúži druhú šancu, lásku a bezpečie. Pracujeme na tom, aby sme:
@@ -44,9 +52,13 @@ import MainLayout from '@/layouts/main.astro';
 					Celá naša činnosť je postavená na báze <strong>dobrovoľnosti, lásky k zvieratám a podpory od tých, ktorým nie sú osudy opustených a týraných psíkov ľahostajné</strong>.
 				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Tím -->
-			<div>
+	<!-- Tím Section -->
+	<section id="tim" class="tim-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<h2 class="text-3xl font-bold mb-8">Náš tím</h2>
 				<p class="text-lg text-muted-foreground mb-8">
 					Za úspechom útulku stojí skupina oddaných ľudí, ktorí venujú svoj čas, energiu a srdce starostlivosti o psíkov.
@@ -96,9 +108,13 @@ import MainLayout from '@/layouts/main.astro';
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Karanténna stanica vs Útulok -->
-			<div class="prose prose-lg dark:prose-invert max-w-none">
+	<!-- Karanténna vs Útulok Section -->
+	<section id="karantenna-vs-utulok" class="karantenna-vs-utulok-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
 				<h2>Karanténna stanica vs. Útulok</h2>
 				<p>Mnohí ľudia nevedia, aký je rozdiel medzi karanténnou stanicou a útulkom. Vysvetlíme vám to:</p>
 
@@ -120,9 +136,13 @@ import MainLayout from '@/layouts/main.astro';
 				</ul>
 				<p>V útulku môžu psy zostať tak dlho, kým nenájdu nový domov. Dostávajú veterinárnu starostlivosť, sú kastrované, očkované a pripravené na nový život v rodine.</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Hodnoty -->
-			<div>
+	<!-- Hodnoty Section -->
+	<section id="hodnoty" class="hodnoty-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<h2 class="text-3xl font-bold mb-8">Naše hodnoty</h2>
 				<div class="grid md:grid-cols-2 gap-6">
 					<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
@@ -152,9 +172,13 @@ import MainLayout from '@/layouts/main.astro';
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- FAQ -->
-			<div class="prose prose-lg dark:prose-invert max-w-none">
+	<!-- FAQ Section -->
+	<section id="faq" class="faq-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
 				<h2>Často kladené otázky (FAQ)</h2>
 
 				<h3>Ako môžem adoptovať psíka?</h3>
@@ -175,9 +199,13 @@ import MainLayout from '@/layouts/main.astro';
 				<h3>Čo keď sa mi stratil pes?</h3>
 				<p>Ak sa vám stratil pes, okamžite nás kontaktujte na tel. +421 915 785 007. Tiež skontrolujte našu Facebook skupinu "STRATILI SA" a prihláste stratu na mestskej polícii.</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Poďakovanie -->
-			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+	<!-- Poďakovanie Section -->
+	<section id="podakovanie" class="podakovanie-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
 				<h2 class="text-3xl font-bold mb-6">Poďakovanie</h2>
 				<p class="text-lg text-muted-foreground mb-6">
 					V mene našich štvornohých priateľov vám – <strong>lepším, zo srdca ďakujeme</strong>. Bez vašej podpory, lásky a obetavosti by naša práca nebola možná. Každý, kto adoptoval, daroval, dobrovoľníčil alebo jednoducho veril v našu misiu, má obrovský podiel na tom, že stovky psíkov dnes žijú šťastné životy.
@@ -187,7 +215,7 @@ import MainLayout from '@/layouts/main.astro';
 				</p>
 			</div>
 
-			<p class="text-sm text-muted-foreground text-center">
+			<p class="text-sm text-muted-foreground text-center mt-8">
 				<em>Posledná aktualizácia: December 2024</em>
 			</p>
 		</div>
