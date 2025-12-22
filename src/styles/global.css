@@ -1,3 +1,4 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -46,71 +47,73 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* Warm, earthy color palette for dog shelter */
+  --background: oklch(0.95 0.01 85); /* #F2EFE7 - Light warm beige */
+  --foreground: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
+  --card: oklch(0.97 0.01 85); /* Slightly lighter than background */
+  --card-foreground: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
+  --popover: oklch(0.97 0.01 85);
+  --popover-foreground: oklch(0.15 0.01 60);
+  --primary: oklch(0.54 0.12 35); /* #B65636 - Burnt sienna/terracotta */
+  --primary-foreground: oklch(0.98 0.01 85); /* Light cream text on primary */
+  --secondary: oklch(0.56 0.04 150); /* #6B8273 - Sage green */
+  --secondary-foreground: oklch(0.98 0.01 85); /* Light text on secondary */
+  --muted: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
+  --muted-foreground: oklch(0.45 0.01 60); /* Darker for readability */
+  --accent: oklch(0.71 0.06 60); /* #C49478 - Warm tan */
+  --accent-foreground: oklch(0.15 0.01 60); /* Dark text on accent */
+  --destructive: oklch(0.57 0.14 36); /* #C95537 - Orange-red */
+  --border: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
+  --input: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
+  --ring: oklch(0.54 0.12 35); /* Primary color for focus rings */
+  --chart-1: oklch(0.54 0.12 35); /* #B65636 */
+  --chart-2: oklch(0.56 0.04 150); /* #6B8273 */
+  --chart-3: oklch(0.52 0.08 60); /* #A36A3F */
+  --chart-4: oklch(0.71 0.06 60); /* #C49478 */
+  --chart-5: oklch(0.56 0.14 40); /* #C35E2A */
+  --sidebar: oklch(0.97 0.01 85);
+  --sidebar-foreground: oklch(0.15 0.01 60);
+  --sidebar-primary: oklch(0.54 0.12 35);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.82 0.01 85);
+  --sidebar-accent-foreground: oklch(0.15 0.01 60);
+  --sidebar-border: oklch(0.82 0.01 85);
+  --sidebar-ring: oklch(0.54 0.12 35);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  /* Dark mode with warm palette */
+  --background: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
+  --foreground: oklch(0.95 0.01 85); /* #F2EFE7 - Light beige */
+  --card: oklch(0.20 0.01 60); /* Slightly lighter than background */
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.20 0.01 60);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.59 0.15 38); /* #D05A30 - Brighter coral for dark mode */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.56 0.04 150); /* #6B8273 - Sage green (same) */
+  --secondary-foreground: oklch(0.98 0.01 85);
+  --muted: oklch(0.52 0.08 60); /* #A36A3F - Brown */
+  --muted-foreground: oklch(0.75 0.01 85); /* Lighter for readability */
+  --accent: oklch(0.71 0.06 60); /* #C49478 - Warm tan */
+  --accent-foreground: oklch(0.15 0.01 60);
+  --destructive: oklch(0.59 0.15 38); /* #D05A30 - Coral/orange */
+  --border: oklch(0.35 0.01 60); /* Lighter brown for borders */
+  --input: oklch(0.35 0.01 60);
+  --ring: oklch(0.59 0.15 38); /* Primary color for focus */
+  --chart-1: oklch(0.59 0.15 38); /* #D05A30 */
+  --chart-2: oklch(0.56 0.04 150); /* #6B8273 */
+  --chart-3: oklch(0.71 0.06 60); /* #C49478 */
+  --chart-4: oklch(0.56 0.14 40); /* #C35E2A */
+  --chart-5: oklch(0.54 0.12 35); /* #B65636 */
+  --sidebar: oklch(0.20 0.01 60);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.59 0.15 38);
+  --sidebar-primary-foreground: oklch(0.98 0.01 85);
+  --sidebar-accent: oklch(0.35 0.01 60);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(0.35 0.01 60);
+  --sidebar-ring: oklch(0.59 0.15 38);
 }
 
 @layer base {
@@ -119,5 +122,10 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Mali', 'DM Sans', system-ui, sans-serif;
+    font-weight: 600;
   }
 }
