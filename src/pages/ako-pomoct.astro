@@ -3,18 +3,22 @@ import MainLayout from '@/layouts/main.astro';
 ---
 
 <MainLayout title="Ako pomôcť" description="Existuje mnoho spôsobov, ako môžete pomôcť Trenčianskemu útulku. Či už adopciou, finančným príspevkom, dobrovoľníctvom alebo zdieľaním.">
-	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="max-w-4xl mx-auto space-y-16">
-			<!-- Header -->
-			<div class="text-center space-y-4">
+	<!-- Header Section -->
+	<section id="header" class="header-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">Pomôžte nám pomáhať</h1>
 				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
 					Starostlivosť o desiatky psíkov nie je jednoduchá a určite nie je lacná. Každý deň potrebujeme krmivo, veterinárnu starostlivosť, lieky, deky a veľa iných vecí. Vaša pomoc môže mať obrovský vplyv na životy našich štvornohých kamarátov.
 				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- 2% z daní -->
-			<div id="2-z-dani" class="scroll-mt-20">
+	<!-- 2% z daní Section -->
+	<section id="2-z-dani" class="dve-percenta-section scroll-mt-20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="bg-primary/5 border-2 border-primary/20 rounded-lg p-8">
 					<div class="flex items-center gap-3 mb-6">
 						<div class="text-4xl">💙</div>
@@ -45,9 +49,13 @@ import MainLayout from '@/layouts/main.astro';
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Finančný príspevok -->
-			<div id="financny-prispevok" class="scroll-mt-20">
+	<!-- Finančný príspevok Section -->
+	<section id="financny-prispevok" class="financny-prispevok-section scroll-mt-20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="flex items-center gap-3 mb-6">
 					<div class="text-4xl">💰</div>
 					<h2 class="text-3xl font-bold">Finančný príspevok</h2>
@@ -83,21 +91,31 @@ import MainLayout from '@/layouts/main.astro';
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Vianoce 365 -->
-			<div class="bg-accent/10 border border-accent/30 rounded-lg p-8">
-				<div class="flex items-center gap-3 mb-4">
-					<div class="text-4xl">🎄</div>
-					<h3 class="text-2xl font-bold">Vianoce 365</h3>
+	<!-- Vianoce 365 Section -->
+	<section id="vianoce-365" class="vianoce-365-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
+				<div class="bg-accent/10 border border-accent/30 rounded-lg p-8">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="text-4xl">🎄</div>
+						<h3 class="text-2xl font-bold">Vianoce 365</h3>
+					</div>
+					<p class="text-lg mb-4">Darujte psíkom Vianoce každý deň</p>
+					<p class="text-muted-foreground mb-4">
+						Program Vianoce 365 znamená, že psíkom darujete radosť počas celého roka, nielen počas sviatkov. Pošlite nám <strong>3,65 € mesačne</strong> (len 12 centov denne) a vaša pravidelná pomoc zabezpečí psíkom stálu starostlivosť.
+					</p>
 				</div>
-				<p class="text-lg mb-4">Darujte psíkom Vianoce každý deň</p>
-				<p class="text-muted-foreground mb-4">
-					Program Vianoce 365 znamená, že psíkom darujete radosť počas celého roka, nielen počas sviatkov. Pošlite nám <strong>3,65 € mesačne</strong> (len 12 centov denne) a vaša pravidelná pomoc zabezpečí psíkom stálu starostlivosť.
-				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Zoznam želaní -->
-			<div id="krmivo" class="scroll-mt-20">
+	<!-- Zoznam želaní Section -->
+	<section id="krmivo" class="krmivo-section scroll-mt-20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="flex items-center gap-3 mb-6">
 					<div class="text-4xl">🎁</div>
 					<h2 class="text-3xl font-bold">Zoznam želaní a prianí</h2>
@@ -166,9 +184,13 @@ import MainLayout from '@/layouts/main.astro';
 					</p>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Virtuálna adopcia -->
-			<div id="virtualna-adopcia" class="scroll-mt-20">
+	<!-- Virtuálna adopcia Section -->
+	<section id="virtualna-adopcia" class="virtualna-adopcia-section scroll-mt-20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="flex items-center gap-3 mb-6">
 					<div class="text-4xl">🐕</div>
 					<h2 class="text-3xl font-bold">Virtuálna adopcia</h2>
@@ -194,21 +216,31 @@ import MainLayout from '@/layouts/main.astro';
 					</ol>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Dočasky -->
-			<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-8">
-				<div class="flex items-center gap-3 mb-4">
-					<div class="text-4xl">🏠</div>
-					<h3 class="text-2xl font-bold">Dočasky</h3>
+	<!-- Dočasky Section -->
+	<section id="docasky" class="docasky-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
+				<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-8">
+					<div class="flex items-center gap-3 mb-4">
+						<div class="text-4xl">🏠</div>
+						<h3 class="text-2xl font-bold">Dočasky</h3>
+					</div>
+					<p class="text-lg mb-4">Dočasná starostlivosť</p>
+					<p class="text-muted-foreground">
+						Dočaska znamená, že si vezmete psíka na dočasný pobyt k sebe domov. Je to obrovská pomoc najmä pre šteniatka, choré alebo zotavujúce sa psy, staršie psy a psy počas rekonštrukcie útulku.
+					</p>
 				</div>
-				<p class="text-lg mb-4">Dočasná starostlivosť</p>
-				<p class="text-muted-foreground">
-					Dočaska znamená, že si vezmete psíka na dočasný pobyt k sebe domov. Je to obrovská pomoc najmä pre šteniatka, choré alebo zotavujúce sa psy, staršie psy a psy počas rekonštrukcie útulku.
-				</p>
 			</div>
+		</div>
+	</section>
 
-			<!-- Dobrovoľníctvo -->
-			<div id="dobrovolnictvo" class="scroll-mt-20">
+	<!-- Dobrovoľníctvo Section -->
+	<section id="dobrovolnictvo" class="dobrovolnictvo-section scroll-mt-20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="flex items-center gap-3 mb-6">
 					<div class="text-4xl">🤝</div>
 					<h2 class="text-3xl font-bold">Dobrovoľníctvo</h2>
@@ -250,9 +282,13 @@ import MainLayout from '@/layouts/main.astro';
 					</a>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Propagácia -->
-			<div>
+	<!-- Propagácia Section -->
+	<section id="propagacia" class="propagacia-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
 				<div class="flex items-center gap-3 mb-6">
 					<div class="text-4xl">📢</div>
 					<h2 class="text-3xl font-bold">Propagácia a osveta</h2>
@@ -280,34 +316,39 @@ import MainLayout from '@/layouts/main.astro';
 					</div>
 				</div>
 			</div>
+		</div>
+	</section>
 
-			<!-- Thank You -->
-			<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
-				<h2 class="text-3xl font-bold mb-6">Každá pomoc sa počíta</h2>
-				<p class="text-lg text-muted-foreground mb-6">
-					Či už darujete 2%, pošlete finančný príspevok, adoptujete virtuálne alebo jednoducho zdieľate naše príspevky - <strong>každá forma pomoci má obrovskú hodnotu</strong>.
-				</p>
-				<p class="text-2xl font-semibold">
-					V mene našich psíkov vám zo srdca ďakujeme! ❤️🐾
-				</p>
-			</div>
-
-			<!-- Kontakt -->
-			<div class="text-center">
-				<h3 class="text-2xl font-bold mb-4">Máte otázky alebo chcete pomôcť?</h3>
-				<div class="space-y-2 text-muted-foreground mb-6">
-					<p><strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a></p>
-					<p><strong>E-mail:</strong> <a href="mailto:utulok.trencin@gmail.com" class="text-primary hover:underline">utulok.trencin@gmail.com</a></p>
-					<p><strong>Adresa:</strong> Brnianska 2480, 911 05 Trenčín - Zlatovce</p>
+	<!-- Thank You Section -->
+	<section id="podakovanie" class="podakovanie-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto">
+				<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
+					<h2 class="text-3xl font-bold mb-6">Každá pomoc sa počíta</h2>
+					<p class="text-lg text-muted-foreground mb-6">
+						Či už darujete 2%, pošlete finančný príspevok, adoptujete virtuálne alebo jednoducho zdieľate naše príspevky - <strong>každá forma pomoci má obrovskú hodnotu</strong>.
+					</p>
+					<p class="text-2xl font-semibold">
+						V mene našich psíkov vám zo srdca ďakujeme! ❤️🐾
+					</p>
 				</div>
-				<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold">
-					Viac kontaktných informácií
-				</a>
-			</div>
 
-			<p class="text-sm text-muted-foreground text-center">
-				<em>Posledná aktualizácia: December 2024</em>
-			</p>
+				<div class="text-center mt-8">
+					<h3 class="text-2xl font-bold mb-4">Máte otázky alebo chcete pomôcť?</h3>
+					<div class="space-y-2 text-muted-foreground mb-6">
+						<p><strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a></p>
+						<p><strong>E-mail:</strong> <a href="mailto:utulok.trencin@gmail.com" class="text-primary hover:underline">utulok.trencin@gmail.com</a></p>
+						<p><strong>Adresa:</strong> Brnianska 2480, 911 05 Trenčín - Zlatovce</p>
+					</div>
+					<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold">
+						Viac kontaktných informácií
+					</a>
+				</div>
+
+				<p class="text-sm text-muted-foreground text-center mt-8">
+					<em>Posledná aktualizácia: December 2024</em>
+				</p>
+			</div>
 		</div>
 	</section>
 </MainLayout>
