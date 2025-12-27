@@ -1,77 +1,144 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import { Button } from '@/components/ui/button';
+import { getCollection } from 'astro:content';
 
-// This is sample data - in a real app, this would come from a database or CMS
-const dogs = [
-	{
-		id: 'max',
-		name: 'Max',
-		breed: 'Nemecký ovčiak',
-		age: '3 roky',
-		gender: 'Pes',
-		image: 'https://images.unsplash.com/photo-1568572933382-74d440642117?w=400',
-		description: 'Priateľský a aktívny pes hľadá aktívneho majiteľa.'
-	},
-	{
-		id: 'bella',
-		name: 'Bella',
-		breed: 'Labrador',
-		age: '2 roky',
-		gender: 'Suka',
-		image: 'https://images.unsplash.com/photo-1558788353-f76d92427f16?w=400',
-		description: 'Milá a hravá suка ideálna pre rodiny s deťmi.'
-	},
-	{
-		id: 'buddy',
-		name: 'Buddy',
-		breed: 'Zlatý retríver',
-		age: '5 rokov',
-		gender: 'Pes',
-		image: 'https://images.unsplash.com/photo-1633722715463-d30f4f325e24?w=400',
-		description: 'Pokojný a láskyplný pes, skvelý spoločník.'
-	},
-	{
-		id: 'luna',
-		name: 'Luna',
-		breed: 'Mešťanček',
-		age: '1 rok',
-		gender: 'Suka',
-		image: 'https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400',
-		description: 'Mladá a energická psička plná života.'
-	}
-];
+// Get all dogs from content collection
+const allDogs = await getCollection('dogs');
+// Sort by urgent first, then by name
+const dogs = allDogs.sort((a, b) => {
+	if (a.data.urgent && !b.data.urgent) return -1;
+	if (!a.data.urgent && b.data.urgent) return 1;
+	return a.data.name.localeCompare(b.data.name);
+});
 ---
 
 <MainLayout title="Naši psíci" description="Spoznajte našich psíkov čakajúcich na nový domov">
-	<section class="mx-auto max-w-screen-2xl px-4 py-16">
-		<div class="space-y-8">
-			<div class="text-center space-y-4">
+	<!-- Header Section -->
+	<section id="header" class="header-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">Naši psíci</h1>
 				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
-					Títo úžasní psíci čakajú na nový domov a milujúcu rodinu
+					Títo úžasní psíci čakajú na nový domov a milujúcu rodinu. Každý z nich má svoj jedinečný príbeh a zaslúži si druhú šancu na šťastný život.
 				</p>
 			</div>
+		</div>
+	</section>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+	<!-- Filters Section -->
+	<section id="filters" class="filters-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-8">
+			<div class="max-w-6xl mx-auto">
+				<div class="bg-card border border-border rounded-lg p-6">
+					<h2 class="text-xl font-semibold mb-4">Filtrovať psíkov</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+						<div>
+							<label for="filter-size" class="block text-sm font-medium mb-2">Veľkosť</label>
+							<select id="filter-size" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+								<option value="">Všetky veľkosti</option>
+								<option value="Malý">Malý</option>
+								<option value="Stredný">Stredný</option>
+								<option value="Veľký">Veľký</option>
+							</select>
+						</div>
+						<div>
+							<label for="filter-gender" class="block text-sm font-medium mb-2">Pohlavie</label>
+							<select id="filter-gender" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+								<option value="">Všetky</option>
+								<option value="Pes">Pes</option>
+								<option value="Suka">Suka</option>
+							</select>
+						</div>
+						<div>
+							<label for="filter-energy" class="block text-sm font-medium mb-2">Úroveň energie</label>
+							<select id="filter-energy" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+								<option value="">Všetky úrovne</option>
+								<option value="Nízka">Nízka</option>
+								<option value="Stredná">Stredná</option>
+								<option value="Vysoká">Vysoká</option>
+							</select>
+						</div>
+						<div>
+							<label class="block text-sm font-medium mb-2">Vlastnosti</label>
+							<div class="space-y-2">
+								<label class="flex items-center gap-2">
+									<input type="checkbox" id="filter-kids" class="rounded border-border">
+									<span class="text-sm">Dobrý s deťmi</span>
+								</label>
+								<label class="flex items-center gap-2">
+									<input type="checkbox" id="filter-urgent" class="rounded border-border">
+									<span class="text-sm">Len urgentné</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<div class="mt-4 flex gap-2">
+						<button id="reset-filters" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors">
+							Zrušiť filtre
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Dogs Grid Section -->
+	<section id="dogs-grid" class="dogs-grid-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div id="dogs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 				{dogs.map((dog) => (
-					<div class="rounded-lg border border-border overflow-hidden bg-card hover:shadow-lg transition-shadow">
+					<div
+						class="dog-card rounded-lg border border-border overflow-hidden bg-card hover:shadow-lg transition-shadow relative"
+						data-size={dog.data.size || ''}
+						data-gender={dog.data.gender}
+						data-energy={dog.data.energyLevel || ''}
+						data-kids={dog.data.goodWithKids ? 'true' : 'false'}
+						data-urgent={dog.data.urgent ? 'true' : 'false'}
+					>
+						{dog.data.urgent && (
+							<div class="absolute top-2 right-2 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+								URGENTNÉ
+							</div>
+						)}
 						<img
-							src={dog.image}
-							alt={dog.name}
+							src={dog.data.image}
+							alt={dog.data.name}
 							class="w-full h-64 object-cover"
 						/>
 						<div class="p-4 space-y-3">
-							<h3 class="text-2xl font-semibold">{dog.name}</h3>
+							<h3 class="text-2xl font-semibold">{dog.data.name}</h3>
 							<div class="space-y-1 text-sm text-muted-foreground">
-								<p><strong>Plemeno:</strong> {dog.breed}</p>
-								<p><strong>Vek:</strong> {dog.age}</p>
-								<p><strong>Pohlavie:</strong> {dog.gender}</p>
+								<p><strong>Plemeno:</strong> {dog.data.breed}</p>
+								<p><strong>Vek:</strong> {dog.data.age}</p>
+								<p><strong>Pohlavie:</strong> {dog.data.gender}</p>
+								{dog.data.size && (
+									<p><strong>Veľkosť:</strong> {dog.data.size}</p>
+								)}
 							</div>
-							<p class="text-sm">{dog.description}</p>
+							<p class="text-sm">{dog.data.description}</p>
+
+							{/* Badges */}
+							<div class="flex flex-wrap gap-2">
+								{dog.data.goodWithKids && (
+									<span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
+										👶 Dobrý s deťmi
+									</span>
+								)}
+								{dog.data.energyLevel === 'Nízka' && (
+									<span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+										😌 Pokojný
+									</span>
+								)}
+								{dog.data.size === 'Malý' && (
+									<span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">
+										🏠 Vhodný do bytu
+									</span>
+								)}
+							</div>
+
 							<a
 								href={`/psici/${dog.id}`}
-								class="inline-block w-full px-4 py-2 text-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+								class="inline-block w-full px-4 py-2 text-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold"
 							>
 								Viac informácií
 							</a>
@@ -79,18 +146,124 @@ const dogs = [
 					</div>
 				))}
 			</div>
+		</div>
+	</section>
 
-			<div class="text-center mt-12">
-				<p class="text-muted-foreground mb-4">
-					Nenašli ste svojho ideálneho kamaráta? Kontaktujte nás priamo.
+	<!-- CTA Section -->
+	<section id="cta" class="cta-section">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 text-center">
+				<h2 class="text-2xl font-bold mb-4">Nenašli ste svojho ideálneho kamaráta?</h2>
+				<p class="text-muted-foreground mb-6">
+					Kontaktujte nás priamo. Radi vám pomôžeme nájsť psíka, ktorý vám bude vyhovovať.
 				</p>
 				<a
 					href="/kontakt"
-					class="inline-block px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors"
+					class="inline-block px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg"
 				>
 					Kontaktujte nás
 				</a>
 			</div>
 		</div>
 	</section>
+
+	<script>
+		// Dog filtering functionality
+		const filterSize = document.getElementById('filter-size') as HTMLSelectElement;
+		const filterGender = document.getElementById('filter-gender') as HTMLSelectElement;
+		const filterEnergy = document.getElementById('filter-energy') as HTMLSelectElement;
+		const filterKids = document.getElementById('filter-kids') as HTMLInputElement;
+		const filterUrgent = document.getElementById('filter-urgent') as HTMLInputElement;
+		const resetButton = document.getElementById('reset-filters') as HTMLButtonElement;
+		const dogCards = document.querySelectorAll('.dog-card');
+
+		function applyFilters() {
+			const sizeValue = filterSize.value;
+			const genderValue = filterGender.value;
+			const energyValue = filterEnergy.value;
+			const kidsChecked = filterKids.checked;
+			const urgentChecked = filterUrgent.checked;
+
+			let visibleCount = 0;
+
+			dogCards.forEach((card) => {
+				const cardElement = card as HTMLElement;
+				const cardSize = cardElement.dataset.size || '';
+				const cardGender = cardElement.dataset.gender || '';
+				const cardEnergy = cardElement.dataset.energy || '';
+				const cardKids = cardElement.dataset.kids === 'true';
+				const cardUrgent = cardElement.dataset.urgent === 'true';
+
+				let show = true;
+
+				// Size filter
+				if (sizeValue && cardSize !== sizeValue) {
+					show = false;
+				}
+
+				// Gender filter
+				if (genderValue && cardGender !== genderValue) {
+					show = false;
+				}
+
+				// Energy filter
+				if (energyValue && cardEnergy !== energyValue) {
+					show = false;
+				}
+
+				// Kids filter
+				if (kidsChecked && !cardKids) {
+					show = false;
+				}
+
+				// Urgent filter
+				if (urgentChecked && !cardUrgent) {
+					show = false;
+				}
+
+				if (show) {
+					cardElement.style.display = '';
+					visibleCount++;
+				} else {
+					cardElement.style.display = 'none';
+				}
+			});
+
+			// Show message if no dogs match
+			const container = document.getElementById('dogs-container');
+			if (container) {
+				const existingMessage = container.querySelector('.no-results');
+				if (existingMessage) {
+					existingMessage.remove();
+				}
+
+				if (visibleCount === 0) {
+					const message = document.createElement('div');
+					message.className = 'no-results col-span-full text-center py-12';
+					message.innerHTML = `
+						<p class="text-xl text-muted-foreground mb-2">Nenašli sa žiadni psíci podľa vašich kritérií.</p>
+						<p class="text-muted-foreground">Skúste upraviť filtre alebo ich zrušiť.</p>
+					`;
+					container.appendChild(message);
+				}
+			}
+		}
+
+		function resetFilters() {
+			filterSize.value = '';
+			filterGender.value = '';
+			filterEnergy.value = '';
+			filterKids.checked = false;
+			filterUrgent.checked = false;
+			applyFilters();
+		}
+
+		// Add event listeners
+		filterSize.addEventListener('change', applyFilters);
+		filterGender.addEventListener('change', applyFilters);
+		filterEnergy.addEventListener('change', applyFilters);
+		filterKids.addEventListener('change', applyFilters);
+		filterUrgent.addEventListener('change', applyFilters);
+		resetButton.addEventListener('click', resetFilters);
+	</script>
 </MainLayout>
