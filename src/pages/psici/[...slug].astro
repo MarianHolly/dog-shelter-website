@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/main.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { Markdown } from '@astropub/md';
+import AdoptionInquiryForm from '@/components/forms/AdoptionInquiryForm';
 
 // Get the slug from the URL
 const { slug } = Astro.params;
@@ -500,6 +501,23 @@ export async function getStaticPaths() {
 						<strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a>
 					</p>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Adoption Inquiry Form Section -->
+	<section id="adoption-inquiry" class="adoption-inquiry-section bg-primary/5">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl font-bold mb-6">💌 Mám záujem o adopciu</h2>
+				<p class="text-muted-foreground mb-8">
+					Chcete adoptovať {dog.name}? Vyplňte formulár a my sa vám ozveme s ďalšími informáciami o adopčnom procese.
+				</p>
+				<AdoptionInquiryForm
+					dogName={dog.name}
+					dogSlug={slug as string}
+					client:load
+				/>
 			</div>
 		</div>
 	</section>
