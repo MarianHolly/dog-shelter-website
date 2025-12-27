@@ -2,10 +2,12 @@
 import { siteConfig } from '@/config/site.config';
 ---
 
-<a href="/" class="flex items-center space-x-2 font-bold text-lg">
-  <div class="w-8 h-8 rounded-md bg-primary flex items-center justify-center">
-    <span class="text-white font-bold">A</span>
-  </div>
+<a href="/" class="flex items-center space-x-3 font-bold text-lg">
+  <img
+    src="/logo-utulok.png"
+    alt={`${siteConfig.name} logo`}
+    class="h-10 w-auto"
+  />
   <span class="hidden sm:inline-block">{siteConfig.name}</span>
 </a>
 

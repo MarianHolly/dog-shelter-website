@@ -68,12 +68,30 @@ export default function MobileNav({ navItems }: MobileNavProps) {
                 ) : (
                   <a
                     href={item.href}
-                    className="block p-2 font-medium hover:bg-accent rounded-md transition-colors"
+                    className={`block p-2 font-medium hover:bg-accent rounded-md transition-colors ${item.isListing ? 'font-semibold' : ''}`}
                     onClick={() => setOpen(false)}
                     target={item.external ? '_blank' : undefined}
                     rel={item.external ? 'noreferrer' : undefined}
                   >
-                    {item.title}
+                    <span className="flex items-center justify-between">
+                      {item.title}
+                      {item.isListing && (
+                        <svg
+                          className="h-4 w-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
+                        </svg>
+                      )}
+                    </span>
                   </a>
                 )}
               </div>

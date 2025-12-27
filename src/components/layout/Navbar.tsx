@@ -74,11 +74,30 @@ export default function Navbar({ navItems }: NavbarProps) {
             ) : (
               <NavigationMenuLink
                 href={item.href}
-                className={navigationMenuTriggerStyle()}
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  item.isListing && 'font-semibold'
+                )}
                 target={item.external ? '_blank' : undefined}
                 rel={item.external ? 'noreferrer' : undefined}
               >
                 {item.title}
+                {item.isListing && (
+                  <svg
+                    className="ml-1 h-3 w-3 inline"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                )}
               </NavigationMenuLink>
             )}
           </NavigationMenuItem>
