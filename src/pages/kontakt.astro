@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
+import ContactForm from '@/components/forms/ContactForm';
 ---
 
 <MainLayout title="Kontakt" description="Kontaktujte Trenčiansky útulok. Nájdete tu všetky potrebné informácie - telefón, email, adresu, otváracie hodiny a ako sa k nám dostať.">
@@ -86,8 +87,21 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Kontaktný formulár Section -->
+	<section id="contact-form" class="contact-form-section bg-muted/20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl font-bold mb-6">✉️ Napíšte nám</h2>
+				<p class="text-muted-foreground mb-8">
+					Máte otázky o adopcii, dobrovoľníctve alebo chcete pomôcť? Vyplňte formulár a ozveme sa vám čo najskôr.
+				</p>
+				<ContactForm client:load />
+			</div>
+		</div>
+	</section>
+
 	<!-- Mapa a fotka útulku Section -->
-	<section id="map-and-photo" class="map-photo-section bg-muted/20">
+	<section id="map-and-photo" class="map-photo-section">
 		<div class="mx-auto max-w-screen-2xl px-4 py-16">
 			<div class="max-w-6xl mx-auto space-y-8">
 				<!-- Google Maps -->
