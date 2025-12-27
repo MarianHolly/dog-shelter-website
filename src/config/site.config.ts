@@ -5,6 +5,7 @@ export interface NavItem {
   external?: boolean;
   icon?: string;
   description?: string;
+  isListing?: boolean; // For pages that lead to listings (Psíci, Blog)
 }
 
 export interface NavItemWithChildren extends NavItem {
@@ -34,20 +35,16 @@ export interface SiteConfig {
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Trenčiansky ÚTULOK",
-  title: "Trenčiansky útulok - Nekupuj, adoptuj si psíka od nás",
+  name: "Trenčianský útulok",
+  title: "Trenčianský útulok - Nekupuj, adoptuj si psíka od nás",
   description: "Pomáhame opusteným a týraným psom nájsť ich nový domov. Od roku 2011 zachraňujeme psíkov v Trenčíne.",
-  url: "https://example.com",
-  ogImage: "https://example.com/og.jpg",
+  url: "https://utulok-trencin.sk",
+  ogImage: "/logo-utulok.png",
   links: {
     facebook: "https://www.facebook.com/trencianskyutulok",
     instagram: "https://www.instagram.com/trencianskyutulok",
   },
   mainNav: [
-    {
-      title: "Domov",
-      href: "/",
-    },
     {
       title: "O nás",
       href: "/o-nas",
@@ -57,12 +54,18 @@ export const siteConfig: SiteConfig = {
       href: "/ako-pomoct",
     },
     {
-      title: "Psíci",
-      href: "/psici",
-    },
-    {
       title: "Adopcia",
       href: "/adopcia",
+    },
+    {
+      title: "Psíci",
+      href: "/psici",
+      isListing: true,
+    },
+    {
+      title: "Blog",
+      href: "/blog",
+      isListing: true,
     },
     {
       title: "Kontakt",
@@ -76,6 +79,7 @@ export const siteConfig: SiteConfig = {
         { title: "O nás", href: "/o-nas" },
         { title: "Naši psíci", href: "/psici" },
         { title: "Adopcia", href: "/adopcia" },
+        { title: "Blog", href: "/blog" },
         { title: "Kontakt", href: "/kontakt" },
       ],
     },
@@ -99,7 +103,7 @@ export const siteConfig: SiteConfig = {
     },
   ],
   footer: {
-    copyright: `© ${new Date().getFullYear()} Trenčiansky ÚTULOK. Všetky práva vyhradené.`,
+    copyright: `© ${new Date().getFullYear()} Trenčianský útulok. Všetky práva vyhradené.`,
     tagline: "Nekupuj, adoptuj si psíka od nás 🐾",
   },
 };

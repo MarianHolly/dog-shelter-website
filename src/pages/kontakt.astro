@@ -43,9 +43,9 @@ import MainLayout from '@/layouts/main.astro';
 				<div class="mt-6 p-6 rounded-lg bg-secondary/10 border border-secondary/20">
 					<h3 class="text-xl font-semibold mb-4">Sociálne siete</h3>
 					<div class="space-y-2">
-						<p><strong>Facebook:</strong> <a href="https://www.facebook.com/trencianskyutulok" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčiansky ÚTULOK</a></p>
+						<p><strong>Facebook:</strong> <a href="https://www.facebook.com/trencianskyutulok" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčianský útulok</a></p>
 						<p class="text-sm text-muted-foreground">Sledujte nás pre aktuálne novinky, fotky psíkov a príbehy úspešných adopcií.</p>
-						<p class="mt-4"><strong>Facebook skupina - STRATILI SA:</strong> <a href="https://www.facebook.com/groups/trencianskyUTULOK/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčiansky ÚTULOK - Stratili sa</a></p>
+						<p class="mt-4"><strong>Facebook skupina - STRATILI SA:</strong> <a href="https://www.facebook.com/groups/trencianskyUTULOK/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčianský útulok - Stratili sa</a></p>
 						<p class="text-sm text-muted-foreground">Skupina pre stratené a nájdené zvieratá v regióne Trenčín.</p>
 					</div>
 				</div>
@@ -86,6 +86,55 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Mapa a fotka útulku Section -->
+	<section id="map-and-photo" class="map-photo-section bg-muted/20">
+		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+			<div class="max-w-6xl mx-auto space-y-8">
+				<!-- Google Maps -->
+				<div>
+					<h2 class="text-3xl font-bold mb-6">🗺️ Kde nás nájdete</h2>
+					<div class="rounded-lg overflow-hidden border-2 border-border shadow-lg">
+						<iframe
+							src="https://www.google.com/maps?q=48.884778,18.006361&hl=sk&z=15&output=embed"
+							width="100%"
+							height="450"
+							style="border:0;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Mapa útulku Trenčín"
+						></iframe>
+					</div>
+					<div class="mt-4 text-center">
+						<a
+							href="https://www.google.com/maps?q=48.884778,18.006361"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold"
+						>
+							Otvoriť v Google Maps
+						</a>
+					</div>
+				</div>
+
+				<!-- Fotka útulku -->
+				<div>
+					<h2 class="text-3xl font-bold mb-6">📸 Náš útulok</h2>
+					<div class="rounded-lg overflow-hidden border-2 border-border shadow-lg">
+						<img
+							src="/images/our-house.jpeg"
+							alt="Trenčiansky útulok - budova"
+							class="w-full h-auto object-cover"
+						/>
+					</div>
+					<p class="text-center text-muted-foreground mt-4">
+						Takto vyzerá náš útulok. Tešíme sa na vašu návštevu!
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Otváracie hodiny Section -->
 	<section id="opening-hours" class="opening-hours-section">
 		<div class="mx-auto max-w-screen-2xl px-4 py-16">
@@ -111,7 +160,7 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="max-w-4xl mx-auto p-6 rounded-lg bg-muted/30 border border-border">
 				<h3 class="text-xl font-semibold mb-4">🏢 Sídlo občianskeho združenia</h3>
 				<div class="space-y-2">
-					<p><strong>Občianske združenie Trenčiansky ÚTULOK</strong></p>
+					<p><strong>Občianske združenie Trenčianský útulok</strong></p>
 					<p>Mgr. Petra Ožvaldová</p>
 					<p>Inovecká 60</p>
 					<p>911 01 Trenčín</p>
@@ -128,7 +177,7 @@ import MainLayout from '@/layouts/main.astro';
 				<h3 class="text-xl font-semibold mb-4">💳 Bankové spojenie</h3>
 				<p class="mb-4">Ak nám chcete poslať finančný príspevok, použite prosím tieto údaje:</p>
 				<div class="space-y-2">
-					<p><strong>Názov účtu:</strong> Trenčiansky ÚTULOK</p>
+					<p><strong>Názov účtu:</strong> Trenčianský útulok</p>
 					<p><strong>Číslo účtu (SK):</strong> <span class="font-mono text-primary font-semibold">SK41 0900 0000 0050 1714 3457</span></p>
 					<p><strong>BIC/SWIFT:</strong> GIBASKBX</p>
 					<p><strong>Banka:</strong> Slovenská sporiteľňa, a.s.</p>
