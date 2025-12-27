@@ -24,3 +24,6 @@ pnpm-debug.log*
 .idea/
 .content/
 .ideas/
+
+# public files
+images/
