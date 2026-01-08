@@ -121,11 +121,72 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground leading-relaxed;
     font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Mali', 'DM Sans', system-ui, sans-serif;
     font-weight: 600;
+    @apply leading-tight;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Large headings with tighter spacing for professionalism */
+  .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl {
+    @apply leading-tight tracking-tight;
+  }
+}
+
+/* Professional Minimalist Design Utilities */
+@layer components {
+  /* Standardized vertical rhythm - 8px base scale */
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+
+  .section-spacing-sm {
+    @apply py-12 md:py-16;
+  }
+
+  .section-spacing-lg {
+    @apply py-24 md:py-32;
+  }
+
+  /* Consistent horizontal padding */
+  .container-spacing {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Minimalist shadows for subtle depth */
+  .shadow-minimal {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  }
+
+  .shadow-minimal-lg {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.04);
+  }
+
+  /* Hover state with transition */
+  .shadow-minimal-hover {
+    @apply transition-shadow duration-300;
+  }
+
+  .shadow-minimal-hover:hover {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.06);
+  }
+
+  /* Dark mode version of minimal shadows */
+  .dark .shadow-minimal {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.12);
+  }
+
+  .dark .shadow-minimal-lg {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.16);
+  }
+
+  .dark .shadow-minimal-hover:hover {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.20);
   }
 }
