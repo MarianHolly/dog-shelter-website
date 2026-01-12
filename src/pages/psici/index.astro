@@ -14,11 +14,11 @@ const dogs = allDogs.sort((a, b) => {
 
 <MainLayout title="Naši psíci" description="Spoznajte našich psíkov čakajúcich na nový domov">
 	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Naši psíci</h1>
-				<p class="text-xl text-muted-foreground max-w-2xl mx-auto">
+	<section id="header" class="header-section section-spacing-sm">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-4xl mx-auto text-center space-y-6">
+				<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">Naši psíci</h1>
+				<p class="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
 					Títo úžasní psíci čakajú na nový domov a milujúcu rodinu. Každý z nich má svoj jedinečný príbeh a zaslúži si druhú šancu na šťastný život.
 				</p>
 			</div>
@@ -26,15 +26,15 @@ const dogs = allDogs.sort((a, b) => {
 	</section>
 
 	<!-- Filters Section -->
-	<section id="filters" class="filters-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-8">
+	<section id="filters" class="filters-section pb-8">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<div class="bg-card border border-border rounded-lg p-6">
-					<h2 class="text-xl font-semibold mb-4">Filtrovať psíkov</h2>
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+				<div class="bg-card rounded-lg p-6 md:p-8 shadow-minimal">
+					<h2 class="text-xl font-semibold mb-6 tracking-tight">Filtrovať psíkov</h2>
+					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 						<div>
-							<label for="filter-size" class="block text-sm font-medium mb-2">Veľkosť</label>
-							<select id="filter-size" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+							<label for="filter-size" class="block text-sm font-medium mb-2 text-foreground">Veľkosť</label>
+							<select id="filter-size" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
 								<option value="">Všetky veľkosti</option>
 								<option value="Malý">Malý</option>
 								<option value="Stredný">Stredný</option>
@@ -42,16 +42,16 @@ const dogs = allDogs.sort((a, b) => {
 							</select>
 						</div>
 						<div>
-							<label for="filter-gender" class="block text-sm font-medium mb-2">Pohlavie</label>
-							<select id="filter-gender" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+							<label for="filter-gender" class="block text-sm font-medium mb-2 text-foreground">Pohlavie</label>
+							<select id="filter-gender" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
 								<option value="">Všetky</option>
 								<option value="Pes">Pes</option>
 								<option value="Suka">Suka</option>
 							</select>
 						</div>
 						<div>
-							<label for="filter-energy" class="block text-sm font-medium mb-2">Úroveň energie</label>
-							<select id="filter-energy" class="w-full px-3 py-2 rounded-md border border-border bg-background">
+							<label for="filter-energy" class="block text-sm font-medium mb-2 text-foreground">Úroveň energie</label>
+							<select id="filter-energy" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
 								<option value="">Všetky úrovne</option>
 								<option value="Nízka">Nízka</option>
 								<option value="Stredná">Stredná</option>
@@ -59,21 +59,21 @@ const dogs = allDogs.sort((a, b) => {
 							</select>
 						</div>
 						<div>
-							<label class="block text-sm font-medium mb-2">Vlastnosti</label>
-							<div class="space-y-2">
-								<label class="flex items-center gap-2">
-									<input type="checkbox" id="filter-kids" class="rounded border-border">
+							<label class="block text-sm font-medium mb-2 text-foreground">Vlastnosti</label>
+							<div class="space-y-3">
+								<label class="flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" id="filter-kids" class="rounded border-border/20 focus:ring-2 focus:ring-primary/10">
 									<span class="text-sm">Dobrý s deťmi</span>
 								</label>
-								<label class="flex items-center gap-2">
-									<input type="checkbox" id="filter-urgent" class="rounded border-border">
+								<label class="flex items-center gap-2 cursor-pointer">
+									<input type="checkbox" id="filter-urgent" class="rounded border-border/20 focus:ring-2 focus:ring-primary/10">
 									<span class="text-sm">Len urgentné</span>
 								</label>
 							</div>
 						</div>
 					</div>
-					<div class="mt-4 flex gap-2">
-						<button id="reset-filters" class="px-4 py-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors">
+					<div class="mt-6 flex gap-2">
+						<button id="reset-filters" class="px-6 py-2.5 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors shadow-sm font-medium">
 							Zrušiť filtre
 						</button>
 					</div>
@@ -83,12 +83,13 @@ const dogs = allDogs.sort((a, b) => {
 	</section>
 
 	<!-- Dogs Grid Section -->
-	<section id="dogs-grid" class="dogs-grid-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div id="dogs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+	<section id="dogs-grid" class="dogs-grid-section section-spacing">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div id="dogs-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
 				{dogs.map((dog) => (
-					<div
-						class="dog-card rounded-lg border border-border overflow-hidden bg-card hover:shadow-lg transition-shadow relative"
+					<a
+						href={`/psici/${dog.id}`}
+						class="dog-card group rounded-lg overflow-hidden bg-card shadow-minimal-hover transition-all duration-300 relative block"
 						data-size={dog.data.size || ''}
 						data-gender={dog.data.gender}
 						data-energy={dog.data.energyLevel || ''}
@@ -96,72 +97,95 @@ const dogs = allDogs.sort((a, b) => {
 						data-urgent={dog.data.urgent ? 'true' : 'false'}
 					>
 						{dog.data.urgent && (
-							<div class="absolute top-2 right-2 z-10 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-bold">
-								URGENTNÉ
+							<div class="absolute top-3 right-3 z-10 bg-destructive text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
+								⚡ URGENTNÉ
 							</div>
 						)}
-						<img
-							src={dog.data.image}
-							alt={dog.data.name}
-							class="w-full h-64 object-cover"
-						/>
-						<div class="p-4 space-y-3">
-							<h3 class="text-2xl font-semibold">{dog.data.name}</h3>
-							<div class="space-y-1 text-sm text-muted-foreground">
-								<p><strong>Plemeno:</strong> {dog.data.breed}</p>
-								<p><strong>Vek:</strong> {dog.data.age}</p>
-								<p><strong>Pohlavie:</strong> {dog.data.gender}</p>
+
+						{/* Image - larger and more prominent */}
+						<div class="relative overflow-hidden h-80 md:h-96">
+							<img
+								src={dog.data.image}
+								alt={dog.data.name}
+								class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+							/>
+							<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+						</div>
+
+						<div class="p-5 space-y-3">
+							{/* Name and Age on same line */}
+							<div class="flex items-baseline justify-between gap-2">
+								<h3 class="text-2xl font-bold tracking-tight">{dog.data.name}</h3>
+								<span class="text-lg text-muted-foreground font-medium">{dog.data.age}</span>
+							</div>
+
+							{/* Breed */}
+							<p class="text-sm text-muted-foreground">{dog.data.breed}</p>
+
+							{/* Compact info row with icons */}
+							<div class="flex items-center gap-4 pt-1 pb-2 text-muted-foreground">
+								{/* Gender icon */}
+								<div class="flex items-center gap-1.5" title={dog.data.gender}>
+									<span class="text-xl">
+										{dog.data.gender === 'Pes' ? '♂' : '♀'}
+									</span>
+								</div>
+
+								{/* Size visualization with dog icons */}
 								{dog.data.size && (
-									<p><strong>Veľkosť:</strong> {dog.data.size}</p>
+									<div class="flex items-center gap-1" title={dog.data.size}>
+										<span class={`text-sm ${dog.data.size === 'Malý' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
+										<span class={`text-base ${dog.data.size === 'Stredný' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
+										<span class={`text-xl ${dog.data.size === 'Veľký' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
+									</div>
 								)}
 							</div>
-							<p class="text-sm">{dog.data.description}</p>
 
-							{/* Badges */}
-							<div class="flex flex-wrap gap-2">
+							{/* Short description - truncated */}
+							<p class="text-sm text-foreground/80 leading-relaxed line-clamp-2">
+								{dog.data.description}
+							</p>
+
+							{/* Badges - only most important ones */}
+							<div class="flex flex-wrap gap-2 pt-2">
 								{dog.data.goodWithKids && (
-									<span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">
-										👶 Dobrý s deťmi
+									<span class="px-2.5 py-1 bg-secondary/20 text-secondary-foreground text-xs rounded-full font-medium">
+										👶 S deťmi
 									</span>
 								)}
 								{dog.data.energyLevel === 'Nízka' && (
-									<span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">
+									<span class="px-2.5 py-1 bg-accent/20 text-accent-foreground text-xs rounded-full font-medium">
 										😌 Pokojný
-									</span>
-								)}
-								{dog.data.size === 'Malý' && (
-									<span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">
-										🏠 Vhodný do bytu
 									</span>
 								)}
 							</div>
 
-							<a
-								href={`/psici/${dog.id}`}
-								class="inline-block w-full px-4 py-2 text-center rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold"
-							>
-								Viac informácií
-							</a>
+							{/* CTA appears on hover */}
+							<div class="pt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+								<div class="w-full py-2.5 text-center rounded-md bg-primary/10 text-primary font-semibold text-sm group-hover:bg-primary/20 transition-colors">
+									Viac informácií →
+								</div>
+							</div>
 						</div>
-					</div>
+					</a>
 				))}
 			</div>
 		</div>
 	</section>
 
 	<!-- CTA Section -->
-	<section id="cta" class="cta-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 text-center">
-				<h2 class="text-2xl font-bold mb-4">Nenašli ste svojho ideálneho kamaráta?</h2>
-				<p class="text-muted-foreground mb-6">
+	<section id="cta" class="cta-section section-spacing-lg">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-4xl mx-auto bg-primary/5 rounded-lg p-10 md:p-12 text-center shadow-minimal">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Nenašli ste svojho ideálneho kamaráta?</h2>
+				<p class="text-lg text-muted-foreground mb-8 leading-relaxed max-w-2xl mx-auto">
 					Kontaktujte nás priamo. Radi vám pomôžeme nájsť psíka, ktorý vám bude vyhovovať.
 				</p>
 				<a
 					href="/kontakt"
-					class="inline-block px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg"
+					class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg shadow-sm"
 				>
-					Kontaktujte nás
+					Kontaktujte nás →
 				</a>
 			</div>
 		</div>
