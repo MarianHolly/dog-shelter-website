@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
+import NewsletterForm from '@/components/forms/NewsletterForm';
 ---
 
 <MainLayout title="Ako pomôcť" description="Existuje mnoho spôsobov, ako môžete pomôcť Trenčianskemu útulku. Či už adopciou, finančným príspevkom, dobrovoľníctvom alebo zdieľaním.">
@@ -372,6 +373,19 @@ import MainLayout from '@/layouts/main.astro';
 				<p class="text-sm text-muted-foreground text-center mt-8">
 					<em>Posledná aktualizácia: December 2024</em>
 				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter Section -->
+	<section id="newsletter" class="newsletter-section section-spacing bg-muted/5">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-2xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Odber noviniek</h2>
+				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
+					Prihláste sa na odber noviniek a získajte informácie o nových psíkoch, udalostiach a príbehoch úspešných adopcií.
+				</p>
+				<NewsletterForm client:load />
 			</div>
 		</div>
 	</section>
