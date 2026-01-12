@@ -4,7 +4,7 @@ import MainLayout from '@/layouts/main.astro';
 
 <MainLayout title="Domov" description="Nekupuj, adoptuj si psíka od nás. Pomáhame opusteným a týraným psom nájsť ich nový domov.">
 	<!-- Hero Section -->
-	<section id="hero" class="hero-section relative overflow-hidden">
+	<section id="hero" class="hero-section relative overflow-hidden h-screen -mt-16">
 		<!-- Background Image with Overlay -->
 		<div class="absolute inset-0 z-0">
 			<img
@@ -16,10 +16,10 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 
 		<!-- Content -->
-		<div class="relative z-10 mx-auto max-w-screen-2xl px-4 py-32 md:py-48">
-			<div class="flex flex-col items-center justify-center gap-8 text-center min-h-[60vh] md:min-h-[70vh]">
-				<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold">Nekupuj, adoptuj si psíka od nás</h1>
-				<p class="text-xl md:text-2xl text-muted-foreground max-w-3xl">
+		<div class="relative z-10 mx-auto max-w-screen-2xl px-4 h-full">
+			<div class="flex h-full flex-col items-center justify-center gap-8 text-center pt-16">
+				<h1 class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-none">Nekupuj, adoptuj si psíka od nás</h1>
+				<p class="text-lg md:text-xl lg:text-2xl text-foreground/90 max-w-3xl leading-relaxed">
 					Vitajte v Trenčianskom útulku! Sme občianske združenie, ktoré sa už viac ako 13 rokov stará o opustených a týraných psíkov v Trenčíne. Každý z našich psíkov si zaslúži druhú šancu a láskyplný domov.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 mt-6">
@@ -34,161 +34,194 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
-	<!-- Quick Image Gallery -->
-	<section id="gallery" class="gallery-section bg-muted/20">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
-					<img
-						src="/images/madeline-bowen-unsplash.jpg"
-						alt="Pes čakajúci na adopciu"
-						class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-						loading="lazy"
-						width="400"
-						height="256"
-					/>
-				</div>
-				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
-					<img
-						src="/images/michael-kucharski-unsplash.jpg"
-						alt="Pes čakajúci na adopciu"
-						class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-						loading="lazy"
-						width="400"
-						height="256"
-					/>
-				</div>
-				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
-					<img
-						src="/images/jana-shnipelson-KnzXzvRqTFE-unsplash.jpg"
-						alt="Pes čakajúci na adopciu"
-						class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-						loading="lazy"
-						width="400"
-						height="256"
-					/>
-				</div>
-				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow">
-					<img
-						src="/images/sasha-sashina-Xcscr_sNSEY-unsplash.jpg"
-						alt="Pes čakajúci na adopciu"
-						class="w-full h-64 object-cover hover:scale-105 transition-transform duration-300"
-						loading="lazy"
-						width="400"
-						height="256"
-					/>
+	<!-- About Section -->
+	<section id="about" class="about-section section-spacing">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-3xl mx-auto text-center">
+				<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-wider mb-6">Kto sme</h2>
+				<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
+				<p class="text-lg md:text-xl leading-relaxed text-foreground/90">
+					Sme malé občianske združenie hlboko zakorenené v trenčianskej komunite. Od roku 2011 sa staráme o opustených a týraných psíkov s láskou a osobným prístupom. U nás nie ste len číslo – každý pes má svoj príbeh a každý adoptér sa stáva súčasťou našej rodiny dobrovoľníkov, podporovateľov a priateľov zvierat.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Principles Section -->
+	<section id="principles" class="principles-section section-spacing">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-6xl mx-auto">
+				<div class="grid md:grid-cols-3 gap-8 md:gap-12">
+					<!-- Principle 1: Personal Approach -->
+					<div class="text-center p-8 md:p-10 rounded-lg shadow-minimal-hover">
+						<div class="text-6xl mb-6">🏡</div>
+						<h3 class="text-2xl font-bold mb-4 tracking-tight">Osobný prístup</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Malý útulok, veľké srdce. Poznáme každého psíka osobne, jeho povahu a potreby. Pomôžeme vám nájsť toho pravého štvornohého kamaráta.
+						</p>
+					</div>
+
+					<!-- Principle 2: Inclusive Community -->
+					<div class="text-center p-8 md:p-10 rounded-lg shadow-minimal-hover">
+						<div class="text-6xl mb-6">🤝</div>
+						<h3 class="text-2xl font-bold mb-4 tracking-tight">Inkluzívna komunita</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Každý môže pomôcť – adoptéri, sponzori, dobrovoľníci, zdieľači príbehov. Spoločne tvoríme rodinu ľudí, ktorým záleží na osudoch psíkov.
+						</p>
+					</div>
+
+					<!-- Principle 3: Transparency -->
+					<div class="text-center p-8 md:p-10 rounded-lg shadow-minimal-hover">
+						<div class="text-6xl mb-6">💙</div>
+						<h3 class="text-2xl font-bold mb-4 tracking-tight">Transparentnosť</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Zdieľame príbehy našich psíkov, ich pokroky aj výzvy. Staňte sa súčasťou ich životov a sledujte ich cestu k novému domovu.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- Stats Section -->
-	<section id="stats" class="stats-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-				<div class="text-center p-8 rounded-lg bg-card border border-border">
-					<div class="text-5xl font-bold text-primary mb-2">500+</div>
-					<div class="text-lg text-muted-foreground">Psíkov našlo nový domov</div>
+	<section id="stats" class="stats-section section-spacing">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
+				<div class="text-center p-8 md:p-12 rounded-lg shadow-minimal-hover">
+					<div class="text-6xl md:text-7xl font-bold text-primary mb-4">500+</div>
+					<div class="text-lg text-muted-foreground leading-relaxed">Psíkov našlo nový domov</div>
 				</div>
-				<div class="text-center p-8 rounded-lg bg-card border border-border">
-					<div class="text-5xl font-bold text-primary mb-2">13</div>
-					<div class="text-lg text-muted-foreground">Rokov pomáhame</div>
+				<div class="text-center p-8 md:p-12 rounded-lg shadow-minimal-hover">
+					<div class="text-6xl md:text-7xl font-bold text-primary mb-4">13</div>
+					<div class="text-lg text-muted-foreground leading-relaxed">Rokov pomáhame</div>
 				</div>
-				<div class="text-center p-8 rounded-lg bg-card border border-border">
-					<div class="text-5xl font-bold text-primary mb-2">24/7</div>
-					<div class="text-lg text-muted-foreground">Starostlivosť o psíkov</div>
+				<div class="text-center p-8 md:p-12 rounded-lg shadow-minimal-hover">
+					<div class="text-6xl md:text-7xl font-bold text-primary mb-4">24/7</div>
+					<div class="text-lg text-muted-foreground leading-relaxed">Starostlivosť o psíkov</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- About Section -->
-	<section id="about" class="about-section bg-muted/10">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+	<!-- Quick Image Gallery -->
+	<section id="gallery" class="gallery-section section-spacing">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="text-center mb-12 md:mb-16">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Naši psíci hľadajú domov</h2>
+				<p class="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">Zoznámte sa s našimi nádherným štvornohými priateľmi</p>
+			</div>
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+				<div class="overflow-hidden rounded-lg shadow-minimal-hover group">
+					<img
+						src="/images/madeline-bowen-unsplash.jpg"
+						alt="Pes čakajúci na adopciu"
+						class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+						loading="lazy"
+						width="400"
+						height="256"
+					/>
+				</div>
+				<div class="overflow-hidden rounded-lg shadow-minimal-hover group">
+					<img
+						src="/images/michael-kucharski-unsplash.jpg"
+						alt="Pes čakajúci na adopciu"
+						class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+						loading="lazy"
+						width="400"
+						height="256"
+					/>
+				</div>
+				<div class="overflow-hidden rounded-lg shadow-minimal-hover group">
+					<img
+						src="/images/jana-shnipelson-KnzXzvRqTFE-unsplash.jpg"
+						alt="Pes čakajúci na adopciu"
+						class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+						loading="lazy"
+						width="400"
+						height="256"
+					/>
+				</div>
+				<div class="overflow-hidden rounded-lg shadow-minimal-hover group">
+					<img
+						src="/images/sasha-sashina-Xcscr_sNSEY-unsplash.jpg"
+						alt="Pes čakajúci na adopciu"
+						class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+						loading="lazy"
+						width="400"
+						height="256"
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Adopt Section - Part 1: General Benefits -->
+	<section id="why-adopt" class="why-adopt-section section-spacing-lg">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
 			<div class="max-w-5xl mx-auto">
-				<h2 class="text-3xl md:text-5xl font-bold text-center mb-16">Kto sme</h2>
-
-				<div class="grid md:grid-cols-2 gap-12 items-center mb-12">
-					<div class="space-y-6">
-						<div class="flex items-start gap-4">
-							<div class="text-4xl flex-shrink-0">🏠</div>
-							<div>
-								<h3 class="text-2xl font-semibold mb-3">Náš útulok</h3>
-								<p class="text-lg leading-relaxed text-muted-foreground">
-									Občianske združenie Trenčianský útulok prevádzkuje karanténnu stanicu a útulok pre psov v Trenčíne. Od roku 2011 sme pomohli stovkám psíkov najsť nový domov.
-								</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="space-y-6">
-						<div class="flex items-start gap-4">
-							<div class="text-4xl flex-shrink-0">❤️</div>
-							<div>
-								<h3 class="text-2xl font-semibold mb-3">Naša misia</h3>
-								<p class="text-lg leading-relaxed text-muted-foreground">
-									Zachraňovať opustené a týrané zvieratá a darovať im nádej na lepší život. Každý pes si zaslúži druhú šancu a láskyplný domov.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="bg-primary/5 border-l-4 border-primary rounded-r-lg p-8">
-					<p class="text-xl leading-relaxed text-center italic">
-						Celá naša činnosť je založená na dobrovoľnosti, láske k zvieratám a podpore od ľudí, ktorým nie sú osudy psíkov ľahostajné. Každý deň sa staráme o desiatky štvornohých kamarátov, ktorí čakajú na svoj vlastný príbeh so šťastným koncom.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Why Adopt Section -->
-	<section id="why-adopt" class="why-adopt-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
-			<div class="max-w-6xl mx-auto">
-				<h2 class="text-3xl md:text-5xl font-bold text-center mb-16">Prečo adoptovať od nás?</h2>
-				<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 tracking-tight">Prečo adoptovať?</h2>
+				<div class="grid md:grid-cols-3 gap-8 md:gap-10">
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
 						<div class="text-5xl mb-4">🐾</div>
 						<h3 class="text-2xl font-semibold mb-4">Záchrana života</h3>
 						<p class="text-muted-foreground leading-relaxed">
 							Adopciou dáte opustenému psíkovi druhú šancu na šťastný život. Zachránite život a získate verného kamaráta, ktorý vám to bude vďačný každý deň.
 						</p>
 					</div>
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
-						<div class="text-5xl mb-4">💉</div>
-						<h3 class="text-2xl font-semibold mb-4">Kompletná starostlivosť</h3>
-						<p class="text-muted-foreground leading-relaxed">
-							Všetci naši psíci sú odčervení, odblšení, očkovaní, začipovaní a kastrovaní. Dostanete zdravého psíka pripraveného na nový domov.
-						</p>
-					</div>
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
-						<div class="text-5xl mb-4">🤝</div>
-						<h3 class="text-2xl font-semibold mb-4">Podpora a poradenstvo</h3>
-						<p class="text-muted-foreground leading-relaxed">
-							Pomôžeme vám vybrať psíka, ktorý vám bude vyhovovať podľa vášho životného štýlu. Poradíme vám s adaptáciou a budeme vás podporovať aj po adopcii.
-						</p>
-					</div>
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
-						<div class="text-5xl mb-4">💰</div>
-						<h3 class="text-2xl font-semibold mb-4">Oslobodenie od dane</h3>
-						<p class="text-muted-foreground leading-relaxed">
-							V meste Trenčín neplatíte daň za adoptovaného psíka z útulku. Ušetríte náklady a zároveň pomôžete dobrej veci.
-						</p>
-					</div>
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
 						<div class="text-5xl mb-4">❤️</div>
 						<h3 class="text-2xl font-semibold mb-4">Vďačný kamarát</h3>
 						<p class="text-muted-foreground leading-relaxed">
 							Získate verného spoločníka na celý život, ktorý vám dá nekonečnú lásku a radosť. Psíci z útulku si svoju druhú šancu naplno vážia.
 						</p>
 					</div>
-					<div class="p-8 rounded-lg bg-card border border-border text-center hover:shadow-lg transition-shadow">
-						<div class="text-5xl mb-4">📋</div>
-						<h3 class="text-2xl font-semibold mb-4">Zodpovedná adopcia</h3>
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
+						<div class="text-5xl mb-4">🌍</div>
+						<h3 class="text-2xl font-semibold mb-4">Zodpovedné vlastníctvo</h3>
 						<p class="text-muted-foreground leading-relaxed">
-							Poznáme povahu každého psíka a pomôžeme vám nájsť toho pravého. Staráme sa o to, aby adopcia bola úspešná pre vás aj pre psíka.
+							Adoptovaním zo sheltra bojujete proti nelegálnym chovateľom a zvyšujete povedomie o zodpovednom vlastníctve psov.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Adopt Section - Part 2: Our Advantages -->
+	<section id="why-adopt-us" class="why-adopt-us-section section-spacing-lg">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-6xl mx-auto">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 tracking-tight">Prečo adoptovať U NÁS?</h2>
+				<p class="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-16 leading-relaxed">
+					Naše služby a zodpovedný prístup zabezpečia úspešnú adopciu
+				</p>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
+						<div class="text-5xl mb-4">💉</div>
+						<h3 class="text-2xl font-semibold mb-4">Kompletná starostlivosť</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Všetci naši psíci sú odčervení, odblšení, očkovaní, začipovaní a kastrovaní. Dostanete zdravého psíka pripraveného na nový domov.
+						</p>
+					</div>
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
+						<div class="text-5xl mb-4">🤝</div>
+						<h3 class="text-2xl font-semibold mb-4">Osobný prístup</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Malý útulok znamená, že poznáme každého psíka osobne. Pomôžeme vám vybrať psíka, ktorý vám bude vyhovovať podľa životného štýlu.
+						</p>
+					</div>
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
+						<div class="text-5xl mb-4">💰</div>
+						<h3 class="text-2xl font-semibold mb-4">Oslobodenie od dane</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							V meste Trenčín neplatíte daň za adoptovaného psíka z útulku. Ušetríte náklady a zároveň pomôžete dobrej veci.
+						</p>
+					</div>
+					<div class="p-8 md:p-10 rounded-lg shadow-minimal-hover text-center">
+						<div class="text-5xl mb-4">📋</div>
+						<h3 class="text-2xl font-semibold mb-4">Podpora aj po adopcii</h3>
+						<p class="text-muted-foreground leading-relaxed">
+							Poradíme vám s adaptáciou a budeme vás podporovať aj po adopcii. Nie ste sami – sme tu pre vás a vášho psíka.
 						</p>
 					</div>
 				</div>
@@ -197,89 +230,175 @@ import MainLayout from '@/layouts/main.astro';
 	</section>
 
 	<!-- Support Section -->
-	<section id="support" class="support-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-8">Ako nás môžete podporiť</h2>
-				<p class="text-lg text-muted-foreground mb-12">
-					Aj keď nemôžete adoptovať, existuje množstvo spôsobov, ako nám môžete pomôcť
-				</p>
-				<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-					<a href="/ako-pomoct#2-z-dani" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">💙</div>
-						<div class="font-semibold">2% z daní</div>
-					</a>
-					<a href="/ako-pomoct#financny-prispevok" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">💰</div>
-						<div class="font-semibold">Finančný príspevok</div>
-					</a>
-					<a href="/ako-pomoct#krmivo" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">🎁</div>
-						<div class="font-semibold">Krmivo a potreby</div>
-					</a>
-					<a href="/ako-pomoct#virtualna-adopcia" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">🐕</div>
-						<div class="font-semibold">Virtuálna adopcia</div>
-					</a>
-					<a href="/ako-pomoct#dobrovolnictvo" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">🤝</div>
-						<div class="font-semibold">Dobrovoľníctvo</div>
-					</a>
-					<a href="/ako-pomoct" class="p-6 rounded-lg bg-secondary/20 hover:bg-secondary/30 transition-colors border border-border">
-						<div class="text-3xl mb-2">📢</div>
-						<div class="font-semibold">Zdieľanie</div>
+	<section id="support" class="support-section section-spacing-lg">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">Ako nás môžete podporiť</h2>
+					<p class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+						Aj keď momentálne nemôžete adoptovať, existuje množstvo spôsobov, ako sa môžete stať súčasťou našej komunity a pomôcť našim psíkom
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-12 md:gap-16">
+					<!-- Financial Support -->
+					<div>
+						<h3 class="text-2xl font-bold mb-8 text-center md:text-left">Finančná podpora</h3>
+						<div class="space-y-4">
+							<a href="/ako-pomoct#financny-prispevok" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">💰</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">Finančný príspevok</div>
+										<div class="text-sm text-muted-foreground mt-1">Jednorazový alebo pravidel</div>
+									</div>
+								</div>
+							</a>
+							<a href="/ako-pomoct#2-z-dani" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">💙</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">2% z daní</div>
+										<div class="text-sm text-muted-foreground mt-1">Venujte nám 2% z vašej dane</div>
+									</div>
+								</div>
+							</a>
+							<a href="/ako-pomoct#virtualna-adopcia" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">🐕</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">Virtuálna adopcia</div>
+										<div class="text-sm text-muted-foreground mt-1">Mesačné sponzorstvo konkrétneho psíka</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+
+					<!-- Active Support -->
+					<div>
+						<h3 class="text-2xl font-bold mb-8 text-center md:text-left">Aktívna pomoc</h3>
+						<div class="space-y-4">
+							<a href="/ako-pomoct#dobrovolnictvo" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">🤝</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">Dobrovoľníctvo</div>
+										<div class="text-sm text-muted-foreground mt-1">Venujte nám svoj čas a energiu</div>
+									</div>
+								</div>
+							</a>
+							<a href="/ako-pomoct#krmivo" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">🎁</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">Dary a potreby</div>
+										<div class="text-sm text-muted-foreground mt-1">Krmivo, deky, hračky a ostatné potreby</div>
+									</div>
+								</div>
+							</a>
+							<a href="/ako-pomoct" class="block p-6 rounded-lg shadow-minimal-hover transition-all hover:shadow-minimal-lg group">
+								<div class="flex items-center gap-4">
+									<div class="text-4xl flex-shrink-0">📢</div>
+									<div class="text-left">
+										<div class="font-semibold text-foreground text-lg group-hover:text-primary transition-colors">Zdieľanie</div>
+										<div class="text-sm text-muted-foreground mt-1">Šírte povedomie o našich psíkoch</div>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="text-center mt-12">
+					<a href="/ako-pomoct" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold shadow-sm">
+						Všetky možnosti podpory →
 					</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Contact Section -->
-	<section id="contact" class="contact-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12">
-				<h2 class="text-3xl font-bold text-center mb-8">Ako nás nájdete</h2>
-				<div class="grid md:grid-cols-2 gap-8">
-					<div>
-						<h3 class="text-xl font-semibold mb-4">Adresa</h3>
-						<p class="text-muted-foreground mb-6">
-							Brnianska 2480<br>
-							911 05 Trenčín - Zlatovce
-						</p>
-						<h3 class="text-xl font-semibold mb-4">GPS súradnice</h3>
-						<p class="text-muted-foreground mb-6">
-							48°53'05.2″N 18°00'22.9″E
-						</p>
-					</div>
-					<div>
-						<h3 class="text-xl font-semibold mb-4">Otváracie hodiny</h3>
-						<p class="text-muted-foreground mb-6">
-							Pondelok - Nedeľa: 10:00 - 16:00
-						</p>
-						<h3 class="text-xl font-semibold mb-4">Kontakt</h3>
-						<p class="text-muted-foreground">
-							📞 <a href="tel:+421915785007" class="hover:text-primary transition-colors">+421 915 785 007</a><br>
-							✉️ <a href="mailto:utulok.trencin@gmail.com" class="hover:text-primary transition-colors">utulok.trencin@gmail.com</a>
-						</p>
-					</div>
-				</div>
-				<div class="text-center mt-8">
-					<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold">
-						Viac informácií o kontakte
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Thank You Section -->
-	<section id="thank-you" class="thank-you-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="text-center max-w-3xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6">V mene našich psíkov vám zo srdca ďakujeme!</h2>
-				<p class="text-lg text-muted-foreground">
-					Každá pomoc, či už formou adopcie, finančného príspevku alebo dobrovoľníckej práce, nám pomáha zlepšovať životy našich štvornohých priateľov. Spolu dokážeme veľa.
+	<!-- Find Us Section -->
+	<section id="find-us" class="find-us-section section-spacing-lg">
+		<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">Ako nás nájdete</h2>
+				<p class="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+					Navštívte nás a spoznajte našich psíkov osobne
 				</p>
+			</div>
+
+			<div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16">
+				<!-- Contact Information -->
+				<div class="space-y-8">
+					<div>
+						<div class="flex items-start gap-4 mb-4">
+							<div class="text-3xl">📍</div>
+							<div>
+								<h3 class="text-xl font-bold mb-2">Adresa</h3>
+								<p class="text-muted-foreground leading-relaxed">
+									Brnianska 2480<br>
+									911 05 Trenčín - Zlatovce
+								</p>
+								<p class="text-sm text-muted-foreground mt-2">
+									GPS: 48°53'05.2″N 18°00'22.9″E
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div class="flex items-start gap-4 mb-4">
+							<div class="text-3xl">🕐</div>
+							<div>
+								<h3 class="text-xl font-bold mb-2">Otváracie hodiny</h3>
+								<p class="text-muted-foreground leading-relaxed">
+									Pondelok - Nedeľa<br>
+									<span class="text-lg font-semibold text-foreground">10:00 - 16:00</span>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div>
+						<div class="flex items-start gap-4 mb-4">
+							<div class="text-3xl">📞</div>
+							<div>
+								<h3 class="text-xl font-bold mb-2">Kontakt</h3>
+								<p class="text-muted-foreground leading-relaxed">
+									<a href="tel:+421915785007" class="hover:text-primary transition-colors font-medium">
+										+421 915 785 007
+									</a><br>
+									<a href="mailto:utulok.trencin@gmail.com" class="hover:text-primary transition-colors">
+										utulok.trencin@gmail.com
+									</a>
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="pt-4">
+						<a href="/kontakt" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold shadow-sm w-full md:w-auto">
+							Kompletné informácie →
+						</a>
+					</div>
+				</div>
+
+				<!-- Visual / Map -->
+				<div class="flex items-center justify-center">
+					<div class="w-full h-full min-h-[400px] rounded-lg shadow-minimal-lg overflow-hidden bg-muted/20 flex items-center justify-center">
+						<!-- Placeholder for map or image -->
+						<div class="text-center p-8">
+							<div class="text-6xl mb-4">🗺️</div>
+							<p class="text-muted-foreground">
+								<a href="https://maps.google.com/?q=48.884778,18.006361" target="_blank" rel="noopener noreferrer" class="text-primary hover:text-primary/80 font-semibold">
+									Zobraziť na Google Maps →
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
