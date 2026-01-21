@@ -89,6 +89,9 @@ export async function getStaticPaths() {
 					<img
 						src={post.image}
 						alt={post.imageAlt || post.title}
+						loading="lazy"
+						width="1200"
+						height="600"
 						class="w-full h-auto max-h-[600px] object-cover rounded-lg shadow-minimal-lg"
 					/>
 				</div>

@@ -76,6 +76,9 @@ const formatDate = (date: Date) => {
 							<img
 								src={post.data.image}
 								alt={post.data.imageAlt || post.data.title}
+								loading="lazy"
+								width="400"
+								height="224"
 								class="w-full h-56 object-cover"
 							/>
 						)}
