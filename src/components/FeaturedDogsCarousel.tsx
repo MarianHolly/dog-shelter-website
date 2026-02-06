@@ -69,56 +69,90 @@ export default function FeaturedDogsCarousel({ dogs }: FeaturedDogsCarouselProps
                     <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
 
-                  <div className="p-5 space-y-3">
-                    {/* Name and Age */}
-                    <div className="flex items-baseline justify-between gap-2">
-                      <h3 className="text-2xl font-bold tracking-tight">{dog.data.name}</h3>
-                      <span className="text-lg text-muted-foreground font-medium">{dog.data.age}</span>
+                  <div className="p-6 space-y-4">
+                    {/* Name and Breed */}
+                    <div>
+                      <h3 className="text-2xl font-bold tracking-tight mb-1">{dog.data.name}</h3>
+                      <p className="text-sm text-muted-foreground font-medium">{dog.data.breed}</p>
                     </div>
 
-                    {/* Breed */}
-                    <p className="text-sm text-muted-foreground">{dog.data.breed}</p>
-
-                    {/* Info row */}
-                    <div className="flex items-center gap-4 pt-1 pb-2 text-muted-foreground">
-                      <div className="flex items-center gap-1.5" title={dog.data.gender}>
-                        <span className="text-xl">
-                          {dog.data.gender === 'Pes' ? '♂' : '♀'}
-                        </span>
+                    {/* Key Details - Animal Cove Style */}
+                    <div className="flex items-center gap-4 text-sm">
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-medium text-foreground">Vek:</span>
+                        <span className="text-muted-foreground">{dog.data.age}</span>
                       </div>
-
+                      <div className="flex items-center gap-1.5">
+                        <span className="font-medium text-foreground">Pohlavie:</span>
+                        <span className="text-muted-foreground">{dog.data.gender}</span>
+                      </div>
                       {dog.data.size && (
-                        <div className="flex items-center gap-1" title={dog.data.size}>
-                          <span className={`text-sm ${dog.data.size === 'Malý' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
-                          <span className={`text-base ${dog.data.size === 'Stredný' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
-                          <span className={`text-xl ${dog.data.size === 'Veľký' ? 'text-primary' : 'text-muted-foreground/30'}`}>🐕</span>
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-medium text-foreground">Veľkosť:</span>
+                          <span className="text-muted-foreground">{dog.data.size}</span>
                         </div>
                       )}
                     </div>
 
-                    {/* Description */}
-                    <p className="text-sm text-foreground/80 leading-relaxed line-clamp-2">
-                      {dog.data.description}
-                    </p>
+                    {/* Health Status Icons - Animal Cove Style */}
+                    <div className="pt-2 pb-1">
+                      <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-3">Zdravotný stav</p>
+                      <div className="grid grid-cols-3 gap-3">
+                        {/* Vaccinated */}
+                        <div className="flex flex-col items-center gap-1.5" title="Očkovaný">
+                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                          </div>
+                          <span className="text-xs text-muted-foreground text-center">Očkovaný</span>
+                        </div>
 
-                    {/* Badges */}
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {dog.data.goodWithKids && (
-                        <span className="px-2.5 py-1 bg-secondary/20 text-secondary-foreground text-xs rounded-full font-medium">
-                          👶 S deťmi
-                        </span>
-                      )}
-                      {dog.data.energyLevel === 'Nízka' && (
-                        <span className="px-2.5 py-1 bg-accent/20 text-accent-foreground text-xs rounded-full font-medium">
-                          😌 Pokojný
-                        </span>
-                      )}
+                        {/* Microchipped */}
+                        <div className="flex flex-col items-center gap-1.5" title="Začipovaný">
+                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                          </div>
+                          <span className="text-xs text-muted-foreground text-center">Čip</span>
+                        </div>
+
+                        {/* De-Sexed */}
+                        <div className="flex flex-col items-center gap-1.5" title="Kastrovaný">
+                          <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                            <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                            </svg>
+                          </div>
+                          <span className="text-xs text-muted-foreground text-center">Kastrovaný</span>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* CTA */}
-                    <div className="pt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <div className="w-full py-2.5 text-center rounded-md bg-primary/10 text-primary font-semibold text-sm group-hover:bg-primary/20 transition-colors">
-                        Viac informácií →
+                    {/* Personality Badges */}
+                    {(dog.data.goodWithKids || dog.data.energyLevel) && (
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {dog.data.goodWithKids && (
+                          <span className="px-2.5 py-1 bg-secondary/20 text-secondary-foreground text-xs rounded-full font-medium">
+                            👶 S deťmi
+                          </span>
+                        )}
+                        {dog.data.energyLevel === 'Nízka' && (
+                          <span className="px-2.5 py-1 bg-accent/20 text-accent-foreground text-xs rounded-full font-medium">
+                            😌 Pokojný
+                          </span>
+                        )}
+                      </div>
+                    )}
+
+                    {/* CTA Link */}
+                    <div className="pt-2">
+                      <div className="text-primary hover:text-primary/80 font-semibold text-sm flex items-center gap-1 group-hover:gap-2 transition-all">
+                        Viac informácií
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
                       </div>
                     </div>
                   </div>
