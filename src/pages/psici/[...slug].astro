@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 <MainLayout title={dog.name} description={`Adoptujte si ${dog.name} - ${dog.breed}`}>
 	<!-- Header Section -->
 	<section id="header" class="header-section section-spacing-sm">
-		<div class="mx-auto max-w-screen-2xl container-spacing">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
 				<a href="/psici" class="text-primary hover:text-primary/80 transition-colors mb-6 inline-flex items-center gap-2 font-medium">
 					← Späť na všetkých psíkov
@@ -63,7 +63,7 @@ export async function getStaticPaths() {
 	<!-- Photo Gallery Section -->
 	{dog.images && dog.images.length > 0 ? (
 		<section id="gallery" class="gallery-section pb-8">
-			<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="mx-auto max-w-7xl container-spacing">
 				<div class="max-w-6xl mx-auto">
 					<div class="mb-6 flex justify-center rounded-lg overflow-hidden shadow-minimal-lg">
 						<img
@@ -111,7 +111,7 @@ export async function getStaticPaths() {
 		</section>
 	) : (
 		<section id="single-photo" class="single-photo-section pb-8">
-			<div class="mx-auto max-w-screen-2xl container-spacing">
+			<div class="mx-auto max-w-7xl container-spacing">
 				<div class="max-w-6xl mx-auto flex justify-center rounded-lg overflow-hidden shadow-minimal-lg">
 					<img
 						src={dog.image}
@@ -141,7 +141,7 @@ export async function getStaticPaths() {
 
 	<!-- Main Info Section -->
 	<section id="main-info" class="main-info-section section-spacing">
-		<div class="mx-auto max-w-screen-2xl container-spacing">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
 				<div class="grid lg:grid-cols-[300px_1fr] gap-10 md:gap-12">
 					<!-- Left Sidebar - Quick Info -->
@@ -477,7 +477,7 @@ export async function getStaticPaths() {
 
 	<!-- CTA Section -->
 	<section id="cta" class="cta-section section-spacing-lg">
-		<div class="mx-auto max-w-screen-2xl container-spacing">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-4xl mx-auto bg-primary/5 rounded-lg p-10 md:p-12 text-center shadow-minimal">
 				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Chcete adoptovať {dog.name}?</h2>
 				<p class="text-lg text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
@@ -509,7 +509,7 @@ export async function getStaticPaths() {
 
 	<!-- Adoption Inquiry Form Section -->
 	<section id="adoption-inquiry" class="adoption-inquiry-section section-spacing bg-muted/5">
-		<div class="mx-auto max-w-screen-2xl container-spacing">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-2xl mx-auto">
 				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Mám záujem o adopciu</h2>
 				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
