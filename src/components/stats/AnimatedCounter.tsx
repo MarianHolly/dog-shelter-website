@@ -1,11 +1,12 @@
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import * as LucideIcons from 'lucide-react';
 
 interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   label: string;
-  icon?: React.ReactNode;
+  iconName?: string;
   duration?: number;
 }
 
@@ -13,7 +14,7 @@ export default function AnimatedCounter({
   value,
   suffix = '',
   label,
-  icon,
+  iconName,
   duration = 2,
 }: AnimatedCounterProps) {
   const ref = useRef<HTMLDivElement>(null);
@@ -24,6 +25,9 @@ export default function AnimatedCounter({
     stiffness: 100,
   });
   const displayValue = useRef<HTMLSpanElement>(null);
+
+  // Dynamically get the icon component
+  const IconComponent = iconName ? (LucideIcons as any)[iconName] : null;
 
   useEffect(() => {
     if (isInView) {
@@ -49,14 +53,14 @@ export default function AnimatedCounter({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.6 }}
     >
-      {icon && (
+      {IconComponent && (
         <motion.div
           className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary"
           initial={{ scale: 0 }}
           animate={isInView ? { scale: 1 } : { scale: 0 }}
           transition={{ duration: 0.5, delay: 0.2, type: 'spring' }}
         >
-          {icon}
+          <IconComponent className="h-8 w-8" />
         </motion.div>
       )}
       <div>

@@ -1,41 +1,6 @@
 import * as React from 'react';
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
 import { cn } from '@/lib/utils';
 import type { NavItem, NavItemWithChildren } from '@/config/site.config';
-
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'> & { title: string; description?: string }
->(({ className, title, description, ...props }, ref) => (
-  <li>
-    <NavigationMenuLink asChild>
-      <a
-        ref={ref}
-        className={cn(
-          'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground',
-          className
-        )}
-        {...props}
-      >
-        <div className="text-sm font-medium leading-none">{title}</div>
-        {description && (
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {description}
-          </p>
-        )}
-      </a>
-    </NavigationMenuLink>
-  </li>
-));
-ListItem.displayName = 'ListItem';
 
 interface NavbarProps {
   navItems: (NavItem | NavItemWithChildren)[];
@@ -49,60 +14,73 @@ export default function Navbar({ navItems }: NavbarProps) {
   };
 
   return (
-    <NavigationMenu className="hidden md:flex">
-      <NavigationMenuList>
-        {navItems.map((item, index) => (
-          <NavigationMenuItem key={index}>
-            {isNavItemWithChildren(item) ? (
-              <>
-                <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-max md:grid-cols-1 lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    {item.items.map((subItem, subIndex) => (
-                      <ListItem
-                        key={subIndex}
-                        href={subItem.href}
-                        title={subItem.title}
-                        description={subItem.description}
-                        target={subItem.external ? '_blank' : undefined}
-                        rel={subItem.external ? 'noreferrer' : undefined}
-                      />
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </>
-            ) : (
-              <NavigationMenuLink
-                href={item.href}
+    <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Hlavná navigácia">
+      {navItems.map((item, index) => {
+        if (isNavItemWithChildren(item)) {
+          return (
+            <div key={index} className="relative group">
+              <button
                 className={cn(
-                  navigationMenuTriggerStyle(),
-                  item.isListing && 'font-semibold'
+                  'px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors rounded-md hover:bg-muted/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
                 )}
-                target={item.external ? '_blank' : undefined}
-                rel={item.external ? 'noreferrer' : undefined}
+                aria-haspopup="true"
+                aria-expanded="false"
               >
                 {item.title}
-                {item.isListing && (
-                  <svg
-                    className="ml-1 h-3 w-3 inline"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                )}
-              </NavigationMenuLink>
+                <svg
+                  className="ml-1 h-3 w-3 inline-block transition-transform group-hover:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                className="absolute left-0 top-full mt-2 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 z-50"
+                role="menu"
+                aria-label={`${item.title} podmenu`}
+              >
+                <div className="bg-background border border-border rounded-lg shadow-lg py-2">
+                  {item.items.map((subItem, subIndex) => (
+                    <a
+                      key={subIndex}
+                      href={subItem.href}
+                      className="block px-4 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:text-foreground focus-visible:outline-none transition-colors"
+                      target={subItem.external ? '_blank' : undefined}
+                      rel={subItem.external ? 'noreferrer' : undefined}
+                      role="menuitem"
+                    >
+                      {subItem.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        return (
+          <a
+            key={index}
+            href={item.href}
+            className={cn(
+              'px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors rounded-md hover:bg-muted/50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary',
+              item.isListing && 'font-semibold'
             )}
-          </NavigationMenuItem>
-        ))}
-      </NavigationMenuList>
-    </NavigationMenu>
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noreferrer' : undefined}
+          >
+            {item.title}
+          </a>
+        );
+      })}
+    </nav>
   );
 }
