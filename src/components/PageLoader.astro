@@ -14,13 +14,17 @@
     position: fixed;
     inset: 0;
     background: oklch(0.99 0.002 180);
-    display: flex;
+    display: none; /* Hidden by default */
     align-items: center;
     justify-content: center;
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.3s ease-out;
     pointer-events: none;
+  }
+
+  .page-loader.show {
+    display: flex; /* Only show when explicitly enabled */
   }
 
   .dark .page-loader {
@@ -70,26 +74,53 @@
   }
 </style>
 
-<script>
-  // Hide loader when page is fully loaded
-  window.addEventListener('load', () => {
+<script is:inline>
+  // Show loader ONLY on true initial page load, never on View Transitions
+  (function() {
     const loader = document.getElementById('page-loader');
-    if (loader) {
-      loader.classList.add('loaded');
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 300);
-    }
-  });
+    if (!loader) return;
 
-  // Also hide on DOMContentLoaded as fallback
-  document.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('page-loader');
-    if (loader && document.readyState === 'complete') {
+    // Check if site has been visited in this session
+    const hasVisited = sessionStorage.getItem('siteVisited');
+
+    if (hasVisited) {
+      // Already visited - keep loader hidden (default CSS is display:none)
+      return;
+    }
+
+    // First visit - show loader and mark as visited
+    loader.classList.add('show');
+    sessionStorage.setItem('siteVisited', 'true');
+
+    // Hide loader when page is fully loaded
+    function hideLoader() {
       loader.classList.add('loaded');
       setTimeout(() => {
-        loader.style.display = 'none';
+        loader.classList.remove('show');
       }, 300);
     }
-  });
+
+    if (document.readyState === 'complete') {
+      hideLoader();
+    } else {
+      window.addEventListener('load', hideLoader, { once: true });
+    }
+
+    // CRITICAL: Ensure loader never shows during View Transitions
+    document.addEventListener('astro:before-preparation', function() {
+      const l = document.getElementById('page-loader');
+      if (l) {
+        l.classList.remove('show');
+        l.classList.remove('loaded');
+      }
+    });
+
+    document.addEventListener('astro:after-swap', function() {
+      const l = document.getElementById('page-loader');
+      if (l) {
+        l.classList.remove('show');
+        l.classList.remove('loaded');
+      }
+    });
+  })();
 </script>
