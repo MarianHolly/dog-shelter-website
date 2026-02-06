@@ -114,7 +114,25 @@ const blog = defineCollection({
 	}),
 });
 
+const testimonials = defineCollection({
+	loader: glob({ pattern: '**/*.md', base: './src/content/testimonials' }),
+	schema: z.object({
+		// ===== REQUIRED FIELDS =====
+		name: z.string(), // Adopter's name
+		dogName: z.string(), // Name of adopted dog
+		testimonial: z.string(), // The testimonial text
+		date: z.date(), // Date of testimonial
+
+		// ===== OPTIONAL FIELDS =====
+		image: z.string().optional(), // Photo of dog with new family
+		location: z.string().optional(), // City or region
+		rating: z.number().min(1).max(5).default(5), // 1-5 stars
+		featured: z.boolean().default(false), // Show on homepage
+	}),
+});
+
 export const collections = {
 	dogs,
 	blog,
+	testimonials,
 };
