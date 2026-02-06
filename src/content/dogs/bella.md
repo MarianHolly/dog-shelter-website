@@ -20,6 +20,7 @@ health: Kompletne očkovaná, čipovaná, sterilizovaná
 story: Bella bola odovzdaná do útulku majiteľmi, ktorí sa museli vysťahovať a nemohli si ju vziať so sebou. Je veľmi dobre vychovaná a zvyknutá na život v rodine.
 adoptionStatus: Dostupný
 urgent: false
+featured: true
 goodWithKids: true
 goodWithDogs: true
 goodWithCats: true

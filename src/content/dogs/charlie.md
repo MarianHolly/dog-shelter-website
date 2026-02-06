@@ -19,6 +19,7 @@ health: Kompletne očkovaný, čipovaný, kastrovaný. Má miernu artrózu, ktor
 story: Charlie prišiel do útulku, pretože jeho majiteľ musel do domova dôchodcov, kde nemohol mať psa. Hľadá pokojný domov, kde môže stráviť svoje zlaté roky.
 adoptionStatus: Dostupný
 urgent: false
+featured: true
 goodWithKids: true
 goodWithDogs: true
 goodWithCats: true

@@ -19,6 +19,7 @@ health: Kompletne očkovaná, čipovaná, sterilizovaná
 story: Luna bola nájdená ako šteniatko v krabici pri ceste. Vyrastala v našom útulku a je teraz pripravená na svoj nový domov. Je socializovaná a pripravená na život v rodine.
 adoptionStatus: Dostupný
 urgent: false
+featured: true
 goodWithKids: true
 goodWithDogs: true
 goodWithCats: true
