@@ -63,15 +63,15 @@ const featuredTestimonials = allTestimonials
 		</section>
 	)}
 
-	<!-- About + Stats Combined Section -->
+	<!-- About + Stats Combined Section - Animal Cove Style -->
 	<section id="about" class="animate-on-scroll about-section section-spacing">
 		<div class="mx-auto max-w-7xl container-spacing">
-			<!-- About Text -->
-			<div class="text-center mb-12 md:mb-16">
+			<!-- Intro Text -->
+			<div class="text-center mb-16">
 				<h2 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">Kto sme</h2>
 				<div class="w-20 h-1 bg-primary mx-auto mb-8"></div>
-				<div class="max-w-4xl mx-auto space-y-4">
-					<p class="text-lg md:text-xl leading-relaxed text-foreground/90">
+				<div class="max-w-3xl mx-auto">
+					<p class="text-lg md:text-xl leading-relaxed text-foreground/90 mb-4">
 						Sme malé občianske združenie hlboko zakorenené v trenčianskej komunite. Od roku 2011 sa staráme o opustených a týraných psíkov s láskou a osobným prístupom.
 					</p>
 					<p class="text-lg leading-relaxed text-muted-foreground">
@@ -80,35 +80,77 @@ const featuredTestimonials = allTestimonials
 				</div>
 			</div>
 
-			<!-- Stats Wrapper - Animal Cove Style -->
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-5xl mx-auto">
-				<!-- Stat 1 -->
-				<div class="text-center space-y-3">
-					<div class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary tracking-tight">
-						500+
+			<!-- Stats with Images - Animal Cove Style -->
+			<div class="grid md:grid-cols-3 gap-8 md:gap-10">
+				<!-- Stat 1 with Image -->
+				<div class="group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all">
+					<!-- Image -->
+					<div class="aspect-[4/3] overflow-hidden">
+						<img 
+							src="/images/madeline-bowen-unsplash.jpg" 
+							alt="Zachránené psy" 
+							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+							loading="lazy"
+						/>
 					</div>
-					<div class="text-base md:text-lg text-muted-foreground font-medium leading-snug">
-						Psíkov našlo nový domov
+					<!-- Stat Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex items-end">
+						<div class="p-6 md:p-8 w-full">
+							<div class="text-5xl md:text-6xl font-extrabold text-primary mb-2">
+								500+
+							</div>
+							<div class="text-base md:text-lg font-medium text-foreground">
+								Psíkov našlo nový domov
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<!-- Stat 2 -->
-				<div class="text-center space-y-3">
-					<div class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary tracking-tight">
-						98%
+				<!-- Stat 2 with Image -->
+				<div class="group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all">
+					<!-- Image -->
+					<div class="aspect-[4/3] overflow-hidden">
+						<img 
+							src="/images/howie-r-unsplash.jpg" 
+							alt="Šťastné rodiny" 
+							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+							loading="lazy"
+						/>
 					</div>
-					<div class="text-base md:text-lg text-muted-foreground font-medium leading-snug">
-						Spokojnosť adoptérov
+					<!-- Stat Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex items-end">
+						<div class="p-6 md:p-8 w-full">
+							<div class="text-5xl md:text-6xl font-extrabold text-primary mb-2">
+								98%
+							</div>
+							<div class="text-base md:text-lg font-medium text-foreground">
+								Spokojnosť adoptérov
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<!-- Stat 3 -->
-				<div class="text-center space-y-3">
-					<div class="text-5xl md:text-6xl lg:text-7xl font-extrabold text-primary tracking-tight">
-						13+
+				<!-- Stat 3 with Image -->
+				<div class="group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all">
+					<!-- Image -->
+					<div class="aspect-[4/3] overflow-hidden">
+						<img 
+							src="/images/ivan-lopatin-unsplash.jpg" 
+							alt="Roky skúseností" 
+							class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+							loading="lazy"
+						/>
 					</div>
-					<div class="text-base md:text-lg text-muted-foreground font-medium leading-snug">
-						Rokov pomáhame
+					<!-- Stat Overlay -->
+					<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent flex items-end">
+						<div class="p-6 md:p-8 w-full">
+							<div class="text-5xl md:text-6xl font-extrabold text-primary mb-2">
+								13+
+							</div>
+							<div class="text-base md:text-lg font-medium text-foreground">
+								Rokov pomáhame
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
