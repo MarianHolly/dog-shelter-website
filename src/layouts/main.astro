@@ -13,7 +13,7 @@ interface Props {
 const { title, description, ogImage } = Astro.props;
 
 // Generate full metadata
-const pageTitle = title || siteConfig.title;
+const pageTitle = title ? `${title} | ${siteConfig.name}` : siteConfig.title;
 const pageDescription = description || siteConfig.description;
 const ogImageUrl = ogImage || siteConfig.ogImage;
 const canonicalURL = new URL(Astro.url.pathname, siteConfig.url);
