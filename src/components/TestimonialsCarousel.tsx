@@ -39,7 +39,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
   }
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 md:px-8">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8">
       <Carousel
         opts={{
           align: "start",
@@ -48,42 +48,42 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
         plugins={[autoplay]}
         className="w-full"
       >
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className="-ml-2 md:-ml-3">
           {testimonials.map((testimonial) => (
-            <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={testimonial.id} className="pl-2 md:pl-3 md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
               <div className="h-full">
-                <div className="rounded-lg bg-card p-6 md:p-8 shadow-minimal-hover transition-all duration-300 hover:shadow-minimal-lg h-full flex flex-col">
-                  {/* Stars */}
-                  <div className="flex gap-1 mb-4 text-lg">
+                <div className="rounded-lg bg-card p-5 shadow-minimal-hover transition-all duration-300 hover:shadow-minimal-lg h-full flex flex-col">
+                  {/* Stars - Compact */}
+                  <div className="flex gap-0.5 mb-3 text-base">
                     {renderStars(testimonial.data.rating)}
                   </div>
 
-                  {/* Testimonial text */}
-                  <p className="text-foreground/90 leading-relaxed mb-6 flex-grow italic">
+                  {/* Testimonial text - Compact */}
+                  <p className="text-sm text-foreground/90 leading-relaxed mb-4 flex-grow italic line-clamp-4">
                     "{testimonial.data.testimonial}"
                   </p>
 
-                  {/* Image and info */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-border/40">
+                  {/* Image and info - Compact */}
+                  <div className="flex items-center gap-3 pt-3 border-t border-border/40">
                     {testimonial.data.image && (
                       <div className="flex-shrink-0">
                         <img
                           src={testimonial.data.image}
                           alt={`${testimonial.data.dogName} s rodinou`}
-                          className="w-16 h-16 rounded-full object-cover"
+                          className="w-12 h-12 rounded-full object-cover"
                           loading="lazy"
                         />
                       </div>
                     )}
-                    <div className="flex-grow">
-                      <div className="font-semibold text-foreground">
+                    <div className="flex-grow min-w-0">
+                      <div className="font-semibold text-foreground text-sm truncate">
                         {testimonial.data.name}
                       </div>
-                      <div className="text-sm text-muted-foreground">
-                        Adoptoval/a {testimonial.data.dogName}
+                      <div className="text-xs text-muted-foreground truncate">
+                        {testimonial.data.dogName}
                       </div>
                       {testimonial.data.location && (
-                        <div className="text-xs text-muted-foreground mt-1">
+                        <div className="text-xs text-muted-foreground mt-0.5 truncate">
                           📍 {testimonial.data.location}
                         </div>
                       )}
@@ -94,8 +94,8 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="hidden md:flex" />
-        <CarouselNext className="hidden md:flex" />
+        <CarouselPrevious className="hidden md:flex" aria-label="Predchádzajúci príbeh" />
+        <CarouselNext className="hidden md:flex" aria-label="Ďalší príbeh" />
       </Carousel>
 
       {/* Dots indicator */}
@@ -104,6 +104,7 @@ export default function TestimonialsCarousel({ testimonials }: TestimonialsCarou
           <div
             key={index}
             className="h-2 w-2 rounded-full bg-muted-foreground/30"
+            aria-hidden="true"
           />
         ))}
       </div>
