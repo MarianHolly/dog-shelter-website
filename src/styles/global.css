@@ -46,86 +46,332 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  /* Warm, earthy color palette for dog shelter */
-  --background: oklch(0.95 0.01 85); /* #F2EFE7 - Light warm beige */
-  --foreground: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
-  --card: oklch(0.97 0.01 85); /* Slightly lighter than background */
-  --card-foreground: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
-  --popover: oklch(0.97 0.01 85);
-  --popover-foreground: oklch(0.15 0.01 60);
-  --primary: oklch(0.54 0.12 35); /* #B65636 - Burnt sienna/terracotta */
-  --primary-foreground: oklch(0.98 0.01 85); /* Light cream text on primary */
-  --secondary: oklch(0.56 0.04 150); /* #6B8273 - Sage green */
-  --secondary-foreground: oklch(0.98 0.01 85); /* Light text on secondary */
-  --muted: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
-  --muted-foreground: oklch(0.45 0.01 60); /* Darker for readability */
-  --accent: oklch(0.71 0.06 60); /* #C49478 - Warm tan */
-  --accent-foreground: oklch(0.15 0.01 60); /* Dark text on accent */
-  --destructive: oklch(0.57 0.14 36); /* #C95537 - Orange-red */
-  --border: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
-  --input: oklch(0.82 0.01 85); /* #CBC6BD - Light taupe */
-  --ring: oklch(0.54 0.12 35); /* Primary color for focus rings */
-  --chart-1: oklch(0.54 0.12 35); /* #B65636 */
-  --chart-2: oklch(0.56 0.04 150); /* #6B8273 */
-  --chart-3: oklch(0.52 0.08 60); /* #A36A3F */
-  --chart-4: oklch(0.71 0.06 60); /* #C49478 */
-  --chart-5: oklch(0.56 0.14 40); /* #C35E2A */
-  --sidebar: oklch(0.97 0.01 85);
-  --sidebar-foreground: oklch(0.15 0.01 60);
-  --sidebar-primary: oklch(0.54 0.12 35);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.82 0.01 85);
-  --sidebar-accent-foreground: oklch(0.15 0.01 60);
-  --sidebar-border: oklch(0.82 0.01 85);
-  --sidebar-ring: oklch(0.54 0.12 35);
+  --radius: 0.75rem;
+  /* CarePlus-inspired warm, friendly yet professional palette */
+  --background: oklch(0.99 0.002 180); /* #FDFCFC - Warm off-white */
+  --foreground: oklch(0.25 0.015 260); /* #32363D - Soft dark blue-gray */
+  --card: oklch(1.0 0 0); /* #FFFFFF - Pure white */
+  --card-foreground: oklch(0.25 0.015 260); /* Soft dark blue-gray */
+  --popover: oklch(1.0 0 0);
+  --popover-foreground: oklch(0.25 0.015 260);
+  --primary: oklch(0.55 0.12 195); /* #4A9B8E - Warm teal/turquoise */
+  --primary-foreground: oklch(0.99 0 0); /* White text on primary */
+  --secondary: oklch(0.88 0.04 85); /* #E8DDD0 - Warm beige/sand */
+  --secondary-foreground: oklch(0.30 0.02 260); /* Dark text on secondary */
+  --muted: oklch(0.96 0.01 180); /* #F7F5F4 - Warm very light gray */
+  --muted-foreground: oklch(0.50 0.02 260); /* #6E7380 - Warm medium gray */
+  --accent: oklch(0.70 0.10 50); /* #D19E6F - Warm amber/gold */
+  --accent-foreground: oklch(0.99 0 0); /* White text on accent */
+  --destructive: oklch(0.58 0.15 25); /* #D75A4A - Warm coral red */
+  --border: oklch(0.90 0.01 180); /* #E8E6E5 - Warm light border */
+  --input: oklch(0.90 0.01 180); /* Warm light border */
+  --ring: oklch(0.55 0.12 195); /* Primary teal for focus rings */
+  --chart-1: oklch(0.55 0.12 195); /* Teal */
+  --chart-2: oklch(0.70 0.10 50); /* Amber */
+  --chart-3: oklch(0.60 0.08 160); /* Soft green */
+  --chart-4: oklch(0.75 0.08 30); /* Warm orange */
+  --chart-5: oklch(0.65 0.10 220); /* Soft blue */
+  --sidebar: oklch(1.0 0 0);
+  --sidebar-foreground: oklch(0.25 0.015 260);
+  --sidebar-primary: oklch(0.55 0.12 195);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.01 180);
+  --sidebar-accent-foreground: oklch(0.25 0.015 260);
+  --sidebar-border: oklch(0.90 0.01 180);
+  --sidebar-ring: oklch(0.55 0.12 195);
 }
 
 .dark {
-  /* Dark mode with warm palette */
-  --background: oklch(0.15 0.01 60); /* #1B1410 - Dark brown */
-  --foreground: oklch(0.95 0.01 85); /* #F2EFE7 - Light beige */
-  --card: oklch(0.20 0.01 60); /* Slightly lighter than background */
+  /* Dark mode with warm, inviting palette */
+  --background: oklch(0.20 0.015 260); /* #282B32 - Warm dark blue-gray */
+  --foreground: oklch(0.95 0.01 85); /* #F5F3F0 - Warm off-white */
+  --card: oklch(0.24 0.015 260); /* #2F3239 - Slightly lighter warm dark */
   --card-foreground: oklch(0.95 0.01 85);
-  --popover: oklch(0.20 0.01 60);
+  --popover: oklch(0.24 0.015 260);
   --popover-foreground: oklch(0.95 0.01 85);
-  --primary: oklch(0.59 0.15 38); /* #D05A30 - Brighter coral for dark mode */
-  --primary-foreground: oklch(0.98 0.01 85);
-  --secondary: oklch(0.56 0.04 150); /* #6B8273 - Sage green (same) */
-  --secondary-foreground: oklch(0.98 0.01 85);
-  --muted: oklch(0.52 0.08 60); /* #A36A3F - Brown */
-  --muted-foreground: oklch(0.75 0.01 85); /* Lighter for readability */
-  --accent: oklch(0.71 0.06 60); /* #C49478 - Warm tan */
-  --accent-foreground: oklch(0.15 0.01 60);
-  --destructive: oklch(0.59 0.15 38); /* #D05A30 - Coral/orange */
-  --border: oklch(0.35 0.01 60); /* Lighter brown for borders */
-  --input: oklch(0.35 0.01 60);
-  --ring: oklch(0.59 0.15 38); /* Primary color for focus */
-  --chart-1: oklch(0.59 0.15 38); /* #D05A30 */
-  --chart-2: oklch(0.56 0.04 150); /* #6B8273 */
-  --chart-3: oklch(0.71 0.06 60); /* #C49478 */
-  --chart-4: oklch(0.56 0.14 40); /* #C35E2A */
-  --chart-5: oklch(0.54 0.12 35); /* #B65636 */
-  --sidebar: oklch(0.20 0.01 60);
+  --primary: oklch(0.65 0.12 195); /* #5FBAA9 - Brighter warm teal */
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.35 0.03 85); /* #4A433A - Warm dark brown */
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.30 0.015 260); /* #3B3F48 - Warm muted dark */
+  --muted-foreground: oklch(0.70 0.02 260); /* #A4A8B2 - Warm light gray */
+  --accent: oklch(0.75 0.10 50); /* #E4B580 - Brighter warm amber */
+  --accent-foreground: oklch(0.20 0.015 260); /* Dark text on bright accent */
+  --destructive: oklch(0.65 0.15 25); /* #E8735F - Brighter warm coral */
+  --border: oklch(0.35 0.015 260); /* #474B54 - Warm dark border */
+  --input: oklch(0.35 0.015 260);
+  --ring: oklch(0.65 0.12 195); /* Bright teal for focus */
+  --chart-1: oklch(0.65 0.12 195); /* Bright teal */
+  --chart-2: oklch(0.75 0.10 50); /* Bright amber */
+  --chart-3: oklch(0.65 0.08 160); /* Bright green */
+  --chart-4: oklch(0.70 0.08 30); /* Bright orange */
+  --chart-5: oklch(0.70 0.10 220); /* Bright blue */
+  --sidebar: oklch(0.24 0.015 260);
   --sidebar-foreground: oklch(0.95 0.01 85);
-  --sidebar-primary: oklch(0.59 0.15 38);
-  --sidebar-primary-foreground: oklch(0.98 0.01 85);
-  --sidebar-accent: oklch(0.35 0.01 60);
+  --sidebar-primary: oklch(0.65 0.12 195);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.30 0.015 260);
   --sidebar-accent-foreground: oklch(0.95 0.01 85);
-  --sidebar-border: oklch(0.35 0.01 60);
-  --sidebar-ring: oklch(0.59 0.15 38);
+  --sidebar-border: oklch(0.35 0.015 260);
+  --sidebar-ring: oklch(0.65 0.12 195);
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+
+  /* Fixed header compensation for keyboard navigation */
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem; /* 80px - accounts for fixed header (64px) + padding */
   }
+
+  body {
+    @apply bg-background text-foreground leading-relaxed;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+  }
+
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Mali', 'DM Sans', system-ui, sans-serif;
-    font-weight: 600;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-weight: 700;
+    @apply leading-tight;
+  }
+  h1 {
+    font-weight: 800;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Large headings with tighter spacing for professionalism */
+  .text-4xl, .text-5xl, .text-6xl, .text-7xl, .text-8xl {
+    @apply leading-tight tracking-tight;
+    font-weight: 800;
+  }
+
+  /* Ensure focused elements aren't hidden behind fixed header */
+  a, button, input, select, textarea, [tabindex]:not([tabindex="-1"]) {
+    scroll-margin-top: 5rem; /* 80px - same as scroll-padding-top */
+  }
+
+  /* Enhanced keyboard navigation focus styles */
+  *:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+    outline-style: solid;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary ring-4 ring-primary/20;
+  }
+
+  /* Skip to main content link */
+  .skip-to-main {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50;
+    @apply px-6 py-3 bg-primary text-primary-foreground rounded-lg font-semibold;
+    @apply shadow-lg outline-2 outline-offset-2 outline-primary;
+  }
+
+  /* Ensure main content scroll target works properly */
+  #main-content:focus {
+    outline: none;
+  }
+}
+
+/* Professional Minimalist Design Utilities */
+@layer components {
+  /* Standardized vertical rhythm - 8px base scale */
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+
+  .section-spacing-sm {
+    @apply py-12 md:py-16;
+  }
+
+  .section-spacing-lg {
+    @apply py-24 md:py-32;
+  }
+
+  /* Consistent horizontal padding */
+  .container-spacing {
+    @apply px-4 md:px-6 lg:px-8;
+  }
+
+  /* Minimalist shadows for subtle depth */
+  .shadow-minimal {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.03);
+  }
+
+  .shadow-minimal-lg {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.04);
+  }
+
+  /* Hover state with transition */
+  .shadow-minimal-hover {
+    @apply transition-shadow duration-300;
+  }
+
+  .shadow-minimal-hover:hover {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.06);
+  }
+
+  /* Dark mode version of minimal shadows */
+  .dark .shadow-minimal {
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.12);
+  }
+
+  .dark .shadow-minimal-lg {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.16);
+  }
+
+  .dark .shadow-minimal-hover:hover {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.20);
+  }
+}
+
+/* Page Transitions with View Transitions API */
+@layer utilities {
+  /* Fade transition for page changes */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: fade-in;
+  }
+
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Content reveal animations */
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Page load animation classes */
+  .animate-on-load {
+    animation: fade-in-scale 0.6s ease-out forwards;
+  }
+
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger delays for multiple elements */
+  .animate-delay-100 {
+    animation-delay: 0.1s;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-300 {
+    animation-delay: 0.3s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  /* Loading indicator for page transitions */
+  .page-loading-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      oklch(0.55 0.12 195),
+      transparent
+    );
+    transform: translateX(-100%);
+    animation: loading-bar 1s ease-in-out infinite;
+    z-index: 9999;
+  }
+
+  @keyframes loading-bar {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Disable page transitions for reduced motion */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+
+  .animate-on-load,
+  .animate-on-scroll {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

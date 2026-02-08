@@ -1,11 +1,12 @@
 ---
 import MainLayout from '@/layouts/main.astro';
+import NewsletterForm from '@/components/forms/NewsletterForm';
 ---
 
 <MainLayout title="O nás" description="Spoznajte Trenčianský útulok, náš tím a našu misiu pomáhať opusteným a týraným psom nájsť nový domov.">
 	<!-- Hero Section -->
 	<section id="hero" class="hero-section relative overflow-hidden bg-muted/20">
-		<div class="mx-auto max-w-screen-2xl px-4 py-24 md:py-32">
+		<div class="mx-auto max-w-7xl px-4 py-24 md:py-32">
 			<div class="max-w-4xl mx-auto text-center space-y-6">
 				<h1 class="text-4xl md:text-6xl font-bold">O nás</h1>
 				<p class="text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -18,7 +19,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- História Section -->
 	<section id="historia" class="historia-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-5xl mx-auto">
 				<div class="flex items-center gap-4 mb-12">
 					<div class="text-5xl">📖</div>
@@ -61,7 +62,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Misia Section -->
 	<section id="misia" class="misia-section bg-muted/10">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-5xl mx-auto">
 				<div class="flex items-center gap-4 mb-12">
 					<div class="text-5xl">🎯</div>
@@ -114,7 +115,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Tím Section -->
 	<section id="tim" class="tim-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
 					<h2 class="text-3xl md:text-4xl font-bold mb-4">Náš tím</h2>
@@ -208,7 +209,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Karanténna vs Útulok Section -->
 	<section id="karantenna-vs-utulok" class="karantenna-vs-utulok-section bg-muted/10">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-5xl mx-auto">
 				<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Karanténna stanica vs. Útulok</h2>
 				<p class="text-xl text-center text-muted-foreground mb-12">
@@ -278,7 +279,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Hodnoty Section -->
 	<section id="hodnoty" class="hodnoty-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-6xl mx-auto">
 				<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Naše hodnoty</h2>
 
@@ -325,7 +326,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- FAQ Section -->
 	<section id="faq" class="faq-section bg-muted/10">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-5xl mx-auto">
 				<h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Často kladené otázky</h2>
 
@@ -357,7 +358,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Shelter Photo with CTA -->
 	<section id="shelter-cta" class="shelter-cta-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-20">
+		<div class="mx-auto max-w-7xl px-4 py-20">
 			<div class="max-w-4xl mx-auto text-center">
 				<h2 class="text-3xl md:text-4xl font-bold mb-8">Príďte nás navštíviť</h2>
 				<p class="text-xl text-muted-foreground mb-12">
@@ -366,7 +367,7 @@ import MainLayout from '@/layouts/main.astro';
 
 				<div class="rounded-lg overflow-hidden shadow-xl border-2 border-border mb-8 max-w-2xl mx-auto">
 					<img
-						src="/images/our-house.jpeg"
+						src="/images/12photostory-unsplash.jpg"
 						alt="Trenčianský útulok - budova"
 						class="w-full h-auto object-cover"
 						loading="lazy"
@@ -381,6 +382,19 @@ import MainLayout from '@/layouts/main.astro';
 						Pozrite si našich psíkov
 					</a>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Newsletter Section -->
+	<section id="newsletter" class="newsletter-section section-spacing bg-muted/5">
+		<div class="mx-auto max-w-7xl container-spacing">
+			<div class="max-w-2xl mx-auto text-center">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Odber noviniek</h2>
+				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
+					Prihláste sa na odber noviniek a získajte informácie o nových psíkoch, udalostiach a príbehoch úspešných adopcií.
+				</p>
+				<NewsletterForm client:load />
 			</div>
 		</div>
 	</section>

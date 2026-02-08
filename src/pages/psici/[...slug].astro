@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/main.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { Markdown } from '@astropub/md';
+import AdoptionInquiryForm from '@/components/forms/AdoptionInquiryForm';
 
 // Get the slug from the URL
 const { slug } = Astro.params;
@@ -28,237 +29,277 @@ export async function getStaticPaths() {
 
 <MainLayout title={dog.name} description={`Adoptujte si ${dog.name} - ${dog.breed}`}>
 	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-8">
+	<section id="header" class="header-section section-spacing-sm">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<a href="/psici" class="text-primary hover:underline mb-4 inline-block">
+				<a href="/psici" class="text-primary hover:text-primary/80 transition-colors mb-6 inline-flex items-center gap-2 font-medium">
 					← Späť na všetkých psíkov
 				</a>
-				<div class="flex items-center gap-4 mt-4 flex-wrap">
-					<h1 class="text-4xl md:text-5xl font-bold">{dog.name}</h1>
+				<div class="flex items-center gap-4 mt-6 flex-wrap">
+					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">{dog.name}</h1>
 					<div class="flex gap-2 flex-wrap">
 						{dog.urgent && (
-							<span class="bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold">
-								⚠️ URGENTNÉ
+							<span class="bg-destructive text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
+								⚡ URGENTNÉ
 							</span>
 						)}
 						{dog.specialNeeds && (
-							<span class="bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+							<span class="bg-accent text-accent-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
 								💙 Špeciálne potreby
 							</span>
 						)}
 						{dog.featured && (
-							<span class="bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+							<span class="bg-secondary text-secondary-foreground px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
 								⭐ Odporúčaný
 							</span>
 						)}
 					</div>
 				</div>
-				<p class="text-xl text-muted-foreground mt-4">{dog.description}</p>
+				<p class="text-lg md:text-xl text-muted-foreground mt-6 leading-relaxed max-w-4xl">{dog.description}</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Photo Gallery Section -->
 	{dog.images && dog.images.length > 0 ? (
-		<section id="gallery" class="gallery-section">
-			<div class="mx-auto max-w-screen-2xl px-4 py-8">
+		<section id="gallery" class="gallery-section pb-8">
+			<div class="mx-auto max-w-7xl container-spacing">
 				<div class="max-w-6xl mx-auto">
-					<!-- Main Image -->
-					<div class="mb-4 flex justify-center bg-muted/20 rounded-lg">
+					<div class="mb-6 flex justify-center rounded-lg overflow-hidden shadow-minimal-lg">
 						<img
 							id="main-image"
 							src={dog.images[0]}
 							alt={`${dog.name} - hlavná fotka`}
-							class="w-full h-auto max-h-[700px] object-contain rounded-lg shadow-lg"
+							loading="eager"
+							fetchpriority="high"
+							width="1200"
+							height="600"
+							class="w-full h-auto max-h-[600px] object-cover"
 						/>
 					</div>
-					<!-- Thumbnail Gallery -->
-					<div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-2">
+					<div class="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
 						{dog.images.map((image, index) => (
 							<button
-								class="thumbnail-btn overflow-hidden rounded-lg border-2 border-transparent hover:border-primary transition-all cursor-pointer"
+								class="thumbnail-btn overflow-hidden rounded-md border-2 border-transparent hover:border-primary transition-all cursor-pointer shadow-minimal"
 								data-image={image}
 							>
 								<img
 									src={image}
 									alt={`${dog.name} - fotka ${index + 1}`}
+									loading="lazy"
+									width="120"
+									height="80"
 									class="w-full h-20 object-cover"
 								/>
 							</button>
 						))}
 					</div>
+					{dog.videoUrl && (
+						<div class="mt-8">
+							<div class="aspect-video rounded-lg overflow-hidden shadow-minimal-lg">
+								<iframe
+									src={dog.videoUrl}
+									class="w-full h-full"
+									allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+									allowfullscreen
+								></iframe>
+							</div>
+						</div>
+					)}
 				</div>
 			</div>
 		</section>
 	) : (
-		<section id="single-photo" class="single-photo-section">
-			<div class="mx-auto max-w-screen-2xl px-4 py-8">
-				<div class="max-w-6xl mx-auto flex justify-center bg-muted/20 rounded-lg">
+		<section id="single-photo" class="single-photo-section pb-8">
+			<div class="mx-auto max-w-7xl container-spacing">
+				<div class="max-w-6xl mx-auto flex justify-center rounded-lg overflow-hidden shadow-minimal-lg">
 					<img
 						src={dog.image}
 						alt={dog.name}
-						class="w-full h-auto max-h-[700px] object-contain rounded-lg shadow-lg"
+						loading="eager"
+						fetchpriority="high"
+						width="1200"
+						height="600"
+						class="w-full h-auto max-h-[600px] object-cover"
 					/>
 				</div>
-			</div>
-		</section>
-	)}
-
-	<!-- Video Section -->
-	{dog.videoUrl && (
-		<section id="video" class="video-section">
-			<div class="mx-auto max-w-screen-2xl px-4 py-8">
-				<div class="max-w-6xl mx-auto">
-					<h2 class="text-3xl font-bold mb-6">📹 Video</h2>
-					<div class="aspect-video">
-						<iframe
-							src={dog.videoUrl}
-							class="w-full h-full rounded-lg shadow-lg"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-							allowfullscreen
-						></iframe>
+				{dog.videoUrl && (
+					<div class="mt-8">
+						<div class="aspect-video rounded-lg overflow-hidden shadow-minimal-lg">
+							<iframe
+								src={dog.videoUrl}
+								class="w-full h-full"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen
+							></iframe>
+						</div>
 					</div>
-				</div>
+				)}
 			</div>
 		</section>
 	)}
 
 	<!-- Main Info Section -->
-	<section id="main-info" class="main-info-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-8">
+	<section id="main-info" class="main-info-section section-spacing">
+		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<div class="grid lg:grid-cols-[320px_1fr] gap-8">
-					<!-- Left Sidebar - Basic Info & Health -->
+				<div class="grid lg:grid-cols-[300px_1fr] gap-10 md:gap-12">
+					<!-- Left Sidebar - Quick Info -->
 					<div class="space-y-6">
-						<!-- Basic Information -->
-						<div class="p-6 rounded-lg bg-card border border-border">
-							<h2 class="text-2xl font-semibold mb-4">📋 Základné informácie</h2>
-							<dl class="space-y-3">
-								<div class="flex justify-between border-b border-border pb-2">
-									<dt class="font-medium">Plemeno:</dt>
-									<dd class="text-muted-foreground">{dog.breed}</dd>
+						<!-- Quick Info Card -->
+						<div class="p-6 rounded-lg bg-card shadow-minimal">
+							<h2 class="text-xl font-semibold mb-5 tracking-tight">Rýchle info</h2>
+							<dl class="space-y-3 text-sm">
+								<div class="flex justify-between py-2">
+									<dt class="text-muted-foreground">Plemeno</dt>
+									<dd class="font-medium text-right">{dog.breed}</dd>
 								</div>
-								<div class="flex justify-between border-b border-border pb-2">
-									<dt class="font-medium">Vek:</dt>
-									<dd class="text-muted-foreground">{dog.age}</dd>
+								<div class="flex justify-between py-2">
+									<dt class="text-muted-foreground">Vek</dt>
+									<dd class="font-medium">{dog.age}</dd>
 								</div>
-								<div class="flex justify-between border-b border-border pb-2">
-									<dt class="font-medium">Pohlavie:</dt>
-									<dd class="text-muted-foreground">{dog.gender}</dd>
+								<div class="flex justify-between py-2">
+									<dt class="text-muted-foreground">Pohlavie</dt>
+									<dd class="font-medium">{dog.gender}</dd>
 								</div>
 								{dog.size && (
-									<div class="flex justify-between border-b border-border pb-2">
-										<dt class="font-medium">Veľkosť:</dt>
-										<dd class="text-muted-foreground">{dog.size}</dd>
+									<div class="flex justify-between py-2">
+										<dt class="text-muted-foreground">Veľkosť</dt>
+										<dd class="font-medium">{dog.size}</dd>
 									</div>
 								)}
 								{dog.weight && (
-									<div class="flex justify-between border-b border-border pb-2">
-										<dt class="font-medium">Hmotnosť:</dt>
-										<dd class="text-muted-foreground">{dog.weight}</dd>
+									<div class="flex justify-between py-2">
+										<dt class="text-muted-foreground">Hmotnosť</dt>
+										<dd class="font-medium">{dog.weight}</dd>
 									</div>
 								)}
 								{dog.color && (
-									<div class="flex justify-between border-b border-border pb-2">
-										<dt class="font-medium">Farba:</dt>
-										<dd class="text-muted-foreground">{dog.color}</dd>
+									<div class="flex justify-between py-2">
+										<dt class="text-muted-foreground">Farba</dt>
+										<dd class="font-medium">{dog.color}</dd>
 									</div>
 								)}
 								{dog.energyLevel && (
-									<div class="flex justify-between border-b border-border pb-2">
-										<dt class="font-medium">Úroveň energie:</dt>
-										<dd class="text-muted-foreground">{dog.energyLevel}</dd>
+									<div class="flex justify-between py-2">
+										<dt class="text-muted-foreground">Energia</dt>
+										<dd class="font-medium">{dog.energyLevel}</dd>
 									</div>
 								)}
 								{dog.arrivalDate && (
-									<div class="flex justify-between border-b border-border pb-2">
-										<dt class="font-medium">V útulku od:</dt>
-										<dd class="text-muted-foreground">{dog.arrivalDate}</dd>
-									</div>
-								)}
-								{dog.chipNumber && (
-									<div class="flex justify-between pb-2">
-										<dt class="font-medium">Číslo čipu:</dt>
-										<dd class="text-muted-foreground text-xs">{dog.chipNumber}</dd>
+									<div class="flex justify-between py-2">
+										<dt class="text-muted-foreground">V útulku od</dt>
+										<dd class="font-medium text-right">{dog.arrivalDate}</dd>
 									</div>
 								)}
 							</dl>
 						</div>
 
-						<!-- Health Status -->
-						<div class="p-6 rounded-lg bg-card border border-border">
-							<h2 class="text-2xl font-semibold mb-4">🏥 Zdravie</h2>
-							<div class="space-y-3 mb-4">
-								<div class="flex items-center gap-2">
-									<span class={dog.vaccinated ? 'text-green-600 text-xl' : 'text-gray-400 text-xl'}>
+						<!-- Health Card -->
+						<div class="p-6 rounded-lg bg-card shadow-minimal">
+							<h2 class="text-xl font-semibold mb-5 tracking-tight">Zdravie</h2>
+							<div class="space-y-3 text-sm">
+								<div class="flex items-center gap-3">
+									<span class={dog.vaccinated ? 'text-primary' : 'text-muted-foreground/40'}>
 										{dog.vaccinated ? '✓' : '○'}
 									</span>
 									<span>Očkovaný</span>
 								</div>
-								<div class="flex items-center gap-2">
-									<span class={dog.sterilized ? 'text-green-600 text-xl' : 'text-gray-400 text-xl'}>
+								<div class="flex items-center gap-3">
+									<span class={dog.sterilized ? 'text-primary' : 'text-muted-foreground/40'}>
 										{dog.sterilized ? '✓' : '○'}
 									</span>
 									<span>Kastrovaný/Sterilizovaná</span>
 								</div>
-								<div class="flex items-center gap-2">
-									<span class={dog.chipped ? 'text-green-600 text-xl' : 'text-gray-400 text-xl'}>
+								<div class="flex items-center gap-3">
+									<span class={dog.chipped ? 'text-primary' : 'text-muted-foreground/40'}>
 										{dog.chipped ? '✓' : '○'}
 									</span>
 									<span>Čipovaný</span>
 								</div>
-								<div class="flex items-center gap-2">
-									<span class={dog.dewormed ? 'text-green-600 text-xl' : 'text-gray-400 text-xl'}>
+								<div class="flex items-center gap-3">
+									<span class={dog.dewormed ? 'text-primary' : 'text-muted-foreground/40'}>
 										{dog.dewormed ? '✓' : '○'}
 									</span>
 									<span>Odčervený</span>
 								</div>
 							</div>
 							{dog.health && (
-								<div class="mt-4 pt-4 border-t border-border">
-									<p class="text-sm text-muted-foreground">{dog.health}</p>
+								<div class="mt-5 pt-5 border-t border-border/50">
+									<p class="text-sm text-muted-foreground leading-relaxed">{dog.health}</p>
 								</div>
 							)}
 							{dog.healthIssues && (
-								<div class="mt-4 pt-4 border-t border-border bg-amber-50 dark:bg-amber-950/20 -m-6 mt-4 p-6 rounded-b-lg">
-									<p class="text-sm"><strong>Zdravotné poznámky:</strong> {dog.healthIssues}</p>
+								<div class="mt-5 pt-5 border-t border-border/50">
+									<p class="text-sm leading-relaxed"><strong class="text-accent">Poznámka:</strong> {dog.healthIssues}</p>
 								</div>
 							)}
 							{dog.medications && dog.medications.length > 0 && (
-								<div class="mt-2">
-									<p class="text-sm font-medium mb-1">Lieky:</p>
-									<ul class="text-sm text-muted-foreground list-disc list-inside">
-										{dog.medications.map((med) => <li>{med}</li>)}
+								<div class="mt-5 pt-5 border-t border-border/50">
+									<p class="text-sm font-medium mb-2">Lieky:</p>
+									<ul class="text-sm text-muted-foreground space-y-1">
+										{dog.medications.map((med) => <li class="flex items-start gap-2"><span class="text-primary">•</span> {med}</li>)}
 									</ul>
 								</div>
 							)}
 							{dog.dietaryNeeds && (
-								<div class="mt-2">
+								<div class="mt-5 pt-5 border-t border-border/50">
 									<p class="text-sm"><strong>Strava:</strong> {dog.dietaryNeeds}</p>
 								</div>
 							)}
 						</div>
+
+						<!-- Adoption Info Card -->
+						{(dog.adoptionFee || (dog.specialRequirements && dog.specialRequirements.length > 0)) && (
+							<div class="p-6 rounded-lg bg-primary/5 shadow-minimal">
+								<h2 class="text-xl font-semibold mb-5 tracking-tight">Adopcia</h2>
+								{dog.adoptionFee && (
+									<div class="mb-4">
+										<p class="text-sm text-muted-foreground mb-2">Poplatok</p>
+										<p class="text-3xl font-bold text-primary">{dog.adoptionFee} €</p>
+										<p class="text-xs text-muted-foreground mt-2 leading-relaxed">Zahŕňa očkovanie, čipovanie, kastráciu a veterinárnu starostlivosť</p>
+									</div>
+								)}
+								{dog.specialRequirements && dog.specialRequirements.length > 0 && (
+									<div class="mt-5 pt-5 border-t border-primary/20">
+										<p class="font-medium text-sm mb-3">Špeciálne požiadavky:</p>
+										<ul class="space-y-2 text-sm">
+											{dog.specialRequirements.map((req) => (
+												<li class="flex items-start gap-2">
+													<span class="text-primary mt-0.5">→</span>
+													<span class="leading-relaxed">{req}</span>
+												</li>
+											))}
+										</ul>
+									</div>
+								)}
+							</div>
+						)}
 					</div>
 
 					<!-- Main Content - Flowing Information -->
-					<div class="space-y-8">
-						<!-- Personality & Character -->
-						{dog.personality && (
-							<div>
-								<h2 class="text-3xl font-bold mb-4">💭 Povaha a charakter</h2>
-								<p class="text-lg leading-relaxed text-muted-foreground">{dog.personality}</p>
+					<div class="space-y-10">
+						<!-- Story: Personality + Markdown combined -->
+						{(dog.personality || markdownBody) && (
+							<div class="prose prose-lg dark:prose-invert max-w-none">
+								<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Príbeh {dog.name}</h2>
+								{dog.personality && (
+									<p class="text-lg leading-relaxed text-muted-foreground mb-6">{dog.personality}</p>
+								)}
+								{markdownBody && (
+									<div class="leading-relaxed" set:html={markdownBody} />
+								)}
 							</div>
 						)}
 
 						{dog.characteristics && dog.characteristics.length > 0 && (
 							<div>
-								<h2 class="text-3xl font-bold mb-4">⭐ Charakteristika</h2>
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Charakteristika</h3>
 								<ul class="grid md:grid-cols-2 gap-3">
 									{dog.characteristics.map((char) => (
-										<li class="flex items-start gap-2">
-											<span class="text-primary text-xl mt-0.5">•</span>
-											<span class="text-lg">{char}</span>
+										<li class="flex items-start gap-3 text-base">
+											<span class="text-primary mt-1">•</span>
+											<span>{char}</span>
 										</li>
 									))}
 								</ul>
@@ -266,78 +307,80 @@ export async function getStaticPaths() {
 						)}
 
 						<!-- Compatibility -->
-						<div>
-							<h2 class="text-3xl font-bold mb-4">👥 Vhodnosť a kompatibilita</h2>
-							<div class="grid md:grid-cols-2 gap-4">
-								{dog.goodWithKids !== undefined && (
-									<div class="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
-										<span class={dog.goodWithKids ? 'text-green-600 text-3xl' : 'text-red-600 text-3xl'}>
-											{dog.goodWithKids ? '✓' : '✗'}
-										</span>
-										<div>
-											<span class="font-semibold text-lg">Vhodný pre deti</span>
-											{dog.kidsAgeRecommendation && (
-												<p class="text-sm text-muted-foreground mt-1">{dog.kidsAgeRecommendation}</p>
-											)}
+						{(dog.goodWithKids !== undefined || dog.goodWithDogs !== undefined || dog.goodWithCats !== undefined || dog.goodWithOtherPets !== undefined) && (
+							<div>
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Kompatibilita</h3>
+								<div class="grid md:grid-cols-2 gap-4">
+									{dog.goodWithKids !== undefined && (
+										<div class="flex items-start gap-3 p-5 rounded-lg bg-card shadow-minimal">
+											<span class={dog.goodWithKids ? 'text-primary text-xl' : 'text-muted-foreground/40 text-xl'}>
+												{dog.goodWithKids ? '✓' : '○'}
+											</span>
+											<div>
+												<span class="font-semibold">S deťmi</span>
+												{dog.kidsAgeRecommendation && (
+													<p class="text-sm text-muted-foreground mt-1 leading-relaxed">{dog.kidsAgeRecommendation}</p>
+												)}
+											</div>
 										</div>
-									</div>
-								)}
-								{dog.goodWithDogs !== undefined && (
-									<div class="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
-										<span class={dog.goodWithDogs ? 'text-green-600 text-3xl' : 'text-red-600 text-3xl'}>
-											{dog.goodWithDogs ? '✓' : '✗'}
-										</span>
-										<span class="font-semibold text-lg">Vhodný k iným psom</span>
-									</div>
-								)}
-								{dog.goodWithCats !== undefined && (
-									<div class="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
-										<span class={dog.goodWithCats ? 'text-green-600 text-3xl' : 'text-red-600 text-3xl'}>
-											{dog.goodWithCats ? '✓' : '✗'}
-										</span>
-										<span class="font-semibold text-lg">Vhodný k mačkám</span>
-									</div>
-								)}
-								{dog.goodWithOtherPets !== undefined && (
-									<div class="flex items-start gap-3 p-4 rounded-lg bg-card border border-border">
-										<span class={dog.goodWithOtherPets ? 'text-green-600 text-3xl' : 'text-red-600 text-3xl'}>
-											{dog.goodWithOtherPets ? '✓' : '✗'}
-										</span>
-										<span class="font-semibold text-lg">Vhodný k iným zvieratám</span>
-									</div>
-								)}
+									)}
+									{dog.goodWithDogs !== undefined && (
+										<div class="flex items-start gap-3 p-5 rounded-lg bg-card shadow-minimal">
+											<span class={dog.goodWithDogs ? 'text-primary text-xl' : 'text-muted-foreground/40 text-xl'}>
+												{dog.goodWithDogs ? '✓' : '○'}
+											</span>
+											<span class="font-semibold">S inými psami</span>
+										</div>
+									)}
+									{dog.goodWithCats !== undefined && (
+										<div class="flex items-start gap-3 p-5 rounded-lg bg-card shadow-minimal">
+											<span class={dog.goodWithCats ? 'text-primary text-xl' : 'text-muted-foreground/40 text-xl'}>
+												{dog.goodWithCats ? '✓' : '○'}
+											</span>
+											<span class="font-semibold">S mačkami</span>
+										</div>
+									)}
+									{dog.goodWithOtherPets !== undefined && (
+										<div class="flex items-start gap-3 p-5 rounded-lg bg-card shadow-minimal">
+											<span class={dog.goodWithOtherPets ? 'text-primary text-xl' : 'text-muted-foreground/40 text-xl'}>
+												{dog.goodWithOtherPets ? '✓' : '○'}
+											</span>
+											<span class="font-semibold">S inými zvieratami</span>
+										</div>
+									)}
+								</div>
 							</div>
-						</div>
+						)}
 
 						{/* Training */}
 						{(dog.houseTrained !== undefined || dog.leashTrained !== undefined || (dog.commands && dog.commands.length > 0) || dog.trainingNeeds) && (
 							<div>
-								<h2 class="text-3xl font-bold mb-4">🎓 Výcvik a zručnosti</h2>
-								<div class="space-y-4">
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Výcvik a zručnosti</h3>
+								<div class="space-y-5">
 									<div class="grid md:grid-cols-2 gap-4">
 										{dog.houseTrained !== undefined && (
-											<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-												<span class={dog.houseTrained ? 'text-green-600 text-2xl' : 'text-gray-400 text-2xl'}>
+											<div class="flex items-center gap-3 p-5 rounded-lg bg-card shadow-minimal">
+												<span class={dog.houseTrained ? 'text-primary text-lg' : 'text-muted-foreground/40 text-lg'}>
 													{dog.houseTrained ? '✓' : '○'}
 												</span>
-												<span class="font-semibold">Čistotný</span>
+												<span class="font-medium">Čistotný</span>
 											</div>
 										)}
 										{dog.leashTrained !== undefined && (
-											<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-												<span class={dog.leashTrained ? 'text-green-600 text-2xl' : 'text-gray-400 text-2xl'}>
+											<div class="flex items-center gap-3 p-5 rounded-lg bg-card shadow-minimal">
+												<span class={dog.leashTrained ? 'text-primary text-lg' : 'text-muted-foreground/40 text-lg'}>
 													{dog.leashTrained ? '✓' : '○'}
 												</span>
-												<span class="font-semibold">Chodí na vodítku</span>
+												<span class="font-medium">Chodí na vodítku</span>
 											</div>
 										)}
 									</div>
 									{dog.commands && dog.commands.length > 0 && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<p class="font-semibold mb-3">Ovláda povely:</p>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<p class="font-medium mb-3">Ovláda povely:</p>
 											<div class="flex flex-wrap gap-2">
 												{dog.commands.map((cmd) => (
-													<span class="px-4 py-2 bg-primary/10 text-primary rounded-full font-medium">
+													<span class="px-4 py-2 bg-primary/10 text-primary rounded-full font-medium text-sm">
 														{cmd}
 													</span>
 												))}
@@ -354,34 +397,34 @@ export async function getStaticPaths() {
 						{/* Living Requirements */}
 						{(dog.exerciseNeeds || dog.spaceNeeds || dog.timeCommitment || dog.experienceRequired || dog.aloneTimeTolerance || dog.groomingNeeds) && (
 							<div>
-								<h2 class="text-3xl font-bold mb-4">🏡 Životné potreby</h2>
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Čo {dog.name} potrebuje</h3>
 								<div class="grid md:grid-cols-2 gap-4">
 									{dog.exerciseNeeds && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-1">Potreba pohybu:</dt>
-											<dd class="text-lg">{dog.exerciseNeeds}</dd>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Potreba pohybu</dt>
+											<dd>{dog.exerciseNeeds}</dd>
 										</div>
 									)}
 									{dog.spaceNeeds && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-1">Priestor:</dt>
-											<dd class="text-lg">{dog.spaceNeeds}</dd>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Priestor</dt>
+											<dd>{dog.spaceNeeds}</dd>
 										</div>
 									)}
 									{dog.timeCommitment && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-1">Časová náročnosť:</dt>
-											<dd class="text-lg">{dog.timeCommitment}</dd>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Časová náročnosť</dt>
+											<dd>{dog.timeCommitment}</dd>
 										</div>
 									)}
 									{dog.experienceRequired && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-2">Potrebné skúsenosti:</dt>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Potrebné skúsenosti</dt>
 											<dd>
-												<span class={`px-4 py-2 rounded-full font-medium inline-block ${
-													dog.experienceRequired === 'Začiatočník' ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200' :
-													dog.experienceRequired === 'Stredne pokročilý' ? 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200' :
-													'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200'
+												<span class={`px-4 py-1.5 rounded-full font-medium inline-block text-sm ${
+													dog.experienceRequired === 'Začiatočník' ? 'bg-secondary/20 text-secondary-foreground' :
+													dog.experienceRequired === 'Stredne pokročilý' ? 'bg-accent/20 text-accent-foreground' :
+													'bg-primary/20 text-primary'
 												}`}>
 													{dog.experienceRequired}
 												</span>
@@ -389,15 +432,15 @@ export async function getStaticPaths() {
 										</div>
 									)}
 									{dog.aloneTimeTolerance && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-1">Tolerancia samoty:</dt>
-											<dd class="text-lg">{dog.aloneTimeTolerance}</dd>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Tolerancia samoty</dt>
+											<dd>{dog.aloneTimeTolerance}</dd>
 										</div>
 									)}
 									{dog.groomingNeeds && (
-										<div class="p-4 rounded-lg bg-card border border-border">
-											<dt class="font-semibold text-sm text-muted-foreground mb-1">Starostlivosť o srsť:</dt>
-											<dd class="text-lg">{dog.groomingNeeds}</dd>
+										<div class="p-5 rounded-lg bg-card shadow-minimal">
+											<dt class="font-medium text-sm text-muted-foreground mb-2">Starostlivosť o srsť</dt>
+											<dd>{dog.groomingNeeds}</dd>
 										</div>
 									)}
 								</div>
@@ -406,53 +449,24 @@ export async function getStaticPaths() {
 
 						{/* Ideal Home */}
 						{dog.idealFamily && (
-							<div class="p-6 rounded-lg bg-primary/5 border-2 border-primary/20">
-								<h2 class="text-3xl font-bold mb-4">💚 Ideálny domov pre mňa</h2>
+							<div class="p-8 rounded-lg bg-primary/5 shadow-minimal">
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Ideálny domov</h3>
 								<p class="text-lg leading-relaxed">{dog.idealFamily}</p>
 							</div>
 						)}
 
 						{/* Why Adopt Me */}
 						{dog.whyAdoptMe && dog.whyAdoptMe.length > 0 && (
-							<div class="p-6 rounded-lg bg-secondary/10 border border-secondary/20">
-								<h2 class="text-3xl font-bold mb-4">❤️ Prečo si ma adoptovať?</h2>
+							<div class="p-8 rounded-lg bg-secondary/5 shadow-minimal">
+								<h3 class="text-2xl font-bold mb-5 tracking-tight">Prečo si ma adoptovať?</h3>
 								<ul class="space-y-3">
 									{dog.whyAdoptMe.map((reason) => (
-										<li class="flex items-start gap-3">
-											<span class="text-primary text-2xl mt-0.5">•</span>
-											<span class="text-lg">{reason}</span>
+										<li class="flex items-start gap-3 text-base">
+											<span class="text-primary mt-1">•</span>
+											<span class="leading-relaxed">{reason}</span>
 										</li>
 									))}
 								</ul>
-							</div>
-						)}
-
-						{/* Adoption Info */}
-						{(dog.adoptionFee || (dog.specialRequirements && dog.specialRequirements.length > 0)) && (
-							<div>
-								<h2 class="text-3xl font-bold mb-4">📝 Informácie o adopcii</h2>
-								<div class="space-y-4">
-									{dog.adoptionFee && (
-										<div class="p-6 rounded-lg bg-card border border-border">
-											<p class="text-sm text-muted-foreground mb-2">Adopčný poplatok:</p>
-											<p class="text-3xl font-bold text-primary">{dog.adoptionFee} €</p>
-											<p class="text-sm text-muted-foreground mt-2">Poplatok zahŕňa očkovanie, čipovanie, kastráciu/sterilizáciu a veterinárnu starostlivosť</p>
-										</div>
-									)}
-									{dog.specialRequirements && dog.specialRequirements.length > 0 && (
-										<div class="p-6 rounded-lg bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800">
-											<p class="font-semibold mb-3">Špeciálne požiadavky pre adopciu:</p>
-											<ul class="space-y-2">
-												{dog.specialRequirements.map((req) => (
-													<li class="flex items-start gap-2">
-														<span class="text-primary text-xl mt-0.5">→</span>
-														<span>{req}</span>
-													</li>
-												))}
-											</ul>
-										</div>
-									)}
-								</div>
 							</div>
 						)}
 					</div>
@@ -461,45 +475,51 @@ export async function getStaticPaths() {
 		</div>
 	</section>
 
-	<!-- Story/Description Section -->
-	{markdownBody && (
-		<section id="story" class="story-section bg-muted/30">
-			<div class="mx-auto max-w-screen-2xl px-4 py-16">
-				<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
-					<div set:html={markdownBody} />
-				</div>
-			</div>
-		</section>
-	)}
-
 	<!-- CTA Section -->
-	<section id="cta" class="cta-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
-			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-4">Chcete adoptovať {dog.name}?</h2>
-				<p class="text-lg text-muted-foreground mb-8">
+	<section id="cta" class="cta-section section-spacing-lg">
+		<div class="mx-auto max-w-7xl container-spacing">
+			<div class="max-w-4xl mx-auto bg-primary/5 rounded-lg p-10 md:p-12 text-center shadow-minimal">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Chcete adoptovať {dog.name}?</h2>
+				<p class="text-lg text-muted-foreground mb-10 leading-relaxed max-w-2xl mx-auto">
 					{dog.name} čaká na svoj nový domov plný lásky. Navštívte nás v útulku alebo nás kontaktujte pre viac informácií o adopcii.
 				</p>
 				<div class="flex flex-col sm:flex-row gap-4 justify-center">
 					<a
 						href="/adopcia"
-						class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg"
+						class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold shadow-sm"
 					>
 						Ako adoptovať
 					</a>
 					<a
 						href="/kontakt"
-						class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg"
+						class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold shadow-sm"
 					>
 						Kontaktujte nás
 					</a>
 				</div>
-				<div class="mt-8 pt-8 border-t border-border">
-					<p class="text-sm text-muted-foreground">
+				<div class="mt-10 pt-10 border-t border-border/50">
+					<p class="text-sm text-muted-foreground leading-relaxed">
 						<strong>Otváracie hodiny:</strong> Pondelok - Nedeľa, 10:00 - 16:00<br />
-						<strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a>
+						<strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:text-primary/80 transition-colors">+421 915 785 007</a>
 					</p>
 				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Adoption Inquiry Form Section -->
+	<section id="adoption-inquiry" class="adoption-inquiry-section section-spacing bg-muted/5">
+		<div class="mx-auto max-w-7xl container-spacing">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Mám záujem o adopciu</h2>
+				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
+					Chcete adoptovať {dog.name}? Vyplňte formulár a my sa vám ozveme s ďalšími informáciami o adopčnom procese.
+				</p>
+				<AdoptionInquiryForm
+					dogName={dog.name}
+					dogSlug={slug as string}
+					client:load
+				/>
 			</div>
 		</div>
 	</section>

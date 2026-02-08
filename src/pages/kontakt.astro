@@ -1,11 +1,12 @@
 ---
 import MainLayout from '@/layouts/main.astro';
+import ContactForm from '@/components/forms/ContactForm';
 ---
 
 <MainLayout title="Kontakt" description="Kontaktujte Trenčiansky útulok. Nájdete tu všetky potrebné informácie - telefón, email, adresu, otváracie hodiny a ako sa k nám dostať.">
 	<!-- Header Section -->
 	<section id="header" class="header-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto text-center space-y-4">
 				<h1 class="text-4xl md:text-5xl font-bold">Kontakt</h1>
 				<p class="text-xl text-muted-foreground">
@@ -17,7 +18,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Kontaktné údaje Section -->
 	<section id="contact-info" class="contact-info-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto">
 				<h2 class="text-3xl font-bold mb-8">📞 Kontaktné údaje</h2>
 				<div class="grid md:grid-cols-2 gap-8">
@@ -55,7 +56,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Adresa a GPS Section -->
 	<section id="address" class="address-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto">
 				<h2 class="text-3xl font-bold mb-8">🏠 Adresa útulku a karanténnej stanice</h2>
 				<div class="p-8 rounded-lg bg-primary/5 border-2 border-primary/20">
@@ -86,9 +87,22 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Kontaktný formulár Section -->
+	<section id="contact-form" class="contact-form-section bg-muted/20">
+		<div class="mx-auto max-w-7xl px-4 py-16">
+			<div class="max-w-2xl mx-auto">
+				<h2 class="text-3xl font-bold mb-6">✉️ Napíšte nám</h2>
+				<p class="text-muted-foreground mb-8">
+					Máte otázky o adopcii, dobrovoľníctve alebo chcete pomôcť? Vyplňte formulár a ozveme sa vám čo najskôr.
+				</p>
+				<ContactForm client:load />
+			</div>
+		</div>
+	</section>
+
 	<!-- Mapa a fotka útulku Section -->
-	<section id="map-and-photo" class="map-photo-section bg-muted/20">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+	<section id="map-and-photo" class="map-photo-section">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-6xl mx-auto space-y-8">
 				<!-- Google Maps -->
 				<div>
@@ -122,8 +136,11 @@ import MainLayout from '@/layouts/main.astro';
 					<h2 class="text-3xl font-bold mb-6">📸 Náš útulok</h2>
 					<div class="rounded-lg overflow-hidden border-2 border-border shadow-lg">
 						<img
-							src="/images/our-house.jpeg"
+							src="/images/12photostory-unsplash.jpg"
 							alt="Trenčiansky útulok - budova"
+							loading="lazy"
+							width="800"
+							height="600"
 							class="w-full h-auto object-cover"
 						/>
 					</div>
@@ -137,7 +154,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Otváracie hodiny Section -->
 	<section id="opening-hours" class="opening-hours-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto p-8 rounded-lg bg-card border border-border text-center">
 				<h2 class="text-3xl font-bold mb-6">🕐 Otváracie hodiny</h2>
 				<p class="text-4xl font-bold text-primary mb-4">Pondelok - Nedeľa</p>
@@ -156,7 +173,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Sídlo OZ Section -->
 	<section id="oz-info" class="oz-info-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto p-6 rounded-lg bg-muted/30 border border-border">
 				<h3 class="text-xl font-semibold mb-4">🏢 Sídlo občianskeho združenia</h3>
 				<div class="space-y-2">
@@ -172,7 +189,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Bankové spojenie Section -->
 	<section id="bank-details" class="bank-details-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto p-6 rounded-lg bg-secondary/10 border border-secondary/20">
 				<h3 class="text-xl font-semibold mb-4">💳 Bankové spojenie</h3>
 				<p class="mb-4">Ak nám chcete poslať finančný príspevok, použite prosím tieto údaje:</p>
@@ -191,7 +208,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- Ako sa k nám dostať Section -->
 	<section id="directions" class="directions-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto">
 				<h2 class="text-3xl font-bold mb-8">🚍 Ako sa k nám dostať</h2>
 				<div class="grid gap-6">
@@ -231,7 +248,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- FAQ Section -->
 	<section id="faq" class="faq-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
 				<h2>📝 Často kladené otázky</h2>
 
@@ -252,7 +269,7 @@ import MainLayout from '@/layouts/main.astro';
 
 	<!-- CTA Section -->
 	<section id="cta" class="cta-section">
-		<div class="mx-auto max-w-screen-2xl px-4 py-16">
+		<div class="mx-auto max-w-7xl px-4 py-16">
 			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
 				<h2 class="text-3xl font-bold mb-6">Príďte nás navštíviť! 🐾</h2>
 				<p class="text-lg text-muted-foreground mb-8">

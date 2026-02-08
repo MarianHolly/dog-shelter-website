@@ -20,6 +20,7 @@ health: Kompletne očkovaný, čipovaný, kastrovaný
 story: Max bol nájdený ako túlavý pes na ulici v Trenčíne. Po mesiaci v útulku je pripravený na nový domov. Je veľmi priateľský k ľuďom a miluje aktivity. Potrebuje majiteľa, ktorý mu venuje dostatok času a pohybu.
 adoptionStatus: Dostupný
 urgent: false
+featured: true
 goodWithKids: true
 goodWithDogs: true
 goodWithCats: false

@@ -10,8 +10,17 @@ import mdx from '@astrojs/mdx';
 // https://astro.build/config
 export default defineConfig({
   vite: {
-      plugins: [tailwindcss()],
+    plugins: [tailwindcss()],
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'framer-motion': ['framer-motion'],
+          },
+        },
+      },
     },
+  },
 
   integrations: [react(), mdx()],
 });
