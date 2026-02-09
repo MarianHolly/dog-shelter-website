@@ -3,8 +3,16 @@ export type Theme = 'light' | 'dark';
 export function getTheme(): Theme {
   if (typeof window === 'undefined') return 'light';
 
-  const stored = localStorage.getItem('theme') as Theme | null;
-  if (stored) return stored;
+  try {
+    const stored = localStorage.getItem('theme') as Theme | null;
+    if (stored === 'light' || stored === 'dark') {
+      return stored;
+    }
+  } catch (e) {
+    // localStorage unavailable (private mode, quota exceeded, etc.)
+    // Silently fall through to system preference
+    console.debug('localStorage unavailable, using system preference');
+  }
 
   return window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'
@@ -12,7 +20,12 @@ export function getTheme(): Theme {
 }
 
 export function setTheme(theme: Theme) {
-  localStorage.setItem('theme', theme);
+  try {
+    localStorage.setItem('theme', theme);
+  } catch (e) {
+    // localStorage unavailable, theme won't persist but will still apply to current session
+    console.debug('Could not persist theme to localStorage:', e);
+  }
 
   if (theme === 'dark') {
     document.documentElement.classList.add('dark');

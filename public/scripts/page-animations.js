@@ -1,5 +1,28 @@
 // Page loading and scroll animations
 
+// Theme persistence during View Transitions
+function ensureThemePersists() {
+  try {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') {
+      // Ensure theme class is applied
+      if (stored === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+  } catch (e) {
+    // localStorage unavailable, use system preference
+    const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  }
+}
+
 // Initialize on page load
 function initPageAnimations() {
   // 1. Scroll-triggered animations using Intersection Observer
@@ -40,6 +63,9 @@ document.addEventListener('astro:page-load', initPageAnimations);
 
 // Show loading indicator during page transitions
 document.addEventListener('astro:before-swap', () => {
+  // Ensure theme persists before swap
+  ensureThemePersists();
+
   // Create and show loading bar
   const loadingBar = document.createElement('div');
   loadingBar.className = 'page-loading-indicator';
@@ -48,6 +74,9 @@ document.addEventListener('astro:before-swap', () => {
 });
 
 document.addEventListener('astro:after-swap', () => {
+  // Ensure theme persists after swap
+  ensureThemePersists();
+
   // Remove loading bar
   const loadingBar = document.getElementById('page-loading-bar');
   if (loadingBar) {
