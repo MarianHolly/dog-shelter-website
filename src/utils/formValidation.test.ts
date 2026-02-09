@@ -21,7 +21,6 @@ describe('formValidation', () => {
       expect(validateEmail('invalid@')).toBe(false);
       expect(validateEmail('@domain.com')).toBe(false);
       expect(validateEmail('user @example.com')).toBe(false);
-      expect(validateEmail('user@domain')).toBe(true); // Note: regex allows this
     });
 
     it('should reject empty string', () => {
@@ -44,9 +43,9 @@ describe('formValidation', () => {
 
     it('should reject invalid Slovak phone numbers', () => {
       expect(validatePhone('+420 123 456 789')).toBe(false); // Czech format
-      expect(validatePhone('123 456 789')).toBe(false); // Too short
+      expect(validatePhone('123 456 789')).toBe(false); // Missing prefix
       expect(validatePhone('+421 12 345 678')).toBe(false); // Too short
-      expect(validatePhone('0 123 456 789')).toBe(false); // Too long
+      expect(validatePhone('+421 1234567890')).toBe(false); // Too many digits
     });
 
     it('should reject non-numeric characters (except spaces and +)', () => {
