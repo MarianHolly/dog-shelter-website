@@ -31,16 +31,27 @@ const formatDate = (date: Date) => {
 	}).format(date);
 };
 
-// Fallback images from the images folder
+// Actual images from /public/images/ folder
 const fallbackImages = [
-	'/images/madeline-bowen-unsplash.jpg',
+	'/images/sasha-sashina-1-unsplash.jpg',
 	'/images/jana-shnipelson-unsplash.jpg',
 	'/images/michael-kucharski-unsplash.jpg',
 	'/images/gayatri-malhotra-unsplash.jpg',
-	'/images/ash-unsplash.jpg',
-	'/images/wade-austin-ellis-unsplash.jpg',
-	'/images/anna-dudkova-unsplash.jpg',
+	'/images/madeline-bowen-unsplash.jpg',
+	'/images/madeline-bowen-2-unsplash.jpg',
+	'/images/sasha-sashina-2-unsplash.jpg',
 	'/images/james-lacy-unsplash.jpg',
+	'/images/ash-unsplash.jpg',
+	'/images/jay-wennington-unsplash.jpg',
+	'/images/bruce-warrington-unsplash.jpg',
+	'/images/aditya-ali-unsplash.jpg',
+	'/images/anna-dudkova-unsplash.jpg',
+	'/images/amit-rai-unsplash.jpg',
+	'/images/artem-makarov-unsplash.jpg',
+	'/images/sasha-sashina-3-unsplash.jpg',
+	'/images/wade-austin-ellis-unsplash.jpg',
+	'/images/michael-proctor-unsplash.jpg',
+	'/images/carl-schlabach-Xk-unsplash.jpg',
 ];
 
 // Helper to get image for post
@@ -64,9 +75,8 @@ const getPostImage = (post: any, index: number) => {
 
 	<!-- Filters Section -->
 	<section id="filters" class="filters-section">
-		<div class="mx-auto max-w-7xl px-4 py-8">
-			<div class="max-w-6xl mx-auto">
-				<div class="flex flex-wrap justify-center gap-3">
+		<div class="mx-auto max-w-screen-2xl px-4 md:px-6 py-8">
+			<div class="flex flex-wrap justify-center gap-3">
 					<button
 						class="category-filter px-4 py-2 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
 						data-category="all"
@@ -88,15 +98,15 @@ const getPostImage = (post: any, index: number) => {
 
 	<!-- Blog Posts Grid Section -->
 	<section id="blog-grid" class="blog-grid-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div id="posts-container" class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto">
+		<div class="mx-auto max-w-screen-2xl px-4 md:px-6 py-16">
+			<div id="posts-container" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 				{posts.map((post, index) => (
 					<article
 						class="blog-card group rounded-lg border border-border overflow-hidden bg-card hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row"
 						data-category={post.data.category || ''}
 					>
 						{/* Image - 1/3 of card */}
-						<div class="md:w-1/3 aspect-video md:aspect-auto overflow-hidden">
+						<div class="md:w-1/3 aspect-video md:aspect-auto overflow-hidden bg-muted/20">
 							<img
 								src={getPostImage(post, index)}
 								alt={post.data.imageAlt || post.data.title}
