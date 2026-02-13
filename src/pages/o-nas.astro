@@ -5,11 +5,22 @@ import NewsletterForm from '@/components/forms/NewsletterForm';
 
 <MainLayout title="O nás" description="Spoznajte Trenčianský útulok, náš tím a našu misiu pomáhať opusteným a týraným psom nájsť nový domov.">
 	<!-- Hero Section -->
-	<section id="hero" class="hero-section relative overflow-hidden bg-muted/20">
-		<div class="mx-auto max-w-7xl px-4 py-24 md:py-32">
+	<section id="hero" class="hero-section relative overflow-hidden h-[500px] flex items-center justify-center">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<img
+				src="/images/james-lacy-unsplash.jpg"
+				alt="Trenčianský útulok"
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-7xl px-4">
 			<div class="max-w-4xl mx-auto text-center space-y-6">
-				<h1 class="text-4xl md:text-6xl font-bold">O nás</h1>
-				<p class="text-xl md:text-2xl text-muted-foreground leading-relaxed">
+				<h1 class="text-4xl md:text-6xl font-bold text-white">O nás</h1>
+				<p class="text-xl md:text-2xl text-white/90 leading-relaxed">
 					Od roku 2011 zachraňujeme opustené životy a tvoríme šťastné príbehy.<br>
 					Spoznajte náš príbeh, tím a hodnoty, ktorými sa riadime.
 				</p>

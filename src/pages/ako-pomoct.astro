@@ -3,12 +3,23 @@ import MainLayout from '@/layouts/main.astro';
 ---
 
 <MainLayout title="Ako pomôcť" description="Existuje mnoho spôsobov, ako môžete pomôcť Trenčianskemu útulku. Či už adopciou, finančným príspevkom, dobrovoľníctvom alebo zdieľaním.">
-	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Pomôžte nám pomáhať</h1>
-				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+	<!-- Hero Section -->
+	<section id="hero" class="hero-section relative overflow-hidden h-[500px] flex items-center justify-center">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<img
+				src="/images/gayatri-malhotra-unsplash.jpg"
+				alt="Pomôžte našim psíkom"
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-7xl px-4">
+			<div class="max-w-4xl mx-auto text-center space-y-6">
+				<h1 class="text-4xl md:text-6xl font-bold text-white">Pomôžte nám pomáhať</h1>
+				<p class="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
 					Starostlivosť o desiatky psíkov nie je jednoduchá a určite nie je lacná. Každý deň potrebujeme krmivo, veterinárnu starostlivosť, lieky, deky a veľa iných vecí. Vaša pomoc môže mať obrovský vplyv na životy našich štvornohých kamarátov.
 				</p>
 			</div>

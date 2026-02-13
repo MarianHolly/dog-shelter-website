@@ -4,12 +4,23 @@ import ContactForm from '@/components/forms/ContactForm';
 ---
 
 <MainLayout title="Kontakt" description="Kontaktujte Trenčiansky útulok. Nájdete tu všetky potrebné informácie - telefón, email, adresu, otváracie hodiny a ako sa k nám dostať.">
-	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Kontakt</h1>
-				<p class="text-xl text-muted-foreground">
+	<!-- Hero Section -->
+	<section id="hero" class="hero-section relative overflow-hidden h-[500px] flex items-center justify-center">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<img
+				src="/images/michael-proctor-unsplash.jpg"
+				alt="Kontaktujte nás"
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-7xl px-4">
+			<div class="max-w-4xl mx-auto text-center space-y-6">
+				<h1 class="text-4xl md:text-6xl font-bold text-white">Kontakt</h1>
+				<p class="text-xl md:text-2xl text-white/90 leading-relaxed">
 					Máte otázky? Chcete adoptovať psíka? Radi vám pomôžeme!
 				</p>
 			</div>
