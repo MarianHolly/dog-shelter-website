@@ -438,12 +438,65 @@ import NewsletterForm from '@/components/forms/NewsletterForm';
 	<!-- Newsletter Section -->
 	<section id="newsletter" class="newsletter-section section-spacing bg-muted/5">
 		<div class="mx-auto max-w-7xl container-spacing">
-			<div class="max-w-2xl mx-auto text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Odber noviniek</h2>
-				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
-					Prihláste sa na odber noviniek a získajte informácie o nových psíkoch, udalostiach a príbehoch úspešných adopcií.
+			<div class="text-center mb-12">
+				<h2 class="text-3xl md:text-4xl font-bold mb-4 tracking-tight">Odber noviniek</h2>
+				<p class="text-lg text-muted-foreground">
+					Buďte v obraze, bez zahlcovania vašej schránky
 				</p>
-				<NewsletterForm client:load />
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-12 items-start">
+				<!-- Left Column - Information -->
+				<div class="space-y-6">
+					<div>
+						<h3 class="text-2xl font-semibold mb-4">Čo môžete očakávať?</h3>
+						<p class="text-muted-foreground leading-relaxed mb-6">
+							<strong>Nebojte sa, že vás zahlcujeme emailmi!</strong> Posielame len kľúčové správy, ktoré sú naozaj dôležité. Ušetríme váš čas aj vašu emailovú schránku.
+						</p>
+					</div>
+
+					<div class="bg-card border border-border rounded-lg p-6">
+						<h4 class="font-semibold text-lg mb-4 text-primary">📧 O čom vás budeme informovať:</h4>
+						<ul class="space-y-3">
+							<li class="flex items-start gap-3">
+								<span class="text-xl shrink-0">🔍</span>
+								<div>
+									<strong>Stratený pes v okolí</strong>
+									<p class="text-sm text-muted-foreground">Urgentné upozornenia, keď sa stratí pes v našom regióne</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="text-xl shrink-0">📊</span>
+								<div>
+									<strong>Ročný report</strong>
+									<p class="text-sm text-muted-foreground">Transparentný prehľad, kam išli vaše príspevky a čo sme dokázali</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<span class="text-xl shrink-0">🆘</span>
+								<div>
+									<strong>Naliehavé výzvy o pomoc</strong>
+									<p class="text-sm text-muted-foreground">Keď potrebujeme akútnu pomoc (veterinárnu starostlivosť, krmivo)</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+
+					<div class="bg-primary/5 border-l-4 border-primary rounded-r p-4">
+						<p class="text-sm text-muted-foreground">
+							<strong>Sľubujeme:</strong> Žiadny spam, žiadne marketingové emaily, žiadne zdieľanie vašej adresy. Len to, na čom naozaj záleží. Odhlásenie kedykoľvek jedným klikom.
+						</p>
+					</div>
+				</div>
+
+				<!-- Right Column - Newsletter Form -->
+				<div class="bg-card border-2 border-primary/20 rounded-lg p-8">
+					<h3 class="text-2xl font-semibold mb-6 text-center">Prihláste sa teraz</h3>
+					<NewsletterForm client:load />
+					<p class="text-xs text-muted-foreground text-center mt-6">
+						Vaše údaje sú v bezpečí. Nikdy ich neposkytneme tretím stranám.
+					</p>
+				</div>
 			</div>
 		</div>
 	</section>
