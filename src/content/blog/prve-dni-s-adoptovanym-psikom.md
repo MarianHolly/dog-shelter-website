@@ -2,7 +2,7 @@
 title: "Prvé dni s adoptovaným psíkom: Praktický sprievodca pre nových majiteľov"
 description: "Práve ste si adoptovali psíka? Blahoželáme! Prvé dni sú kľúčové pre úspešnú adaptáciu. Tento podrobný sprievodca vám povie všetko, čo potrebujete vedieť."
 pubDate: 2024-02-09T09:00:00Z
-category: "Adopcia"
+# category: "Adopcia"
 tags: ["adopcia", "starostlivosť o psa", "tipy", "príprava", "adaptácia"]
 image: "/images/anna-dudkova-unsplash.jpg"
 imageAlt: "Šťastný adoptovaný pes"

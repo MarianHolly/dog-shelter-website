@@ -2,7 +2,7 @@
 title: "Karanténna stanica vs. Útulok: Aký je rozdiel?"
 description: "Mnohí ľudia si myslia, že karanténna stanica a útulok je to isté. Nie je! Vysvetlíme vám podrobne, v čom sa líšia a prečo je tento rozdiel dôležitý."
 pubDate: 2024-02-10T09:00:00Z
-category: "O útulku"
+# category: "O útulku"
 tags: ["karanténna stanica", "útulok", "informácie", "legislatíva"]
 image: "/images/james-lacy-unsplash.jpg"
 imageAlt: "Budova útulku"

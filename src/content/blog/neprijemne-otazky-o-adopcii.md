@@ -2,7 +2,7 @@
 title: "Nepríjemné otázky o adopcii úprimne zodpovedané"
 description: "Čo sa stane, ak sa pes neaklimatizuje? Dá sa vrátiť? Koľko to naozaj stojí? Odpovedáme úprimne na otázky, ktoré sa ľudia boja pýtať."
 pubDate: 2024-02-08T10:00:00Z
-category: "Adopcia"
+category: "Adopcie"
 tags: ["adopcia", "FAQ", "problémy", "náklady", "zodpovednosť"]
 image: "/images/wade-austin-ellis-unsplash.jpg"
 imageAlt: "Zamyslený pes"

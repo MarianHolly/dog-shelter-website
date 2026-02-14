@@ -2,7 +2,7 @@
 title: "Venčenie psov a dobrovoľníctvo v útulku: Kompletný sprievodca"
 description: "Chcete pomôcť psíkom, ale nemôžete adoptovať? Dobrovoľníctvo je skvelá možnosť! Zistite, ako sa stať dobrovoľníkom, čo očakávať a ako začať."
 pubDate: 2024-02-06T09:00:00Z
-category: "Ako pomôcť"
+# category: "Ako pomôcť"
 tags: ["dobrovoľníctvo", "venčenie", "pomoc", "komunita"]
 image: "/images/sasha-sashina-2-unsplash.jpg"
 imageAlt: "Dobrovoľník venčiaci psa"

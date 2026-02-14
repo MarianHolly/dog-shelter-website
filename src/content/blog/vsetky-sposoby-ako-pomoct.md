@@ -2,7 +2,7 @@
 title: "Všetky spôsoby, ako môžete pomôcť útulku (aj bez peňazí!)"
 description: "Myslíte si, že pomôcť útulku môžete len peniazmi? Nie! Existuje množstvo spôsobov - niektoré vás stoja 5 minút, iné len zdieľanie na Facebooku. Každá pomoc sa počíta!"
 pubDate: 2024-02-05T10:00:00Z
-category: "Ako pomôcť"
+# category: "Ako pomôcť"
 tags: ["pomoc", "dobrovoľníctvo", "finančná podpora", "nefinančná podpora", "komunita"]
 image: "/images/madeline-bowen-2-unsplash.jpg"
 imageAlt: "Pomôžte našim psíkom"

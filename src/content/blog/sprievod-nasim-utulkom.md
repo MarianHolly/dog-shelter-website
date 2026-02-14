@@ -2,7 +2,7 @@
 title: "Virtuálny sprievod Trenčianskym útulkom"
 description: "Nemôžete nás navštíviť osobne? Poďte s nami na virtuálny tour našim útulkom. Ukážeme vám, kde žijú naši psíci, ako vyzerá ich každodenný život a čo všetko pre nich robíme."
 pubDate: 2024-02-07T11:00:00Z
-category: "O útulku"
+# category: "O útulku"
 tags: ["útulok", "tour", "zákulisie", "každodenný život"]
 image: "/images/james-lacy-unsplash.jpg"
 imageAlt: "Trenčiansky útulok - budova"
