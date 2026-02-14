@@ -156,6 +156,21 @@
     scroll-margin-top: 5rem; /* 80px - same as scroll-padding-top */
   }
 
+  /* Disable auto-scroll for newsletter form inputs to prevent unwanted scrolling */
+  #newsletter input,
+  #newsletter textarea,
+  #newsletter select,
+  #newsletter button,
+  #newsletter a {
+    scroll-margin-top: 0;
+  }
+
+  /* Disable smooth scroll behavior within newsletter section */
+  #newsletter,
+  #newsletter * {
+    scroll-behavior: auto !important;
+  }
+
   /* Enhanced keyboard navigation focus styles */
   *:focus-visible {
     @apply outline-2 outline-offset-2 outline-primary;

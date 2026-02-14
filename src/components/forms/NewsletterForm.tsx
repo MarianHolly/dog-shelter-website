@@ -1,7 +1,36 @@
-import { useState, type FormEvent } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { validateNewsletterForm, hasNewsletterErrors, type NewsletterFormData, type NewsletterErrors } from '@/utils/newsletterValidation';
 
 export default function NewsletterForm() {
+  // Prevent scroll on focus/blur within newsletter form
+  useEffect(() => {
+    const preventScroll = (e: FocusEvent) => {
+      const scrollY = window.scrollY;
+      const scrollX = window.scrollX;
+
+      // Restore scroll position after focus event
+      requestAnimationFrame(() => {
+        window.scrollTo(scrollX, scrollY);
+      });
+    };
+
+    const newsletterSection = document.getElementById('newsletter');
+    if (newsletterSection) {
+      // Add listeners to all focusable elements in newsletter section
+      const focusableElements = newsletterSection.querySelectorAll('input, textarea, button, a, select');
+      focusableElements.forEach(el => {
+        el.addEventListener('focus', preventScroll);
+        el.addEventListener('blur', preventScroll);
+      });
+
+      return () => {
+        focusableElements.forEach(el => {
+          el.removeEventListener('focus', preventScroll);
+          el.removeEventListener('blur', preventScroll);
+        });
+      };
+    }
+  }, []);
   const [formData, setFormData] = useState<NewsletterFormData>({
     email: '',
     consent: false,
