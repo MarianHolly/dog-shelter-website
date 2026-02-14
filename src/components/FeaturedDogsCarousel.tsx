@@ -44,7 +44,7 @@ export default function FeaturedDogsCarousel({ dogs }: FeaturedDogsCarouselProps
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {dogs.map((dog) => (
-            <CarouselItem key={dog.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+            <CarouselItem key={dog.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/4">
               <a href={`/psici/${dog.id}`} className="group block">
                 <div className="rounded-lg overflow-hidden bg-card shadow-minimal-hover transition-all duration-300 hover:shadow-minimal-lg relative h-full">
                   {dog.data.urgent && (
@@ -54,7 +54,7 @@ export default function FeaturedDogsCarousel({ dogs }: FeaturedDogsCarouselProps
                   )}
 
                   {/* Image */}
-                  <div className="relative overflow-hidden h-72 md:h-80">
+                  <div className="relative overflow-hidden aspect-square">
                     <img
                       src={dog.data.image}
                       alt={dog.data.name}
