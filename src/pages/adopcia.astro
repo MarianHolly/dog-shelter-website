@@ -3,12 +3,23 @@ import MainLayout from '@/layouts/main.astro';
 ---
 
 <MainLayout title="Adopcia" description="Chcete adoptovať psíka z Trenčianskeho útulku? Zistite, ako prebieha adopcia, čo potrebujete a aké sú dôležité informácie pred adopciou.">
-	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Adopcia psíka</h1>
-				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+	<!-- Hero Section -->
+	<section id="hero" class="hero-section relative overflow-hidden h-[500px] flex items-center justify-center">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<img
+				src="/images/anna-dudkova-unsplash.jpg"
+				alt="Adoptujte psíka"
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/50"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-7xl px-4">
+			<div class="max-w-4xl mx-auto text-center space-y-6">
+				<h1 class="text-4xl md:text-6xl font-bold text-white">Adopcia psíka</h1>
+				<p class="text-xl md:text-2xl text-white/90 leading-relaxed max-w-3xl mx-auto">
 					Rozhodnutie adoptovať psíka je jedným z najkrajších rozhodnutí, aké môžete urobiť. Dávate opustenému zvieraťu druhú šancu na šťastný život a získavate verného kamaráta na celý život.
 				</p>
 			</div>

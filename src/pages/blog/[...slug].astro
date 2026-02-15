@@ -1,21 +1,7 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import { getCollection, getEntry } from 'astro:content';
-
-const { slug } = Astro.params;
-
-if (!slug) {
-	return Astro.redirect('/blog');
-}
-
-const postEntry = await getEntry('blog', slug as string);
-
-if (!postEntry) {
-	return Astro.redirect('/blog');
-}
-
-const post = postEntry.data;
-const markdownBody = postEntry.body || '';
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
 
 // Format date helper
 const formatDate = (date: Date) => {
@@ -29,10 +15,19 @@ const formatDate = (date: Date) => {
 // Static paths
 export async function getStaticPaths() {
 	const posts = await getCollection('blog', ({ data }) => data.draft !== true);
-	return posts.map((post) => ({
-		params: { slug: post.id },
+	return posts.map((entry) => ({
+		params: { slug: entry.id },
+		props: { entry },
 	}));
 }
+
+type Props = {
+	entry: CollectionEntry<'blog'>;
+};
+
+const { entry } = Astro.props;
+const post = entry.data;
+const { Content } = await render(entry);
 ---
 
 <MainLayout
@@ -102,7 +97,7 @@ export async function getStaticPaths() {
 		<section class="article-body section-spacing">
 			<div class="mx-auto max-w-4xl container-spacing">
 				<div class="prose prose-lg dark:prose-invert max-w-none">
-					<div set:html={markdownBody} />
+					<Content />
 				</div>
 			</div>
 		</section>

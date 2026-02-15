@@ -4,7 +4,7 @@ description: "Kompletný sprievodca čipovaním psov. Zistite, prečo je čipova
 pubDate: 2019-01-15T10:00:00Z
 category: "Tipy a rady"
 tags: ["čipovanie", "legislatíva", "starostlivosť", "povinnosti"]
-image: "/images/sasha-sashina-unsplash.jpg"
+image: "/images/sasha-sashina-1-unsplash.jpg"
 imageAlt: "Pes u veterinára"
 featured: true
 ---

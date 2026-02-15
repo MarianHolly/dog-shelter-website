@@ -1,47 +1,277 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import NewsletterForm from '@/components/forms/NewsletterForm';
 ---
 
 <MainLayout title="Ako pomôcť" description="Existuje mnoho spôsobov, ako môžete pomôcť Trenčianskemu útulku. Či už adopciou, finančným príspevkom, dobrovoľníctvom alebo zdieľaním.">
-	<!-- Header Section -->
-	<section id="header" class="header-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto text-center space-y-4">
-				<h1 class="text-4xl md:text-5xl font-bold">Pomôžte nám pomáhať</h1>
-				<p class="text-xl text-muted-foreground max-w-3xl mx-auto">
-					Starostlivosť o desiatky psíkov nie je jednoduchá a určite nie je lacná. Každý deň potrebujeme krmivo, veterinárnu starostlivosť, lieky, deky a veľa iných vecí. Vaša pomoc môže mať obrovský vplyv na životy našich štvornohých kamarátov.
-				</p>
+	<!-- Hero Section -->
+	<section id="hero" class="hero-section relative overflow-hidden min-h-[600px] md:min-h-[650px] flex items-center justify-center">
+		<!-- Background Image -->
+		<div class="absolute inset-0 z-0">
+			<img
+				src="/images/gayatri-malhotra-unsplash.jpg"
+				alt="Pomôžte našim psíkom"
+				class="w-full h-full object-cover"
+			/>
+			<div class="absolute inset-0 bg-black/60"></div>
+		</div>
+
+		<!-- Content -->
+		<div class="relative z-10 mx-auto max-w-7xl px-4 py-20">
+			<div class="max-w-5xl mx-auto space-y-8">
+				<!-- The Hook - Professional Question -->
+				<div class="text-center space-y-6">
+					<div class="inline-block px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-4">
+						<p class="text-sm md:text-base text-white/90 font-medium">
+							Pre tých, ktorí nemôžu adoptovať
+						</p>
+					</div>
+					<h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+						Adopcia nie je jediná cesta
+					</h1>
+					<p class="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto">
+						Existuje množstvo spôsobov, ako môžete zmeniť životy našich psíkov – bez ohľadu na vaše životné okolnosti
+					</p>
+				</div>
+
+				<!-- Key Message -->
+				<div class="bg-white/10 backdrop-blur-sm border-2 border-white/20 rounded-xl p-8 md:p-10">
+					<div class="grid md:grid-cols-3 gap-6 mb-8">
+						<div class="text-center space-y-2">
+							<div class="w-12 h-12 mx-auto rounded-full bg-white/20 flex items-center justify-center text-2xl">
+								🏠
+							</div>
+							<p class="text-sm text-white/90">Obmedzené bývanie</p>
+						</div>
+						<div class="text-center space-y-2">
+							<div class="w-12 h-12 mx-auto rounded-full bg-white/20 flex items-center justify-center text-2xl">
+								⏰
+							</div>
+							<p class="text-sm text-white/90">Časové obmedzenia</p>
+						</div>
+						<div class="text-center space-y-2">
+							<div class="w-12 h-12 mx-auto rounded-full bg-white/20 flex items-center justify-center text-2xl">
+								🤧
+							</div>
+							<p class="text-sm text-white/90">Zdravotné dôvody</p>
+						</div>
+					</div>
+
+					<div class="text-center border-t border-white/20 pt-6">
+						<p class="text-lg md:text-xl text-white leading-relaxed">
+							Vaša pomoc má hodnotu v <strong>akejkoľvek forme</strong>.<br class="hidden md:block" />
+							Nájdite spôsob, ktorý vám vyhovuje.
+						</p>
+					</div>
+				</div>
+
+				<!-- CTA -->
+				<div class="text-center">
+					<a
+						href="#sposoby-pomoci"
+						class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105"
+					>
+						Zobraziť všetky možnosti
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<!-- Image Banner Section -->
-	<section id="help-banner" class="help-banner-section bg-muted/20">
-		<div class="mx-auto max-w-7xl px-4 py-12">
-			<div class="max-w-5xl mx-auto">
-				<div class="grid md:grid-cols-2 gap-6">
-					<div class="overflow-hidden rounded-lg shadow-lg border-2 border-border">
-						<img
-							src="/images/madeline-bowen-unsplash.jpg"
-							alt="Pomôžte našim psíkom"
-							loading="lazy"
-							width="600"
-							height="320"
-							class="w-full h-80 object-cover"
-						/>
+	<!-- Ways to Help Overview -->
+	<section id="sposoby-pomoci" class="sposoby-pomoci-section section-spacing-lg bg-muted/30">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 tracking-tight">
+					Spôsoby, ako pomôcť
+				</h2>
+				<p class="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+					Každá forma podpory má hodnotu. Vyberte si možnosť, ktorá vám najviac vyhovuje.
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+				<!-- Option 1: 2% -->
+				<a
+					href="#2-z-dani"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-2xl">
+								💙
+							</div>
+							<div class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+								Najjednoduchšie
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							2% z daní
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Venujte nám 2% z vašich daní. Bez dodatočných nákladov, zaberie len 15 minút.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
 					</div>
-					<div class="overflow-hidden rounded-lg shadow-lg border-2 border-border">
-						<img
-							src="/images/howie-r-unsplash.jpg"
-							alt="Každý príspevok pomáha"
-							loading="lazy"
-							width="600"
-							height="320"
-							class="w-full h-80 object-cover"
-						/>
+				</a>
+
+				<!-- Option 2: Financial -->
+				<a
+					href="#financny-prispevok"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-2xl">
+								💰
+							</div>
+							<div class="px-3 py-1 bg-accent/10 text-accent-foreground text-xs font-semibold rounded-full">
+								Priamy vplyv
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							Finančný príspevok
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Jednorazový alebo pravidelný dar. Každé euro pomáha pokryť náklady na starostlivosť.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
 					</div>
-				</div>
+				</a>
+
+				<!-- Option 3: Virtual Adoption -->
+				<a
+					href="#virtualna-adopcia"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-2xl">
+								🐕
+							</div>
+							<div class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+								Osobné puto
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							Virtuálna adopcia
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Staňte sa sponzorom konkrétneho psíka a sledujte jeho cestu k novému domovu.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
+					</div>
+				</a>
+
+				<!-- Option 4: Items -->
+				<a
+					href="#krmivo"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-secondary/10 flex items-center justify-center text-2xl">
+								🎁
+							</div>
+							<div class="px-3 py-1 bg-secondary/10 text-secondary-foreground text-xs font-semibold rounded-full">
+								Konkrétna pomoc
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							Dary a potreby
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Prineste krmivo, deky, hračky alebo iné potrebné veci priamo do útulku.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
+					</div>
+				</a>
+
+				<!-- Option 5: Volunteering -->
+				<a
+					href="#dobrovolnictvo"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-2xl">
+								🤝
+							</div>
+							<div class="px-3 py-1 bg-primary/10 text-primary text-xs font-semibold rounded-full">
+								Praktická pomoc
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							Dobrovoľníctvo
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Venujte svoj čas a energie. Pomôžte s venčením, upratovaním alebo sociálnymi médiami.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
+					</div>
+				</a>
+
+				<!-- Option 6: Sharing -->
+				<a
+					href="#propagacia"
+					class="group relative overflow-hidden rounded-xl bg-card border border-border hover:border-primary/50 transition-all hover:shadow-xl"
+				>
+					<div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+					<div class="relative p-8">
+						<div class="flex items-center gap-4 mb-4">
+							<div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center text-2xl">
+								📢
+							</div>
+							<div class="px-3 py-1 bg-accent/10 text-accent-foreground text-xs font-semibold rounded-full">
+								Bez nákladov
+							</div>
+						</div>
+						<h3 class="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+							Zdieľanie a osveta
+						</h3>
+						<p class="text-muted-foreground leading-relaxed mb-4">
+							Šírte povedomie o našich psíkoch na sociálnych sieťach a pomôžte im nájsť domov.
+						</p>
+						<div class="flex items-center gap-2 text-primary font-semibold">
+							<span>Zistiť viac</span>
+							<svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</div>
+					</div>
+				</a>
 			</div>
 		</div>
 	</section>
@@ -383,16 +613,4 @@ import NewsletterForm from '@/components/forms/NewsletterForm';
 		</div>
 	</section>
 
-	<!-- Newsletter Section -->
-	<section id="newsletter" class="newsletter-section section-spacing bg-muted/5">
-		<div class="mx-auto max-w-7xl container-spacing">
-			<div class="max-w-2xl mx-auto text-center">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Odber noviniek</h2>
-				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
-					Prihláste sa na odber noviniek a získajte informácie o nových psíkoch, udalostiach a príbehoch úspešných adopcií.
-				</p>
-				<NewsletterForm client:load />
-			</div>
-		</div>
-	</section>
 </MainLayout>

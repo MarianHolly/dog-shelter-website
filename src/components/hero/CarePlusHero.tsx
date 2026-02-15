@@ -153,7 +153,7 @@ export default function CarePlusHero({
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             {/* Decorative background card */}
-            <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-secondary/20 rounded-3xl blur-2xl" />
+            <div className="absolute -inset-4 bg-linear-to-br from-primary/20 via-accent/10 to-secondary/20 rounded-3xl blur-2xl" />
 
             {/* Main image container */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
@@ -164,7 +164,7 @@ export default function CarePlusHero({
               />
 
               {/* Decorative overlay pattern */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-linear-to-t from-primary/20 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Floating card - optional decorative element */}

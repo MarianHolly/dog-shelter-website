@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@/layouts/main.astro';
 import { getCollection } from 'astro:content';
+import DogFilters from '@/components/DogFilters';
 
 // Get all dogs from content collection
 const allDogs = await getCollection('dogs');
@@ -29,55 +30,7 @@ const dogs = allDogs.sort((a, b) => {
 	<section id="filters" class="filters-section pb-8">
 		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<div class="bg-card rounded-lg p-6 md:p-8 shadow-minimal">
-					<h2 class="text-xl font-semibold mb-6 tracking-tight">Filtrovať psíkov</h2>
-					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-						<div>
-							<label for="filter-size" class="block text-sm font-medium mb-2 text-foreground">Veľkosť</label>
-							<select id="filter-size" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
-								<option value="">Všetky veľkosti</option>
-								<option value="Malý">Malý</option>
-								<option value="Stredný">Stredný</option>
-								<option value="Veľký">Veľký</option>
-							</select>
-						</div>
-						<div>
-							<label for="filter-gender" class="block text-sm font-medium mb-2 text-foreground">Pohlavie</label>
-							<select id="filter-gender" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
-								<option value="">Všetky</option>
-								<option value="Pes">Pes</option>
-								<option value="Suka">Suka</option>
-							</select>
-						</div>
-						<div>
-							<label for="filter-energy" class="block text-sm font-medium mb-2 text-foreground">Úroveň energie</label>
-							<select id="filter-energy" class="w-full px-4 py-3 rounded-lg border border-border/20 bg-background focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-colors duration-200">
-								<option value="">Všetky úrovne</option>
-								<option value="Nízka">Nízka</option>
-								<option value="Stredná">Stredná</option>
-								<option value="Vysoká">Vysoká</option>
-							</select>
-						</div>
-						<div>
-							<label class="block text-sm font-medium mb-2 text-foreground">Vlastnosti</label>
-							<div class="space-y-3">
-								<label class="flex items-center gap-2 cursor-pointer">
-									<input type="checkbox" id="filter-kids" class="rounded border-border/20 focus:ring-2 focus:ring-primary/10">
-									<span class="text-sm">Dobrý s deťmi</span>
-								</label>
-								<label class="flex items-center gap-2 cursor-pointer">
-									<input type="checkbox" id="filter-urgent" class="rounded border-border/20 focus:ring-2 focus:ring-primary/10">
-									<span class="text-sm">Len urgentné</span>
-								</label>
-							</div>
-						</div>
-					</div>
-					<div class="mt-6 flex gap-2">
-						<button id="reset-filters" class="px-6 py-2.5 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors shadow-sm font-medium">
-							Zrušiť filtre
-						</button>
-					</div>
-				</div>
+				<DogFilters client:load onFilterChange={(filters) => {}} />
 			</div>
 		</div>
 	</section>
@@ -112,7 +65,7 @@ const dogs = allDogs.sort((a, b) => {
 								height="384"
 								class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
 							/>
-							<div class="absolute inset-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+							<div class="absolute inset-0 bg-linear-to-t from-background/80 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 						</div>
 
 						<div class="p-5 space-y-3">
@@ -194,27 +147,15 @@ const dogs = allDogs.sort((a, b) => {
 		</div>
 	</section>
 
-	<script>
+	<script is:inline>
 		// Dog filtering functionality
-		const filterSize = document.getElementById('filter-size') as HTMLSelectElement;
-		const filterGender = document.getElementById('filter-gender') as HTMLSelectElement;
-		const filterEnergy = document.getElementById('filter-energy') as HTMLSelectElement;
-		const filterKids = document.getElementById('filter-kids') as HTMLInputElement;
-		const filterUrgent = document.getElementById('filter-urgent') as HTMLInputElement;
-		const resetButton = document.getElementById('reset-filters') as HTMLButtonElement;
-		const dogCards = document.querySelectorAll('.dog-card');
-
-		function applyFilters() {
-			const sizeValue = filterSize.value;
-			const genderValue = filterGender.value;
-			const energyValue = filterEnergy.value;
-			const kidsChecked = filterKids.checked;
-			const urgentChecked = filterUrgent.checked;
-
+		function applyFilters(filters) {
+			console.log('Applying filters:', filters);
+			const dogCards = document.querySelectorAll('.dog-card');
 			let visibleCount = 0;
 
 			dogCards.forEach((card) => {
-				const cardElement = card as HTMLElement;
+				const cardElement = card;
 				const cardSize = cardElement.dataset.size || '';
 				const cardGender = cardElement.dataset.gender || '';
 				const cardEnergy = cardElement.dataset.energy || '';
@@ -224,27 +165,27 @@ const dogs = allDogs.sort((a, b) => {
 				let show = true;
 
 				// Size filter
-				if (sizeValue && cardSize !== sizeValue) {
+				if (filters.size && cardSize !== filters.size) {
 					show = false;
 				}
 
 				// Gender filter
-				if (genderValue && cardGender !== genderValue) {
+				if (filters.gender && cardGender !== filters.gender) {
 					show = false;
 				}
 
 				// Energy filter
-				if (energyValue && cardEnergy !== energyValue) {
+				if (filters.energy && cardEnergy !== filters.energy) {
 					show = false;
 				}
 
 				// Kids filter
-				if (kidsChecked && !cardKids) {
+				if (filters.goodWithKids && !cardKids) {
 					show = false;
 				}
 
 				// Urgent filter
-				if (urgentChecked && !cardUrgent) {
+				if (filters.urgent && !cardUrgent) {
 					show = false;
 				}
 
@@ -268,29 +209,25 @@ const dogs = allDogs.sort((a, b) => {
 					const message = document.createElement('div');
 					message.className = 'no-results col-span-full text-center py-12';
 					message.innerHTML = `
-						<p class="text-xl text-muted-foreground mb-2">Nenašli sa žiadni psíci podľa vašich kritérií.</p>
-						<p class="text-muted-foreground">Skúste upraviť filtre alebo ich zrušiť.</p>
+						<div class="space-y-4">
+							<svg class="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+							</svg>
+							<p class="text-xl font-semibold text-muted-foreground">Nenašli sa žiadni psíci</p>
+							<p class="text-muted-foreground">Skúste upraviť filtre alebo ich zrušiť.</p>
+						</div>
 					`;
 					container.appendChild(message);
 				}
 			}
+
+			console.log('Visible dogs:', visibleCount);
 		}
 
-		function resetFilters() {
-			filterSize.value = '';
-			filterGender.value = '';
-			filterEnergy.value = '';
-			filterKids.checked = false;
-			filterUrgent.checked = false;
-			applyFilters();
-		}
+		// Expose the function globally so the React component can call it
+		window.applyDogFilters = applyFilters;
 
-		// Add event listeners
-		filterSize.addEventListener('change', applyFilters);
-		filterGender.addEventListener('change', applyFilters);
-		filterEnergy.addEventListener('change', applyFilters);
-		filterKids.addEventListener('change', applyFilters);
-		filterUrgent.addEventListener('change', applyFilters);
-		resetButton.addEventListener('click', resetFilters);
+		// Make sure function is available immediately
+		console.log('Filter function registered:', typeof window.applyDogFilters);
 	</script>
 </MainLayout>
