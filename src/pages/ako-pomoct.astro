@@ -800,19 +800,144 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- Dočasky Section -->
-	<section id="docasky" class="docasky-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="bg-secondary/10 border border-secondary/20 rounded-lg p-8">
-					<div class="flex items-center gap-3 mb-4">
-						<div class="text-4xl">🏠</div>
-						<h3 class="text-2xl font-bold">Dočasky</h3>
+	<section id="docasky" class="docasky-section scroll-mt-20 py-24">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Left Column: Title & Description -->
+				<div class="space-y-6">
+					<div class="inline-block px-4 py-2 bg-secondary/10 rounded-full">
+						<span class="text-sm font-semibold text-secondary-foreground">Dočasná pomoc</span>
 					</div>
-					<p class="text-lg mb-4">Dočasná starostlivosť</p>
-					<p class="text-muted-foreground">
-						Dočaska znamená, že si vezmete psíka na dočasný pobyt k sebe domov. Je to obrovská pomoc najmä pre šteniatka, choré alebo zotavujúce sa psy, staršie psy a psy počas rekonštrukcie útulku.
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+						Dočasky
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Dočaska znamená, že si vezmete psíka na dočasný pobyt k sebe domov. Pomáhate mu pripraviť sa na novú rodinu a dávate mu zaží druhého života.
 					</p>
+
+					<div class="pt-4">
+						<p class="text-lg font-semibold mb-4">Pre koho sú dočasky najdôležitejšie?</p>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Šteniatka</p>
+									<p class="text-sm text-muted-foreground">Potrebujú viac starostlivosti a socializácie</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Choré alebo zotavujúce sa psy</p>
+									<p class="text-sm text-muted-foreground">Pokojné prostredie urýchli liečbu</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Staršie psy</p>
+									<p class="text-sm text-muted-foreground">Utulok je pre nich stresujúci</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Počas rekonštrukcie útulku</p>
+									<p class="text-sm text-muted-foreground">Dočasné uvoľnenie priestoru</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Right Column: Benefits & CTA -->
+				<div class="space-y-6">
+					<div class="bg-gradient-to-br from-secondary/5 to-accent/5 rounded-2xl p-8">
+						<h3 class="text-2xl font-bold mb-6">Výhody dočasky</h3>
+						<div class="space-y-4">
+							<div class="flex items-start gap-3">
+								<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+									</svg>
+								</div>
+								<div>
+									<p class="font-semibold">Vyskúšate si spolužitie s psom</p>
+									<p class="text-sm text-muted-foreground">Bez dlhodobého záväzku</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+									</svg>
+								</div>
+								<div>
+									<p class="font-semibold">Poznáte psíka do hĺbky</p>
+									<p class="text-sm text-muted-foreground">Možnosť neskoršej adopcie</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+									</svg>
+								</div>
+								<div>
+									<p class="font-semibold">Zachraňujete život</p>
+									<p class="text-sm text-muted-foreground">Každý deň mimo útulku je dar</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="bg-card rounded-2xl p-8 shadow-lg">
+						<h3 class="text-xl font-bold mb-4">Čo potrebujete?</h3>
+						<ul class="space-y-3 mb-6">
+							<li class="flex items-center gap-2">
+								<svg class="w-5 h-5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Vhodné bývanie</span>
+							</li>
+							<li class="flex items-center gap-2">
+								<svg class="w-5 h-5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Čas na starostlivosť</span>
+							</li>
+							<li class="flex items-center gap-2">
+								<svg class="w-5 h-5 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Zodpovedný prístup</span>
+							</li>
+						</ul>
+						<p class="text-sm text-muted-foreground mb-6">
+							Krmivo a veterinárnu starostlivosť zabezpečuje útulok.
+						</p>
+						<a
+							href="/kontakt"
+							class="flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-all font-semibold text-lg shadow-lg hover:shadow-xl w-full"
+						>
+							Mám záujem o dočasku
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
