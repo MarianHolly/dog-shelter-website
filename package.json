@@ -4,10 +4,13 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run cms:config && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "vitest"
+    "test": "vitest",
+    "cms": "npx decap-server",
+    "dev:cms": "npm run cms:config && npx concurrently \"npm run dev\" \"npm run cms\"",
+    "cms:config": "cp public/admin/config.yml public/config.yml"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
