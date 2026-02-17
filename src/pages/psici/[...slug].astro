@@ -3,6 +3,7 @@ import MainLayout from '@/layouts/main.astro';
 import { getCollection, getEntry, render } from 'astro:content';
 import { Markdown } from '@astropub/md';
 import AdoptionInquiryForm from '@/components/forms/AdoptionInquiryForm';
+import DogImage from '@/components/DogImage.astro';
 
 // Get the slug from the URL
 const { slug } = Astro.params;
@@ -66,14 +67,13 @@ export async function getStaticPaths() {
 			<div class="mx-auto max-w-7xl container-spacing">
 				<div class="max-w-6xl mx-auto">
 					<div class="mb-6 flex justify-center rounded-lg overflow-hidden shadow-minimal-lg">
-						<img
+						<DogImage
 							id="main-image"
 							src={dog.images[0]}
 							alt={`${dog.name} - hlavná fotka`}
 							loading="eager"
-							fetchpriority="high"
-							width="1200"
-							height="600"
+							priority={true}
+							aspectRatio="16/9"
 							class="w-full h-auto max-h-[600px] object-cover"
 						/>
 					</div>
@@ -83,12 +83,11 @@ export async function getStaticPaths() {
 								class="thumbnail-btn overflow-hidden rounded-md border-2 border-transparent hover:border-primary transition-all cursor-pointer shadow-minimal"
 								data-image={image}
 							>
-								<img
+								<DogImage
 									src={image}
 									alt={`${dog.name} - fotka ${index + 1}`}
 									loading="lazy"
-									width="120"
-									height="80"
+									aspectRatio="4/3"
 									class="w-full h-20 object-cover"
 								/>
 							</button>

@@ -2,6 +2,7 @@
 import MainLayout from '@/layouts/main.astro';
 import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
+import DogImage from '@/components/DogImage.astro';
 
 // Format date helper
 const formatDate = (date: Date) => {
@@ -81,12 +82,12 @@ const { Content } = await render(entry);
 		{post.image && (
 			<section class="featured-image pb-8">
 				<div class="mx-auto max-w-5xl container-spacing">
-					<img
+					<DogImage
 						src={post.image}
 						alt={post.imageAlt || post.title}
-						loading="lazy"
-						width="1200"
-						height="600"
+						loading="eager"
+						priority={true}
+						aspectRatio="16/9"
 						class="w-full h-auto max-h-[600px] object-cover rounded-lg shadow-minimal-lg"
 					/>
 				</div>

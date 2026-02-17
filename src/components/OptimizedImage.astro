@@ -1,0 +1,67 @@
+---
+/**
+ * OptimizedImage Component
+ *
+ * For CMS-managed images (in public/), this provides responsive images
+ * with modern formats using Cloudflare's image resizing (when deployed)
+ * or serves optimized versions in development.
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  sizes?: string;
+  aspectRatio?: string;
+}
+
+const {
+  src,
+  alt,
+  width = 800,
+  height,
+  class: className = '',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px',
+  aspectRatio,
+} = Astro.props;
+
+// Generate srcset for responsive images
+const widths = [320, 640, 768, 1024, 1280, 1536];
+const srcset = widths
+  .filter(w => w <= width)
+  .map(w => `${src}?w=${w} ${w}w`)
+  .join(', ');
+
+// Add width to main src
+const optimizedSrc = `${src}?w=${width}`;
+
+// Calculate height if aspect ratio provided
+const calculatedHeight = height || (aspectRatio ? Math.round(width / parseFloat(aspectRatio)) : undefined);
+---
+
+<img
+  src={optimizedSrc}
+  srcset={srcset}
+  sizes={sizes}
+  alt={alt}
+  width={width}
+  height={calculatedHeight}
+  class={className}
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+/>
+
+<style>
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+</style>

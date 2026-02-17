@@ -1,7 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
 import NewsletterForm from '@/components/forms/NewsletterForm';
-import DogImage from '@/components/DogImage.astro';
 ---
 
 <MainLayout
@@ -15,12 +14,9 @@ import DogImage from '@/components/DogImage.astro';
   >
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <DogImage
+      <img
         src="/images/james-lacy-unsplash.jpg"
         alt="Trenčianský útulok"
-        loading="eager"
-        priority={true}
-        aspectRatio="16/9"
         class="w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-black/50"></div>
@@ -258,107 +254,180 @@ import DogImage from '@/components/DogImage.astro';
           </p>
         </div>
 
-        <!-- Founder -->
-        <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 mb-12 max-w-3xl mx-auto">
-          <div class="text-center space-y-4">
-            <div class="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto">
-              <svg class="w-12 h-12 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-              </svg>
+        <div class="space-y-12">
+          <!-- Team Member 1 -->
+          <div class="bg-card border-2 border-primary/20 rounded-lg overflow-hidden">
+            <div class="grid md:grid-cols-3 gap-6 p-8">
+              <div class="md:col-span-1 flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-muted rounded-full flex items-center justify-center mb-4">
+                  <div class="text-6xl">👩‍💼</div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-1">Mgr. Petra Ožvaldová</h3>
+                <p class="text-lg font-medium text-primary mb-3">Zakladateľka a vedúca</p>
+                <p class="text-sm">
+                  <strong>Kontakt:</strong><br />
+                  <a href="tel:+421915785007" class="text-primary hover:underline"
+                    >+421 915 785 007</a
+                  >
+                </p>
+              </div>
+              <div class="md:col-span-2 space-y-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Môj príbeh</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Vždy som milovala zvieratá, ale zlom nastal, keď som na ulici našla zraneného,
+                    vyhladovaného psíka. Vtedy som si uvedomila, že chcem niečo zmeniť. V roku 2011
+                    som založila občianske združenie a odvtedy každý deň bojujem za psíkov, ktorí to
+                    potrebujú.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Prečo to robím</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Každý pes si zaslúží šancu na šťastný život. Keď vidím, ako adoptovaný pes
+                    konečno nachádza domov, viem, že to má zmysel. Aj keď je to náročné, láska a
+                    vďačnosť v ich očiach stojí za všetko.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div>
-              <h3 class="text-2xl font-bold mb-1">Mgr. Petra Ožvaldová</h3>
-              <p class="text-lg text-primary font-medium mb-4">Zakladateľka a vedúca</p>
-              <p class="text-muted-foreground leading-relaxed max-w-xl mx-auto">
-                V roku 2011 som založila občianske združenie s cieľom pomáhať opusteným psom. Každý pes si zaslúži druhú šancu na šťastný život.
-              </p>
-              <div class="mt-6">
-                <a href="tel:+421915785007" class="inline-flex items-center gap-2 text-primary hover:underline font-medium">
-                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-                  </svg>
-                  +421 915 785 007
-                </a>
+          </div>
+
+          <!-- Team Member 2 -->
+          <div class="bg-card border border-border rounded-lg overflow-hidden">
+            <div class="grid md:grid-cols-3 gap-6 p-8">
+              <div class="md:col-span-1 flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-muted rounded-full flex items-center justify-center mb-4">
+                  <div class="text-6xl">👩</div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-1">Renáta</h3>
+                <p class="text-lg font-medium text-primary">Členka tímu</p>
+              </div>
+              <div class="md:col-span-2 space-y-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">
+                    Ako som sa dostala k útulku
+                  </h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Predtým som pracovala v úplne inom odbore, ale po adopcii môjho prvého psíka z
+                    útulku som pochopila, že chcem pomáhať aj ostatným. Začala som ako dobrovoľníčka
+                    a postupne sa to stalo mojou srdcovou záležitosťou.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Moja hodnota</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Verím, že každý pes má v sebe dobro a potrebuje len správneho človeka, ktorý ho
+                    prebudí. Snažím sa spájať ľudí a psíkov tak, aby to bolo šťastie na oboch
+                    stranách.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 3 -->
+          <div class="bg-card border border-border rounded-lg overflow-hidden">
+            <div class="grid md:grid-cols-3 gap-6 p-8">
+              <div class="md:col-span-1 flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-muted rounded-full flex items-center justify-center mb-4">
+                  <div class="text-6xl">👩</div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-1">Zuzka</h3>
+                <p class="text-lg font-medium text-primary">Členka tímu</p>
+              </div>
+              <div class="md:col-span-2 space-y-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Prečo práve útulok</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Odmalička som vyrastala s psami. Keď som sa dozvedela o útulku, že potrebuje
+                    pomoc, neváhala som ani chvíľu. Každý deň tráviť čas s psíkmi, starať sa o ne a
+                    vidieť ich pokroky je pre mňa nesmierne uspokojujúce.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Čo ma motivuje</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Pozná každého psíka v útulku po mene a poznám ich príbehy. Keď vidím, ako sa
+                    plachý, vystrašený pes postupne otvára a začína dôverovať, viem, že práca má
+                    zmysel. Láska sa vždy vráti.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 4 -->
+          <div class="bg-card border border-border rounded-lg overflow-hidden">
+            <div class="grid md:grid-cols-3 gap-6 p-8">
+              <div class="md:col-span-1 flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-muted rounded-full flex items-center justify-center mb-4">
+                  <div class="text-6xl">👨</div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-1">Tomáš</h3>
+                <p class="text-lg font-medium text-primary">Člen tímu</p>
+              </div>
+              <div class="md:col-span-2 space-y-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Môj príbeh</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Začal som pomáhať útulku s rekonštrukciou a opravami. Myslel som si, že to bude
+                    jednorazová vec, ale keď som videl, ako ťažko tím pracuje a koľko starostlivosti
+                    venuje psíkom, vedel som, že chcem zostať a pomôcť viac.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Čo ma drží pri útulku</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Nie som človek veľa slov, ale keď vidím, že moja práca priamo zlepšuje život
+                    psíkov - či už je to nový kotec, opravená strecha alebo len dlhá prechádzka -
+                    cítim, že mám zmysel. Psy dávajú späť čistú, bezpodmienečnú lásku.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Member 5 -->
+          <div class="bg-card border border-border rounded-lg overflow-hidden">
+            <div class="grid md:grid-cols-3 gap-6 p-8">
+              <div class="md:col-span-1 flex flex-col items-center text-center">
+                <div class="w-32 h-32 bg-muted rounded-full flex items-center justify-center mb-4">
+                  <div class="text-6xl">👨</div>
+                </div>
+                <h3 class="text-2xl font-semibold mb-1">Martin</h3>
+                <p class="text-lg font-medium text-primary">Člen tímu</p>
+              </div>
+              <div class="md:col-span-2 space-y-4">
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Ako som sa zapojil</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Som technik a vždy ma bavilo opravovať veci. Keď som zistil, že lokálny útulok
+                    má neustále technické problémy a málo financií, ponúkol som svoje služby
+                    zadarmo. Teraz sa starám, aby všetko fungovalo - od vykurovania po elektriku.
+                  </p>
+                </div>
+                <div>
+                  <h4 class="text-lg font-semibold text-primary mb-2">Moje presvedčenie</h4>
+                  <p class="text-muted-foreground leading-relaxed">
+                    Kvalitné zázemie znamená šťastnejšie psy. Keď viem, že psíci majú teplo v zime,
+                    čistú vodu a bezpečný priestor, cítim satisfakciu. Robím to pre nich, pretože si
+                    zaslúžia dôstojné podmienky.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Team Grid -->
-        <div class="grid md:grid-cols-2 gap-8">
-          <div class="bg-card rounded-2xl p-8 shadow-sm">
-            <div class="flex items-start gap-6">
-              <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold mb-1">Renáta</h3>
-                <p class="text-sm text-accent font-medium mb-3">Adopcie a sociálne siete</p>
-                <p class="text-sm text-muted-foreground italic leading-relaxed">
-                  "Verím, že každý pes má v sebe dobro a potrebuje len správneho človeka. Snažím sa spájať ľudí a psíkov tak, aby to bolo šťastie na oboch stranách."
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-card rounded-2xl p-8 shadow-sm">
-            <div class="flex items-start gap-6">
-              <div class="w-20 h-20 bg-secondary/10 rounded-full flex items-center justify-center shrink-0">
-                <svg class="w-10 h-10 text-secondary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold mb-1">Zuzka</h3>
-                <p class="text-sm text-secondary font-medium mb-3">Denná starostlivosť</p>
-                <p class="text-sm text-muted-foreground italic leading-relaxed">
-                  "Poznám každého psíka v útulku po mene a ich príbehy. Keď vidím, ako sa plachý pes postupne otvára a začína dôverovať, viem, že to má zmysel."
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-card rounded-2xl p-8 shadow-sm">
-            <div class="flex items-start gap-6">
-              <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                <svg class="w-10 h-10 text-primary" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold mb-1">Tomáš</h3>
-                <p class="text-sm text-primary font-medium mb-3">Rekonštrukcie a opravy</p>
-                <p class="text-sm text-muted-foreground italic leading-relaxed">
-                  "Keď vidím, že moja práca priamo zlepšuje život psíkov - či už je to nový kotec alebo len dlhá prechádzka - cítim, že to má zmysel. Psy dávajú späť čistú lásku."
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="bg-card rounded-2xl p-8 shadow-sm">
-            <div class="flex items-start gap-6">
-              <div class="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center shrink-0">
-                <svg class="w-10 h-10 text-accent" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
-                </svg>
-              </div>
-              <div class="flex-1">
-                <h3 class="text-xl font-bold mb-1">Martin</h3>
-                <p class="text-sm text-accent font-medium mb-3">Technická prevádzka</p>
-                <p class="text-sm text-muted-foreground italic leading-relaxed">
-                  "Kvalitné zázemie znamená šťastnejšie psy. Keď viem, že psíci majú teplo v zime, čistú vodu a bezpečný priestor, cítim satisfakciu."
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Team Message -->
-        <div class="mt-12 text-center max-w-2xl mx-auto">
+        <!-- Team Summary -->
+        <div class="mt-16 bg-primary/10 border border-primary/20 rounded-lg p-8 text-center">
           <p class="text-lg text-muted-foreground leading-relaxed">
-            Pracujeme na dobrovoľnej báze s jediným cieľom – <strong class="text-foreground">pomôcť každému psíkovi nájsť nový domov plný lásky</strong>.
+            Každý z nás prišiel k útulku inou cestou, ale spája nás jedno - <strong
+              class="text-primary"
+              >láska k zvieratám a presvedčenie, že každý pes si zaslúži druhú šancu</strong
+            >. Pracujeme na dobrovoľnej báze, bez nároků na odmenu, pretože vidíme hodnotu v každom
+            zachránenom živote.
           </p>
         </div>
       </div>

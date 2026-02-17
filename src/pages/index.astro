@@ -6,6 +6,7 @@ import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import CarePlusHero from '@/components/hero/CarePlusHero';
 import AnimatedCounter from '@/components/stats/AnimatedCounter';
 import ServiceCard from '@/components/cards/ServiceCard';
+import DogImage from '@/components/DogImage.astro';
 
 // Get featured dogs
 const allDogs = await getCollection('dogs');
@@ -100,11 +101,12 @@ const featuredTestimonials = allTestimonials
         >
           <!-- Image -->
           <div class="aspect-4/3 overflow-hidden">
-            <img
+            <DogImage
               src="/images/madeline-bowen-unsplash.jpg"
               alt="Zachránené psy"
-              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
+              aspectRatio="4/3"
               loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
             />
           </div>
           <!-- Stat Overlay -->
@@ -126,11 +128,12 @@ const featuredTestimonials = allTestimonials
         >
           <!-- Image -->
           <div class="aspect-4/3 overflow-hidden">
-            <img
+            <DogImage
               src="/images/jana-shnipelson-unsplash.jpg"
               alt="Šťastné rodiny"
-              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
+              aspectRatio="4/3"
               loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
             />
           </div>
           <!-- Stat Overlay -->
@@ -152,11 +155,12 @@ const featuredTestimonials = allTestimonials
         >
           <!-- Image -->
           <div class="aspect-4/3 overflow-hidden">
-            <img
+            <DogImage
               src="/images/michael-kucharski-unsplash.jpg"
               alt="Roky skúseností"
-              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
+              aspectRatio="4/3"
               loading="lazy"
+              class="w-full h-full object-cover transition-transform duration-1000 ease-in-out group-hover:scale-105"
             />
           </div>
           <!-- Stat Overlay -->
