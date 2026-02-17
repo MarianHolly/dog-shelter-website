@@ -34,115 +34,204 @@ import NewsletterForm from '@/components/forms/NewsletterForm';
     </div>
   </section>
 
+  <!-- Section Separator -->
+  <div class="border-t border-border/50"></div>
+
   <!-- História Section -->
-  <section id="historia" class="historia-section">
-    <div class="mx-auto max-w-7xl px-4 py-20">
-      <div class="max-w-5xl mx-auto">
-        <div class="flex items-center gap-4 mb-12">
-          <div class="text-5xl">📖</div>
-          <h2 class="text-3xl md:text-4xl font-bold">Naša história</h2>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-8 mb-12">
-          <div class="text-center p-6">
-            <div class="text-5xl font-bold text-primary mb-2">2011</div>
-            <p class="text-lg text-muted-foreground">Rok založenia</p>
+  <section id="historia" class="historia-section py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left Column: Title & Story -->
+        <div class="space-y-6">
+          <div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full">
+            <span class="text-sm font-semibold">Naša cesta</span>
           </div>
-          <div class="text-center p-6">
-            <div class="text-5xl font-bold text-primary mb-2">30+</div>
-            <p class="text-lg text-muted-foreground">Adoptovaných psíkov</p>
-          </div>
-          <div class="text-center p-6">
-            <div class="text-5xl font-bold text-primary mb-2">13</div>
-            <p class="text-lg text-muted-foreground">Rokov skúseností</p>
-          </div>
-        </div>
-
-        <div class="space-y-8 text-lg leading-relaxed">
-          <p class="text-muted-foreground">
-            Občianske združenie Trenčianský útulok je <strong>malý, lokálny útulok</strong> s jasným cieľom
-            - pomáhať opusteným a týraným psom v našom regióne nájsť nový domov plný lásky a starostlivosti.
-          </p>
-
-          <div class="bg-primary/5 border-l-4 border-primary rounded-r-lg p-6">
-            <p class="text-muted-foreground">
-              Od <strong class="text-primary">1. októbra 2011</strong> spravujeme karanténnu stanicu v
-              Trenčíne. Po rozsiahlej rekonštrukcii a dostavbe sme otvorili aj útulok pre psíkov. Hoci
-              sme malý útulok, každý zachránený život má pre nás obrovskú hodnotu.
+          <h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+            Naša história
+          </h2>
+          <div class="space-y-6 text-lg text-muted-foreground leading-relaxed">
+            <p>
+              Občianske združenie Trenčianský útulok je <strong class="text-foreground">malý, lokálny útulok</strong> s jasným cieľom - pomáhať opusteným a týraným psom v našom regióne nájsť nový domov plný lásky a starostlivosti.
+            </p>
+            <p>
+              Od <strong class="text-primary">1. októbra 2011</strong> spravujeme karanténnu stanicu v Trenčíne. Po rozsiahlej rekonštrukcii a dostavbe sme otvorili aj útulok pre psíkov.
+            </p>
+            <p>
+              Za tie roky sme pomohli desatkám psíkov nájsť ich „navždy domov". Každý príbeh je jedinečný, každý psík má svoj osud a my sme tu, aby sme im pomohli napísať šťastný koniec.
             </p>
           </div>
+          <div class="pt-4">
+            <div class="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-6">
+              <p class="text-xl font-semibold text-center">
+                Aj malý čin pomoci má veľkú hodnotu
+              </p>
+            </div>
+          </div>
+        </div>
 
-          <p class="text-muted-foreground">
-            Za tie roky sme pomohli desatkám psíkov nájsť ich „navždy domov". Každý príbeh je
-            jedinečný, každý psík má svoj osud a my sme tu, aby sme im pomohli napísať šťastný
-            koniec. <strong>Aj malý čin pomoci má veľkú hodnotu.</strong>
-          </p>
+        <!-- Right Column: Stats & Milestones -->
+        <div class="space-y-6">
+          <div class="grid grid-cols-3 gap-6">
+            <div class="bg-card rounded-2xl p-6 text-center shadow-lg">
+              <div class="text-5xl font-bold text-primary mb-2">2011</div>
+              <p class="text-sm text-muted-foreground">Rok založenia</p>
+            </div>
+            <div class="bg-card rounded-2xl p-6 text-center shadow-lg">
+              <div class="text-5xl font-bold text-accent mb-2">30+</div>
+              <p class="text-sm text-muted-foreground">Adoptovaných ročne</p>
+            </div>
+            <div class="bg-card rounded-2xl p-6 text-center shadow-lg">
+              <div class="text-5xl font-bold text-secondary mb-2">13+</div>
+              <p class="text-sm text-muted-foreground">Rokov skúseností</p>
+            </div>
+          </div>
+
+          <div class="bg-card rounded-2xl p-8 shadow-xl">
+            <h3 class="text-2xl font-bold mb-6">Kľúčové míľniky</h3>
+            <div class="space-y-6">
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Október 2011</p>
+                  <p class="text-sm text-muted-foreground">Začiatok prevádzky karanténnej stanice</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Rekonštrukcia</p>
+                  <p class="text-sm text-muted-foreground">Rozšírenie a otvorenie útulku pre psov</p>
+                </div>
+              </div>
+              <div class="flex gap-4">
+                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Dnes</p>
+                  <p class="text-sm text-muted-foreground">Aktívny útulok s desiatkami úspešných adopcií</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-6">
+            <p class="text-sm text-muted-foreground">
+              <strong class="text-foreground">Hoci sme malý útulok</strong>, každý zachránený život má pre nás obrovskú hodnotu. Pracujeme s láskou, odhodlaním a vierou, že môžeme zmeniť svet - jedného psíka za druhým.
+            </p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Section Separator -->
+  <div class="border-t border-border/50"></div>
+
   <!-- Misia Section -->
-  <section id="misia" class="misia-section bg-muted/10">
-    <div class="mx-auto max-w-7xl px-4 py-20">
-      <div class="max-w-5xl mx-auto">
-        <div class="flex items-center gap-4 mb-12">
-          <div class="text-5xl">🎯</div>
-          <h2 class="text-3xl md:text-4xl font-bold">Naša misia</h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-12 mb-12">
-          <div>
-            <h3 class="text-2xl font-semibold mb-6">Náš hlavný cieľ</h3>
-            <p class="text-lg text-muted-foreground leading-relaxed mb-6">
-              <strong>Pomôcť nájsť domov opusteným a týraným psom.</strong> Veríme, že každý pes si zaslúži
-              druhú šancu, lásku a bezpečie.
-            </p>
+  <section id="misia" class="misia-section bg-muted/30 py-24">
+    <div class="mx-auto max-w-7xl px-4">
+      <div class="grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Right Column: Title & Goal (appears first on mobile) -->
+        <div class="space-y-6 lg:order-2">
+          <div class="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full">
+            <span class="text-sm font-semibold">Náš účel</span>
           </div>
-
-          <div>
-            <h3 class="text-2xl font-semibold mb-6">Čo robíme</h3>
-            <ul class="space-y-4 text-lg">
-              <li class="flex items-start gap-3">
-                <span class="text-primary text-xl">✓</span>
-                <span class="text-muted-foreground"
-                  >Zabezpečujeme kvalitné útočisko pre opustené a týrané psy</span
-                >
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-primary text-xl">✓</span>
-                <span class="text-muted-foreground"
-                  >Poskytujeme veterinárnu starostlivosť, stravu a lásku</span
-                >
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-primary text-xl">✓</span>
-                <span class="text-muted-foreground"
-                  >Hľadáme pre každého psíka ten správny domov</span
-                >
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-primary text-xl">✓</span>
-                <span class="text-muted-foreground"
-                  >Vzdelávame verejnosť o zodpovednom vlastníctve psov</span
-                >
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-primary text-xl">✓</span>
-                <span class="text-muted-foreground"
-                  >Bojujeme proti týraniu a zanedbávaniu zvierat</span
-                >
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="bg-primary/5 border border-primary/20 rounded-lg p-8 text-center">
-          <p class="text-xl italic text-muted-foreground">
-            Sme <strong>malý, lokálny útulok</strong> postavený na báze <strong
-              >dobrovoľnosti, lásky k zvieratám a podpory miestnej komunity</strong
-            >. Každá pomoc, aj tá najmenšia, má pre nás a našich psíkov obrovskú hodnotu.
+          <h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+            Naša misia
+          </h2>
+          <p class="text-2xl font-semibold text-foreground leading-relaxed">
+            Pomôcť nájsť domov opusteným a týraným psom
           </p>
+          <p class="text-xl text-muted-foreground leading-relaxed">
+            Veríme, že každý pes si zaslúži druhú šancu, lásku a bezpečie. Pracujeme na tom každý deň s odhodlaním a láskou.
+          </p>
+
+          <div class="pt-6">
+            <div class="bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-8">
+              <p class="text-lg leading-relaxed">
+                Sme <strong class="text-foreground">malý, lokálny útulok</strong> postavený na báze dobrovoľnosti, lásky k zvieratám a podpory miestnej komunity. Každá pomoc, aj tá najmenšia, má pre nás obrovskú hodnotu.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left Column: What We Do (appears second on mobile, first on desktop) -->
+        <div class="space-y-6 lg:order-1">
+          <div class="bg-card rounded-2xl p-8 shadow-xl">
+            <h3 class="text-2xl font-bold mb-6">Čo robíme</h3>
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Kvalitné útočisko</p>
+                  <p class="text-sm text-muted-foreground">Pre opustené a týrané psy v našom regióne</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Veterinárna starostlivosť</p>
+                  <p class="text-sm text-muted-foreground">Zdravotná starostlivosť, strava a láska</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Hľadanie domova</p>
+                  <p class="text-sm text-muted-foreground">Pre každého psíka ten správny, láskavý domov</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Vzdelávanie</p>
+                  <p class="text-sm text-muted-foreground">O zodpovednom vlastníctve a starostlivosti</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="flex-shrink-0 w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Ochrana zvierat</p>
+                  <p class="text-sm text-muted-foreground">Bojujeme proti týraniu a zanedbávaniu</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
