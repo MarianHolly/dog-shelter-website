@@ -21,44 +21,109 @@ import ContactForm from '@/components/forms/ContactForm';
 			<div class="max-w-4xl mx-auto text-center space-y-6">
 				<h1 class="text-4xl md:text-6xl font-bold text-white">Kontakt</h1>
 				<p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-					Máte otázky? Chcete adoptovať psíka? Radi vám pomôžeme!
+					Nebojte sa nás kontaktovať! Radi zodpovieme všetky vaše otázky a pomôžeme vám nájsť toho pravého štvornohého kamaráta.
 				</p>
 			</div>
 		</div>
 	</section>
 
-	<!-- Kontaktné údaje Section -->
-	<section id="contact-info" class="contact-info-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl font-bold mb-8">📞 Kontaktné údaje</h2>
-				<div class="grid md:grid-cols-2 gap-8">
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">Telefón</h3>
-						<p class="text-2xl font-bold text-primary mb-2">
-							<a href="tel:+421915785007" class="hover:underline">+421 915 785 007</a>
-						</p>
-						<p class="text-sm text-muted-foreground">Vedúca útulku - Mgr. Petra Ožvaldová</p>
-						<p class="text-sm text-muted-foreground mt-2">Najlepší čas na volanie je počas otváracích hodín útulku.</p>
-					</div>
+	<!-- Quick Contact Section -->
+	<section id="quick-contact" class="py-24 border-t border-border/50">
+		<div class="mx-auto max-w-7xl px-4">
+			<!-- Section Header -->
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full mb-6">
+					<span class="text-sm font-semibold">Rýchly kontakt</span>
+				</div>
+				<h2 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+					Ozvite sa nám
+				</h2>
+				<p class="text-xl text-muted-foreground leading-relaxed">
+					Sme tu pre vás každý deň. Kontaktujte nás telefonicky, emailom alebo navštívte náš útulok osobne.
+				</p>
+			</div>
 
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">E-mail</h3>
-						<p class="text-xl font-bold text-primary mb-2">
-							<a href="mailto:utulok.trencin@gmail.com" class="hover:underline break-all">utulok.trencin@gmail.com</a>
-						</p>
-						<p class="text-sm text-muted-foreground">Odpoveď na váš e-mail sa snažíme poskytnúť do 48 hodín.</p>
-						<p class="text-sm text-muted-foreground mt-2">V prípade naliehavých vecí prosím volajte.</p>
+			<!-- Contact Cards -->
+			<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+				<!-- Phone -->
+				<div class="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 text-center shadow-sm">
+					<div class="w-16 h-16 bg-primary text-primary-foreground rounded-2xl flex items-center justify-center mx-auto mb-6">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+						</svg>
 					</div>
+					<h3 class="text-xl font-bold mb-3">Telefón</h3>
+					<a href="tel:+421915785007" class="text-2xl font-bold text-primary hover:underline block mb-2">
+						+421 915 785 007
+					</a>
+					<p class="text-sm text-muted-foreground mb-3">Mgr. Petra Ožvaldová</p>
+					<p class="text-xs text-muted-foreground">Najlepší čas na volanie je počas otváracích hodín útulku</p>
 				</div>
 
-				<div class="mt-6 p-6 rounded-lg bg-secondary/10 border border-secondary/20">
-					<h3 class="text-xl font-semibold mb-4">Sociálne siete</h3>
-					<div class="space-y-2">
-						<p><strong>Facebook:</strong> <a href="https://www.facebook.com/trencianskyutulok" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčianský útulok</a></p>
-						<p class="text-sm text-muted-foreground">Sledujte nás pre aktuálne novinky, fotky psíkov a príbehy úspešných adopcií.</p>
-						<p class="mt-4"><strong>Facebook skupina - STRATILI SA:</strong> <a href="https://www.facebook.com/groups/trencianskyUTULOK/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">Trenčianský útulok - Stratili sa</a></p>
-						<p class="text-sm text-muted-foreground">Skupina pre stratené a nájdené zvieratá v regióne Trenčín.</p>
+				<!-- Email -->
+				<div class="bg-gradient-to-br from-accent/5 to-secondary/5 rounded-2xl p-8 text-center shadow-sm">
+					<div class="w-16 h-16 bg-accent text-accent-foreground rounded-2xl flex items-center justify-center mx-auto mb-6">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+							<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">E-mail</h3>
+					<a href="mailto:utulok.trencin@gmail.com" class="text-lg font-bold text-primary hover:underline block mb-2 break-all">
+						utulok.trencin@gmail.com
+					</a>
+					<p class="text-xs text-muted-foreground mb-3">Odpoveď do 48 hodín</p>
+					<p class="text-xs text-muted-foreground">V naliehavých prípadoch prosím volajte</p>
+				</div>
+
+				<!-- Opening Hours -->
+				<div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-8 text-center shadow-sm">
+					<div class="w-16 h-16 bg-secondary text-secondary-foreground rounded-2xl flex items-center justify-center mx-auto mb-6">
+						<svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Otváracie hodiny</h3>
+					<p class="text-lg font-semibold mb-1">Pondelok - Nedeľa</p>
+					<p class="text-3xl font-bold text-primary mb-3">10:00 - 16:00</p>
+					<p class="text-xs text-muted-foreground">Otvorené každý deň vrátane víkendov a sviatkov</p>
+				</div>
+			</div>
+
+			<!-- Social Media -->
+			<div class="mt-12 max-w-4xl mx-auto">
+				<div class="bg-card rounded-2xl p-8 shadow-sm">
+					<h3 class="text-2xl font-bold mb-6 text-center">Sledujte nás na sociálnych sieťach</h3>
+					<div class="grid md:grid-cols-2 gap-6">
+						<div class="flex items-start gap-4">
+							<div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center shrink-0">
+								<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold mb-1">Facebook stránka</h4>
+								<a href="https://www.facebook.com/trencianskyutulok" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+									Trenčianský útulok
+								</a>
+								<p class="text-sm text-muted-foreground mt-1">Aktuálne novinky, fotky psíkov a príbehy adopcií</p>
+							</div>
+						</div>
+
+						<div class="flex items-start gap-4">
+							<div class="w-12 h-12 bg-blue-700 rounded-xl flex items-center justify-center shrink-0">
+								<svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+								</svg>
+							</div>
+							<div>
+								<h4 class="font-bold mb-1">Facebook skupina</h4>
+								<a href="https://www.facebook.com/groups/trencianskyUTULOK/" target="_blank" rel="noopener noreferrer" class="text-primary hover:underline">
+									Trenčianský útulok - Stratili sa
+								</a>
+								<p class="text-sm text-muted-foreground mt-1">Stratené a nájdené zvieratá v regióne Trenčín</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -66,59 +131,49 @@ import ContactForm from '@/components/forms/ContactForm';
 	</section>
 
 	<!-- Adresa a GPS Section -->
-	<section id="address" class="address-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl font-bold mb-8">🏠 Adresa útulku a karanténnej stanice</h2>
-				<div class="p-8 rounded-lg bg-primary/5 border-2 border-primary/20">
-					<div class="grid md:grid-cols-2 gap-8">
+	<section id="address" class="py-24 border-t border-border/50 bg-gradient-to-br from-blue-50/50 to-cyan-50/50 dark:from-blue-950/20 dark:to-cyan-950/20">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-12 items-center">
+				<!-- Left: Content -->
+				<div class="space-y-6">
+					<div class="inline-block px-4 py-2 bg-blue-600 text-white rounded-full">
+						<span class="text-sm font-semibold">Naša adresa</span>
+					</div>
+					<h2 class="text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+						Kde nás nájdete
+					</h2>
+					<div class="space-y-4">
 						<div>
-							<h3 class="text-xl font-semibold mb-4">Adresa</h3>
+							<h3 class="text-xl font-bold mb-2">Adresa útulku</h3>
 							<p class="text-lg leading-relaxed">
 								Karanténna stanica a útulok pre psov<br>
-								<strong>Brnianska 2480</strong><br>
-								<strong>911 05 Trenčín - Zlatovce</strong>
-							</p>
-							<p class="text-sm text-muted-foreground mt-4">
-								Areál sa nachádza na okraji Trenčína, vedľa priemyselného parku AU Optronics, v areáli bývalej skládky.
+								<strong class="text-primary">Brnianska 2480</strong><br>
+								<strong class="text-primary">911 05 Trenčín - Zlatovce</strong>
 							</p>
 						</div>
-						<div>
-							<h3 class="text-xl font-semibold mb-4">GPS súradnice</h3>
+						<div class="bg-gradient-to-br from-blue-600/5 to-cyan-600/5 rounded-2xl p-6">
+							<h4 class="font-bold mb-2 flex items-center gap-2">
+								<svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+								</svg>
+								GPS súradnice
+							</h4>
 							<p class="text-2xl font-mono font-bold text-primary mb-2">
 								48°53'05.2″N 18°00'22.9″E
 							</p>
 							<p class="text-sm text-muted-foreground">
-								Vložte tieto súradnice do vašej navigácie (Google Maps, Waze, Mapy.cz) a dovedú vás priamo k nám.
+								Vložte tieto súradnice do navigácie a dovedú vás priamo k nám
 							</p>
 						</div>
+						<p class="text-muted-foreground">
+							Areál sa nachádza na okraji Trenčína, vedľa priemyselného parku AU Optronics, v areáli bývalej skládky.
+						</p>
 					</div>
 				</div>
-			</div>
-		</div>
-	</section>
 
-	<!-- Kontaktný formulár Section -->
-	<section id="contact-form" class="contact-form-section bg-muted/20">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-2xl mx-auto">
-				<h2 class="text-3xl font-bold mb-6">✉️ Napíšte nám</h2>
-				<p class="text-muted-foreground mb-8">
-					Máte otázky o adopcii, dobrovoľníctve alebo chcete pomôcť? Vyplňte formulár a ozveme sa vám čo najskôr.
-				</p>
-				<ContactForm client:load />
-			</div>
-		</div>
-	</section>
-
-	<!-- Mapa a fotka útulku Section -->
-	<section id="map-and-photo" class="map-photo-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-6xl mx-auto space-y-8">
-				<!-- Google Maps -->
-				<div>
-					<h2 class="text-3xl font-bold mb-6">🗺️ Kde nás nájdete</h2>
-					<div class="rounded-lg overflow-hidden border-2 border-border shadow-lg">
+				<!-- Right: Map -->
+				<div class="space-y-6">
+					<div class="rounded-2xl overflow-hidden shadow-xl">
 						<iframe
 							src="https://www.google.com/maps?q=48.884778,18.006361&hl=sk&z=15&output=embed"
 							width="100%"
@@ -130,127 +185,227 @@ import ContactForm from '@/components/forms/ContactForm';
 							title="Mapa útulku Trenčín"
 						></iframe>
 					</div>
-					<div class="mt-4 text-center">
+					<div class="text-center">
 						<a
 							href="https://www.google.com/maps?q=48.884778,18.006361"
 							target="_blank"
 							rel="noopener noreferrer"
-							class="inline-flex items-center gap-2 px-6 py-3 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold"
+							class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white hover:bg-blue-700 transition-colors font-semibold shadow-lg"
 						>
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+							</svg>
 							Otvoriť v Google Maps
 						</a>
 					</div>
 				</div>
-
-				<!-- Fotka útulku -->
-				<div>
-					<h2 class="text-3xl font-bold mb-6">📸 Náš útulok</h2>
-					<div class="rounded-lg overflow-hidden border-2 border-border shadow-lg">
-						<img
-							src="/images/james-lacy-unsplash.jpg"
-							alt="Trenčiansky útulok - budova"
-							loading="lazy"
-							width="800"
-							height="600"
-							class="w-full h-auto object-cover"
-						/>
-					</div>
-					<p class="text-center text-muted-foreground mt-4">
-						Takto vyzerá náš útulok. Tešíme sa na vašu návštevu!
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Otváracie hodiny Section -->
-	<section id="opening-hours" class="opening-hours-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto p-8 rounded-lg bg-card border border-border text-center">
-				<h2 class="text-3xl font-bold mb-6">🕐 Otváracie hodiny</h2>
-				<p class="text-4xl font-bold text-primary mb-4">Pondelok - Nedeľa</p>
-				<p class="text-3xl font-semibold mb-6">10:00 - 16:00</p>
-				<p class="text-muted-foreground max-w-2xl mx-auto">
-					Útulok je otvorený každý deň, vrátane víkendov a sviatkov. V týchto hodinách nás môžete navštíviť, spoznať našich psíkov a dohodnúť si adopciu.
-				</p>
-				<div class="mt-6 p-4 bg-amber-500/10 border border-amber-500/20 rounded">
-					<p class="text-sm">
-						<strong>⚠️ Upozornenie:</strong> V prípade mimoriadnych udalostí alebo nepriaznivého počasia môže dôjsť k zmene otváracích hodín. Sledujte náš Facebook alebo nás kontaktujte telefonicky.
-					</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Sídlo OZ Section -->
-	<section id="oz-info" class="oz-info-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto p-6 rounded-lg bg-muted/30 border border-border">
-				<h3 class="text-xl font-semibold mb-4">🏢 Sídlo občianskeho združenia</h3>
-				<div class="space-y-2">
-					<p><strong>Občianske združenie Trenčianský útulok</strong></p>
-					<p>Mgr. Petra Ožvaldová</p>
-					<p>Inovecká 60</p>
-					<p>911 01 Trenčín</p>
-					<p class="mt-4"><strong>IČO:</strong> 42152844</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- Bankové spojenie Section -->
-	<section id="bank-details" class="bank-details-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto p-6 rounded-lg bg-secondary/10 border border-secondary/20">
-				<h3 class="text-xl font-semibold mb-4">💳 Bankové spojenie</h3>
-				<p class="mb-4">Ak nám chcete poslať finančný príspevok, použite prosím tieto údaje:</p>
-				<div class="space-y-2">
-					<p><strong>Názov účtu:</strong> Trenčianský útulok</p>
-					<p><strong>Číslo účtu (SK):</strong> <span class="font-mono text-primary font-semibold">SK41 0900 0000 0050 1714 3457</span></p>
-					<p><strong>BIC/SWIFT:</strong> GIBASKBX</p>
-					<p><strong>Banka:</strong> Slovenská sporiteľňa, a.s.</p>
-				</div>
-				<p class="text-sm text-muted-foreground mt-4">
-					Do správy pre príjemcu môžete napísať účel platby (napr. "dar", "2% z daní", "virtuálna adopcia - meno psíka").
-				</p>
 			</div>
 		</div>
 	</section>
 
 	<!-- Ako sa k nám dostať Section -->
-	<section id="directions" class="directions-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="text-3xl font-bold mb-8">🚍 Ako sa k nám dostať</h2>
-				<div class="grid gap-6">
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-3">🚗 Autom</h3>
-						<p class="text-muted-foreground">
-							Užívateľom navigácie odporúčame zadať GPS súradnice <strong>48°53'05.2″N 18°00'22.9″E</strong> alebo adresu <strong>Brnianska 2480, Trenčín</strong>.
-						</p>
-						<p class="text-muted-foreground mt-2">
-							Z centra Trenčína smerom na Zlatovce, cez priemyselný park AU Optronics. Areál je dobre označený.
+	<section id="directions" class="py-24 border-t border-border/50">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full mb-6">
+					<span class="text-sm font-semibold">Doprava</span>
+				</div>
+				<h2 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+					Ako sa k nám dostať
+				</h2>
+				<p class="text-xl text-muted-foreground leading-relaxed">
+					Útulok je dobre dostupný autom, verejnou dopravou aj pešo. Vyberte si spôsob, ktorý vám vyhovuje.
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+				<!-- By Car -->
+				<div class="bg-card rounded-2xl p-8 shadow-sm">
+					<div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M8 2a.5.5 0 01.5.5v5h1a.5.5 0 010 1h-1v5a.5.5 0 01-1 0v-5h-1a.5.5 0 010-1h1v-5A.5.5 0 018 2z" clip-rule="evenodd"/>
+							<path d="M3 11a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM4.5 14a.5.5 0 000 1h11a.5.5 0 000-1h-11z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Autom</h3>
+					<p class="text-muted-foreground mb-4">
+						Zadajte do navigácie GPS súradnice <strong>48°53'05.2″N 18°00'22.9″E</strong> alebo adresu <strong>Brnianska 2480, Trenčín</strong>.
+					</p>
+					<p class="text-muted-foreground">
+						Z centra Trenčína smerom na Zlatovce, cez priemyselný park AU Optronics.
+					</p>
+					<div class="mt-4 pt-4 border-t border-border">
+						<p class="text-sm font-semibold mb-2 flex items-center gap-2">
+							<svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							Parkovanie v areáli
 						</p>
 					</div>
+				</div>
 
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-3">🚌 Verejnou dopravou (MHD)</h3>
-						<p class="text-muted-foreground mb-2">
-							K útulku sa dá dostať mestskou hromadnou dopravou.
-						</p>
-						<p class="text-muted-foreground">
-							<strong>Najbližšia zastávka:</strong> Podháj (linky č. 3, 7, 11)
-						</p>
-						<p class="text-muted-foreground mt-2">
-							Z tejto zastávky je to pešo približne 15-20 minút. Odporúčame použiť aplikácie Google Maps alebo Mapy.cz pre presné navigovanie.
-						</p>
+				<!-- Public Transport -->
+				<div class="bg-card rounded-2xl p-8 shadow-sm">
+					<div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 20 20">
+							<path d="M8 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+							<path d="M3 4a1 1 0 00-1 1v10a1 1 0 001 1h1.05a2.5 2.5 0 014.9 0H10a1 1 0 001-1V5a1 1 0 00-1-1H3zM14 7a1 1 0 00-1 1v6.05A2.5 2.5 0 0115.95 16H17a1 1 0 001-1V8a1 1 0 00-1-1h-3z"/>
+						</svg>
 					</div>
+					<h3 class="text-xl font-bold mb-3">Verejnou dopravou</h3>
+					<p class="text-muted-foreground mb-4">
+						K útulku sa dá dostať mestskou hromadnou dopravou.
+					</p>
+					<div class="bg-accent/5 rounded-xl p-4 mb-4">
+						<p class="font-semibold mb-1">Najbližšia zastávka: Podháj</p>
+						<p class="text-sm text-muted-foreground">Linky č. 3, 7, 11</p>
+					</div>
+					<p class="text-sm text-muted-foreground">
+						Z zastávky pešo približne 15-20 minút. Použite Google Maps pre presné navigovanie.
+					</p>
+				</div>
 
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-3">🚶 Pešo alebo na bicykli</h3>
-						<p class="text-muted-foreground">
-							Ak máte radi prechádzky, útulok je dostupný aj pešo z centra mesta (cca 40 minút chôdze) alebo na bicykli. Trasa vedie cez Zlatovce a priemyselný park.
-						</p>
+				<!-- Walking/Cycling -->
+				<div class="bg-card rounded-2xl p-8 shadow-sm">
+					<div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold mb-3">Pešo alebo na bicykli</h3>
+					<p class="text-muted-foreground mb-4">
+						Ak máte radi prechádzky, útulok je dostupný aj pešo z centra mesta alebo na bicykli.
+					</p>
+					<div class="space-y-2">
+						<div class="flex items-center gap-2 text-sm">
+							<svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-muted-foreground">Pešo z centra: ~40 min</span>
+						</div>
+						<div class="flex items-center gap-2 text-sm">
+							<svg class="w-4 h-4 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"/>
+							</svg>
+							<span class="text-muted-foreground">Trasa cez Zlatovce</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Warning Note -->
+			<div class="max-w-4xl mx-auto mt-12">
+				<div class="bg-amber-50 dark:bg-amber-950/20 border border-amber-200 dark:border-amber-800 rounded-2xl p-6">
+					<div class="flex items-start gap-4">
+						<div class="w-10 h-10 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded-xl flex items-center justify-center shrink-0">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+							</svg>
+						</div>
+						<div>
+							<h4 class="font-bold mb-1">Upozornenie</h4>
+							<p class="text-sm text-muted-foreground">
+								V prípade mimoriadnych udalostí alebo nepriaznivého počasia môže dôjsť k zmene otváracích hodín. Sledujte náš Facebook alebo nás kontaktujte telefonicky.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Kontaktný formulár Section -->
+	<section id="contact-form" class="py-24 border-t border-border/50 bg-gradient-to-br from-primary/5 to-accent/5">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="max-w-2xl mx-auto">
+				<div class="text-center mb-12">
+					<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full mb-6">
+						<span class="text-sm font-semibold">Napíšte nám</span>
+					</div>
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+						Kontaktný formulár
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Máte otázky o adopcii, dobrovoľníctve alebo chcete pomôcť? Vyplňte formulár a ozveme sa vám čo najskôr.
+					</p>
+				</div>
+				<div class="bg-card rounded-2xl p-8 shadow-xl">
+					<ContactForm client:load />
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Organization & Bank Details Section -->
+	<section id="organization-info" class="py-24 border-t border-border/50">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+					Informácie o organizácii
+				</h2>
+				<p class="text-xl text-muted-foreground leading-relaxed">
+					Oficiálne údaje občianskeho združenia a bankové spojenie pre finančné príspevky.
+				</p>
+			</div>
+
+			<div class="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+				<!-- Organization Details -->
+				<div class="bg-card rounded-2xl p-8 shadow-sm">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+							<svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold">Sídlo občianskeho združenia</h3>
+					</div>
+					<div class="space-y-3">
+						<div>
+							<p class="font-bold text-lg">Občianske združenie Trenčiansky útulok</p>
+						</div>
+						<div class="border-t border-border pt-3 space-y-2">
+							<p class="text-muted-foreground"><strong>Predsedníčka:</strong> Mgr. Petra Ožvaldová</p>
+							<p class="text-muted-foreground"><strong>Adresa:</strong> Inovecká 60, 911 01 Trenčín</p>
+							<p class="text-muted-foreground"><strong>IČO:</strong> <span class="font-mono">42152844</span></p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Bank Details -->
+				<div class="bg-gradient-to-br from-secondary/5 to-primary/5 rounded-2xl p-8 shadow-sm">
+					<div class="flex items-center gap-3 mb-6">
+						<div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center">
+							<svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold">Bankové spojenie</h3>
+					</div>
+					<p class="text-muted-foreground mb-4">Ak nám chcete poslať finančný príspevok, použite prosím tieto údaje:</p>
+					<div class="space-y-3">
+						<div>
+							<p class="text-sm text-muted-foreground mb-1">Názov účtu</p>
+							<p class="font-semibold">Trenčiansky útulok</p>
+						</div>
+						<div>
+							<p class="text-sm text-muted-foreground mb-1">Číslo účtu (SK)</p>
+							<p class="text-xl font-mono font-bold text-primary">SK41 0900 0000 0050 1714 3457</p>
+						</div>
+						<div class="grid grid-cols-2 gap-4">
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">BIC/SWIFT</p>
+								<p class="font-semibold">GIBASKBX</p>
+							</div>
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">Banka</p>
+								<p class="font-semibold">Slovenská sporiteľňa</p>
+							</div>
+						</div>
+						<div class="mt-4 pt-4 border-t border-border">
+							<p class="text-xs text-muted-foreground">
+								Do správy pre príjemcu môžete napísať účel platby (napr. "dar", "2% z daní", "virtuálna adopcia - meno psíka")
+							</p>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -258,46 +413,132 @@ import ContactForm from '@/components/forms/ContactForm';
 	</section>
 
 	<!-- FAQ Section -->
-	<section id="faq" class="faq-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto prose prose-lg dark:prose-invert">
-				<h2>📝 Často kladené otázky</h2>
+	<section id="faq" class="py-24 border-t border-border/50 bg-gradient-to-br from-slate-50/50 to-gray-50/50 dark:from-slate-950/20 dark:to-gray-950/20">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="text-center max-w-3xl mx-auto mb-16">
+				<div class="inline-block px-4 py-2 bg-slate-600 text-white rounded-full mb-6">
+					<span class="text-sm font-semibold">FAQ</span>
+				</div>
+				<h2 class="text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+					Často kladené otázky
+				</h2>
+				<p class="text-xl text-muted-foreground leading-relaxed">
+					Odpovede na najčastejšie otázky týkajúce sa návštevy útulku.
+				</p>
+			</div>
 
-				<h3>Musím si návštevu vopred dohodnúť?</h3>
-				<p>Nie je to nutné. Môžete prísť kedykoľvek počas otváracích hodín. Ak však plánujete adopciu alebo máte špeciálne požiadavky, je lepšie sa vopred telefonicky ozvať.</p>
+			<div class="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+				<div class="bg-card rounded-2xl p-6 shadow-sm">
+					<h3 class="text-lg font-bold mb-3 flex items-start gap-3">
+						<svg class="w-6 h-6 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+						</svg>
+						Musím si návštevu vopred dohodnúť?
+					</h3>
+					<p class="text-muted-foreground">
+						Nie je to nutné. Môžete prísť kedykoľvek počas otváracích hodín. Ak však plánujete adopciu alebo máte špeciálne požiadavky, je lepšie sa vopred telefonicky ozvať.
+					</p>
+				</div>
 
-				<h3>Môžem prísť aj mimo otváracích hodín?</h3>
-				<p>Bohužiaľ nie. Útulok je otvorený denne od 10:00 do 16:00. V prípade mimoriadnej situácie nás môžete kontaktovať telefonicky.</p>
+				<div class="bg-card rounded-2xl p-6 shadow-sm">
+					<h3 class="text-lg font-bold mb-3 flex items-start gap-3">
+						<svg class="w-6 h-6 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+						</svg>
+						Môžem prísť aj mimo otváracích hodín?
+					</h3>
+					<p class="text-muted-foreground">
+						Bohužiaľ nie. Útulok je otvorený denne od 10:00 do 16:00. V prípade mimoriadnej situácie nás môžete kontaktovať telefonicky.
+					</p>
+				</div>
 
-				<h3>Kde môžem zaparkovať?</h3>
-				<p>Parkovanie je možné priamo v areáli útulku. K dispozícii sú voľné parkovacie miesta.</p>
+				<div class="bg-card rounded-2xl p-6 shadow-sm">
+					<h3 class="text-lg font-bold mb-3 flex items-start gap-3">
+						<svg class="w-6 h-6 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+						</svg>
+						Kde môžem zaparkovať?
+					</h3>
+					<p class="text-muted-foreground">
+						Parkovanie je možné priamo v areáli útulku. K dispozícii sú voľné parkovacie miesta.
+					</p>
+				</div>
 
-				<h3>Je útulok bezbariérový?</h3>
-				<p>Časť areálu je bezbariérová. Ak máte špeciálne potreby, kontaktujte nás vopred a dohodneme sa na najlepšom riešení.</p>
+				<div class="bg-card rounded-2xl p-6 shadow-sm">
+					<h3 class="text-lg font-bold mb-3 flex items-start gap-3">
+						<svg class="w-6 h-6 text-primary shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+							<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+						</svg>
+						Je útulok bezbariérový?
+					</h3>
+					<p class="text-muted-foreground">
+						Časť areálu je bezbariérová. Ak máte špeciálne potreby, kontaktujte nás vopred a dohodneme sa na najlepšom riešení.
+					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Shelter Photo Section -->
+	<section id="shelter-photo" class="py-24 border-t border-border/50">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="max-w-5xl mx-auto">
+				<div class="text-center mb-12">
+					<h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+						Náš útulok
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Takto vyzerá náš útulok. Tešíme sa na vašu návštevu!
+					</p>
+				</div>
+				<div class="rounded-2xl overflow-hidden shadow-2xl">
+					<img
+						src="/images/james-lacy-unsplash.jpg"
+						alt="Trenčiansky útulok - budova"
+						loading="lazy"
+						width="800"
+						height="600"
+						class="w-full h-auto object-cover"
+					/>
+				</div>
 			</div>
 		</div>
 	</section>
 
 	<!-- CTA Section -->
-	<section id="cta" class="cta-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
-				<h2 class="text-3xl font-bold mb-6">Príďte nás navštíviť! 🐾</h2>
-				<p class="text-lg text-muted-foreground mb-8">
-					Tešíme sa na vašu návštevu. Naši psíci sa nemôžu dočkať, kedy si ich prídete pozrieť a možno niektorého z nich vezmete domov. ❤️
+	<section id="cta" class="py-24 border-t border-border/50">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="max-w-4xl mx-auto text-center space-y-8">
+				<h2 class="text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+					Príďte nás navštíviť!
+				</h2>
+				<p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+					Tešíme sa na vašu návštevu. Naši psíci sa nemôžu dočkať, kedy si ich prídete pozrieť a možno niektorého z nich vezmete domov.
 				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center">
-					<a href="/psici" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg">
-						Pozrite si našich psíkov
-					</a>
-					<a href="/adopcia" class="inline-flex items-center justify-center px-8 py-4 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg">
-						Informácie o adopcii
-					</a>
-				</div>
 
-				<p class="text-sm text-muted-foreground text-center mt-8">
-					<em>Posledná aktualizácia: December 2024</em>
-				</p>
+				<div class="bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 rounded-2xl p-12">
+					<div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+						<a href="/psici" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-colors font-semibold text-lg shadow-lg">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+								<path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+							</svg>
+							Pozrite si našich psíkov
+						</a>
+						<a href="/adopcia" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold text-lg shadow-lg">
+							<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+							</svg>
+							Informácie o adopcii
+						</a>
+					</div>
+
+					<div class="border-t border-border/50 pt-8">
+						<p class="text-sm text-muted-foreground">
+							Otvorené denne 10:00-16:00 • Brnianska 2480, 911 05 Trenčín - Zlatovce
+						</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
