@@ -392,42 +392,97 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- Finančný príspevok Section -->
-	<section id="financny-prispevok" class="financny-prispevok-section scroll-mt-20">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="flex items-center gap-3 mb-6">
-					<div class="text-4xl">💰</div>
-					<h2 class="text-3xl font-bold">Finančný príspevok</h2>
+	<section id="financny-prispevok" class="financny-prispevok-section scroll-mt-20 bg-muted/30 py-24">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Right Column: Information & CTA (appears first on mobile) -->
+				<div class="space-y-6 lg:order-2">
+					<div class="inline-block px-4 py-2 bg-accent/10 rounded-full">
+						<span class="text-sm font-semibold text-accent-foreground">Priamy vplyv</span>
+					</div>
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+						Finančný príspevok
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Každé euro sa počíta. Vaše príspevky priamo pomáhajú zabezpečiť kvalitný život pre psíkov v našej starostlivosti.
+					</p>
+					<div class="pt-4">
+						<p class="text-lg font-semibold mb-4">Na čo použijeme vašu pomoc:</p>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Krmivo a maškrty</p>
+									<p class="text-sm text-muted-foreground">Kvalitná výživa pre zdravý život</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Veterinárna starostlivosť</p>
+									<p class="text-sm text-muted-foreground">Očkovania, kastrácieodčervovanie</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Prevádzka útulku</p>
+									<p class="text-sm text-muted-foreground">Vykurovanie, elektrina, údržba</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<p class="text-lg mb-6">Každé euro sa počíta. Finančné príspevky používame na:</p>
-				<div class="grid md:grid-cols-2 gap-4 mb-8">
-					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-						<span class="text-2xl">🍖</span>
-						<span>Krmivo a maškrty</span>
+				<!-- Left Column: Bank Details (appears second on mobile, first on desktop) -->
+				<div class="space-y-6 lg:order-1">
+					<div class="bg-card rounded-2xl p-8 shadow-lg">
+						<h3 class="text-2xl font-bold mb-6">Bankové spojenie:</h3>
+						<div class="space-y-5">
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">Názov účtu</p>
+								<p class="text-lg font-semibold">Trenčianský útulok</p>
+							</div>
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">Číslo účtu</p>
+								<p class="text-2xl font-bold text-accent">SK41 0900 0000 0050 1714 3457</p>
+							</div>
+							<div class="grid grid-cols-2 gap-4">
+								<div>
+									<p class="text-sm text-muted-foreground mb-1">BIC/SWIFT</p>
+									<p class="font-semibold">GIBASKBX</p>
+								</div>
+								<div>
+									<p class="text-sm text-muted-foreground mb-1">Banka</p>
+									<p class="font-semibold">Slovenská sporiteľňa</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-						<span class="text-2xl">💉</span>
-						<span>Veterinárnu starostlivosť</span>
-					</div>
-					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-						<span class="text-2xl">🏠</span>
-						<span>Údržbu útulku</span>
-					</div>
-					<div class="flex items-center gap-3 p-4 rounded-lg bg-card border border-border">
-						<span class="text-2xl">❄️</span>
-						<span>Vykurovanie v zime</span>
-					</div>
-				</div>
 
-				<div class="bg-card rounded-lg p-6 border border-border">
-					<h3 class="text-xl font-semibold mb-4">Bankové spojenie:</h3>
-					<div class="space-y-2">
-						<p><strong>Názov účtu:</strong> Trenčianský útulok</p>
-						<p><strong>Číslo účtu:</strong> SK41 0900 0000 0050 1714 3457</p>
-						<p><strong>BIC/SWIFT:</strong> GIBASKBX</p>
-						<p><strong>Banka:</strong> Slovenská sporiteľňa, a.s.</p>
+					<!-- Vianoce 365 Program -->
+					<div class="bg-gradient-to-br from-accent/10 to-primary/10 rounded-2xl p-8">
+						<div class="flex items-center gap-3 mb-4">
+							<span class="text-3xl">🎄</span>
+							<h3 class="text-2xl font-bold">Vianoce 365</h3>
+						</div>
+						<p class="text-muted-foreground mb-4">
+							Darujte psíkom radosť počas celého roka. Pošlite nám <strong class="text-foreground">3,65 € mesačne</strong> (len 12 centov denne).
+						</p>
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-card rounded-lg">
+							<span class="text-2xl font-bold text-primary">3,65 €</span>
+							<span class="text-sm text-muted-foreground">/mesiac</span>
+						</div>
 					</div>
 				</div>
 			</div>
