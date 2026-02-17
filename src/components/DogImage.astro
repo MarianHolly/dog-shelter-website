@@ -1,0 +1,70 @@
+---
+/**
+ * DogImage Component - Optimized for dog photos
+ * Handles both CMS-uploaded images and static assets
+ */
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  priority?: boolean;
+  sizes?: string;
+  aspectRatio?: '1/1' | '4/3' | '16/9' | '3/2';
+}
+
+const {
+  src,
+  alt,
+  class: className = '',
+  loading = 'lazy',
+  priority = false,
+  sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
+  aspectRatio = '4/3',
+} = Astro.props;
+
+// Responsive image widths
+const widths = [320, 640, 768, 1024, 1280];
+
+// Generate srcset for responsive images
+const srcset = widths
+  .map(w => `${src}?w=${w}&q=80&f=webp ${w}w`)
+  .join(', ');
+
+// Main image source with optimization params
+const optimizedSrc = `${src}?w=800&q=80&f=webp`;
+
+// Set fetchpriority for above-the-fold images
+const fetchpriority = priority ? 'high' : 'auto';
+---
+
+<picture>
+  <source
+    type="image/webp"
+    srcset={srcset}
+    sizes={sizes}
+  />
+  <img
+    src={optimizedSrc}
+    alt={alt}
+    class={className}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    style={`aspect-ratio: ${aspectRatio};`}
+  />
+</picture>
+
+<style>
+  picture {
+    display: contents;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>

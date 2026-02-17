@@ -22,5 +22,19 @@ export default defineConfig({
     },
   },
 
+  image: {
+    // Enable image optimization
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+      config: {
+        limitInputPixels: false,
+      },
+    },
+    // Supported formats
+    formats: ['webp', 'avif'],
+    // Quality settings
+    quality: 80,
+  },
+
   integrations: [react(), mdx()],
 });
