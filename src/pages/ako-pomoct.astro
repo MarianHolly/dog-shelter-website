@@ -1,5 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
+import DogImage from '@/components/DogImage.astro';
 ---
 
 <MainLayout
@@ -13,9 +14,12 @@ import MainLayout from '@/layouts/main.astro';
   >
     <!-- Background Image -->
     <div class="absolute inset-0 z-0">
-      <img
+      <DogImage
         src="/images/gayatri-malhotra-unsplash.jpg"
         alt="Pomôžte našim psíkom"
+        loading="eager"
+        priority={true}
+        aspectRatio="16/9"
         class="w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-black/60"></div>

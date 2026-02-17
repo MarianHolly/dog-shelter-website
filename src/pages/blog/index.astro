@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@/layouts/main.astro';
 import { getCollection } from 'astro:content';
+import DogImage from '@/components/DogImage.astro';
 
 // Get all blog posts
 const allPosts = await getCollection('blog', ({ data }) => {
@@ -107,10 +108,11 @@ const getPostImage = (post: any, index: number) => {
 					>
 						{/* Image - 1/3 of card */}
 						<div class="md:w-1/3 aspect-video md:aspect-auto overflow-hidden bg-muted/20">
-							<img
+							<DogImage
 								src={getPostImage(post, index)}
 								alt={post.data.imageAlt || post.data.title}
 								loading="lazy"
+								aspectRatio="16/9"
 								class="w-full h-full object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
 							/>
 						</div>

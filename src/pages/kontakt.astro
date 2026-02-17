@@ -1,6 +1,7 @@
 ---
 import MainLayout from '@/layouts/main.astro';
 import ContactForm from '@/components/forms/ContactForm';
+import DogImage from '@/components/DogImage.astro';
 ---
 
 <MainLayout title="Kontakt" description="Kontaktujte Trenčiansky útulok. Nájdete tu všetky potrebné informácie - telefón, email, adresu, otváracie hodiny a ako sa k nám dostať.">
@@ -8,9 +9,12 @@ import ContactForm from '@/components/forms/ContactForm';
 	<section id="hero" class="hero-section relative overflow-hidden h-[500px] flex items-center justify-center">
 		<!-- Background Image -->
 		<div class="absolute inset-0 z-0">
-			<img
+			<DogImage
 				src="/images/michael-proctor-unsplash.jpg"
 				alt="Kontaktujte nás"
+				loading="eager"
+				priority={true}
+				aspectRatio="16/9"
 				class="w-full h-full object-cover"
 			/>
 			<div class="absolute inset-0 bg-black/50"></div>
@@ -177,7 +181,7 @@ import ContactForm from '@/components/forms/ContactForm';
 						<iframe
 							src="https://www.google.com/maps?q=48.884778,18.006361&hl=sk&z=15&output=embed"
 							width="100%"
-							height="450"
+							
 							style="border:0;"
 							allowfullscreen=""
 							loading="lazy"
@@ -492,12 +496,13 @@ import ContactForm from '@/components/forms/ContactForm';
 					</p>
 				</div>
 				<div class="rounded-2xl overflow-hidden shadow-2xl">
-					<img
+					<DogImage
 						src="/images/james-lacy-unsplash.jpg"
+				aspectRatio="4/3"
 						alt="Trenčiansky útulok - budova"
 						loading="lazy"
-						width="800"
-						height="600"
+						
+						
 						class="w-full h-auto object-cover"
 					/>
 				</div>
