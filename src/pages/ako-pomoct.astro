@@ -276,37 +276,116 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- 2% z daní Section -->
-	<section id="2-z-dani" class="dve-percenta-section scroll-mt-20">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="bg-primary/5 border-2 border-primary/20 rounded-lg p-8">
-					<div class="flex items-center gap-3 mb-6">
-						<div class="text-4xl">💙</div>
-						<h2 class="text-3xl font-bold">2% z daní</h2>
+	<section id="2-z-dani" class="dve-percenta-section scroll-mt-20 py-24">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Left Column: Title & Description -->
+				<div class="space-y-6">
+					<div class="inline-block px-4 py-2 bg-primary/10 rounded-full">
+						<span class="text-sm font-semibold text-primary">Najjednoduchšie</span>
 					</div>
-					<p class="text-lg font-semibold mb-4">Najjednoduchší spôsob, ako nás podporiť</p>
-					<p class="text-muted-foreground mb-6">
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+						2% z daní
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
 						Darovaním 2% alebo 3% z vašich daní nám pomôžete bez toho, aby vás to čokoľvek stálo. Celý proces je jednoduchý a zaberie približne 15 minút.
 					</p>
+					<div class="pt-4">
+						<p class="text-lg font-semibold mb-2">Prečo práve 2%?</p>
+						<ul class="space-y-2 text-muted-foreground">
+							<li class="flex items-start gap-2">
+								<svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<span>Neplatíte nič navyše</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<span>15 minút vášho času</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<svg class="w-5 h-5 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+								</svg>
+								<span>Obrovský dopad pre psíkov</span>
+							</li>
+						</ul>
+					</div>
+				</div>
 
-					<div class="bg-card rounded-lg p-6 mb-6">
-						<h3 class="text-xl font-semibold mb-4">Naše údaje pre 2%:</h3>
-						<div class="space-y-2 text-lg">
-							<p><strong>Názov organizácie:</strong> Trenčianský útulok</p>
-							<p><strong>Sídlo:</strong> Inovecká 60, 911 01 Trenčín</p>
-							<p><strong>IČO:</strong> 42152844</p>
+				<!-- Right Column: Information & CTA -->
+				<div class="space-y-6">
+					<!-- Organization Details -->
+					<div class="bg-primary/5 rounded-2xl p-8">
+						<h3 class="text-2xl font-bold mb-6">Naše údaje:</h3>
+						<div class="space-y-4">
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">Názov organizácie</p>
+								<p class="text-lg font-semibold">Trenčianský útulok</p>
+							</div>
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">Sídlo</p>
+								<p class="text-lg font-semibold">Inovecká 60, 911 01 Trenčín</p>
+							</div>
+							<div>
+								<p class="text-sm text-muted-foreground mb-1">IČO</p>
+								<p class="text-3xl font-bold text-primary">42152844</p>
+							</div>
 						</div>
 					</div>
 
-					<div class="prose prose-lg dark:prose-invert max-w-none">
-						<h3>Ako na to?</h3>
-						<ol>
-							<li>Vyplňte tlačivo - Stiahnite si formulár na stránke Finančnej správy alebo ho získajte od zamestnávateľa</li>
-							<li>Vypíšte naše údaje - IČO: 42152844</li>
-							<li>Odošlite do 30. apríla - Poštou alebo elektronicky</li>
-							<li>Hotovo! - Vaše 2% pomôžu našim psíkom</li>
-						</ol>
+					<!-- How-to Steps -->
+					<div class="space-y-4">
+						<h3 class="text-xl font-bold">Ako na to?</h3>
+						<div class="space-y-3">
+							<div class="flex gap-4">
+								<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+									1
+								</div>
+								<div>
+									<p class="font-semibold">Vyplňte tlačivo</p>
+									<p class="text-sm text-muted-foreground">Stiahnite si formulár na stránke Finančnej správy</p>
+								</div>
+							</div>
+							<div class="flex gap-4">
+								<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+									2
+								</div>
+								<div>
+									<p class="font-semibold">Vypíšte naše IČO</p>
+									<p class="text-sm text-muted-foreground">42152844</p>
+								</div>
+							</div>
+							<div class="flex gap-4">
+								<div class="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+									3
+								</div>
+								<div>
+									<p class="font-semibold">Odošlite do 30. apríla</p>
+									<p class="text-sm text-muted-foreground">Poštou alebo elektronicky</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- CTA -->
+					<div class="pt-4">
+						<a
+							href="https://www.financnasprava.sk"
+							target="_blank"
+							class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-semibold text-lg shadow-lg hover:shadow-xl w-full"
+						>
+							Prejsť na Finančnú správu
+							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+							</svg>
+						</a>
 					</div>
 				</div>
 			</div>
