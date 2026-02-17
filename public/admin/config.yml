@@ -1,0 +1,86 @@
+# Decap CMS Configuration
+# See: https://decapcms.org/docs/configuration-options/
+
+# Backend configuration - for local development
+backend:
+  name: git-gateway
+  branch: master
+
+# For local development, uncomment this and run: npx decap-server
+# backend:
+#   name: proxy
+#   proxy_url: http://localhost:8081/api/v1
+
+# Media files configuration
+media_folder: "public/images/dogs" # Where uploaded images will be stored
+public_folder: "/images/dogs" # Public URL path for images
+
+# Optional: locale configuration for Slovak
+locale: 'sk'
+
+# Collections - maps to your Content Collections
+collections:
+  # Dogs Collection
+  - name: "dogs"
+    label: "Psíci"
+    label_singular: "Pes"
+    folder: "src/content/dogs"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Meno", name: "name", widget: "string", required: true }
+      - { label: "Plemeno", name: "breed", widget: "string", required: true }
+      - { label: "Vek", name: "age", widget: "string", required: true, hint: "Napr: '2 roky', '6 mesiacov'" }
+      - { label: "Pohlavie", name: "gender", widget: "select", options: ["Pes", "Suka"], required: true }
+      - { label: "Veľkosť", name: "size", widget: "select", options: ["Malý", "Stredný", "Veľký"], required: false }
+      - { label: "Hlavná fotka", name: "image", widget: "image", required: true }
+      - { label: "Popis", name: "description", widget: "text", required: true }
+      - { label: "Naliehavé", name: "urgent", widget: "boolean", default: false, required: false }
+      - { label: "Odporúčaný", name: "featured", widget: "boolean", default: false, required: false }
+      - { label: "Vhodný pre deti", name: "goodWithKids", widget: "boolean", required: false }
+      - { label: "Vhodný pre psov", name: "goodWithDogs", widget: "boolean", required: false }
+      - { label: "Vhodný pre mačky", name: "goodWithCats", widget: "boolean", required: false }
+      - { label: "Úroveň energie", name: "energyLevel", widget: "select", options: ["Nízka", "Stredná", "Vysoká"], required: false }
+      - { label: "Obsah (detaily)", name: "body", widget: "markdown", required: false }
+
+  # Blog Collection
+  - name: "blog"
+    label: "Blog"
+    label_singular: "Príspevok"
+    folder: "src/content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "mdx"
+    format: "frontmatter"
+    fields:
+      - { label: "Názov", name: "title", widget: "string", required: true }
+      - { label: "Popis", name: "description", widget: "text", required: true }
+      - { label: "Dátum publikácie", name: "pubDate", widget: "datetime", required: true }
+      - { label: "Dátum aktualizácie", name: "updatedDate", widget: "datetime", required: false }
+      - { label: "Autor", name: "author", widget: "string", default: "Trenčianský útulok", required: false }
+      - { label: "Kategória", name: "category", widget: "string", required: false }
+      - { label: "Tagy", name: "tags", widget: "list", required: false }
+      - { label: "Obrázok", name: "image", widget: "image", required: false }
+      - { label: "Alt text obrázku", name: "imageAlt", widget: "string", required: false }
+      - { label: "Odporúčaný", name: "featured", widget: "boolean", default: false }
+      - { label: "Koncept", name: "draft", widget: "boolean", default: false }
+      - { label: "Obsah", name: "body", widget: "markdown", required: true }
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "Referencie"
+    label_singular: "Referencia"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    fields:
+      - { label: "Meno adoptujúceho", name: "name", widget: "string", required: true }
+      - { label: "Meno psa", name: "dogName", widget: "string", required: true }
+      - { label: "Dátum", name: "date", widget: "datetime", required: true }
+      - { label: "Hodnotenie (1-5)", name: "rating", widget: "number", value_type: "int", min: 1, max: 5, required: true }
+      - { label: "Odporúčaná", name: "featured", widget: "boolean", default: false }
+      - { label: "Text referencie", name: "body", widget: "markdown", required: true }
