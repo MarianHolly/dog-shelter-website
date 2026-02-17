@@ -490,76 +490,165 @@ import MainLayout from '@/layouts/main.astro';
 	</section>
 
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- Zoznam želaní Section -->
-	<section id="krmivo" class="krmivo-section scroll-mt-20">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="flex items-center gap-3 mb-6">
-					<div class="text-4xl">🎁</div>
-					<h2 class="text-3xl font-bold">Zoznam želaní a prianí</h2>
-				</div>
-
-				<p class="text-lg text-muted-foreground mb-8">
-					Každý deň potrebujeme obrovské množstvo krmiva, liekov a pomôcok. Ak nám chcete pomôcť, budeme veľmi radi za:
-				</p>
-
-				<div class="grid gap-6">
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">🍖 Krmivo a jedlo</h3>
-						<ul class="space-y-2 text-muted-foreground">
-							<li>• Kvalitné granule pre psov (stredné a veľké plemená)</li>
-							<li>• Konzervy pre psov (mäsové, bez príchutí)</li>
-							<li>• Mäsové párky a salámy</li>
-							<li>• Ryža a cestoviny</li>
-						</ul>
-						<div class="mt-4 p-4 bg-destructive/10 border border-destructive/20 rounded">
-							<p class="text-sm"><strong>⚠️ Nekŕmime:</strong> Pedigree, Chappi, Darling - tieto značky sú nekvalitné</p>
-						</div>
-						<div class="mt-2 p-4 bg-secondary/10 border border-secondary/20 rounded">
-							<p class="text-sm"><strong>✅ Odporúčané značky:</strong> Brit, Taste of the Wild, Acana, Purina Pro Plan, Royal Canin</p>
-						</div>
+	<section id="krmivo" class="krmivo-section scroll-mt-20 bg-muted/30 py-24">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-16 items-start">
+				<!-- Right Column: Title & Description (appears first on mobile) -->
+				<div class="space-y-6 lg:order-2">
+					<div class="inline-block px-4 py-2 bg-secondary/10 rounded-full">
+						<span class="text-sm font-semibold text-secondary-foreground">Konkrétna pomoc</span>
 					</div>
-
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">🧸 Hračky a výbava</h3>
-						<ul class="space-y-2 text-muted-foreground">
-							<li>• Hryzátka a hračky pre psov</li>
-							<li>• Obojky, vodítka, postroje</li>
-							<li>• Náhubky (rôzne veľkosti)</li>
-							<li>• Misky na jedlo a vodu</li>
-							<li>• Deky a prikrývky</li>
-							<li>• Matrace a peliechy</li>
-						</ul>
-					</div>
-
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">💊 Veterinárne potreby</h3>
-						<ul class="space-y-2 text-muted-foreground">
-							<li>• Antiparazitné prípravky (Frontline, Bravecto)</li>
-							<li>• Odčervovacie tablety</li>
-							<li>• Vitamíny a doplnky stravy</li>
-							<li>• Obväzy a zdravotnícky materiál</li>
-							<li>• Dezinfekčné prostriedky</li>
-						</ul>
-					</div>
-
-					<div class="p-6 rounded-lg bg-card border border-border">
-						<h3 class="text-xl font-semibold mb-4">🧹 Čistota a hygiena</h3>
-						<ul class="space-y-2 text-muted-foreground">
-							<li>• Čistiace prostriedky</li>
-							<li>• Dezinfekcia</li>
-							<li>• Vrecia na odpad</li>
-							<li>• Toaletný papier, utierky</li>
-							<li>• Rukavice</li>
-						</ul>
-					</div>
-				</div>
-
-				<div class="mt-6 p-6 bg-primary/5 border border-primary/20 rounded-lg">
-					<p class="font-semibold mb-2">Kde odovzdať dary?</p>
-					<p class="text-muted-foreground">
-						Veci môžete priniesť priamo do útulku počas otváracích hodín (Po-Ne 10:00-16:00) alebo sa dohodnúť na inom čase telefonicky na +421 915 785 007.
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+						Dary a potreby
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Každý deň potrebujeme obrovské množstvo krmiva, liekov a pomôcok. Prineste veci priamo do útulku a vidíte okamžitý dopad vašej pomoci.
 					</p>
+
+					<!-- Where to Deliver -->
+					<div class="bg-card rounded-2xl p-8 shadow-lg">
+						<h3 class="text-xl font-bold mb-4">Kde odovzdať dary?</h3>
+						<div class="space-y-4">
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Priamo v útulku</p>
+									<p class="text-sm text-muted-foreground">Brnianska 2480, 911 05 Trenčín - Zlatovce</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Otváracie hodiny</p>
+									<p class="text-sm text-muted-foreground">Po-Ne 10:00-16:00</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-primary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Iný čas? Zavolajte</p>
+									<p class="text-sm text-muted-foreground">+421 915 785 007</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Left Column: Items List (appears second on mobile, first on desktop) -->
+				<div class="space-y-6 lg:order-1">
+					<!-- Food -->
+					<div class="bg-card rounded-2xl p-8">
+						<h3 class="text-2xl font-bold mb-6">Krmivo a jedlo</h3>
+						<ul class="space-y-3 mb-6">
+							<li class="flex items-start gap-3">
+								<svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Kvalitné granule (stredné a veľké plemená)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Konzervy (mäsové, bez príchutí)</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Mäsové párky a salámy</span>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span>Ryža a cestoviny</span>
+							</li>
+						</ul>
+						<div class="space-y-3">
+							<div class="p-4 bg-destructive/10 rounded-lg">
+								<p class="text-sm font-semibold text-destructive">⚠️ Nekŕmime: Pedigree, Chappi, Darling</p>
+							</div>
+							<div class="p-4 bg-secondary/10 rounded-lg">
+								<p class="text-sm font-semibold">✅ Odporúčané: Brit, Taste of the Wild, Acana, Purina Pro Plan, Royal Canin</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- Toys & Equipment -->
+					<div class="bg-card rounded-2xl p-8">
+						<h3 class="text-2xl font-bold mb-6">Hračky a výbava</h3>
+						<div class="grid sm:grid-cols-2 gap-3">
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Hryzátka a hračky</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Obojky, vodítka</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Náhubky</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Misky</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Deky a prikrývky</span>
+							</div>
+							<div class="flex items-center gap-2">
+								<svg class="w-4 h-4 text-secondary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+								</svg>
+								<span class="text-sm">Peliechy</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Medical & Hygiene -->
+					<div class="grid sm:grid-cols-2 gap-6">
+						<div class="bg-card rounded-2xl p-6">
+							<h3 class="text-lg font-bold mb-4">Veterinárne potreby</h3>
+							<ul class="space-y-2 text-sm text-muted-foreground">
+								<li>• Antiparazitné prípravky</li>
+								<li>• Odčervovacie tablety</li>
+								<li>• Vitamíny</li>
+								<li>• Obväzy</li>
+							</ul>
+						</div>
+						<div class="bg-card rounded-2xl p-6">
+							<h3 class="text-lg font-bold mb-4">Čistota a hygiena</h3>
+							<ul class="space-y-2 text-sm text-muted-foreground">
+								<li>• Čistiace prostriedky</li>
+								<li>• Dezinfekcia</li>
+								<li>• Vrecia na odpad</li>
+								<li>• Toaletný papier</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
