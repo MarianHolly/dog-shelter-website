@@ -1117,34 +1117,135 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- Propagácia Section -->
-	<section id="propagacia" class="propagacia-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="flex items-center gap-3 mb-6">
-					<div class="text-4xl">📢</div>
-					<h2 class="text-3xl font-bold">Propagácia a osveta</h2>
+	<section id="propagacia" class="propagacia-section scroll-mt-20 py-24">
+		<div class="mx-auto max-w-7xl px-4">
+			<div class="grid lg:grid-cols-2 gap-16 items-center">
+				<!-- Left Column: Title & Description -->
+				<div class="space-y-6">
+					<div class="inline-block px-4 py-2 bg-accent/10 rounded-full">
+						<span class="text-sm font-semibold text-accent-foreground">Bez nákladov</span>
+					</div>
+					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
+						Zdieľanie a osveta
+					</h2>
+					<p class="text-xl text-muted-foreground leading-relaxed">
+						Nemáte peniaze ani čas? Šírte slovo ďalej! Vaša pomoc pri propagácii môže byť rozhodujúca pri hľadaní nového domova pre psíka.
+					</p>
+
+					<div class="pt-4">
+						<p class="text-lg font-semibold mb-4">Prečo je zdieľanie dôležité?</p>
+						<div class="space-y-3">
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z"/>
+									<path d="M15 7v2a4 4 0 01-4 4H9.828l-1.766 1.767c.28.149.599.233.938.233h2l3 3v-3h2a2 2 0 002-2V9a2 2 0 00-2-2h-1z"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Oslovíte viac ľudí</p>
+									<p class="text-sm text-muted-foreground">Jeden príspevok môže dosiahnuť tisícky</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Zvyšujete šance na adopciu</p>
+									<p class="text-sm text-muted-foreground">Viac viditeľnosti = viac záujemcov</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-accent mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+									<path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+								</svg>
+								<div>
+									<p class="font-semibold">Vzdelávate verejnosť</p>
+									<p class="text-sm text-muted-foreground">O zodpovednom vlastníctve a adopcii</p>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 
-				<p class="text-lg text-muted-foreground mb-6">
-					Šírte slovo ďalej - aj bez finančnej pomoci môžete urobiť veľa
-				</p>
+				<!-- Right Column: Ways to Share -->
+				<div class="space-y-6">
+					<div class="bg-gradient-to-br from-accent/5 to-primary/5 rounded-2xl p-8">
+						<h3 class="text-2xl font-bold mb-6">Ako môžete pomôcť?</h3>
+						<div class="space-y-5">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+										<path d="M16.707 3.293a1 1 0 010 1.414L15.414 6l1.293 1.293a1 1 0 01-1.414 1.414L14 7.414l-1.293 1.293a1 1 0 11-1.414-1.414L12.586 6l-1.293-1.293a1 1 0 011.414-1.414L14 4.586l1.293-1.293a1 1 0 011.414 0z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-bold text-lg mb-1">Na sociálnych sieťach</h4>
+									<p class="text-sm text-muted-foreground mb-3">
+										Sledujte nás na Facebooku a Instagrame. Zdieľajte príspevky o psíkoch hľadajúcich domov.
+									</p>
+									<div class="flex gap-2">
+										<a href="https://www.facebook.com/utuloktrencin" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-lg text-sm font-medium transition-colors">
+											<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+												<path fill-rule="evenodd" d="M20 10c0-5.523-4.477-10-10-10S0 4.477 0 10c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V10h2.54V7.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V10h2.773l-.443 2.89h-2.33v6.988C16.343 19.128 20 14.991 20 10z" clip-rule="evenodd"/>
+											</svg>
+											Facebook
+										</a>
+										<a href="https://www.instagram.com/utuloktrencin" target="_blank" class="inline-flex items-center gap-1 px-3 py-1.5 bg-accent/10 hover:bg-accent/20 rounded-lg text-sm font-medium transition-colors">
+											<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+												<path fill-rule="evenodd" d="M10 0C7.284 0 6.944.012 5.878.06 2.246.227.227 2.246.06 5.878.012 6.944 0 7.284 0 10s.012 3.056.06 4.122c.167 3.632 2.186 5.651 5.818 5.818C6.944 19.988 7.284 20 10 20s3.056-.012 4.122-.06c3.629-.167 5.651-2.186 5.818-5.818.048-1.066.06-1.406.06-4.122s-.012-3.056-.06-4.122C19.773 2.246 17.754.227 14.122.06 13.056.012 12.716 0 10 0zm0 1.802c2.67 0 2.987.01 4.041.059 2.71.123 3.975 1.409 4.099 4.099.048 1.054.058 1.37.058 4.04 0 2.671-.01 2.986-.058 4.04-.125 2.687-1.387 3.975-4.1 4.099-1.053.048-1.37.058-4.04.058-2.67 0-2.987-.01-4.04-.058-2.717-.124-3.976-1.416-4.1-4.1-.048-1.053-.058-1.368-.058-4.04 0-2.67.01-2.985.058-4.039.124-2.69 1.387-3.976 4.1-4.1 1.054-.048 1.37-.058 4.04-.058zM10 4.865a5.135 5.135 0 100 10.27 5.135 5.135 0 000-10.27zm0 8.468a3.333 3.333 0 110-6.666 3.333 3.333 0 010 6.666zm5.338-9.87a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z" clip-rule="evenodd"/>
+											</svg>
+											Instagram
+										</a>
+									</div>
+								</div>
+							</div>
 
-				<div class="grid md:grid-cols-3 gap-6">
-					<div class="p-6 rounded-lg bg-card border border-border text-center">
-						<div class="text-3xl mb-3">📱</div>
-						<h3 class="font-semibold mb-2">Na sociálnych sieťach</h3>
-						<p class="text-sm text-muted-foreground">Sledujte a zdieľajte naše príspevky</p>
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+										<path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-bold text-lg mb-1">V reálnom živote</h4>
+									<p class="text-sm text-muted-foreground">
+										Rozprávajte o nás priateľom, rodine a kolegom. Osobné odporúčanie má veľkú silu.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center">
+									<svg class="w-6 h-6 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z" clip-rule="evenodd"/>
+									</svg>
+								</div>
+								<div>
+									<h4 class="font-bold text-lg mb-1">V práci alebo škole</h4>
+									<p class="text-sm text-muted-foreground">
+										Zorganizujte zbierku krmiva, rozšírte povedomie medzi kolegami, vytvorte firemný dobrovoľnícky program.
+									</p>
+								</div>
+							</div>
+						</div>
 					</div>
-					<div class="p-6 rounded-lg bg-card border border-border text-center">
-						<div class="text-3xl mb-3">🗣️</div>
-						<h3 class="font-semibold mb-2">V reálnom živote</h3>
-						<p class="text-sm text-muted-foreground">Rozprávajte o nás známym</p>
-					</div>
-					<div class="p-6 rounded-lg bg-card border border-border text-center">
-						<div class="text-3xl mb-3">💼</div>
-						<h3 class="font-semibold mb-2">V práci</h3>
-						<p class="text-sm text-muted-foreground">Zorganizujte zbierku</p>
+
+					<div class="bg-card rounded-2xl p-8 shadow-lg">
+						<h3 class="text-xl font-bold mb-4">Každé zdieľanie pomáha</h3>
+						<p class="text-muted-foreground mb-4">
+							Práve vďaka vám môže psík nájsť svoj domov. Stačí pár kliknutí a môžete zmeniť život.
+						</p>
+						<div class="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 rounded-lg">
+							<svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
+							</svg>
+							<span class="font-semibold">Aj malá pomoc má veľký dopad</span>
+						</div>
 					</div>
 				</div>
 			</div>
