@@ -285,8 +285,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Left Column: Title & Description -->
 				<div class="space-y-6">
-					<div class="inline-block px-4 py-2 bg-primary/10 rounded-full">
-						<span class="text-sm font-semibold text-primary">Najjednoduchšie</span>
+					<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full">
+						<span class="text-sm font-semibold">Najjednoduchšie</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						2% z daní
@@ -401,8 +401,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Right Column: Information & CTA (appears first on mobile) -->
 				<div class="space-y-6 lg:order-2">
-					<div class="inline-block px-4 py-2 bg-accent/10 rounded-full">
-						<span class="text-sm font-semibold text-accent-foreground">Priamy vplyv</span>
+					<div class="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full">
+						<span class="text-sm font-semibold">Priamy vplyv</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Finančný príspevok
@@ -499,8 +499,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-start">
 				<!-- Right Column: Title & Description (appears first on mobile) -->
 				<div class="space-y-6 lg:order-2">
-					<div class="inline-block px-4 py-2 bg-secondary/10 rounded-full">
-						<span class="text-sm font-semibold text-secondary-foreground">Konkrétna pomoc</span>
+					<div class="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full">
+						<span class="text-sm font-semibold">Konkrétna pomoc</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Dary a potreby
@@ -663,8 +663,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Left Column: Title & Description -->
 				<div class="space-y-6">
-					<div class="inline-block px-4 py-2 bg-primary/10 rounded-full">
-						<span class="text-sm font-semibold text-primary">Osobné puto</span>
+					<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full">
+						<span class="text-sm font-semibold">Osobné puto</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Virtuálna adopcia
@@ -809,8 +809,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Left Column: Title & Description -->
 				<div class="space-y-6">
-					<div class="inline-block px-4 py-2 bg-secondary/10 rounded-full">
-						<span class="text-sm font-semibold text-secondary-foreground">Dočasná pomoc</span>
+					<div class="inline-block px-4 py-2 bg-secondary text-secondary-foreground rounded-full">
+						<span class="text-sm font-semibold">Dočasná pomoc</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Dočasky
@@ -952,8 +952,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Right Column: Title & Description (appears first on mobile) -->
 				<div class="space-y-6 lg:order-2">
-					<div class="inline-block px-4 py-2 bg-primary/10 rounded-full">
-						<span class="text-sm font-semibold text-primary">Praktická pomoc</span>
+					<div class="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-full">
+						<span class="text-sm font-semibold">Praktická pomoc</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Dobrovoľníctvo
@@ -1126,8 +1126,8 @@ import MainLayout from '@/layouts/main.astro';
 			<div class="grid lg:grid-cols-2 gap-16 items-center">
 				<!-- Left Column: Title & Description -->
 				<div class="space-y-6">
-					<div class="inline-block px-4 py-2 bg-accent/10 rounded-full">
-						<span class="text-sm font-semibold text-accent-foreground">Bez nákladov</span>
+					<div class="inline-block px-4 py-2 bg-accent text-accent-foreground rounded-full">
+						<span class="text-sm font-semibold">Bez nákladov</span>
 					</div>
 					<h2 class="text-5xl lg:text-6xl font-bold tracking-tight">
 						Zdieľanie a osveta
@@ -1252,35 +1252,59 @@ import MainLayout from '@/layouts/main.astro';
 		</div>
 	</section>
 
+	<!-- Section Separator -->
+	<div class="border-t border-border/50"></div>
+
 	<!-- Thank You Section -->
-	<section id="podakovanie" class="podakovanie-section">
-		<div class="mx-auto max-w-7xl px-4 py-16">
-			<div class="max-w-4xl mx-auto">
-				<div class="bg-primary/10 border border-primary/20 rounded-lg p-8 md:p-12 text-center">
-					<h2 class="text-3xl font-bold mb-6">Každá pomoc sa počíta</h2>
-					<p class="text-lg text-muted-foreground mb-6">
-						Či už darujete 2%, pošlete finančný príspevok, adoptujete virtuálne alebo jednoducho zdieľate naše príspevky - <strong>každá forma pomoci má obrovskú hodnotu</strong>.
+	<section id="podakovanie" class="podakovanie-section py-24">
+		<div class="mx-auto max-w-4xl px-4">
+			<div class="text-center space-y-8">
+				<h2 class="text-4xl md:text-5xl font-bold tracking-tight">
+					Každá pomoc sa počíta
+				</h2>
+
+				<p class="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
+					Či už darujete 2%, pošlete finančný príspevok, adoptujete virtuálne alebo zdieľate naše príspevky – <strong class="text-foreground">každá forma pomoci má obrovskú hodnotu</strong>.
+				</p>
+
+				<div class="bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/10 rounded-2xl p-8 md:p-12">
+					<p class="text-3xl font-bold mb-6">
+						V mene našich psíkov vám zo srdca ďakujeme!
 					</p>
-					<p class="text-2xl font-semibold">
-						V mene našich psíkov vám zo srdca ďakujeme! ❤️🐾
-					</p>
+					<div class="flex justify-center gap-3 text-5xl mb-8">
+						<span>❤️</span>
+						<span>🐾</span>
+					</div>
+
+					<div class="flex flex-col sm:flex-row items-center justify-center gap-4 text-muted-foreground">
+						<a href="tel:+421915785007" class="inline-flex items-center gap-2 hover:text-primary transition-colors">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+							</svg>
+							<span class="font-medium">+421 915 785 007</span>
+						</a>
+						<span class="hidden sm:inline text-border">•</span>
+						<a href="mailto:utulok.trencin@gmail.com" class="inline-flex items-center gap-2 hover:text-primary transition-colors">
+							<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+								<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+							</svg>
+							<span class="font-medium">utulok.trencin@gmail.com</span>
+						</a>
+					</div>
 				</div>
 
-				<div class="text-center mt-8">
-					<h3 class="text-2xl font-bold mb-4">Máte otázky alebo chcete pomôcť?</h3>
-					<div class="space-y-2 text-muted-foreground mb-6">
-						<p><strong>Telefón:</strong> <a href="tel:+421915785007" class="text-primary hover:underline">+421 915 785 007</a></p>
-						<p><strong>E-mail:</strong> <a href="mailto:utulok.trencin@gmail.com" class="text-primary hover:underline">utulok.trencin@gmail.com</a></p>
-						<p><strong>Adresa:</strong> Brnianska 2480, 911 05 Trenčín - Zlatovce</p>
-					</div>
-					<a href="/kontakt" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/90 transition-colors font-semibold">
-						Viac kontaktných informácií
+				<div>
+					<a
+						href="/kontakt"
+						class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground hover:bg-primary/90 transition-all font-semibold text-lg shadow-lg hover:shadow-xl"
+					>
+						Kontaktujte nás
+						<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
 					</a>
 				</div>
-
-				<p class="text-sm text-muted-foreground text-center mt-8">
-					<em>Posledná aktualizácia: December 2024</em>
-				</p>
 			</div>
 		</div>
 	</section>
