@@ -15,7 +15,7 @@ export default function Navbar({ navItems }: NavbarProps) {
 
   return (
     <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Hlavná navigácia">
-      {navItems.map((item, index) => {
+      {navItems.filter((item) => !('mobileOnly' in item && item.mobileOnly)).map((item, index) => {
         if (isNavItemWithChildren(item)) {
           return (
             <div key={index} className="relative group">
