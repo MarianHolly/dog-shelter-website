@@ -6,6 +6,7 @@ export interface NavItem {
   icon?: string;
   description?: string;
   isListing?: boolean; // For pages that lead to listings (Psíci, Blog)
+  mobileOnly?: boolean; // Only shown in mobile navigation
 }
 
 export interface NavItemWithChildren extends NavItem {
@@ -45,6 +46,11 @@ export const siteConfig: SiteConfig = {
     instagram: "https://www.instagram.com/trencianskyutulok",
   },
   mainNav: [
+    {
+      title: "Domov",
+      href: "/",
+      mobileOnly: true,
+    },
     {
       title: "O nás",
       href: "/o-nas",
