@@ -27,18 +27,24 @@ export default function CarePlusHero({
   badge,
 }: CarePlusHeroProps) {
   return (
-    <section className="relative bg-background overflow-hidden">
-      {/* Background decorative elements */}
-      <div className="absolute inset-0 -z-10">
+    <section className="relative bg-background overflow-hidden min-h-svh lg:min-h-0 flex flex-col lg:block">
+      {/* Mobile: hero image as full-screen background */}
+      <div className="absolute inset-0 lg:hidden" aria-hidden="true">
+        <img src={heroImage} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-background/80" />
+      </div>
+
+      {/* Desktop: decorative background blobs */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
         <div className="absolute top-20 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
       </div>
 
-      <div className="mx-auto max-w-7xl container-spacing">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-16 md:py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl container-spacing relative flex-1 flex flex-col justify-center lg:block">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-8 md:py-24 lg:py-32">
           {/* Left Column - Content */}
           <motion.div
-            className="space-y-8"
+            className="space-y-5 lg:space-y-8"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
@@ -76,9 +82,9 @@ export default function CarePlusHero({
               {title}
             </motion.h1>
 
-            {/* Description */}
+            {/* Description — capped to 3 lines on mobile */}
             <motion.p
-              className="text-lg md:text-xl leading-relaxed text-muted-foreground"
+              className="text-lg md:text-xl leading-relaxed text-muted-foreground line-clamp-3 lg:line-clamp-none"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
@@ -108,9 +114,9 @@ export default function CarePlusHero({
               </a>
             </motion.div>
 
-            {/* Stats/Trust Indicators */}
+            {/* Stats — hidden on mobile (repeated in Kto sme section) */}
             <motion.div
-              className="flex flex-wrap gap-8 pt-8 border-t border-border"
+              className="hidden md:flex flex-wrap gap-8 pt-8 border-t border-border"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -145,9 +151,9 @@ export default function CarePlusHero({
             </motion.div>
           </motion.div>
 
-          {/* Right Column - Image */}
+          {/* Right Column - Image: desktop only (mobile uses bg image) */}
           <motion.div
-            className="relative"
+            className="relative hidden lg:block"
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
@@ -167,7 +173,7 @@ export default function CarePlusHero({
               <div className="absolute inset-0 bg-linear-to-t from-primary/20 via-transparent to-transparent pointer-events-none" />
             </div>
 
-            {/* Floating card - optional decorative element */}
+            {/* Floating card */}
             <motion.div
               className="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl shadow-xl p-6 max-w-xs hidden lg:block"
               initial={{ opacity: 0, y: 20 }}
