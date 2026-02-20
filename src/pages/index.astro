@@ -52,7 +52,7 @@ const featuredTestimonials = allTestimonials
         class="animate-on-scroll featured-dogs-section section-spacing-lg bg-muted/20"
       >
         <div class="mx-auto max-w-7xl container-spacing">
-          <div class="text-center mb-12 md:mb-16">
+          <div class="text-center mb-8 md:mb-16">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">
               Vybrané psíky
             </h2>
@@ -86,7 +86,7 @@ const featuredTestimonials = allTestimonials
             Sme malé občianske združenie hlboko zakorenené v trenčianskej komunite. Od roku 2011 sa
             staráme o opustených a týraných psíkov s láskou a osobným prístupom.
           </p>
-          <p class="text-lg leading-relaxed text-muted-foreground">
+          <p class="text-lg leading-relaxed text-muted-foreground hidden md:block">
             U nás nie ste len číslo – každý pes má svoj príbeh a každý adoptér sa stáva súčasťou
             našej rodiny dobrovoľníkov, podporovateľov a priateľov zvierat.
           </p>
@@ -124,7 +124,7 @@ const featuredTestimonials = allTestimonials
 
         <!-- Stat 2 with Image -->
         <div
-          class="group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all"
+          class="hidden md:block group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all"
         >
           <!-- Image -->
           <div class="aspect-4/3 overflow-hidden">
@@ -151,7 +151,7 @@ const featuredTestimonials = allTestimonials
 
         <!-- Stat 3 with Image -->
         <div
-          class="group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all"
+          class="hidden md:block group relative overflow-hidden rounded-2xl bg-card shadow-minimal hover:shadow-minimal-lg transition-all"
         >
           <!-- Image -->
           <div class="aspect-4/3 overflow-hidden">
@@ -197,7 +197,7 @@ const featuredTestimonials = allTestimonials
   <!-- Principles Section -->
   <section id="principles" class="animate-on-scroll principles-section section-spacing bg-muted/20">
     <div class="mx-auto max-w-7xl container-spacing">
-      <div class="text-center mb-12 md:mb-16">
+      <div class="text-center mb-8 md:mb-16">
         <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4">Naše hodnoty</h2>
         <p class="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
           Čo nás robí výnimočnými a prečo sme viac ako len útulok
@@ -266,7 +266,7 @@ const featuredTestimonials = allTestimonials
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
         <!-- Team Member 1 -->
         <div class="group">
           <!-- Image -->
@@ -475,7 +475,7 @@ const featuredTestimonials = allTestimonials
         </h3>
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
           <div
-            class="p-8 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
+            class="p-5 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
           >
             <div class="text-5xl mb-4">🐾</div>
             <h4 class="text-xl font-semibold mb-4">Záchrana života</h4>
@@ -485,7 +485,7 @@ const featuredTestimonials = allTestimonials
             </p>
           </div>
           <div
-            class="p-8 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
+            class="p-5 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
           >
             <div class="text-5xl mb-4">❤️</div>
             <h4 class="text-xl font-semibold mb-4">Vďačný kamarát</h4>
@@ -495,7 +495,7 @@ const featuredTestimonials = allTestimonials
             </p>
           </div>
           <div
-            class="p-8 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
+            class="p-5 md:p-10 rounded-xl bg-card border border-border shadow-minimal-hover text-center transition-all hover:shadow-minimal-lg"
           >
             <div class="text-5xl mb-4">🌍</div>
             <h4 class="text-xl font-semibold mb-4">Zodpovedné vlastníctvo</h4>
@@ -507,8 +507,8 @@ const featuredTestimonials = allTestimonials
         </div>
       </div>
 
-      <!-- Our Specific Advantages - Compact Centered Style -->
-      <div class="max-w-6xl mx-auto">
+      <!-- Our Specific Advantages - hidden on mobile, shown from md up -->
+      <div class="hidden md:block max-w-6xl mx-auto">
         <h3 class="text-2xl md:text-3xl font-bold text-center mb-4">Naše výhody a služby</h3>
         <p
           class="text-lg text-muted-foreground text-center max-w-3xl mx-auto mb-12 leading-relaxed"
@@ -643,7 +643,7 @@ const featuredTestimonials = allTestimonials
       </div>
 
       <!-- Grooomy-style Promise Cards -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 max-w-5xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 lg:gap-12 max-w-5xl mx-auto">
         <!-- Promise 1 -->
         <div class="text-center space-y-4">
           <div class="flex items-center justify-center mb-4">
@@ -887,7 +887,7 @@ const featuredTestimonials = allTestimonials
 
         <!-- Google Map - 2/3 width -->
         <div class="md:col-span-2">
-          <div class="rounded-lg overflow-hidden shadow-minimal-lg border-2 border-border h-full min-h-[400px] md:min-h-[500px]">
+          <div class="rounded-lg overflow-hidden shadow-minimal-lg border-2 border-border h-full min-h-[250px] md:min-h-[400px] lg:min-h-[500px]">
             <iframe
               src="https://www.google.com/maps?q=48.884778,18.006361&hl=sk&z=15&output=embed"
               width="100%"
