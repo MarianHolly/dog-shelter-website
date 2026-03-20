@@ -134,6 +134,7 @@ The dog shelter website redesign is approximately **75% complete**. Core archite
 - ✅ Sitemap (`sitemap-index.xml`) via `@astrojs/sitemap`
 - ✅ `robots.txt` (blocks `/admin`, references sitemap)
 - ✅ HTTP security headers (`public/_headers`) — X-Frame-Options, CSP, Referrer-Policy, Permissions-Policy
+- ✅ SRI integrity hash on Decap CMS unpkg script (pinned to exact version)
 - ✅ Bundle optimized — lucide-react wildcard import fixed (870 KB → 3 KB)
 - ✅ Non-critical scripts deferred (`skip-link.js`, `page-animations.js`)
 - ✅ Decap CMS admin interface at `/admin` with noindex
@@ -190,7 +191,8 @@ The dog shelter website redesign is approximately **75% complete**. Core archite
 - ✅ Manual chunk splitting (framer-motion isolated)
 - ✅ Non-critical scripts deferred
 - ✅ Sharp image service configured
-- ❌ No image lazy loading on hero (`<img>` in CarePlusHero)
+- ✅ Hero images use `fetchpriority="high"` + `loading="eager"` + `decoding="async"` (LCP optimized)
+- ✅ `canvas-confetti` lazy-loaded on click (dynamic import)
 - ❌ No responsive images (srcset) on client components
 - ❌ No lighthouse audits performed
 - ❌ No performance testing
