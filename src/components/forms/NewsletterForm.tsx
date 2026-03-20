@@ -4,7 +4,7 @@ import { validateNewsletterForm, hasNewsletterErrors, type NewsletterFormData, t
 export default function NewsletterForm() {
   // Prevent scroll on focus/blur within newsletter form
   useEffect(() => {
-    const preventScroll = (e: FocusEvent) => {
+    const preventScroll = (_e: Event) => {
       const scrollY = window.scrollY;
       const scrollX = window.scrollX;
 
