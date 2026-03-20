@@ -201,8 +201,9 @@ async function mockFormSubmission(data: ContactFormData): Promise<void> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
 
-  // Log submission (for testing)
-  console.log('Form submitted (MOCK):', data);
+  if (import.meta.env.DEV) {
+    console.log('Form submitted (MOCK):', data);
+  }
 
   // Simulate success
   // In production, this will be:
