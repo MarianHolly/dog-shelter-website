@@ -35,6 +35,7 @@ export default function NewsletterForm() {
     email: '',
     consent: false,
   });
+  const [honeypot, setHoneypot] = useState('');
 
   const [errors, setErrors] = useState<NewsletterErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -66,6 +67,9 @@ export default function NewsletterForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Honeypot check
+    if (honeypot) return;
 
     // Validate form
     const validationErrors = validateNewsletterForm(formData);
@@ -106,6 +110,18 @@ export default function NewsletterForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+      />
+
       {/* Email Field */}
       <div>
         <label htmlFor="newsletter-email" className="block text-sm font-medium mb-2">
@@ -121,6 +137,8 @@ export default function NewsletterForm() {
             errors.email ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="vas@email.sk"
+          autoComplete="email"
+          maxLength={254}
           disabled={status === 'loading'}
         />
         {errors.email && (
