@@ -2,14 +2,14 @@
 
 **Project**: Trenčiansky útulok Website Redesign
 **Status**: Mid-Development → Production Launch
-**Last Updated**: December 27, 2025
-**Branch**: 01-frontend
+**Last Updated**: March 20, 2026
+**Branch**: 08-optimization
 
 ---
 
 ## Executive Summary
 
-The dog shelter website redesign is approximately **60% complete**. Core architecture, design system, and primary pages are functional. Remaining work focuses on content population, CMS implementation, feature additions, and production deployment.
+The dog shelter website redesign is approximately **75% complete**. Core architecture, design system, primary pages, all forms, animations, sitemap, security headers, and bundle optimization are done. Remaining work focuses on content population, CMS OAuth, image optimization, and production deployment.
 
 **Timeline Estimate**: 4-6 weeks to production launch
 **Priority Order**: Content → Features → CMS → Polish → Deploy
@@ -124,6 +124,20 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
 - ✅ Canonical URLs
 - ✅ Favicon and touch icons
 - ✅ Google Fonts loaded (DM Sans, Mali)
+- ✅ Contact form (`/kontakt`) with validation, honeypot, maxLength, autocomplete
+- ✅ Adoption inquiry form (dog detail pages)
+- ✅ Newsletter form with GDPR consent
+- ✅ Smooth page transitions (ClientRouter — Astro 5)
+- ✅ Scroll-triggered animations (page-animations.js)
+- ✅ Framer Motion animations (CarePlusHero, ServiceCard)
+- ✅ `prefers-reduced-motion` respected in CSS
+- ✅ Sitemap (`sitemap-index.xml`) via `@astrojs/sitemap`
+- ✅ `robots.txt` (blocks `/admin`, references sitemap)
+- ✅ HTTP security headers (`public/_headers`) — X-Frame-Options, CSP, Referrer-Policy, Permissions-Policy
+- ✅ Bundle optimized — lucide-react wildcard import fixed (870 KB → 3 KB)
+- ✅ Non-critical scripts deferred (`skip-link.js`, `page-animations.js`)
+- ✅ Decap CMS admin interface at `/admin` with noindex
+- ✅ TypeScript strict mode — zero errors
 
 ---
 
@@ -138,10 +152,10 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
 - ❌ Some static pages need more content
 
 #### 2. CMS (Blocker for Staff)
-- ❌ No Decap CMS configuration (`/public/admin/config.yml`)
-- ❌ No GitHub OAuth setup
-- ❌ No admin interface at `/admin`
-- ❌ Staff cannot add/edit content independently
+- ✅ Decap CMS configuration (`/public/admin/config.yml`)
+- ✅ Admin interface at `/admin`
+- ❌ No GitHub OAuth setup (requires external service)
+- ❌ Staff cannot add/edit content independently (blocked by OAuth)
 - ❌ No content management documentation
 
 #### 3. Media Management
@@ -154,34 +168,37 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
 - ❌ Video upload/management not configured
 
 #### 4. Forms (User Engagement)
-- ❌ All contact links are mailto: (no embedded forms)
-- ❌ No contact form on `/kontakt`
-- ❌ No adoption inquiry form on dog detail pages
+- ✅ Contact form on `/kontakt`
+- ✅ Adoption inquiry form on dog detail pages
+- ✅ Newsletter signup component with GDPR consent
+- ✅ Form validation (email, phone, name, message)
+- ✅ Honeypot spam protection on all forms
+- ✅ maxLength + autocomplete on all inputs
 - ❌ No volunteer form on `/ako-pomoct`
-- ❌ No newsletter signup component
-- ❌ No form validation
-- ❌ No form submission handling (Formspree/Web3Forms)
+- ❌ No form submission handling (Formspree/Web3Forms — requires external service)
 
 #### 5. Animations & Polish
-- ⚠️ Basic hover effects exist but limited
-- ❌ No smooth page transitions
-- ❌ No scroll-triggered animations
+- ✅ Smooth page transitions (Astro ClientRouter)
+- ✅ Scroll-triggered animations (fade, slide)
+- ✅ prefers-reduced-motion respected
+- ⚠️ Card hover effects exist but could be enhanced
 - ❌ No image gallery transitions (swipe, fade)
-- ❌ prefers-reduced-motion not implemented
-- ❌ Animations need refinement for 60fps
+- ❌ Animations not profiled for 60fps
 
 #### 6. Performance Optimization
-- ❌ No image lazy loading
-- ❌ No responsive images (srcset)
-- ❌ No bundle size optimization
-- ❌ No code splitting beyond default
+- ✅ Bundle optimized (lucide-react wildcard import: 870 KB → 3 KB)
+- ✅ Manual chunk splitting (framer-motion isolated)
+- ✅ Non-critical scripts deferred
+- ✅ Sharp image service configured
+- ❌ No image lazy loading on hero (`<img>` in CarePlusHero)
+- ❌ No responsive images (srcset) on client components
 - ❌ No lighthouse audits performed
 - ❌ No performance testing
 
 #### 7. SEO & Discoverability
+- ✅ sitemap.xml (auto-generated via @astrojs/sitemap, excludes /admin)
+- ✅ robots.txt (blocks /admin, references sitemap)
 - ⚠️ Basic meta tags in place, but missing:
-  - ❌ sitemap.xml
-  - ❌ robots.txt
   - ❌ Schema.org structured data (Organization, Pet, LocalBusiness, BreadcrumbList)
   - ❌ Enhanced meta descriptions
   - ❌ Social sharing verification
@@ -331,24 +348,24 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
 
 1. **Contact Forms** (2 days)
    - [ ] Choose form service (Formspree or Web3Forms free tier)
-   - [ ] Create `ContactForm.tsx` component
-   - [ ] Add validation (email format, required fields)
-   - [ ] Create 3 form variants:
-     - General contact (`/kontakt`)
-     - Adoption inquiry (dog detail pages)
-     - Volunteer signup (`/ako-pomoct`)
-   - [ ] Implement success/error states with user feedback
+   - [x] Create `ContactForm.tsx` component
+   - [x] Add validation (email format, required fields)
+   - [x] Create 3 form variants:
+     - [x] General contact (`/kontakt`)
+     - [x] Adoption inquiry (dog detail pages)
+     - [ ] Volunteer signup (`/ako-pomoct`)
+   - [x] Implement success/error states with user feedback
    - [ ] Test form submissions end-to-end
    - [ ] Replace all mailto: links with form modals/sections
 
 2. **Newsletter Signup** (1 day)
    - [ ] Sign up for MailerLite or Mailchimp free tier
-   - [ ] Create `NewsletterForm.tsx` component
-   - [ ] Add GDPR consent checkbox
+   - [x] Create `NewsletterForm.tsx` component
+   - [x] Add GDPR consent checkbox
    - [ ] Integrate API (MailerLite/Mailchimp)
-   - [ ] Add to Footer (site-wide)
-   - [ ] Add to Homepage (dedicated section)
-   - [ ] Add to Blog pages
+   - [x] Add to Footer (site-wide)
+   - [x] Add to Homepage (dedicated section)
+   - [x] Add to Blog pages
    - [ ] Configure confirmation email flow
 
 3. **Virtual Adoption Page** (1-2 days)
@@ -371,14 +388,14 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
    - [ ] Create CTA on homepage linking to success stories
 
 5. **Animations & Transitions** (2 days)
-   - [ ] Install Framer Motion or use CSS animations
-   - [ ] Add smooth page transitions (View Transitions API)
+   - [x] Install Framer Motion or use CSS animations
+   - [x] Add smooth page transitions (ClientRouter — Astro 5)
    - [ ] Enhance card hover effects (lift, shadow, scale)
-   - [ ] Add scroll-triggered animations:
-     - Fade in for sections
-     - Slide up for cards
-     - Stagger for grids
-   - [ ] Implement `prefers-reduced-motion` media query
+   - [x] Add scroll-triggered animations:
+     - [x] Fade in for sections
+     - [x] Slide up for cards
+     - [x] Stagger for grids
+   - [x] Implement `prefers-reduced-motion` media query
    - [ ] Test performance (60fps target)
    - [ ] Keep animations subtle and professional
 
@@ -417,8 +434,8 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
    - [ ] Document upload guidelines for staff
 
 2. **Decap CMS Configuration** (2-3 days)
-   - [ ] Create `/public/admin/index.html`
-   - [ ] Create `/public/admin/config.yml`
+   - [x] Create `/public/admin/index.html`
+   - [x] Create `/public/admin/config.yml`
    - [ ] Configure GitHub OAuth:
      - Register OAuth app on GitHub
      - Add client ID and secret to config
@@ -470,9 +487,9 @@ The dog shelter website redesign is approximately **60% complete**. Core archite
 #### Tasks
 
 1. **SEO Enhancements** (1-2 days)
-   - [ ] Install `@astrojs/sitemap` integration
-   - [ ] Generate `sitemap.xml` automatically
-   - [ ] Create `/public/robots.txt`:
+   - [x] Install `@astrojs/sitemap` integration
+   - [x] Generate `sitemap.xml` automatically
+   - [x] Create `/public/robots.txt`:
      ```
      User-agent: *
      Allow: /
