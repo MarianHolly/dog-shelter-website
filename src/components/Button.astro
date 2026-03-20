@@ -10,10 +10,12 @@
 </button>
 
 <script>
-	import confetti from 'canvas-confetti';
 	const button = document.body.querySelector('button');
 
 	if (button) {
-		button.addEventListener('click', () => confetti());
+		button.addEventListener('click', async () => {
+			const { default: confetti } = await import('canvas-confetti');
+			confetti();
+		});
 	}
 </script>
