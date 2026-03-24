@@ -1,6 +1,14 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import * as LucideIcons from 'lucide-react';
+import { Home, Users, Heart, HelpCircle, ArrowRight } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+
+const ICON_MAP: Record<string, LucideIcon> = {
+  Home,
+  Users,
+  Heart,
+  HelpCircle,
+};
 
 interface ServiceCardProps {
   iconName: string;
@@ -23,8 +31,7 @@ export default function ServiceCard({
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: '-50px' });
 
-  // Dynamically get the icon component
-  const IconComponent = (LucideIcons as any)[iconName] || LucideIcons.HelpCircle;
+  const IconComponent = ICON_MAP[iconName] ?? HelpCircle;
 
   return (
     <motion.div
@@ -61,7 +68,7 @@ export default function ServiceCard({
           className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary/80 transition-colors group/link"
         >
           {link.text}
-          <LucideIcons.ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
+          <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/link:translate-x-1" />
         </a>
       )}
 

@@ -8,6 +8,7 @@ export default function ContactForm() {
     phone: '',
     message: '',
   });
+  const [honeypot, setHoneypot] = useState('');
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -32,6 +33,9 @@ export default function ContactForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Honeypot check — bots fill hidden fields, humans don't
+    if (honeypot) return;
 
     // Validate form
     const validationErrors = validateContactForm(formData);
@@ -74,6 +78,18 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot field — hidden from humans, traps bots */}
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+      />
+
       {/* Name Field */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -89,6 +105,8 @@ export default function ContactForm() {
             errors.name ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="Ján Novák"
+          autoComplete="name"
+          maxLength={100}
           disabled={status === 'loading'}
         />
         {errors.name && (
@@ -111,6 +129,8 @@ export default function ContactForm() {
             errors.email ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="jan.novak@email.sk"
+          autoComplete="email"
+          maxLength={254}
           disabled={status === 'loading'}
         />
         {errors.email && (
@@ -133,6 +153,8 @@ export default function ContactForm() {
             errors.phone ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="+421 915 785 007"
+          autoComplete="tel"
+          maxLength={20}
           disabled={status === 'loading'}
         />
         {errors.phone && (
@@ -155,6 +177,8 @@ export default function ContactForm() {
             errors.message ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-y`}
           placeholder="Mám záujem o adopciu psíka..."
+          autoComplete="off"
+          maxLength={2000}
           disabled={status === 'loading'}
         />
         {errors.message && (
@@ -201,8 +225,9 @@ async function mockFormSubmission(data: ContactFormData): Promise<void> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
 
-  // Log submission (for testing)
-  console.log('Form submitted (MOCK):', data);
+  if (import.meta.env.DEV) {
+    console.log('Form submitted (MOCK):', data);
+  }
 
   // Simulate success
   // In production, this will be:

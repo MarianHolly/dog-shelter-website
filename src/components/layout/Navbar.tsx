@@ -54,7 +54,7 @@ export default function Navbar({ navItems }: NavbarProps) {
                       href={subItem.href}
                       className="block px-4 py-2 text-sm text-foreground/80 hover:text-foreground hover:bg-muted/50 focus-visible:bg-muted/50 focus-visible:text-foreground focus-visible:outline-none transition-colors"
                       target={subItem.external ? '_blank' : undefined}
-                      rel={subItem.external ? 'noreferrer' : undefined}
+                      rel={subItem.external ? 'noopener noreferrer' : undefined}
                       role="menuitem"
                     >
                       {subItem.title}
@@ -75,7 +75,7 @@ export default function Navbar({ navItems }: NavbarProps) {
               item.isListing && 'font-semibold'
             )}
             target={item.external ? '_blank' : undefined}
-            rel={item.external ? 'noreferrer' : undefined}
+            rel={item.external ? 'noopener noreferrer' : undefined}
           >
             {item.title}
           </a>

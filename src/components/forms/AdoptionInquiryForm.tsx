@@ -13,6 +13,7 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
     phone: '',
     message: '',
   });
+  const [honeypot, setHoneypot] = useState('');
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -37,6 +38,9 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Honeypot check
+    if (honeypot) return;
 
     // Validate form
     const validationErrors = validateContactForm(formData);
@@ -83,6 +87,18 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Honeypot field */}
+      <input
+        type="text"
+        name="website"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
+      />
+
       {/* Dog Info Display */}
       <div className="p-4 rounded-md bg-primary/5 border border-primary/20">
         <p className="text-sm text-muted-foreground">
@@ -105,6 +121,8 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
             errors.name ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="Ján Novák"
+          autoComplete="name"
+          maxLength={100}
           disabled={status === 'loading'}
         />
         {errors.name && (
@@ -127,6 +145,8 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
             errors.email ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="jan.novak@email.sk"
+          autoComplete="email"
+          maxLength={254}
           disabled={status === 'loading'}
         />
         {errors.email && (
@@ -149,6 +169,8 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
             errors.phone ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="+421 915 785 007"
+          autoComplete="tel"
+          maxLength={20}
           disabled={status === 'loading'}
         />
         {errors.phone && (
@@ -174,6 +196,8 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
             errors.message ? 'border-destructive' : 'border-input'
           } bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-y`}
           placeholder={`Napíšte nám niečo o sebe, vašej rodine a prečo chcete adoptovať práve ${dogName}...`}
+          autoComplete="off"
+          maxLength={2000}
           disabled={status === 'loading'}
         />
         {errors.message && (
@@ -232,8 +256,9 @@ async function mockAdoptionInquiry(data: ContactFormData & { dogName: string; do
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
 
-  // Log submission (for testing)
-  console.log('Adoption inquiry submitted (MOCK):', data);
+  if (import.meta.env.DEV) {
+    console.log('Adoption inquiry submitted (MOCK):', data);
+  }
 
   // In production, this will be:
   // const response = await fetch('https://api.web3forms.com/submit', {

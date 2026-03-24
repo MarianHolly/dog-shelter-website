@@ -14,6 +14,7 @@ interface CarePlusHeroProps {
     href: string;
   };
   heroImage: string;
+  heroImageAlt?: string;
   badge?: string;
 }
 
@@ -24,13 +25,21 @@ export default function CarePlusHero({
   primaryCta,
   secondaryCta,
   heroImage,
+  heroImageAlt = 'Psík čakajúci na nový domov',
   badge,
 }: CarePlusHeroProps) {
   return (
     <section className="relative bg-background overflow-hidden min-h-svh lg:min-h-0 flex flex-col lg:block">
       {/* Mobile: hero image as full-screen background */}
       <div className="absolute inset-0 lg:hidden" aria-hidden="true">
-        <img src={heroImage} alt="" className="w-full h-full object-cover" />
+        <img
+          src={heroImage}
+          alt=""
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
         <div className="absolute inset-0 bg-background/80" />
       </div>
 
@@ -165,8 +174,11 @@ export default function CarePlusHero({
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={heroImage}
-                alt="Hero"
+                alt={heroImageAlt}
                 className="w-full h-auto object-cover aspect-[4/5] lg:aspect-[3/4]"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
 
               {/* Decorative overlay pattern */}

@@ -23,6 +23,8 @@ export interface SiteConfig {
     twitter?: string;
     github?: string;
     linkedin?: string;
+    facebook?: string;
+    instagram?: string;
   };
   mainNav: (NavItem | NavItemWithChildren)[];
   footerNav: {

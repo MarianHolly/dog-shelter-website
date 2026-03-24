@@ -57,7 +57,7 @@ export default function MobileNav({ navItems }: MobileNavProps) {
                             className="block p-2 text-sm hover:bg-accent rounded-md transition-colors"
                             onClick={() => setOpen(false)}
                             target={subItem.external ? '_blank' : undefined}
-                            rel={subItem.external ? 'noreferrer' : undefined}
+                            rel={subItem.external ? 'noopener noreferrer' : undefined}
                           >
                             {subItem.title}
                           </a>
@@ -71,7 +71,7 @@ export default function MobileNav({ navItems }: MobileNavProps) {
                     className={`block p-2 font-medium hover:bg-accent rounded-md transition-colors ${item.isListing ? 'font-semibold' : ''}`}
                     onClick={() => setOpen(false)}
                     target={item.external ? '_blank' : undefined}
-                    rel={item.external ? 'noreferrer' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
                   >
                     <span className="flex items-center justify-between">
                       {item.title}

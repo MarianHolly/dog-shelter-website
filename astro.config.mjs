@@ -4,12 +4,13 @@ import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 
 import react from '@astrojs/react';
-
 import mdx from '@astrojs/mdx';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
   vite: {
+    // @ts-ignore -- @tailwindcss/vite requires Vite 7; Astro ships Vite 6. Works at runtime.
     plugins: [tailwindcss()],
     build: {
       rollupOptions: {
@@ -23,18 +24,20 @@ export default defineConfig({
   },
 
   image: {
-    // Enable image optimization
     service: {
       entrypoint: 'astro/assets/services/sharp',
       config: {
         limitInputPixels: false,
       },
     },
-    // Supported formats
-    formats: ['webp', 'avif'],
-    // Quality settings
-    quality: 80,
   },
 
-  integrations: [react(), mdx()],
+  site: 'https://utulok-trencin.sk',
+  integrations: [
+    react(),
+    mdx(),
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+    }),
+  ],
 });
