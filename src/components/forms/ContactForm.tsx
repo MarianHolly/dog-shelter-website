@@ -49,22 +49,31 @@ export default function ContactForm() {
     setErrors({});
 
     try {
-      // TODO: Replace with actual Web3Forms API call when .env is configured
-      // For now, mock the submission
-      await mockFormSubmission(formData);
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone || undefined,
+          message: formData.message,
+          subject: 'Kontakt z webstránky',
+          from_name: 'Trenčianský útulok - Kontaktný formulár',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || 'Submission failed');
+      }
 
       setStatus('success');
       setSubmitMessage('Správa bola úspešne odoslaná. Ozveme sa vám čoskoro!');
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
+      setFormData({ name: '', email: '', phone: '', message: '' });
 
-      // Reset success message after 5 seconds
       setTimeout(() => {
         setStatus('idle');
         setSubmitMessage('');
@@ -217,31 +226,3 @@ export default function ContactForm() {
   );
 }
 
-/**
- * Mock form submission (temporary until Web3Forms is configured)
- * TODO: Replace with actual Web3Forms API call
- */
-async function mockFormSubmission(data: ContactFormData): Promise<void> {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  if (import.meta.env.DEV) {
-    console.log('Form submitted (MOCK):', data);
-  }
-
-  // Simulate success
-  // In production, this will be:
-  // const response = await fetch('https://api.web3forms.com/submit', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
-  //     name: data.name,
-  //     email: data.email,
-  //     phone: data.phone,
-  //     message: data.message,
-  //     subject: 'Kontakt z webstránky',
-  //     from_name: 'Trenčianský útulok - Kontaktný formulár',
-  //   }),
-  // });
-}
