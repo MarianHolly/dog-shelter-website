@@ -46,3 +46,21 @@ jobs:
           PUBLIC_WEB3FORMS_KEY: ${{ secrets.PUBLIC_WEB3FORMS_KEY || 'ci-placeholder' }}
           MAILERLITE_API_KEY: ${{ secrets.MAILERLITE_API_KEY || 'ci-placeholder' }}
           MAILERLITE_GROUP_ID: ${{ secrets.MAILERLITE_GROUP_ID || 'ci-placeholder' }}
+
+      - name: Install Playwright browsers
+        run: pnpm exec playwright install chromium --with-deps
+
+      - name: E2E tests
+        run: pnpm run test:e2e
+        env:
+          PUBLIC_WEB3FORMS_KEY: ci-placeholder
+          MAILERLITE_API_KEY: ci-placeholder
+          MAILERLITE_GROUP_ID: ci-placeholder
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
