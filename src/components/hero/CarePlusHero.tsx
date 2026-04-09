@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Heart, Users, Award } from 'lucide-react';
 
 interface CarePlusHeroProps {
@@ -28,6 +28,14 @@ export default function CarePlusHero({
   heroImageAlt = 'Psík čakajúci na nový domov',
   badge,
 }: CarePlusHeroProps) {
+  const prefersReducedMotion = useReducedMotion();
+
+  const entrance = (delay: number, x = 0, y = 0) => ({
+    initial: prefersReducedMotion ? {} : { opacity: 0, x, y },
+    animate: { opacity: 1, x: 0, y: 0 },
+    transition: prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay },
+  });
+
   return (
     <section className="relative bg-background overflow-hidden min-h-svh lg:min-h-0 flex flex-col lg:block">
       {/* Mobile: hero image as full-screen background */}
@@ -54,17 +62,13 @@ export default function CarePlusHero({
           {/* Left Column - Content */}
           <motion.div
             className="space-y-5 lg:space-y-8"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            {...entrance(0, -30)}
           >
             {/* Badge */}
             {badge && (
               <motion.div
                 className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                {...entrance(0.1, 0, 20)}
               >
                 <Heart className="h-4 w-4" />
                 {badge}
@@ -74,9 +78,7 @@ export default function CarePlusHero({
             {/* Subtitle */}
             <motion.p
               className="text-sm font-semibold uppercase tracking-wider text-primary"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              {...entrance(0.2, 0, 20)}
             >
               {subtitle}
             </motion.p>
@@ -84,9 +86,7 @@ export default function CarePlusHero({
             {/* Title */}
             <motion.h1
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight text-foreground"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              {...entrance(0.3, 0, 30)}
             >
               {title}
             </motion.h1>
@@ -94,9 +94,7 @@ export default function CarePlusHero({
             {/* Description — capped to 3 lines on mobile */}
             <motion.p
               className="text-lg md:text-xl leading-relaxed text-muted-foreground line-clamp-3 lg:line-clamp-none"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              {...entrance(0.4, 0, 20)}
             >
               {description}
             </motion.p>
@@ -104,9 +102,7 @@ export default function CarePlusHero({
             {/* CTA Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
+              {...entrance(0.5, 0, 20)}
             >
               <a
                 href={primaryCta.href}
@@ -126,9 +122,7 @@ export default function CarePlusHero({
             {/* Stats — hidden on mobile (repeated in Kto sme section) */}
             <motion.div
               className="hidden md:flex flex-wrap gap-8 pt-8 border-t border-border"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
+              {...entrance(0.6, 0, 20)}
             >
               <div className="flex items-center gap-3">
                 <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
@@ -163,9 +157,7 @@ export default function CarePlusHero({
           {/* Right Column - Image: desktop only (mobile uses bg image) */}
           <motion.div
             className="relative hidden lg:block"
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            {...entrance(0.3, 30)}
           >
             {/* Decorative background card */}
             <div className="absolute -inset-4 bg-linear-to-br from-primary/20 via-accent/10 to-secondary/20 rounded-3xl blur-2xl" />
@@ -188,9 +180,7 @@ export default function CarePlusHero({
             {/* Floating card */}
             <motion.div
               className="absolute -bottom-6 -left-6 bg-card border border-border rounded-2xl shadow-xl p-6 max-w-xs hidden lg:block"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
+              {...entrance(0.8, 0, 20)}
             >
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-14 h-14 rounded-full bg-primary text-primary-foreground">
