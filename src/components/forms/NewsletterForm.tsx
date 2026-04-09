@@ -83,20 +83,23 @@ export default function NewsletterForm() {
     setErrors({});
 
     try {
-      // TODO: Replace with actual MailerLite API call when .env is configured
-      // For now, mock the submission
-      await mockNewsletterSubscription(formData);
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Subscription failed');
+      }
 
       setStatus('success');
       setSubmitMessage('Skontrolujte svoj email a potvrďte prihlásenie na odber.');
 
-      // Reset form
-      setFormData({
-        email: '',
-        consent: false,
-      });
+      setFormData({ email: '', consent: false });
 
-      // Reset success message after 7 seconds
       setTimeout(() => {
         setStatus('idle');
         setSubmitMessage('');
@@ -212,33 +215,3 @@ export default function NewsletterForm() {
   );
 }
 
-/**
- * Mock newsletter subscription (temporary until MailerLite is configured)
- * TODO: Replace with actual MailerLite API call
- */
-async function mockNewsletterSubscription(data: NewsletterFormData): Promise<void> {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  // Log subscription (for testing)
-  console.log('Newsletter subscription (MOCK):', data);
-
-  // In production, this will be:
-  // const response = await fetch('https://api.mailerlite.com/api/v2/subscribers', {
-  //   method: 'POST',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //     'X-MailerLite-ApiKey': import.meta.env.PUBLIC_MAILERLITE_KEY,
-  //   },
-  //   body: JSON.stringify({
-  //     email: data.email,
-  //     fields: {
-  //       consent: data.consent,
-  //       source: 'Website footer',
-  //       signup_date: new Date().toISOString().split('T')[0],
-  //     },
-  //     type: 'unconfirmed', // Require double opt-in
-  //     autoresponders: true, // Send welcome email
-  //   }),
-  // });
-}
