@@ -1,4 +1,5 @@
-import { useState, useEffect, type FormEvent } from 'react';
+import { useState, useEffect } from 'react';
+import type { FormEvent } from 'react';
 import { validateNewsletterForm, hasNewsletterErrors, type NewsletterFormData, type NewsletterErrors } from '@/utils/newsletterValidation';
 
 export default function NewsletterForm() {
