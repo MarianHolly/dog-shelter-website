@@ -54,26 +54,33 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
     setErrors({});
 
     try {
-      // TODO: Replace with actual Web3Forms API call when .env is configured
-      // For now, mock the submission
-      await mockAdoptionInquiry({
-        ...formData,
-        dogName,
-        dogSlug,
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          subject: `Záujem o adopciu - ${dogName}`,
+          from_name: 'Trenčianský útulok - Adopcia',
+          'Pes': dogName,
+          'Profil psa': `https://utulok-trencin.sk/psici/${dogSlug}`,
+        }),
       });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.message || 'Submission failed');
+      }
 
       setStatus('success');
       setSubmitMessage(`Ďakujeme za záujem o ${dogName}! Ozveme sa vám čoskoro s ďalšími informáciami o adopčnom procese.`);
 
-      // Reset form
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        message: '',
-      });
+      setFormData({ name: '', email: '', phone: '', message: '' });
 
-      // Reset success message after 7 seconds
       setTimeout(() => {
         setStatus('idle');
         setSubmitMessage('');
@@ -248,32 +255,3 @@ export default function AdoptionInquiryForm({ dogName, dogSlug }: AdoptionInquir
   );
 }
 
-/**
- * Mock adoption inquiry submission (temporary until Web3Forms is configured)
- * TODO: Replace with actual Web3Forms API call
- */
-async function mockAdoptionInquiry(data: ContactFormData & { dogName: string; dogSlug: string }): Promise<void> {
-  // Simulate API delay
-  await new Promise(resolve => setTimeout(resolve, 1000));
-
-  if (import.meta.env.DEV) {
-    console.log('Adoption inquiry submitted (MOCK):', data);
-  }
-
-  // In production, this will be:
-  // const response = await fetch('https://api.web3forms.com/submit', {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({
-  //     access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
-  //     name: data.name,
-  //     email: data.email,
-  //     phone: data.phone,
-  //     message: data.message,
-  //     subject: `Záujem o adopciu - ${data.dogName}`,
-  //     from_name: `Trenčianský útulok - Adopcia (${data.dogName})`,
-  //     'Dog Name': data.dogName,
-  //     'Dog Profile': `https://utulok-trencin.sk/psici/${data.dogSlug}`,
-  //   }),
-  // });
-}
