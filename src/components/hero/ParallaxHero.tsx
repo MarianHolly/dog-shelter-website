@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
@@ -25,16 +25,24 @@ export default function ParallaxHero({
   secondaryCta,
   backgroundImage,
 }: ParallaxHeroProps) {
+  const prefersReducedMotion = useReducedMotion();
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
   });
 
-  // Parallax effect: background moves slower than scroll
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '50%']);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [1, 0.5, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+  // Parallax effect: disabled when user prefers reduced motion
+  const backgroundY = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? ['0%', '0%'] : ['0%', '50%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], prefersReducedMotion ? [1, 1, 1] : [1, 0.5, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], prefersReducedMotion ? [1, 1] : [1, 1.1]);
+
+  // Entrance animations: instant when reduced motion is preferred
+  const entrance = (delay: number) => ({
+    initial: prefersReducedMotion ? {} : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: prefersReducedMotion ? { duration: 0 } : { duration: 0.6, delay },
+  });
 
   return (
     <div ref={ref} className="relative h-screen overflow-hidden">
@@ -57,42 +65,30 @@ export default function ParallaxHero({
         style={{ opacity }}
       >
         <div className="mx-auto max-w-4xl text-center text-white">
-          {/* Subtitle Animation */}
           <motion.p
             className="mb-4 text-sm font-medium uppercase tracking-wider text-white/90"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            {...entrance(0.2)}
           >
             {subtitle}
           </motion.p>
 
-          {/* Title Animation */}
           <motion.h1
             className="mb-6 text-5xl font-extrabold leading-tight tracking-tight md:text-6xl lg:text-7xl"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            {...entrance(0.4)}
           >
             {title}
           </motion.h1>
 
-          {/* Description Animation */}
           <motion.p
             className="mb-10 text-lg leading-relaxed text-white/90 md:text-xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            {...entrance(0.6)}
           >
             {description}
           </motion.p>
 
-          {/* CTA Buttons Animation */}
           <motion.div
             className="flex flex-col items-center justify-center gap-4 sm:flex-row"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
+            {...entrance(0.8)}
           >
             <a
               href={primaryCta.href}
@@ -111,33 +107,35 @@ export default function ParallaxHero({
         </div>
       </motion.div>
 
-      {/* Scroll Indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.2 }}
-        style={{ opacity }}
-      >
+      {/* Scroll Indicator — hidden when reduced motion is preferred */}
+      {!prefersReducedMotion && (
         <motion.div
-          className="flex flex-col items-center gap-2 text-white/80"
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          style={{ opacity }}
         >
-          <span className="text-sm font-medium">Skroľujte nadol</span>
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
+          <motion.div
+            className="flex flex-col items-center gap-2 text-white/80"
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
           >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
+            <span className="text-sm font-medium">Skroľujte nadol</span>
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </div>
   );
 }
