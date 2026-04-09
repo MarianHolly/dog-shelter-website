@@ -55,11 +55,22 @@ function initPageAnimations() {
   });
 }
 
+// Skip all scroll animations when user prefers reduced motion
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reducedMotion) {
+  // Make all animate-on-scroll elements immediately visible
+  document.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('is-visible'));
+}
+
 // Run on initial page load
-document.addEventListener('DOMContentLoaded', initPageAnimations);
+document.addEventListener('DOMContentLoaded', () => {
+  if (!reducedMotion) initPageAnimations();
+});
 
 // Re-run on page transitions (Astro View Transitions)
-document.addEventListener('astro:page-load', initPageAnimations);
+document.addEventListener('astro:page-load', () => {
+  if (!reducedMotion) initPageAnimations();
+});
 
 // Show loading indicator during page transitions
 document.addEventListener('astro:before-swap', () => {
@@ -103,8 +114,10 @@ document.addEventListener('astro:page-load', () => {
   });
 });
 
-// Add smooth reveal for images
+// Add smooth reveal for images (skipped when reduced motion is preferred)
 document.addEventListener('astro:page-load', () => {
+  if (reducedMotion) return;
+
   const images = document.querySelectorAll('img');
 
   images.forEach(img => {
