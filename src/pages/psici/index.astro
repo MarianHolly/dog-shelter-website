@@ -31,7 +31,7 @@ const dogs = allDogs.sort((a, b) => {
 	<section id="filters" class="filters-section pb-8">
 		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<DogFilters client:load onFilterChange={(filters) => {}} />
+				<DogFilters client:load />
 			</div>
 		</div>
 	</section>
@@ -147,87 +147,46 @@ const dogs = allDogs.sort((a, b) => {
 		</div>
 	</section>
 
-	<script is:inline>
-		// Dog filtering functionality
-		function applyFilters(filters) {
-			console.log('Applying filters:', filters);
-			const dogCards = document.querySelectorAll('.dog-card');
+	<script>
+		function applyFilters(filters: { size: string; gender: string; energy: string; goodWithKids: boolean; urgent: boolean }) {
+			const dogCards = document.querySelectorAll<HTMLElement>('.dog-card');
 			let visibleCount = 0;
 
 			dogCards.forEach((card) => {
-				const cardElement = card;
-				const cardSize = cardElement.dataset.size || '';
-				const cardGender = cardElement.dataset.gender || '';
-				const cardEnergy = cardElement.dataset.energy || '';
-				const cardKids = cardElement.dataset.kids === 'true';
-				const cardUrgent = cardElement.dataset.urgent === 'true';
+				const show =
+					(!filters.size || card.dataset.size === filters.size) &&
+					(!filters.gender || card.dataset.gender === filters.gender) &&
+					(!filters.energy || card.dataset.energy === filters.energy) &&
+					(!filters.goodWithKids || card.dataset.kids === 'true') &&
+					(!filters.urgent || card.dataset.urgent === 'true');
 
-				let show = true;
-
-				// Size filter
-				if (filters.size && cardSize !== filters.size) {
-					show = false;
-				}
-
-				// Gender filter
-				if (filters.gender && cardGender !== filters.gender) {
-					show = false;
-				}
-
-				// Energy filter
-				if (filters.energy && cardEnergy !== filters.energy) {
-					show = false;
-				}
-
-				// Kids filter
-				if (filters.goodWithKids && !cardKids) {
-					show = false;
-				}
-
-				// Urgent filter
-				if (filters.urgent && !cardUrgent) {
-					show = false;
-				}
-
-				if (show) {
-					cardElement.style.display = '';
-					visibleCount++;
-				} else {
-					cardElement.style.display = 'none';
-				}
+				card.style.display = show ? '' : 'none';
+				if (show) visibleCount++;
 			});
 
-			// Show message if no dogs match
 			const container = document.getElementById('dogs-container');
-			if (container) {
-				const existingMessage = container.querySelector('.no-results');
-				if (existingMessage) {
-					existingMessage.remove();
-				}
+			if (!container) return;
 
-				if (visibleCount === 0) {
-					const message = document.createElement('div');
-					message.className = 'no-results col-span-full text-center py-12';
-					message.innerHTML = `
-						<div class="space-y-4">
-							<svg class="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-							</svg>
-							<p class="text-xl font-semibold text-muted-foreground">Nenašli sa žiadni psíci</p>
-							<p class="text-muted-foreground">Skúste upraviť filtre alebo ich zrušiť.</p>
-						</div>
-					`;
-					container.appendChild(message);
-				}
+			container.querySelector('.no-results')?.remove();
+
+			if (visibleCount === 0) {
+				const message = document.createElement('div');
+				message.className = 'no-results col-span-full text-center py-12';
+				message.innerHTML = `
+					<div class="space-y-4">
+						<svg class="w-16 h-16 mx-auto text-muted-foreground/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+						<p class="text-xl font-semibold text-muted-foreground">Nenašli sa žiadni psíci</p>
+						<p class="text-muted-foreground">Skúste upraviť filtre alebo ich zrušiť.</p>
+					</div>
+				`;
+				container.appendChild(message);
 			}
-
-			console.log('Visible dogs:', visibleCount);
 		}
 
-		// Expose the function globally so the React component can call it
-		window.applyDogFilters = applyFilters;
-
-		// Make sure function is available immediately
-		console.log('Filter function registered:', typeof window.applyDogFilters);
+		document.addEventListener('dog-filter-change', (e) => {
+			applyFilters((e as CustomEvent).detail);
+		});
 	</script>
 </MainLayout>
