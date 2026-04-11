@@ -17,7 +17,7 @@ import ThemeToggle from '@/components/layout/ThemeToggle';
 
     <!-- Nav Center (Desktop) -->
     <div class="flex-1 flex items-center justify-center">
-      <Navbar navItems={siteConfig.mainNav} client:load />
+      <Navbar navItems={siteConfig.mainNav} />
     </div>
 
     <!-- CTA + Theme + Mobile Right -->
@@ -28,8 +28,79 @@ import ThemeToggle from '@/components/layout/ThemeToggle';
       >
         Adoptuj psa
       </a>
-      <ThemeToggle client:load />
-      <MobileNav navItems={siteConfig.mainNav} client:load />
+      <ThemeToggle client:idle />
+      <MobileNav navItems={siteConfig.mainNav} client:idle />
     </div>
   </div>
 </header>
+
+<script>
+  // Keyboard navigation for desktop nav dropdowns
+  // Handles: Enter/Space to toggle, ArrowDown to open + focus first item,
+  // ArrowUp to focus last item, Escape to close, Tab to naturally move on
+  document.querySelectorAll<HTMLElement>('nav [aria-haspopup="true"]').forEach((trigger) => {
+    const dropdown = trigger.nextElementSibling as HTMLElement | null;
+    if (!dropdown) return;
+
+    const getItems = () => Array.from(dropdown.querySelectorAll<HTMLElement>('[role="menuitem"]'));
+
+    const open = () => {
+      trigger.setAttribute('aria-expanded', 'true');
+      dropdown.classList.remove('opacity-0', 'invisible');
+      dropdown.classList.add('opacity-100', 'visible');
+    };
+
+    const close = () => {
+      trigger.setAttribute('aria-expanded', 'false');
+      dropdown.classList.add('opacity-0', 'invisible');
+      dropdown.classList.remove('opacity-100', 'visible');
+    };
+
+    const isOpen = () => trigger.getAttribute('aria-expanded') === 'true';
+
+    trigger.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (isOpen()) { close(); } else { open(); }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        open();
+        const first = getItems()[0];
+        if (first) first.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        open();
+        const last = getItems().at(-1);
+        if (last) last.focus();
+      } else if (e.key === 'Escape') {
+        close();
+        trigger.focus();
+      }
+    });
+
+    dropdown.addEventListener('keydown', (e) => {
+      const items = getItems();
+      const idx = items.indexOf(document.activeElement as HTMLElement);
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        items[(idx + 1) % items.length]?.focus();
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        items[(idx - 1 + items.length) % items.length]?.focus();
+      } else if (e.key === 'Escape') {
+        close();
+        trigger.focus();
+      } else if (e.key === 'Tab') {
+        close();
+      }
+    });
+
+    // Close when focus leaves the entire group
+    trigger.parentElement?.addEventListener('focusout', (e) => {
+      if (!trigger.parentElement?.contains(e.relatedTarget as Node)) {
+        close();
+      }
+    });
+  });
+</script>
