@@ -32,7 +32,7 @@ const featuredTestimonials = allTestimonials
   <!-- Hero Section - CarePlus Style -->
   <div class="-mt-16">
     <CarePlusHero
-      client:load
+      client:idle
       title="Nekupuj, adoptuj si psíka od nás"
       subtitle="Trenčiansky útulok pre psov"
       description="Vitajte v Trenčianskom útulku! Sme občianske združenie, ktoré sa už viac ako 13 rokov stará o opustených a týraných psíkov v Trenčíne. Každý z našich psíkov si zaslúži druhú šancu a láskyplný domov."
@@ -59,7 +59,7 @@ const featuredTestimonials = allTestimonials
               Títo úžasní psíci hľadajú nový domov. Každý z nich si zaslúži lásku a starostlivosť.
             </p>
           </div>
-          <FeaturedDogsCarousel dogs={featuredDogs} client:load />
+          <FeaturedDogsCarousel dogs={featuredDogs} client:visible />
           <div class="text-center mt-12">
             <a
               href="/psici"
@@ -205,21 +205,21 @@ const featuredTestimonials = allTestimonials
       <div class="max-w-7xl mx-auto">
         <div class="grid md:grid-cols-3 gap-8 md:gap-10">
           <ServiceCard
-            client:load
+            client:visible
             iconName="Home"
             title="Osobný prístup"
             description="Malý útulok, veľké srdce. Poznáme každého psíka osobne, jeho povahu a potreby. Pomôžeme vám nájsť toho pravého štvornohého kamaráta."
             delay={0}
           />
           <ServiceCard
-            client:load
+            client:visible
             iconName="Users"
             title="Inkluzívna komunita"
             description="Každý môže pomôcť – adoptéri, sponzori, dobrovoľníci, zdieľači príbehov. Spoločne tvoríme rodinu ľudí, ktorým záleží na osudoch psíkov."
             delay={0.1}
           />
           <ServiceCard
-            client:load
+            client:visible
             iconName="Heart"
             title="Transparentnosť"
             description="Zdieľame príbehy našich psíkov, ich pokroky aj výzvy. Staňte sa súčasťou ich životov a sledujte ich cestu k novému domovu."
@@ -249,7 +249,7 @@ const featuredTestimonials = allTestimonials
               </span>
             </div>
           </div>
-          <TestimonialsCarousel testimonials={featuredTestimonials} client:load />
+          <TestimonialsCarousel testimonials={featuredTestimonials} client:visible />
         </div>
       </section>
     )
