@@ -28,6 +28,27 @@ export async function getStaticPaths() {
 ---
 
 <MainLayout title={dog.name} description={`Adoptujte si ${dog.name} - ${dog.breed}`}>
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "WebPage",
+		"name": `${dog.name} – ${dog.breed} – Trenčianský útulok`,
+		"description": dog.description,
+		"url": `https://utulok-trencin.sk/psici/${slug}`,
+		"image": dog.image.startsWith('http') ? dog.image : `https://utulok-trencin.sk${dog.image}`,
+		"publisher": {
+			"@type": "Organization",
+			"name": "Trenčianský útulok",
+			"url": "https://utulok-trencin.sk"
+		},
+		"mainEntity": {
+			"@type": "Animal",
+			"name": dog.name,
+			"description": dog.description,
+			"image": dog.image.startsWith('http') ? dog.image : `https://utulok-trencin.sk${dog.image}`,
+			"breed": dog.breed,
+			"gender": dog.gender === 'Pes' ? 'Male' : 'Female'
+		}
+	})} />
 	<!-- Header Section -->
 	<section id="header" class="header-section section-spacing-sm">
 		<div class="mx-auto max-w-7xl container-spacing">
@@ -38,7 +59,17 @@ export async function getStaticPaths() {
 				<div class="flex items-center gap-4 mt-6 flex-wrap">
 					<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">{dog.name}</h1>
 					<div class="flex gap-2 flex-wrap">
-						{dog.urgent && (
+						{dog.adoptionStatus === 'reserved' && (
+							<span class="bg-yellow-500 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
+								🔒 REZERVOVANÝ
+							</span>
+						)}
+						{dog.adoptionStatus === 'adopted' && (
+							<span class="bg-green-600 text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
+								🏠 ADOPTOVANÝ
+							</span>
+						)}
+						{dog.urgent && dog.adoptionStatus === 'available' && (
 							<span class="bg-destructive text-white px-4 py-1.5 rounded-full text-sm font-bold shadow-sm">
 								⚡ URGENTNÉ
 							</span>
@@ -505,22 +536,27 @@ export async function getStaticPaths() {
 		</div>
 	</section>
 
-	<!-- Adoption Inquiry Form Section -->
-	<section id="adoption-inquiry" class="adoption-inquiry-section section-spacing bg-muted/5">
-		<div class="mx-auto max-w-7xl container-spacing">
-			<div class="max-w-2xl mx-auto">
-				<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Mám záujem o adopciu</h2>
-				<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
-					Chcete adoptovať {dog.name}? Vyplňte formulár a my sa vám ozveme s ďalšími informáciami o adopčnom procese.
-				</p>
-				<AdoptionInquiryForm
-					dogName={dog.name}
-					dogSlug={slug as string}
-					client:load
-				/>
+	<!-- Adoption Inquiry Form Section — hidden for adopted dogs -->
+	{dog.adoptionStatus !== 'adopted' && (
+		<section id="adoption-inquiry" class="adoption-inquiry-section section-spacing bg-muted/5">
+			<div class="mx-auto max-w-7xl container-spacing">
+				<div class="max-w-2xl mx-auto">
+					<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Mám záujem o adopciu</h2>
+					<p class="text-lg text-muted-foreground mb-10 leading-relaxed">
+						{dog.adoptionStatus === 'reserved'
+							? `${dog.name} je momentálne rezervovaný, ale môžete sa zaradiť na čakaciu listinu.`
+							: `Chcete adoptovať ${dog.name}? Vyplňte formulár a my sa vám ozveme s ďalšími informáciami o adopčnom procese.`
+						}
+					</p>
+					<AdoptionInquiryForm
+						dogName={dog.name}
+						dogSlug={slug as string}
+						client:idle
+					/>
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
+	)}
 
 	<!-- Photo Gallery JavaScript -->
 	<script>
