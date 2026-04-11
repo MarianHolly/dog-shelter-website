@@ -1,93 +1,23 @@
-import { useState, type FormEvent } from 'react';
-import { validateContactForm, hasFormErrors, type ContactFormData, type FormErrors } from '@/utils/formValidation';
+import { useFormSubmit } from '@/hooks/useFormSubmit';
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState<ContactFormData>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
-  const [honeypot, setHoneypot] = useState('');
-
-  const [errors, setErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [submitMessage, setSubmitMessage] = useState('');
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Clear error for this field when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors(prev => {
-        const newErrors = { ...prev };
-        delete newErrors[name as keyof FormErrors];
-        return newErrors;
-      });
-    }
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    // Honeypot check — bots fill hidden fields, humans don't
-    if (honeypot) return;
-
-    // Validate form
-    const validationErrors = validateContactForm(formData);
-    if (hasFormErrors(validationErrors)) {
-      setErrors(validationErrors);
-      return;
-    }
-
-    // Submit form
-    setStatus('loading');
-    setErrors({});
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: import.meta.env.PUBLIC_WEB3FORMS_KEY,
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone || undefined,
-          message: formData.message,
-          subject: 'Kontakt z webstránky',
-          from_name: 'Trenčianský útulok - Kontaktný formulár',
-        }),
-      });
-
-      const result = await response.json();
-
-      if (!result.success) {
-        throw new Error(result.message || 'Submission failed');
-      }
-
-      setStatus('success');
-      setSubmitMessage('Správa bola úspešne odoslaná. Ozveme sa vám čoskoro!');
-
-      setFormData({ name: '', email: '', phone: '', message: '' });
-
-      setTimeout(() => {
-        setStatus('idle');
-        setSubmitMessage('');
-      }, 5000);
-    } catch (error) {
-      setStatus('error');
-      setSubmitMessage('Nastala chyba pri odosielaní správy. Skúste to prosím neskôr alebo nás kontaktujte telefonicky.');
-      console.error('Form submission error:', error);
-    }
-  };
+  const { formData, honeypot, setHoneypot, errors, status, submitMessage, handleChange, handleSubmit } =
+    useFormSubmit({
+      buildPayload: (data) => ({
+        name: data.name,
+        email: data.email,
+        phone: data.phone || undefined,
+        message: data.message,
+        subject: 'Kontakt z webstránky',
+        from_name: 'Trenčianský útulok - Kontaktný formulár',
+      }),
+      successMessage: 'Správa bola úspešne odoslaná. Ozveme sa vám čoskoro!',
+      errorMessage: 'Nastala chyba pri odosielaní správy. Skúste to prosím neskôr alebo nás kontaktujte telefonicky.',
+    });
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Honeypot field — hidden from humans, traps bots */}
+    <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+      {/* Honeypot — hidden from humans, traps bots */}
       <input
         type="text"
         name="website"
@@ -99,10 +29,10 @@ export default function ContactForm() {
         style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', overflow: 'hidden' }}
       />
 
-      {/* Name Field */}
+      {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-medium mb-2">
-          Meno a priezvisko <span className="text-destructive">*</span>
+          Meno a priezvisko <span className="text-destructive" aria-hidden="true">*</span>
         </label>
         <input
           type="text"
@@ -110,23 +40,24 @@ export default function ContactForm() {
           name="name"
           value={formData.name}
           onChange={handleChange}
-          className={`w-full px-4 py-2 rounded-md border ${
-            errors.name ? 'border-destructive' : 'border-input'
-          } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
+          aria-required="true"
+          aria-invalid={errors.name ? true : undefined}
+          aria-describedby={errors.name ? 'name-error' : undefined}
+          className={`w-full px-4 py-2 rounded-md border ${errors.name ? 'border-destructive' : 'border-input'} bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="Ján Novák"
           autoComplete="name"
           maxLength={100}
           disabled={status === 'loading'}
         />
         {errors.name && (
-          <p className="text-sm text-destructive mt-1">{errors.name}</p>
+          <p id="name-error" className="text-sm text-destructive mt-1">{errors.name}</p>
         )}
       </div>
 
-      {/* Email Field */}
+      {/* Email */}
       <div>
         <label htmlFor="email" className="block text-sm font-medium mb-2">
-          Email <span className="text-destructive">*</span>
+          Email <span className="text-destructive" aria-hidden="true">*</span>
         </label>
         <input
           type="email"
@@ -134,20 +65,21 @@ export default function ContactForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full px-4 py-2 rounded-md border ${
-            errors.email ? 'border-destructive' : 'border-input'
-          } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
+          aria-required="true"
+          aria-invalid={errors.email ? true : undefined}
+          aria-describedby={errors.email ? 'email-error' : undefined}
+          className={`w-full px-4 py-2 rounded-md border ${errors.email ? 'border-destructive' : 'border-input'} bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="jan.novak@email.sk"
           autoComplete="email"
           maxLength={254}
           disabled={status === 'loading'}
         />
         {errors.email && (
-          <p className="text-sm text-destructive mt-1">{errors.email}</p>
+          <p id="email-error" className="text-sm text-destructive mt-1">{errors.email}</p>
         )}
       </div>
 
-      {/* Phone Field (Optional) */}
+      {/* Phone (optional) */}
       <div>
         <label htmlFor="phone" className="block text-sm font-medium mb-2">
           Telefón <span className="text-muted-foreground text-xs">(voliteľné)</span>
@@ -158,23 +90,23 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          className={`w-full px-4 py-2 rounded-md border ${
-            errors.phone ? 'border-destructive' : 'border-input'
-          } bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
+          aria-invalid={errors.phone ? true : undefined}
+          aria-describedby={errors.phone ? 'phone-error' : undefined}
+          className={`w-full px-4 py-2 rounded-md border ${errors.phone ? 'border-destructive' : 'border-input'} bg-background focus:outline-none focus:ring-2 focus:ring-ring`}
           placeholder="+421 915 785 007"
           autoComplete="tel"
           maxLength={20}
           disabled={status === 'loading'}
         />
         {errors.phone && (
-          <p className="text-sm text-destructive mt-1">{errors.phone}</p>
+          <p id="phone-error" className="text-sm text-destructive mt-1">{errors.phone}</p>
         )}
       </div>
 
-      {/* Message Field */}
+      {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-medium mb-2">
-          Správa <span className="text-destructive">*</span>
+          Správa <span className="text-destructive" aria-hidden="true">*</span>
         </label>
         <textarea
           id="message"
@@ -182,20 +114,20 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           rows={6}
-          className={`w-full px-4 py-2 rounded-md border ${
-            errors.message ? 'border-destructive' : 'border-input'
-          } bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-y`}
+          aria-required="true"
+          aria-invalid={errors.message ? true : undefined}
+          aria-describedby={errors.message ? 'message-error' : undefined}
+          className={`w-full px-4 py-2 rounded-md border ${errors.message ? 'border-destructive' : 'border-input'} bg-background focus:outline-none focus:ring-2 focus:ring-ring resize-y`}
           placeholder="Mám záujem o adopciu psíka..."
           autoComplete="off"
           maxLength={2000}
           disabled={status === 'loading'}
         />
         {errors.message && (
-          <p className="text-sm text-destructive mt-1">{errors.message}</p>
+          <p id="message-error" className="text-sm text-destructive mt-1">{errors.message}</p>
         )}
       </div>
 
-      {/* Submit Button */}
       <button
         type="submit"
         disabled={status === 'loading'}
@@ -204,25 +136,23 @@ export default function ContactForm() {
         {status === 'loading' ? 'Odosielam...' : 'Odoslať správu'}
       </button>
 
-      {/* Success Message */}
-      {status === 'success' && (
-        <div className="p-4 rounded-md bg-green-500/10 border border-green-500/20">
-          <p className="text-sm text-green-700 dark:text-green-400">{submitMessage}</p>
-        </div>
-      )}
+      {/* Live region — announced by screen readers when status changes */}
+      <div aria-live="polite" aria-atomic="true">
+        {status === 'success' && (
+          <div className="p-4 rounded-md bg-green-500/10 border border-green-500/20" role="status">
+            <p className="text-sm text-green-700 dark:text-green-400">{submitMessage}</p>
+          </div>
+        )}
+        {status === 'error' && (
+          <div className="p-4 rounded-md bg-destructive/10 border border-destructive/20" role="alert">
+            <p className="text-sm text-destructive">{submitMessage}</p>
+          </div>
+        )}
+      </div>
 
-      {/* Error Message */}
-      {status === 'error' && (
-        <div className="p-4 rounded-md bg-destructive/10 border border-destructive/20">
-          <p className="text-sm text-destructive">{submitMessage}</p>
-        </div>
-      )}
-
-      {/* Required Fields Note */}
       <p className="text-xs text-muted-foreground">
-        <span className="text-destructive">*</span> Povinné polia
+        <span className="text-destructive" aria-hidden="true">*</span> Povinné polia
       </p>
     </form>
   );
 }
-
