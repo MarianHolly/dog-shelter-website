@@ -1,9 +1,12 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import DogFilters from './DogFilters';
 
 describe('DogFilters', () => {
+  beforeEach(() => {
+    window.history.replaceState(null, '', window.location.pathname);
+  });
   it('renders size, gender, energy, and toggle filters', () => {
     render(<DogFilters />);
 
