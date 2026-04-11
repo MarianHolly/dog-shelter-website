@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface DogFiltersProps {
   onFilterChange?: (filters: FilterState) => void;
@@ -12,6 +12,28 @@ export interface FilterState {
   urgent: boolean;
 }
 
+function readFiltersFromURL(): FilterState {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    size: params.get('size') ?? '',
+    gender: params.get('gender') ?? '',
+    energy: params.get('energy') ?? '',
+    goodWithKids: params.get('kids') === 'true',
+    urgent: params.get('urgent') === 'true',
+  };
+}
+
+function writeFiltersToURL(filters: FilterState) {
+  const params = new URLSearchParams();
+  if (filters.size) params.set('size', filters.size);
+  if (filters.gender) params.set('gender', filters.gender);
+  if (filters.energy) params.set('energy', filters.energy);
+  if (filters.goodWithKids) params.set('kids', 'true');
+  if (filters.urgent) params.set('urgent', 'true');
+  const query = params.toString();
+  history.replaceState(null, '', query ? `?${query}` : window.location.pathname);
+}
+
 export default function DogFilters({ onFilterChange }: DogFiltersProps) {
   const [isOpen, setIsOpen] = useState(true);
   const [filters, setFilters] = useState<FilterState>({
@@ -22,7 +44,14 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
     urgent: false,
   });
 
+  useEffect(() => {
+    const fromURL = readFiltersFromURL();
+    setFilters(fromURL);
+    document.dispatchEvent(new CustomEvent('dog-filter-change', { detail: fromURL }));
+  }, []);
+
   const dispatch = (newFilters: FilterState) => {
+    writeFiltersToURL(newFilters);
     document.dispatchEvent(new CustomEvent('dog-filter-change', { detail: newFilters }));
     onFilterChange?.(newFilters);
   };
