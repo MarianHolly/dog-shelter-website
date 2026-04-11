@@ -4,14 +4,15 @@ import { getCollection } from 'astro:content';
 import DogFilters from '@/components/DogFilters';
 import DogImage from '@/components/DogImage.astro';
 
-// Get all dogs from content collection
+// Get all dogs from content collection — exclude adopted ones
 const allDogs = await getCollection('dogs');
-// Sort by urgent first, then by name
-const dogs = allDogs.sort((a, b) => {
-	if (a.data.urgent && !b.data.urgent) return -1;
-	if (!a.data.urgent && b.data.urgent) return 1;
-	return a.data.name.localeCompare(b.data.name);
-});
+const dogs = allDogs
+	.filter((dog) => dog.data.adoptionStatus !== 'adopted')
+	.sort((a, b) => {
+		if (a.data.urgent && !b.data.urgent) return -1;
+		if (!a.data.urgent && b.data.urgent) return 1;
+		return a.data.name.localeCompare(b.data.name);
+	});
 ---
 
 <MainLayout title="Naši psíci" description="Spoznajte našich psíkov čakajúcich na nový domov">
@@ -31,7 +32,7 @@ const dogs = allDogs.sort((a, b) => {
 	<section id="filters" class="filters-section pb-8">
 		<div class="mx-auto max-w-7xl container-spacing">
 			<div class="max-w-6xl mx-auto">
-				<DogFilters client:load />
+				<DogFilters client:idle />
 			</div>
 		</div>
 	</section>
@@ -50,7 +51,12 @@ const dogs = allDogs.sort((a, b) => {
 						data-kids={dog.data.goodWithKids ? 'true' : 'false'}
 						data-urgent={dog.data.urgent ? 'true' : 'false'}
 					>
-						{dog.data.urgent && (
+						{dog.data.adoptionStatus === 'reserved' && (
+							<div class="absolute top-3 left-3 z-10 bg-yellow-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
+								🔒 REZERVOVANÝ
+							</div>
+						)}
+						{dog.data.urgent && dog.data.adoptionStatus !== 'reserved' && (
 							<div class="absolute top-3 right-3 z-10 bg-destructive text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
 								⚡ URGENTNÉ
 							</div>
@@ -183,6 +189,19 @@ const dogs = allDogs.sort((a, b) => {
 				`;
 				container.appendChild(message);
 			}
+		}
+
+		// Apply filters from URL immediately on load (before React hydrates) to prevent flash
+		const params = new URLSearchParams(window.location.search);
+		const initialFilters = {
+			size: params.get('size') ?? '',
+			gender: params.get('gender') ?? '',
+			energy: params.get('energy') ?? '',
+			goodWithKids: params.get('kids') === 'true',
+			urgent: params.get('urgent') === 'true',
+		};
+		if (Object.values(initialFilters).some((v) => v !== '' && v !== false)) {
+			applyFilters(initialFilters);
 		}
 
 		document.addEventListener('dog-filter-change', (e) => {
