@@ -7,7 +7,7 @@ import DogImage from '@/components/DogImage.astro';
 // Get all dogs from content collection — exclude adopted ones
 const allDogs = await getCollection('dogs');
 const dogs = allDogs
-	.filter((dog) => dog.data.adoptionStatus !== 'adopted')
+	.filter((dog) => dog.data.adoptionStatus !== 'Adoptovaný')
 	.sort((a, b) => {
 		if (a.data.urgent && !b.data.urgent) return -1;
 		if (!a.data.urgent && b.data.urgent) return 1;
@@ -51,12 +51,12 @@ const dogs = allDogs
 						data-kids={dog.data.goodWithKids ? 'true' : 'false'}
 						data-urgent={dog.data.urgent ? 'true' : 'false'}
 					>
-						{dog.data.adoptionStatus === 'reserved' && (
+						{dog.data.adoptionStatus === 'Rezervovaný' && (
 							<div class="absolute top-3 left-3 z-10 bg-yellow-500 text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
 								🔒 REZERVOVANÝ
 							</div>
 						)}
-						{dog.data.urgent && dog.data.adoptionStatus !== 'reserved' && (
+						{dog.data.urgent && dog.data.adoptionStatus !== 'Rezervovaný' && (
 							<div class="absolute top-3 right-3 z-10 bg-destructive text-white px-3 py-1.5 rounded-full text-xs font-bold shadow-md">
 								⚡ URGENTNÉ
 							</div>
