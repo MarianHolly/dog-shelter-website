@@ -7,6 +7,7 @@
 interface Props {
   src: string;
   alt: string;
+  id?: string;
   class?: string;
   loading?: 'lazy' | 'eager';
   priority?: boolean;
@@ -17,6 +18,7 @@ interface Props {
 const {
   src,
   alt,
+  id,
   class: className = '',
   loading = 'lazy',
   priority = false,
@@ -48,6 +50,7 @@ const fetchpriority = priority ? 'high' : 'auto';
   <img
     src={optimizedSrc}
     alt={alt}
+    id={id}
     class={className}
     loading={loading}
     fetchpriority={fetchpriority}

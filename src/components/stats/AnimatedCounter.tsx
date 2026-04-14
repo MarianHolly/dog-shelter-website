@@ -1,5 +1,6 @@
 import { motion, useInView, useMotionValue, useSpring } from 'framer-motion';
 import { useEffect, useRef } from 'react';
+import type React from 'react';
 import * as LucideIcons from 'lucide-react';
 
 interface AnimatedCounterProps {
@@ -23,11 +24,14 @@ export default function AnimatedCounter({
   const springValue = useSpring(motionValue, {
     damping: 60,
     stiffness: 100,
+    duration,
   });
   const displayValue = useRef<HTMLSpanElement>(null);
 
   // Dynamically get the icon component
-  const IconComponent = iconName ? (LucideIcons as any)[iconName] : null;
+  const IconComponent = iconName
+    ? (LucideIcons as unknown as Record<string, React.ComponentType<{ className?: string }>>)[iconName]
+    : null;
 
   useEffect(() => {
     if (isInView) {

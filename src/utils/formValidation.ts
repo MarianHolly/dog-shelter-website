@@ -4,7 +4,8 @@
  * Validate email format
  */
 export function validateEmail(email: string): boolean {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  // Requires: valid local part, @, domain with letters/numbers/hyphens, dot, TLD of 2+ letters
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   return emailRegex.test(email);
 }
 

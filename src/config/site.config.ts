@@ -107,6 +107,7 @@ export const siteConfig: SiteConfig = {
         { title: "utulok.trencin@gmail.com", href: "mailto:utulok.trencin@gmail.com" },
         { title: "Facebook", href: "https://www.facebook.com/trencianskyutulok", external: true },
         { title: "Brnianska 2480, Trenčín", href: "https://goo.gl/maps/xxxxx", external: true },
+        { title: "Ochrana osobných údajov", href: "/ochrana-udajov" },
       ],
     },
   ],

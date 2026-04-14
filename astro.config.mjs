@@ -6,9 +6,12 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
+import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
+  adapter: cloudflare(),
+
   vite: {
     // @ts-ignore -- @tailwindcss/vite requires Vite 7; Astro ships Vite 6. Works at runtime.
     plugins: [tailwindcss()],

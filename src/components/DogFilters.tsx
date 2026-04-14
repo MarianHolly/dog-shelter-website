@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 interface DogFiltersProps {
-  onFilterChange: (filters: FilterState) => void;
+  onFilterChange?: (filters: FilterState) => void;
 }
 
 export interface FilterState {
@@ -10,6 +10,28 @@ export interface FilterState {
   energy: string;
   goodWithKids: boolean;
   urgent: boolean;
+}
+
+function readFiltersFromURL(): FilterState {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    size: params.get('size') ?? '',
+    gender: params.get('gender') ?? '',
+    energy: params.get('energy') ?? '',
+    goodWithKids: params.get('kids') === 'true',
+    urgent: params.get('urgent') === 'true',
+  };
+}
+
+function writeFiltersToURL(filters: FilterState) {
+  const params = new URLSearchParams();
+  if (filters.size) params.set('size', filters.size);
+  if (filters.gender) params.set('gender', filters.gender);
+  if (filters.energy) params.set('energy', filters.energy);
+  if (filters.goodWithKids) params.set('kids', 'true');
+  if (filters.urgent) params.set('urgent', 'true');
+  const query = params.toString();
+  history.replaceState(null, '', query ? `?${query}` : window.location.pathname);
 }
 
 export default function DogFilters({ onFilterChange }: DogFiltersProps) {
@@ -22,22 +44,22 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
     urgent: false,
   });
 
-  // Apply filters whenever they change
   useEffect(() => {
-    // Wait a bit for the DOM to be ready
-    const timer = setTimeout(() => {
-      if (typeof (window as any).applyDogFilters === 'function') {
-        (window as any).applyDogFilters(filters);
-      }
-    }, 100);
+    const fromURL = readFiltersFromURL();
+    setFilters(fromURL);
+    document.dispatchEvent(new CustomEvent('dog-filter-change', { detail: fromURL }));
+  }, []);
 
-    return () => clearTimeout(timer);
-  }, [filters]);
+  const dispatch = (newFilters: FilterState) => {
+    writeFiltersToURL(newFilters);
+    document.dispatchEvent(new CustomEvent('dog-filter-change', { detail: newFilters }));
+    onFilterChange?.(newFilters);
+  };
 
   const updateFilter = (key: keyof FilterState, value: string | boolean) => {
     const newFilters = { ...filters, [key]: value };
     setFilters(newFilters);
-    onFilterChange(newFilters);
+    dispatch(newFilters);
   };
 
   const resetFilters = () => {
@@ -49,7 +71,7 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
       urgent: false,
     };
     setFilters(emptyFilters);
-    onFilterChange(emptyFilters);
+    dispatch(emptyFilters);
   };
 
   const hasActiveFilters = Object.values(filters).some((v) => v !== '' && v !== false);
@@ -100,19 +122,22 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
             <div className="flex items-center gap-2">
               <label className="text-sm font-medium text-muted-foreground">Veľkosť:</label>
               <div className="flex gap-1.5">
-                {['Malý', 'Stredný', 'Veľký'].map((size) => (
+                {[
+                  { value: 'Malý', label: 'Malý', icon: '🐕' },
+                  { value: 'Stredný', label: 'Stredný', icon: '🐕🐕' },
+                  { value: 'Veľký', label: 'Veľký', icon: '🐕🐕🐕' },
+                ].map(({ value, label, icon }) => (
                   <button
-                    key={size}
-                    onClick={() => updateFilter('size', filters.size === size ? '' : size)}
+                    key={value}
+                    onClick={() => updateFilter('size', filters.size === value ? '' : value)}
                     className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      filters.size === size
+                      filters.size === value
                         ? 'bg-primary text-primary-foreground shadow-sm'
                         : 'bg-muted hover:bg-muted/80 text-muted-foreground'
                     }`}
+                    title={label}
                   >
-                    {size === 'Malý' && '🐕'}
-                    {size === 'Stredný' && '🐕'}
-                    {size === 'Veľký' && '🐕'}
+                    {icon}
                   </button>
                 ))}
               </div>

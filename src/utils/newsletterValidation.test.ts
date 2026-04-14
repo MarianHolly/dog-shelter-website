@@ -37,8 +37,11 @@ describe('newsletterValidation', () => {
 
     it('should be strict about boolean type', () => {
       // These should technically fail in strict mode, but JS is lenient
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect(validateConsent(1 as any)).toBe(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect(validateConsent(0 as any)).toBe(false);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       expect(validateConsent('true' as any)).toBe(false);
     });
   });

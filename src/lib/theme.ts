@@ -8,7 +8,7 @@ export function getTheme(): Theme {
     if (stored === 'light' || stored === 'dark') {
       return stored;
     }
-  } catch (e) {
+  } catch {
     // localStorage unavailable (private mode, quota exceeded, etc.)
     // Silently fall through to system preference
     console.debug('localStorage unavailable, using system preference');
