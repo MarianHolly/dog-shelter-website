@@ -3,8 +3,10 @@ import { test, expect } from '@playwright/test';
 test.describe('Newsletter signup', () => {
   // Newsletter form is on the /o-nas (About Us) page
   test.beforeEach(async ({ page }) => {
-    await page.goto('/o-nas', { waitUntil: 'domcontentloaded' });
+    await page.goto('/o-nas', { waitUntil: 'networkidle' });
     await page.locator('#newsletter').scrollIntoViewIfNeeded();
+    // Wait for form to be interactive (client:visible hydration)
+    await page.getByRole('button', { name: /prihlásiť sa na odber/i }).waitFor({ state: 'attached' });
   });
 
   test('newsletter section is visible', async ({ page }) => {
@@ -17,7 +19,7 @@ test.describe('Newsletter signup', () => {
   test('shows email validation error when submitting empty form', async ({ page }) => {
     await page.getByRole('button', { name: /prihlásiť sa na odber/i }).click();
 
-    await expect(page.getByText(/email je povinný/i)).toBeVisible({ timeout: 5_000 });
+    await expect(page.getByText(/Email je povinný/i)).toBeVisible({ timeout: 5_000 });
   });
 
   test('shows consent validation error when email filled but consent unchecked', async ({ page }) => {
