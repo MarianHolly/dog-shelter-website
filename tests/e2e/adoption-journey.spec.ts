@@ -30,7 +30,7 @@ test.describe('Adoption journey', () => {
   test('dog profile page renders correctly', async ({ page }) => {
     await page.goto('/psici/max', { waitUntil: 'domcontentloaded' });
 
-    await expect(page.getByRole('heading', { name: /max/i })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /max/i, level: 1 })).toBeVisible();
   });
 
   test('adoption inquiry form is present on dog profile', async ({ page }) => {
