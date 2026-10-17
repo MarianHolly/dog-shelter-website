@@ -3,6 +3,7 @@
  * DogImage Component - Optimized for dog photos
  * Handles both CMS-uploaded images and static assets
  */
+import { isRemoteImage } from '@/lib/image';
 
 interface Props {
   src: string;
@@ -26,27 +27,33 @@ const {
   aspectRatio = '4/3',
 } = Astro.props;
 
+// Resize-on-the-fly only works for images on this site's own zone — skip it
+// for cross-origin URLs (e.g. CMS content hotlinked from an external host).
+const remote = isRemoteImage(src);
+
 // Responsive image widths
 const widths = [320, 640, 768, 1024, 1280];
 
-// Generate srcset for responsive images
+// Generate srcset for responsive images (local images only)
 const srcset = widths
   .map(w => `${src}?w=${w}&q=80&f=webp ${w}w`)
   .join(', ');
 
-// Main image source with optimization params
-const optimizedSrc = `${src}?w=800&q=80&f=webp`;
+// Main image source with optimization params (local images only)
+const optimizedSrc = remote ? src : `${src}?w=800&q=80&f=webp`;
 
 // Set fetchpriority for above-the-fold images
 const fetchpriority = priority ? 'high' : 'auto';
 ---
 
 <picture>
-  <source
-    type="image/webp"
-    srcset={srcset}
-    sizes={sizes}
-  />
+  {!remote && (
+    <source
+      type="image/webp"
+      srcset={srcset}
+      sizes={sizes}
+    />
+  )}
   <img
     src={optimizedSrc}
     alt={alt}
