@@ -191,18 +191,25 @@ const dogs = allDogs
 			}
 		}
 
-		// Apply filters from URL immediately on load (before React hydrates) to prevent flash
-		const params = new URLSearchParams(window.location.search);
-		const initialFilters = {
-			size: params.get('size') ?? '',
-			gender: params.get('gender') ?? '',
-			energy: params.get('energy') ?? '',
-			goodWithKids: params.get('kids') === 'true',
-			urgent: params.get('urgent') === 'true',
-		};
-		if (Object.values(initialFilters).some((v) => v !== '' && v !== false)) {
-			applyFilters(initialFilters);
+		function applyFiltersFromURL() {
+			const params = new URLSearchParams(window.location.search);
+			const filters = {
+				size: params.get('size') ?? '',
+				gender: params.get('gender') ?? '',
+				energy: params.get('energy') ?? '',
+				goodWithKids: params.get('kids') === 'true',
+				urgent: params.get('urgent') === 'true',
+			};
+			if (Object.values(filters).some((v) => v !== '' && v !== false)) {
+				applyFilters(filters);
+			}
 		}
+
+		// astro:page-load fires on the initial load AND after every client-side
+		// transition — a plain top-level call here would only ever run once,
+		// leaving the grid unfiltered-until-React-hydrates on a soft navigation
+		// back to this page.
+		document.addEventListener('astro:page-load', applyFiltersFromURL);
 
 		document.addEventListener('dog-filter-change', (e) => {
 			applyFilters((e as CustomEvent).detail);
