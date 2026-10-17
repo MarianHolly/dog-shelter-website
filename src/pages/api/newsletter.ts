@@ -1,8 +1,40 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { validateEmail } from '@/utils/newsletterValidation';
+
+// Best-effort per-isolate rate limit. Cloudflare Workers isolates aren't
+// shared across edge locations, so this doesn't replace a real rate-limiting
+// rule (e.g. Cloudflare WAF/Turnstile) — it just stops a single script from
+// hammering this endpoint from one connection.
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 5;
+const requestLog = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const timestamps = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  timestamps.push(now);
+  requestLog.set(ip, timestamps);
+  return timestamps.length > RATE_LIMIT_MAX_REQUESTS;
+}
 
 export const POST: APIRoute = async ({ request }) => {
+  const ip = request.headers.get('CF-Connecting-IP') ?? 'unknown';
+  if (isRateLimited(ip)) {
+    return new Response(JSON.stringify({ error: 'Príliš veľa požiadaviek. Skúste to prosím neskôr.' }), {
+      status: 429,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
+  if (!request.headers.get('Content-Type')?.includes('application/json')) {
+    return new Response(JSON.stringify({ error: 'Neplatný formát požiadavky.' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+
   let email: string;
 
   try {
@@ -15,8 +47,8 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  if (!email || typeof email !== 'string') {
-    return new Response(JSON.stringify({ error: 'Email je povinný.' }), {
+  if (!email || typeof email !== 'string' || email.length > 254 || !validateEmail(email)) {
+    return new Response(JSON.stringify({ error: 'Neplatná emailová adresa.' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
