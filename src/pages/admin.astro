@@ -2,7 +2,12 @@
 /**
  * Decap CMS Admin Page
  * Accessible at /admin
+ *
+ * The CMS backend is git-gateway, which is authenticated via Netlify
+ * Identity on a separate Netlify site created only for that purpose
+ * (this site itself is hosted on Cloudflare Pages). See CMS_SETUP.md.
  */
+const identityUrl = import.meta.env.PUBLIC_NETLIFY_IDENTITY_URL;
 ---
 
 <!doctype html>
@@ -13,8 +18,28 @@
   <meta name="robots" content="noindex" />
   <title>Správa obsahu - Trenčiansky útulok</title>
   <link rel="icon" type="image/png" href="/logo-utulok.png" />
+  {identityUrl && <meta name="netlify-identity" content={identityUrl} />}
 </head>
 <body>
+  <!-- Netlify Identity — must load before decap-cms.js so git-gateway detects it -->
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <script is:inline>
+    if (window.netlifyIdentity) {
+      // Netlify sends invite/confirmation links to /#invite_token=... or
+      // /#recovery_token=... at the site root; bounce them back here.
+      if (/invite_token|recovery_token|confirmation_token/.test(window.location.hash) && window.location.pathname !== '/admin/') {
+        window.location.href = '/admin/' + window.location.hash;
+      }
+      window.netlifyIdentity.on('init', (user) => {
+        if (!user) {
+          window.netlifyIdentity.on('login', () => {
+            document.location.href = '/admin/';
+          });
+        }
+      });
+    }
+  </script>
+
   <!-- Decap CMS -->
   <script
     is:inline

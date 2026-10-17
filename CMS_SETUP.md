@@ -51,16 +51,34 @@
 
 ### Production (After Deployment)
 
-1. **Set up Authentication:**
-   - Go to [Netlify Identity](https://app.netlify.com) (free)
-   - Enable Netlify Identity on your site
-   - Enable Git Gateway
-   - Invite users via email
+The CMS backend is `git-gateway`, which needs Netlify Identity to issue auth
+tokens. This site is hosted on **Cloudflare Pages**, not Netlify, so Identity
+and Git Gateway run on a second, otherwise-empty Netlify site created only
+for that purpose. The `/admin` page (`src/pages/admin.astro`) already loads
+the Netlify Identity widget and points it at that site via the
+`PUBLIC_NETLIFY_IDENTITY_URL` env var — only the Netlify-side setup below is
+a manual one-time step.
 
-2. **Access Production CMS:**
+1. **Create the identity site on Netlify (free):**
+   - Create a new site on [Netlify](https://app.netlify.com) — it doesn't need
+     to serve anything; an empty repo or "Deploy manually" placeholder is fine.
+   - Site settings → **Identity** → Enable Identity.
+   - Identity → **Services** → Enable **Git Gateway**, authorize it against
+     this GitHub repo.
+   - Identity → **Invite users** to grant CMS access.
+
+2. **Point this site at it:**
+   - Set `PUBLIC_NETLIFY_IDENTITY_URL` in the Cloudflare Pages project's
+     environment variables to that Netlify site's URL
+     (e.g. `https://your-utulok-identity.netlify.app`).
+   - Update `backend.repo` in `public/admin/config.yml` if it isn't already
+     set to `owner/repo`.
+   - Redeploy.
+
+3. **Access Production CMS:**
    - Go to `https://your-site.com/admin`
-   - Log in with Netlify Identity
-   - Changes will automatically trigger rebuilds
+   - Log in with the Netlify Identity credentials from step 1
+   - Changes commit to the repo and trigger a normal Cloudflare Pages rebuild
 
 ---
 
@@ -245,9 +263,14 @@ collections:
 - Check browser console for errors
 
 ### Authentication issues in production
-- Verify Netlify Identity is enabled
-- Check Git Gateway is configured
-- Ensure users are invited via Netlify
+- Verify Netlify Identity is enabled on the identity site
+- Check Git Gateway is configured and authorized against this repo
+- Ensure users are invited via that Netlify site's Identity panel
+- Verify `PUBLIC_NETLIFY_IDENTITY_URL` is set in Cloudflare Pages and matches
+  the identity site's URL exactly
+- Check the browser console for CSP violations — `/admin`'s policy in
+  `public/_headers` must allow `https://identity.netlify.com` (script) and
+  `https://*.netlify.app` (connect)
 
 ---
 
@@ -266,7 +289,8 @@ collections:
 2. ✅ Add your first dog via CMS
 3. ✅ Optimize existing images (migrate to DogImage component)
 4. ⏳ Set up Cloudflare Pages deployment
-5. ⏳ Configure Netlify Identity for production
+5. ⏳ Create the Netlify identity site, enable Identity + Git Gateway, and set
+   `PUBLIC_NETLIFY_IDENTITY_URL` in Cloudflare Pages (code side is already wired)
 6. ⏳ Invite non-technical users to CMS
 
 ---
