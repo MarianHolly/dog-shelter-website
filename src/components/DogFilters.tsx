@@ -23,6 +23,15 @@ function readFiltersFromURL(): FilterState {
   };
 }
 
+// Shared active/inactive styling for the size, gender, and energy pill buttons
+function pillButtonClass(active: boolean): string {
+  return `px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
+    active
+      ? 'bg-primary text-primary-foreground shadow-sm'
+      : 'bg-muted hover:bg-muted/80 text-muted-foreground'
+  }`;
+}
+
 function writeFiltersToURL(filters: FilterState) {
   const params = new URLSearchParams();
   if (filters.size) params.set('size', filters.size);
@@ -130,11 +139,7 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
                   <button
                     key={value}
                     onClick={() => updateFilter('size', filters.size === value ? '' : value)}
-                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      filters.size === value
-                        ? 'bg-primary text-primary-foreground shadow-sm'
-                        : 'bg-muted hover:bg-muted/80 text-muted-foreground'
-                    }`}
+                    className={pillButtonClass(filters.size === value)}
                     title={label}
                   >
                     {icon}
@@ -157,11 +162,7 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
                   <button
                     key={value}
                     onClick={() => updateFilter('gender', filters.gender === value ? '' : value)}
-                    className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                      filters.gender === value
-                        ? 'bg-primary text-primary-foreground shadow-sm'
-                        : 'bg-muted hover:bg-muted/80 text-muted-foreground'
-                    }`}
+                    className={pillButtonClass(filters.gender === value)}
                   >
                     {icon}
                   </button>
@@ -184,11 +185,7 @@ export default function DogFilters({ onFilterChange }: DogFiltersProps) {
                   <div key={value} className="group relative">
                     <button
                       onClick={() => updateFilter('energy', filters.energy === value ? '' : value)}
-                      className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
-                        filters.energy === value
-                          ? 'bg-primary text-primary-foreground shadow-sm'
-                          : 'bg-muted hover:bg-muted/80 text-muted-foreground'
-                      }`}
+                      className={pillButtonClass(filters.energy === value)}
                       title={value}
                     >
                       {emoji}
