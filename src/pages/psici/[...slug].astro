@@ -1,6 +1,6 @@
 ---
 import MainLayout from '@/layouts/main.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, getEntry, render } from 'astro:content';
 import AdoptionInquiryForm from '@/components/forms/AdoptionInquiryForm';
 import DogImage from '@/components/DogImage.astro';
 
@@ -16,7 +16,8 @@ if (!dogEntry) {
 }
 
 const dog = dogEntry.data;
-const markdownBody = dogEntry.body || '';
+const { Content } = await render(dogEntry);
+const hasBody = dogEntry.body && dogEntry.body.trim().length > 0;
 
 // Generate static paths for all dogs
 export async function getStaticPaths() {
@@ -309,14 +310,16 @@ export async function getStaticPaths() {
 					<!-- Main Content - Flowing Information -->
 					<div class="space-y-10">
 						<!-- Story: Personality + Markdown combined -->
-						{(dog.personality || markdownBody) && (
+						{(dog.personality || hasBody) && (
 							<div class="prose prose-lg dark:prose-invert max-w-none">
 								<h2 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">Príbeh {dog.name}</h2>
 								{dog.personality && (
 									<p class="text-lg leading-relaxed text-muted-foreground mb-6">{dog.personality}</p>
 								)}
-								{markdownBody && (
-									<div class="leading-relaxed" set:html={markdownBody} />
+								{hasBody && (
+									<div class="leading-relaxed">
+										<Content />
+									</div>
 								)}
 							</div>
 						)}
