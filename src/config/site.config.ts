@@ -106,7 +106,7 @@ export const siteConfig: SiteConfig = {
         { title: "+421 915 785 007", href: "tel:+421915785007" },
         { title: "utulok.trencin@gmail.com", href: "mailto:utulok.trencin@gmail.com" },
         { title: "Facebook", href: "https://www.facebook.com/trencianskyutulok", external: true },
-        { title: "Brnianska 2480, Trenčín", href: "https://goo.gl/maps/xxxxx", external: true },
+        { title: "Brnianska 2480, Trenčín", href: "https://www.google.com/maps/search/?api=1&query=Brnianska+2480+Tren%C4%8D%C3%ADn", external: true },
         { title: "Ochrana osobných údajov", href: "/ochrana-udajov" },
       ],
     },
